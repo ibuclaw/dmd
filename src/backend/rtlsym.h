@@ -36,11 +36,23 @@
 #define SYMBOL_MARS(e, fl, saved, n, flags, ty)
 #endif
 
+#if TX86
+#define RTLSYMS_PLATFORM_SPECIFIC \
+SYMBOL_MARS(THROW,       FLfunc,(mES | mBP),"_d_throw@4", SFLexit, tw) \
+SYMBOL_MARS(THROWC,      FLfunc,(mES | mBP),"_d_throwc", SFLexit, t) \
+SYMBOL_SCPP_TX86(HDIFFN, FLfunc,mBX|mCX|mSI|mDI|mBP|mES,"_aNahdiff", 0, tsclib) \
+SYMBOL_SCPP_TX86(HDIFFF, FLfunc,mBX|mCX|mSI|mDI|mBP|mES,"_aFahdiff", 0, tsclib) \
+SYMBOL_SCPP_TX86(INTONLY,FLfunc,mSI|mDI,"_intonly", 0, tsclib) \
+SYMBOL_Z(TRACE_PRO_N,    FLfunc,ALLREGS|mBP|mES,"_trace_pro_n",0,tstrace) \
+SYMBOL_Z(TRACE_PRO_F,    FLfunc,ALLREGS|mBP|mES,"_trace_pro_f",0,tstrace) \
+SYMBOL_Z(TRACE_EPI_N,    FLfunc,ALLREGS|mBP|mES,"_trace_epi_n",0,tstrace) \
+SYMBOL_Z(TRACE_EPI_F,    FLfunc,ALLREGS|mBP|mES,"_trace_epi_f",0,tstrace)
+#else
+#define RTLSYMS_PLATFORM_SPECIFIC
+#endif
 
 #define RTLSYMS \
 \
-SYMBOL_MARS(THROW,           FLfunc,(mES | mBP),"_d_throw@4", SFLexit, tw) /* D1 only */ \
-SYMBOL_MARS(THROWC,          FLfunc,(mES | mBP),"_d_throwc", SFLexit, t) \
 SYMBOL_MARS(THROWDWARF,      FLfunc,(mES | mBP),"_d_throwdwarf", SFLexit, t) \
 SYMBOL_MARS(MONITOR_HANDLER, FLfunc,FREGSAVED,"_d_monitor_handler", 0, tsclib) \
 SYMBOL_MARS(MONITOR_PROLOG,  FLfunc,FREGSAVED,"_d_monitor_prolog",0,t) \
@@ -150,10 +162,6 @@ SYMBOL_Z(TLS_INDEX, FLextern,0,"_tls_index",0,tsint) \
 SYMBOL_Z(TLS_ARRAY, FLextern,0,"_tls_array",0,tspvoid) \
 SYMBOL_SCPP(AHSHIFT,   FLfunc,0,"_AHSHIFT",0,tstrace) \
 \
-SYMBOL_SCPP_TX86(HDIFFN, FLfunc,mBX|mCX|mSI|mDI|mBP|mES,"_aNahdiff", 0, tsclib) \
-SYMBOL_SCPP_TX86(HDIFFF, FLfunc,mBX|mCX|mSI|mDI|mBP|mES,"_aFahdiff", 0, tsclib) \
-SYMBOL_SCPP_TX86(INTONLY,FLfunc,mSI|mDI,"_intonly", 0, tsclib) \
-\
 SYMBOL_Z(EXCEPT_LIST, FLextern,0,"_except_list",0,tsint) \
 SYMBOL_Z(SETJMP3, FLfunc,FREGSAVED,"_setjmp3", 0, tsclib) \
 SYMBOL_Z(LONGJMP, FLfunc,FREGSAVED,"_seh_longjmp_unwind@4", 0, tsclib) \
@@ -161,10 +169,6 @@ SYMBOL_Z(ALLOCA,  FLfunc,fregsaved,"__alloca", 0, tsclib) \
 SYMBOL_Z(CPP_LONGJMP, FLfunc,FREGSAVED,"_cpp_longjmp_unwind@4", 0, tsclib) \
 SYMBOL_Z(PTRCHK, FLfunc,fregsaved,"_ptrchk", 0, tsclib) \
 SYMBOL_Z(CHKSTK, FLfunc,fregsaved,"_chkstk", 0, tsclib) \
-SYMBOL_Z(TRACE_PRO_N, FLfunc,ALLREGS|mBP|mES,"_trace_pro_n",0,tstrace) \
-SYMBOL_Z(TRACE_PRO_F, FLfunc,ALLREGS|mBP|mES,"_trace_pro_f",0,tstrace) \
-SYMBOL_Z(TRACE_EPI_N, FLfunc,ALLREGS|mBP|mES,"_trace_epi_n",0,tstrace) \
-SYMBOL_Z(TRACE_EPI_F, FLfunc,ALLREGS|mBP|mES,"_trace_epi_f",0,tstrace) \
 SYMBOL_MARS(TRACE_CPRO, FLfunc,FREGSAVED,"_c_trace_pro",0,t) \
 SYMBOL_MARS(TRACE_CEPI, FLfunc,FREGSAVED,"_c_trace_epi",0,t) \
 \
@@ -193,6 +197,8 @@ SYMBOL_MARS(TRACEARRAYAPPENDWD,   FLfunc,FREGSAVED,"_d_arrayappendwdTrace", 0, t
 SYMBOL_MARS(TRACEARRAYSETLENGTHT, FLfunc,FREGSAVED,"_d_arraysetlengthTTrace", 0, t) \
 SYMBOL_MARS(TRACEARRAYSETLENGTHIT,FLfunc,FREGSAVED,"_d_arraysetlengthiTTrace", 0, t) \
 SYMBOL_MARS(TRACEALLOCMEMORY,     FLfunc,FREGSAVED,"_d_allocmemoryTrace", 0, t) \
+\
+RTLSYMS_PLATFORM_SPECIFIC
 
 
 // Migrate to function interface to rtl symbols

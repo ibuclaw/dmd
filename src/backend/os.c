@@ -66,7 +66,7 @@ void os_error(int line)
 #if _WIN32
     dbg_printf("System error: %ldL\n",GetLastError());
 #endif
-    local_assert(line);
+    util_assert(__FILE__, line);
 }
 
 #if 1

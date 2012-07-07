@@ -106,7 +106,7 @@ symbol *exp2_qualified_lookup(Classsym *sclass, int flags, int *pflags);
 elem *exp2_copytotemp(elem *e);
 
 /* util.c */
-#if __clang__
+#if __clang__ || __GNUC__
 void util_exit(int) __attribute__((noreturn));
 void util_assert(const char *, int) __attribute__((noreturn));
 #elif _MSC_VER
@@ -177,19 +177,11 @@ elem *poptelem3(elem *);
 elem *poptelem4(elem *);
 elem *selecte1(elem *,type *);
 
-//extern       type *declar(type *,char *,int);
-
 /* from err.c */
-void err_message(const char *format,...);
-void dll_printf(const char *format,...);
-void cmderr(unsigned,...);
-int synerr(unsigned,...);
-void preerr(unsigned,...);
-
-#if __clang__
-void err_exit(void) __attribute__((analyzer_noreturn));
-void err_nomem(void) __attribute__((analyzer_noreturn));
-void err_fatal(unsigned,...) __attribute__((analyzer_noreturn));
+#if __clang__ || __GNUC__
+void err_exit(void) __attribute__((noreturn));
+void err_nomem(void) __attribute__((noreturn));
+void err_fatal(unsigned,...) __attribute__((noreturn));
 #else
 void err_exit(void);
 void err_nomem(void);
@@ -201,11 +193,14 @@ void err_fatal(unsigned,...);
 #endif
 #endif
 
+#if !MARS
+void err_message(const char *format,...);
+void dll_printf(const char *format,...);
+void cmderr(unsigned,...);
+int synerr(unsigned,...);
+void preerr(unsigned,...);
 int cpperr(unsigned,...);
-#if TX86
 int tx86err(unsigned,...);
-extern int errmsgs_tx86idx;
-#endif
 void warerr(unsigned,...);
 void err_warning_enable(unsigned warnum, int on);
 extern void lexerr(unsigned,...);
@@ -222,6 +217,7 @@ void err_notamember(const char *id, Classsym *s, symbol *alternate = NULL);
 /* exp.c */
 elem *expression(void),*const_exp(void),*assign_exp(void);
 elem *exp_simplecast(type *);
+#endif
 
 /* file.c */
 char *file_getsource(const char *iname);

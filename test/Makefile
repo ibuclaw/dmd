@@ -105,6 +105,31 @@ export RESULTS_DIR=test_results
 export MODEL
 export REQUIRED_ARGS=
 
+ifeq (32,$(MODEL))
+    MODEL_FLAG=-m$(MODEL)
+endif
+ifeq (64,$(MODEL))
+    MODEL_FLAG=-m$(MODEL)
+endif
+
+ifeq (,$(TARGET_CPU))
+    $(warning no cpu specified, assuming X86)
+    TARGET_CPU=X86
+endif
+
+CPU=stub
+ifeq (X86,$(TARGET_CPU))
+    ifeq (32,$(MODEL))
+        CPU=i386
+    else
+        CPU=x86_64
+    endif
+endif
+ifeq (ARM,$(TARGET_CPU))
+    CPU=arm
+endif
+export CPU
+
 ifeq ($(findstring win,$(OS)),win)
     export ARGS=-inline -release -g -O
     export EXE=.exe
@@ -195,6 +220,7 @@ fail_compilation_test_results=$(addsuffix .out,$(addprefix $(RESULTS_DIR)/,$(fai
 all:
 	$(QUIET) echo "Auto-tester tests disabled, run 'make run_tests' to force testsuite run"
 
+ifeq (,$(USE_SHELL_TESTER))
 $(RESULTS_DIR)/runnable/%.d.out: runnable/%.d $(RESULTS_DIR)/.created $(RESULTS_DIR)/d_do_test$(EXE) $(DMD)
 	$(QUIET) $(RESULTS_DIR)/d_do_test $(<D) $* d
 
@@ -211,6 +237,23 @@ $(RESULTS_DIR)/compilable/%.sh.out: compilable/%.sh $(RESULTS_DIR)/.created $(RE
 
 $(RESULTS_DIR)/fail_compilation/%.d.out: fail_compilation/%.d $(RESULTS_DIR)/.created $(RESULTS_DIR)/d_do_test$(EXE) $(DMD)
 	$(QUIET) $(RESULTS_DIR)/d_do_test $(<D) $* d
+else
+$(RESULTS_DIR)/runnable/%.d.out: runnable/%.d $(RESULTS_DIR)/.created do_test.sh $(DMD)
+	$(QUIET) ./do_test.sh $(<D) $* d
+
+$(RESULTS_DIR)/runnable/%.html.out: runnable/%.html $(RESULTS_DIR)/.created do_test.sh $(DMD)
+	$(QUIET) ./do_test.sh $(<D) $* html
+
+$(RESULTS_DIR)/runnable/%.sh.out: runnable/%.sh $(RESULTS_DIR)/.created $(DMD)
+	$(QUIET) echo " ... $(<D)/$*.sh"
+	$(QUIET) ./$(<D)/$*.sh
+
+$(RESULTS_DIR)/compilable/%.d.out: compilable/%.d $(RESULTS_DIR)/.created do_test.sh $(DMD)
+	$(QUIET) ./do_test.sh $(<D) $* d
+
+$(RESULTS_DIR)/fail_compilation/%.d.out: fail_compilation/%.d $(RESULTS_DIR)/.created do_test.sh $(DMD)
+	$(QUIET) ./do_test.sh $(<D) $* d
+endif
 
 $(RESULTS_DIR)/fail_compilation/%.html.out: fail_compilation/%.html $(RESULTS_DIR)/.created $(RESULTS_DIR)/d_do_test$(EXE) $(DMD)
 	$(QUIET) $(RESULTS_DIR)/d_do_test $(<D) $* html
@@ -250,9 +293,13 @@ start_fail_compilation_tests: $(RESULTS_DIR)/.created $(RESULTS_DIR)/d_do_test$(
 	@echo "Running fail compilation tests"
 	$(QUIET)$(MAKE) --no-print-directory run_fail_compilation_tests
 
+ifeq (ARM,$(TARGET_CPU))
+$(RESULTS_DIR)/d_do_test:
+	touch $(RESULTS_DIR)/d_do_test
+else
 $(RESULTS_DIR)/d_do_test$(EXE): d_do_test.d $(RESULTS_DIR)/.created
 	@echo "Building d_do_test tool"
 	@echo "OS: $(OS)"
 	$(QUIET)$(DMD) -conf= $(MODEL_FLAG) -unittest -run d_do_test.d -unittest
 	$(QUIET)$(DMD) -conf= $(MODEL_FLAG) -od$(RESULTS_DIR) -of$(RESULTS_DIR)$(DSEP)d_do_test$(EXE) d_do_test.d
-
+endif

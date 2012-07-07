@@ -63,6 +63,10 @@ if [ "${MODEL}" == "64" ]; then
     r_args="${r_args/-O/}"
 fi
 
+if [ "${MODEL}" == "64" -o "${MODEL}" == "32" ]; then
+    MODEL_FLAG=-m${MODEL}
+fi
+
 e_args=`grep EXECUTE_ARGS  ${input_file} | tr -d \\\\r\\\\n`
 if [ ! -z "$e_args" ]; then
     e_args="${e_args/*EXECUTE_ARGS:*( )/}"
@@ -104,11 +108,12 @@ fi
 
 printf " ... %-25s %s%s(%s)\n" "${input_file}" "${r_args}" "${extra_space}" "${p_args}"
 
-${RESULTS_DIR}/combinations ${p_args} | while read x; do
+#${RESULTS_DIR}/combinations ${p_args} | while read x; do
+echo | while read x; do
 
     if [ ${separate} -ne 0 ]; then
-        echo ${DMD} -m${MODEL} -I${input_dir} ${r_args} $x -od${output_dir} -of${test_app_dmd} ${extra_compile_args} ${all_sources[*]} >> ${output_file}
-             ${DMD} -m${MODEL} -I${input_dir} ${r_args} $x -od${output_dir} -of${test_app_dmd} ${extra_compile_args} ${all_sources[*]} >> ${output_file} 2>&1
+        echo ${DMD} ${MODEL_FLAG} -I${input_dir} ${r_args} $x -od${output_dir} -of${test_app_dmd} ${extra_compile_args} ${all_sources[*]} >> ${output_file}
+             ${DMD} ${MODEL_FLAG} -I${input_dir} ${r_args} $x -od${output_dir} -of${test_app_dmd} ${extra_compile_args} ${all_sources[*]} >> ${output_file} 2>&1
         if [ $? -ne ${expect_compile_rc} -o $? -gt 125 ]; then
             cat ${output_file}
             rm -f ${output_file}
@@ -116,8 +121,8 @@ ${RESULTS_DIR}/combinations ${p_args} | while read x; do
         fi
     else
         for file in ${all_sources[*]}; do
-            echo ${DMD} -m${MODEL} -I${input_dir} ${r_args} $x -od${output_dir} -c $file >> ${output_file}
-                 ${DMD} -m${MODEL} -I${input_dir} ${r_args} $x -od${output_dir} -c $file >> ${output_file} 2>&1
+            echo ${DMD} ${MODEL_FLAG} -I${input_dir} ${r_args} $x -od${output_dir} -c $file >> ${output_file}
+                 ${DMD} ${MODEL_FLAG} -I${input_dir} ${r_args} $x -od${output_dir} -c $file >> ${output_file} 2>&1
             if [ $? -ne ${expect_compile_rc} -o $? -gt 125 ]; then
                 cat ${output_file}
                 rm -f ${output_file}
@@ -130,8 +135,8 @@ ${RESULTS_DIR}/combinations ${p_args} | while read x; do
         all_os=(${all_os[*]/#/${RESULTS_DIR}${SEP}})
 
         if [ "${input_dir}" = "runnable" ]; then
-            echo ${DMD} -m${MODEL} -od${output_dir} -of${test_app_dmd} ${all_os[*]} >> ${output_file}
-                 ${DMD} -m${MODEL} -od${output_dir} -of${test_app_dmd} ${all_os[*]} >> ${output_file} 2>&1
+            echo ${DMD} ${MODEL_FLAG} -od${output_dir} -of${test_app_dmd} ${all_os[*]} >> ${output_file}
+                 ${DMD} ${MODEL_FLAG} -od${output_dir} -of${test_app_dmd} ${all_os[*]} >> ${output_file} 2>&1
             if [ $? -ne ${expect_compile_rc} -o $? -gt 125 ]; then
                 cat ${output_file}
                 rm -f ${output_file}

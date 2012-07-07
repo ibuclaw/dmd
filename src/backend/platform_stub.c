@@ -11,6 +11,7 @@
 
 #include "cc.h"
 #include "code.h"
+#include "obj.h"
 
 static char __file__[] = __FILE__;
 #include "tassert.h"
@@ -20,7 +21,7 @@ static char __file__[] = __FILE__;
 #endif
 
 int clib_inited = 0;
-const unsigned dblreg[] = { -1 };
+const unsigned dblreg[] = { (unsigned)-1 };
 
 code* nteh_epilog()                               { assert(0); return NULL; }
 code* nteh_filter(block* b)                       { assert(0); return NULL; }
@@ -38,8 +39,6 @@ code* REGSAVE::save(code* c, int reg, unsigned* pidx) { assert(0); return NULL; 
 
 FuncParamRegs::FuncParamRegs(tym_t tyf) { assert(0); }
 int FuncParamRegs::alloc(type *t, tym_t ty, unsigned char *preg1, unsigned char *preg2) { assert(0); return 0; }
-
-int dwarf_regno(int reg) { assert(0); return 0; }
 
 code* prolog_ifunc(tym_t* tyf) { assert(0); return NULL; }
 code* prolog_ifunc2(tym_t tyf, tym_t tym, bool pushds) { assert(0); return NULL; }
@@ -111,6 +110,11 @@ code* cod3_stackadj(code* c, int nbytes) { assert(0); return NULL; }
 void simplify_code(code *c) { assert(0); }
 void cgreg_dst_regs(unsigned *dst_integer_reg, unsigned *dst_float_reg) { assert(0); }
 void cgreg_set_priorities(tym_t ty, char **pseq, char **pseqmsw) { assert(0); }
+
+void dwarf_encode_function_prolog() { assert(0); }
+int dwarf_regno(int) { assert(0); return 0; }
+void ElfObj::elf_platform_sections() { assert(0); }
+
 
 code* cdabs      (elem* e, regm_t* pretregs) { assert(0); return NULL; }
 code* cdaddass   (elem* e, regm_t* pretregs) { assert(0); return NULL; }

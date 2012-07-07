@@ -965,8 +965,12 @@ public:
 
         incUsage(irs, s->loc);
         elem *e = toElemDtor(s->exp, irs);
+#if TX86
         const int rtlthrow = config.ehmethod == EH_DWARF ? RTLSYM_THROWDWARF : RTLSYM_THROWC;
         e = el_bin(OPcall, TYvoid, el_var(getRtlsym(rtlthrow)),e);
+#else
+        e = el_bin(OPcall, TYvoid, el_var(getRtlsym(RTLSYM_THROWDWARF)),e);
+#endif
         block_appendexp(blx->curblock, e);
     }
 

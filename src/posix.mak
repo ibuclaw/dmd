@@ -8,13 +8,22 @@ endif
 
 ifeq (X86,$(TARGET_CPU))
     TARGET_CH = $C/code_x86.h
-    TARGET_OBJS = cg87.o cgxmm.o cgsched.o cod1.o cod2.o cod3.o cod4.o ptrntab.o
+    TARGET_BACK_OBJS = cg87.o cgxmm.o cgsched.o cod1.o cod2.o cod3.o cod4.o ptrntab.o
+    TARGET_GLUE_OBJS = iasmdmd.o
 else
     ifeq (stub,$(TARGET_CPU))
         TARGET_CH = $C/code_stub.h
-        TARGET_OBJS = platform_stub.o
+        TARGET_BACK_OBJS = platform_stub.o
+        TARGET_GLUE_OBJS = iasmdmd.o
     else
-        $(error unknown TARGET_CPU: '$(TARGET_CPU)')
+        ifeq (ARM,$(TARGET_CPU))
+            TARGET_CH = $C/code_arm.h
+            TARGET_BACK_OBJS = arm.o
+            TARGET_GLUE_OBJS = iasm_arm.o
+            TARGET_WARNINGS = -Wno-psabi
+        else
+            $(error unknown TARGET_CPU: '$(TARGET_CPU)')
+        endif
     endif
 endif
 
@@ -47,7 +56,9 @@ BUILD=release
 G = $(GENERATED)/$(OS)/$(BUILD)/$(MODEL)
 $(shell mkdir -p $G)
 
+OBJ_FORMAT=elf
 ifeq (osx,$(OS))
+    OBJ_FORMAT=mach
     export MACOSX_DEPLOYMENT_TARGET=10.3
 endif
 LDFLAGS=-lm -lstdc++ -lpthread
@@ -97,7 +108,8 @@ BACK_WARNINGS := $(GLUE_WARNINGS) \
 	-Wno-type-limits \
 	-Wno-unused-label \
 	-Wno-unused-value \
-	-Wno-varargs
+	-Wno-varargs \
+	$(TARGET_WARNINGS)
 # GCC Specific
 ifeq ($(CXX_KIND), g++)
 BACK_WARNINGS += \
@@ -272,19 +284,14 @@ ROOT_OBJS = \
 GLUE_OBJS = \
 	glue.o msc.o s2ir.o todt.o e2ir.o tocsym.o \
 	toobj.o toctype.o toelfdebug.o toir.o \
-	irstate.o typinf.o iasm.o iasmdmd.o iasmgcc.o
+	irstate.o typinf.o iasm.o iasmgcc.o \
+	lib$(OBJ_FORMAT).o scan$(OBJ_FORMAT).o $(TARGET_GLUE_OBJS)
 
 
 ifeq ($(D_OBJC),1)
 	GLUE_OBJS += objc_glue.o
 else
 	GLUE_OBJS += objc_glue_stubs.o
-endif
-
-ifeq (osx,$(OS))
-    GLUE_OBJS += libmach.o scanmach.o
-else
-    GLUE_OBJS += libelf.o scanelf.o
 endif
 
 #GLUE_OBJS=gluestub.o
@@ -299,13 +306,8 @@ BACK_OBJS = go.o gdag.o gother.o gflow.o gloop.o var.o el.o \
 	ti_pvoid.o pdata.o cv8.o backconfig.o \
 	divcoeff.o dwarf.o dwarfeh.o \
 	ph2.o util2.o eh.o tk.o strtold.o \
-	$(TARGET_OBJS)
+	$(OBJ_FORMAT)obj.o $(TARGET_BACK_OBJS)
 
-ifeq (osx,$(OS))
-	BACK_OBJS += machobj.o
-else
-	BACK_OBJS += elfobj.o
-endif
 
 SRC = win32.mak posix.mak osmodel.mak \
 	mars.c denum.c dstruct.c dsymbol.c dimport.c idgen.c impcnvgen.c \
@@ -351,14 +353,14 @@ ROOT_SRC = $(ROOT)/root.h \
 
 GLUE_SRC = glue.c msc.c s2ir.c todt.c e2ir.c tocsym.c \
 	toobj.c toctype.c tocvdebug.c toir.h toir.c \
-	libmscoff.c scanmscoff.c irstate.h irstate.c typinf.c iasm.c \
+	libmscoff.c scanmscoff.c irstate.h irstate.c typinf.c iasm.c iasm_arm.c \
 	toelfdebug.c libomf.c scanomf.c libelf.c scanelf.c libmach.c scanmach.c \
 	tk.c eh.c gluestub.c objc_glue.c objc_glue_stubs.c
 
 BACK_SRC = \
 	$C/cdef.h $C/cc.h $C/oper.h $C/ty.h $C/optabgen.c \
 	$C/global.h $C/code.h $C/type.h $C/dt.h $C/cgcv.h \
-	$C/el.h $C/iasm.h $C/rtlsym.h \
+	$C/el.h $C/iasm.h $C/iasm_arm.h $C/rtlsym.h \
 	$C/bcomplex.c $C/blockopt.c $C/cg.c $C/cg87.c $C/cgxmm.c \
 	$C/cgcod.c $C/cgcs.c $C/cgcv.c $C/cgelem.c $C/cgen.c $C/cgobj.c \
 	$C/cgreg.c $C/var.c $C/strtold.c \
@@ -372,6 +374,7 @@ BACK_SRC = \
 	$C/elfobj.c $C/cv4.h $C/dwarf2.h $C/exh.h $C/go.h \
 	$C/dwarf.c $C/dwarf.h $C/aa.h $C/aa.c $C/tinfo.h $C/ti_achar.c \
 	$C/ti_pvoid.c $C/platform_stub.c $C/code_x86.h $C/code_stub.h \
+	$C/arm.c \
 	$C/machobj.c $C/mscoffobj.c \
 	$C/xmm.h $C/obj.h $C/pdata.c $C/cv8.c $C/backconfig.c $C/divcoeff.c \
 	$C/md5.c $C/md5.h \
@@ -486,7 +489,6 @@ $(shell test \"$(VERSION)\" != "`cat verstr.h 2> /dev/null`" \
 $(DMD_OBJS) $(GLUE_OBJS) : $(idgen_output) $(impcnvgen_output)
 $(BACK_OBJS) : $(optabgen_output)
 
-
 # Specific dependencies other than the source file for all objects
 ########################################################################
 # If additional flags are needed for a specific file add a _CFLAGS as a
@@ -587,11 +589,7 @@ gcov:
 	gcov irstate.c
 	gcov json.c
 	gcov lexer.c
-ifeq (osx,$(OS))
-	gcov libmach.c
-else
-	gcov libelf.c
-endif
+	gcov lib$(OBJ_FORMAT).c
 	gcov link.c
 	gcov dmacro.c
 	gcov dmangle.c

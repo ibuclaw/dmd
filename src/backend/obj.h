@@ -103,6 +103,7 @@ struct Obj
 
 struct ElfObj : Obj
 {
+    static void elf_platform_sections();
     static int getsegment(const char *name, const char *suffix,
         int type, int flags, int align);
     static void addrel(int seg, targ_size_t offset, unsigned type,

@@ -2054,6 +2054,8 @@ printf("\n");
     if (e->Eoper == OPvar)
         e->Ety |= mTYconst;
     //printf("s: %s %d:x%x\n", s->Sident, s->Sseg, s->Soffset);
+#else
+    assert(0);
 #endif
     return e;
 }

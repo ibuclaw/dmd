@@ -494,6 +494,14 @@ size_t CTFloat::hash(real_t a)
 
 #endif // __sun
 
+#if __arm__
+#define cosl cos
+#define fabsl fabs
+#define sinl sin
+#define sqrtl sqrt
+#define tanl tan
+#endif
+
 real_t CTFloat::sin(real_t x) { return sinl(x); }
 real_t CTFloat::cos(real_t x) { return cosl(x); }
 real_t CTFloat::tan(real_t x) { return tanl(x); }

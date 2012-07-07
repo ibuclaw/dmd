@@ -191,11 +191,27 @@ unsigned
 struct Go go;
 
 /* From debug.c */
-#if DEBUG
+#if TX86
 const char *regstring[32] = {"AX","CX","DX","BX","SP","BP","SI","DI",
                              "R8","R9","R10","R11","R12","R13","R14","R15",
                              "XMM0","XMM1","XMM2","XMM3","XMM4","XMM5","XMM6","XMM7",
                              "ES","PSW","STACK","ST0","ST01","NOREG","RMload","RMstore"};
+#elif DM_TARGET_CPU_ARM
+const char *regstring[32] = {"R0","R1","R2","R3","R4","R5","R6","R7",
+                             "R8","R9","R10","R11","IP","SP","LR","PC",
+                             "PSW","STACK","NOREG","undefined",
+                             "undefined","undefined","undefined","undefined",
+                             "undefined","undefined","undefined","undefined",
+                             "undefined","undefined","undefined","undefined"};
+#elif DM_TARGET_CPU_stub
+const char *regstring[32] = {"BP", "SP", "PSW", "STACK",
+                             "undefined","undefined","undefined","undefined",
+                             "undefined","undefined","undefined","undefined",
+                             "undefined","undefined","undefined","undefined",
+                             "undefined","undefined","undefined","undefined",
+                             "undefined","undefined","undefined","undefined"};
+#else
+#error unknown cpu
 #endif
 
 /* From nwc.c */

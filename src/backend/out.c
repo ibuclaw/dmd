@@ -341,10 +341,13 @@ void outdata(symbol *s)
     {
         switch (dt->dt)
         {   case DT_abytes:
-                if (tyreg(dt->Dty))
-                    flags = CFoff;
-                else
-                    flags = CFoff | CFseg;
+                flags = CFoff;
+                if (!tyreg(dt->Dty))
+#if TX86
+                    flags |= CFseg;
+#else
+                    assert(0);
+#endif
                 if (I64)
                     flags |= CFoffset64;
                 if (tybasic(dt->Dty) == TYcptr)
@@ -390,10 +393,13 @@ void outdata(symbol *s)
             {
                 symbol *sb = dt->DTsym;          // get external symbol pointer
                 a = dt->DToffset; // offset from it
-                if (tyreg(dt->Dty))
-                    flags = CFoff;
-                else
-                    flags = CFoff | CFseg;
+                flags = CFoff;
+                if (!tyreg(dt->Dty))
+#if TX86
+                    flags |= CFseg;
+#else
+                    assert(0);
+#endif
                 if (I64 && tysize(dt->Dty) == 8)
                     flags |= CFoffset64;
                 offset += objmod->reftoident(seg,offset,sb,a,flags);
@@ -477,7 +483,9 @@ void outcommon(symbol *s,targ_size_t n)
                 else
                     s->Sfl = FLextern;
                 s->Sseg = UNKNOWN;
+#if TX86
                 pstate.STflags |= PFLcomdef;
+#endif
 #if SCPP
                 ph_comdef(s);               // notify PH that a COMDEF went out
 #endif

@@ -38,12 +38,21 @@
 #include        <fp.h>
 #endif
 
-#if __FreeBSD__ || __OpenBSD__
+#if __FreeBSD__ || __OpenBSD__ || __arm__
 #define fmodl fmod
 #endif
 
 #if _MSC_VER
 #define isnan _isnan
+#endif
+
+#if defined(__arm__)
+// hack
+long double fabsl(long double v)
+{
+    if (v < 0) return -v;
+    return v;
+}
 #endif
 
 #include        "cc.h"

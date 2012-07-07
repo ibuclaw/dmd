@@ -77,6 +77,25 @@ char *obj_mangle2(Symbol *s,char *dest);
  */
 #define REQUIRE_DSO_REGISTRY (DMDV2 && (TARGET_LINUX || TARGET_FREEBSD))
 
+#if TX86
+#define HDR_ABI        ELFOSABI_LINUX
+#define EHDR_MACHINE   (I64 ? EM_X86_64 : EM_386)
+#define EHDR_FLAGS     0
+
+#elif DM_TARGET_CPU_ARM
+#define HDR_ABI        ELFOSABI_SYSV
+#define EHDR_MACHINE   EM_ARM
+#define EHDR_FLAGS     0x4000000
+
+#elif DM_TARGET_CPU_stub
+#define HDR_ABI        0
+#define EHDR_MACHINE   0
+#define EHDR_FLAGS     0
+
+#else
+#error unknown cpu
+#endif
+
 /***************************************************
  * Correspondence of relocation types
  *      386             32 bit in 64      64 in 64
@@ -665,6 +684,10 @@ int Obj::data_readonly(char *p, int len)
     return Obj::data_readonly(p, len, &pseg);
 }
 
+#if TX86
+void ElfObj::elf_platform_sections() {}
+#endif
+
 /******************************
  * Perform initialization that applies to all .o output files.
  *      Called before any other obj_xxx routines
@@ -864,6 +887,8 @@ Obj *Obj::init(Outbuffer *objbuf, const char *filename, const char *csegname)
 
     elf_getsegment2(SHN_COM, STI_COM, 0);
     assert(SegData[COMD]->SDseg == COMD);
+
+    ElfObj::elf_platform_sections();
 
     dwarf_initfile(filename);
     return obj;
@@ -1318,16 +1343,17 @@ void Obj::term(const char *objfilename)
                 ELFCLASS64,             // EI_CLASS
                 ELFDATA2LSB,            // EI_DATA
                 EV_CURRENT,             // EI_VERSION
-                ELFOSABI,0,             // EI_OSABI,EI_ABIVERSION
+                HDR_ABI,                // EI_OSABI
+                0,                      // EI_ABIVERSION
                 0,0,0,0,0,0,0
             },
             ET_REL,                         // e_type
-            EM_X86_64,                      // e_machine
+            EHDR_MACHINE,                   // e_machine
             EV_CURRENT,                     // e_version
             0,                              // e_entry
             0,                              // e_phoff
             0,                              // e_shoff
-            0,                              // e_flags
+            EHDR_FLAGS,                     // e_flags
             sizeof(Elf64_Ehdr),             // e_ehsize
             sizeof(Elf64_Phdr),             // e_phentsize
             0,                              // e_phnum
@@ -1348,16 +1374,17 @@ void Obj::term(const char *objfilename)
                 ELFCLASS32,             // EI_CLASS
                 ELFDATA2LSB,            // EI_DATA
                 EV_CURRENT,             // EI_VERSION
-                ELFOSABI,0,             // EI_OSABI,EI_ABIVERSION
+                HDR_ABI,                // EI_OSABI
+                0,                      // EI_ABIVERSION
                 0,0,0,0,0,0,0
             },
             ET_REL,                         // e_type
-            EM_386,                         // e_machine
+            EHDR_MACHINE,                   // e_machine
             EV_CURRENT,                     // e_version
             0,                              // e_entry
             0,                              // e_phoff
             0,                              // e_shoff
-            0,                              // e_flags
+            EHDR_FLAGS,                     // e_flags
             sizeof(Elf32_Ehdr),             // e_ehsize
             sizeof(Elf32_Phdr),             // e_phentsize
             0,                              // e_phnum
@@ -2829,6 +2856,7 @@ void Obj::reftocodeseg(int seg,targ_size_t offset,targ_size_t val)
  *      number of bytes in reference (4 or 8)
  */
 
+// TODO: should be platform specific
 int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
         int flags)
 {
@@ -2866,6 +2894,7 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
         case SClocstat:
             if (I64)
             {
+#if TX86
                 if (s->Sfl == FLtlsdata)
                     relinfo = config.flags3 & CFG3pic ? R_X86_64_TLSGD : R_X86_64_TPOFF32;
                 else
@@ -2873,19 +2902,34 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
                     if (flags & CFpc32)
                         relinfo = R_X86_64_PC32;
                 }
+#else
+                assert(0);
+#endif
             }
             else
             {
+#if TX86
                 if (s->Sfl == FLtlsdata)
                     relinfo = config.flags3 & CFG3pic ? R_386_TLS_GD : R_386_TLS_LE;
                 else
                     relinfo = config.flags3 & CFG3pic ? R_386_GOTOFF : R_386_32;
+#else
+                if (s->Sfl == FLtlsdata)
+                    assert(0);
+                else
+                    if (config.flags3 & CFG3pic)
+                        assert(0);
+                    else
+                        relinfo = R_ARM_ABS32;
+#endif
             }
+#if TX86
             if (flags & CFoffset64 && relinfo == R_X86_64_32)
             {
                 relinfo = R_X86_64_64;
                 retsize = 8;
             }
+#endif
             refseg = STI_RODAT;
             val += s->Soffset;
             goto outrel;
@@ -2932,9 +2976,21 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
                     {
                         //dbg_printf("\tadding relocation\n");
                         if (I64)
+#if TX86
                             relinfo = config.flags3 & CFG3pic ?  R_X86_64_PLT32 : R_X86_64_PC32;
+#else
+                            assert(0);
+#endif
                         else
+                        {
+#if TX86
                             relinfo = config.flags3 & CFG3pic ?  R_386_PLT32 : R_386_PC32;
+#else
+                            // ARM TODO: pic?
+                            relinfo = R_ARM_CALL;
+                            retsize = 0;
+#endif
+                        }
                         val = (targ_size_t)-4;
                     }
                 }
@@ -2945,6 +3001,7 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
                         refseg = MAP_SEG2SYMIDX(s->Sseg);
                                                 // use segment symbol table entry
                         val += s->Soffset;
+#if TX86
                         if (!(config.flags3 & CFG3pic) ||       // all static refs from normal code
                              segtyp == DATA)    // or refs from data from posi indp
                         {
@@ -2957,19 +3014,31 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
                         {
                             relinfo = I64 ? R_X86_64_PC32 : R_386_GOTOFF;
                         }
+#else
+                        assert(0);
+#endif
                     }
                     else if (config.flags3 & CFG3pic && s == GOTsym)
                     {                   // relocation for Gbl Offset Tab
+#if TX86
                         relinfo =  I64 ? R_X86_64_NONE : R_386_GOTPC;
+#else
+                        assert(0);
+#endif
                     }
                     else if (segtyp == DATA)
                     {                   // relocation from within DATA seg
+#if TX86
                         relinfo = I64 ? R_X86_64_32 : R_386_32;
                         if (I64 && flags & CFpc32)
                             relinfo = R_X86_64_PC32;
+#else
+                        relinfo = R_ARM_ABS32;
+#endif
                     }
                     else
                     {                   // relocation from within CODE seg
+#if TX86
                         if (I64)
                         {   if (config.flags3 & CFG3pic)
                                 relinfo = R_X86_64_GOTPCREL;
@@ -2978,9 +3047,16 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
                         }
                         else
                             relinfo = config.flags3 & CFG3pic ? R_386_GOT32 : R_386_32;
+#else
+                        if (config.flags3 & CFG3pic)
+                            assert(0);
+                        else
+                            relinfo = R_ARM_ABS32;
+#endif
                     }
                     if ((s->ty() & mTYLINK) & mTYthread)
                     {
+#if TX86
                         if (I64)
                         {
                             if (config.flags3 & CFG3pic)
@@ -3017,11 +3093,16 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
                                     relinfo = R_386_TLS_IE;
                             }
                         }
+#else
+                        assert(0);
+#endif
                     }
+#if TX86
                     if (flags & CFoffset64 && relinfo == R_X86_64_32)
                     {
                         relinfo = R_X86_64_64;
                     }
+#endif
                 }
                 if (relinfo == R_X86_64_NONE)
                 {
