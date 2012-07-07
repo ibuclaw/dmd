@@ -266,9 +266,9 @@ tryagain:
     {
         allregs |= cod3_useBP();                // see if we can use EBP
 
-        // If pic code, but EBX was never needed
+        // If pic code, but PICREG was never needed, so add it back to available registers
         if (!(allregs & mask[PICREG]) && !gotref)
-        {   allregs |= mask[PICREG];            // EBX can now be used
+        {   allregs |= mask[PICREG];
             cgreg_assign(retsym);
             pass = PASSreg;
         }
@@ -781,7 +781,9 @@ Lagain:
 
     CSoff = alignsection(Alloca.offset - cstop * REGSIZE, REGSIZE, bias);
 
+#if TX86
     NDPoff = alignsection(CSoff - NDP::savetop * tysize[TYldouble], REGSIZE, bias);
+#endif
 
     regm_t topush = fregsaved & ~mfuncreg;          // mask of registers that need saving
     pushoffuse = false;
@@ -1820,7 +1822,6 @@ code *allocreg(regm_t *pretregs,unsigned *preg,tym_t tym
 #define allocreg(a,b,c) allocreg((a),(b),(c),__LINE__,__FILE__)
 #endif
 {
-#if TX86
         unsigned reg;
 
 #if 0
@@ -1917,9 +1918,11 @@ L3:
 
             if (r & mMSW)
             {
+#if TX86
                 if (r & mDX)
                     msreg = DX;                 /* prefer to use DX over CX */
                 else
+#endif
                     msreg = findregmsw(r);
                 r &= mLSW;                      /* see if there's an LSW also */
                 if (r)
@@ -1943,9 +1946,10 @@ L3:
                     goto L3;
                 }
             }
-            reg = (msreg == ES) ? lsreg : msreg;
+            reg = T80x86((msreg == ES) ? lsreg :) msreg;
             retregs = mask[msreg] | mask[lsreg];
         }
+#if TX86
         else if (I16 && (tym == TYdouble || tym == TYdouble_alias))
         {
 #ifdef DEBUG
@@ -1955,6 +1959,7 @@ L3:
             assert(retregs == DOUBLEREGS);
             reg = AX;
         }
+#endif
         else
         {
 #ifdef DEBUG
@@ -1966,7 +1971,18 @@ L3:
         }
         if (retregs & regcon.mvar)              // if conflict with reg vars
         {
-            if (!(size > REGSIZE && *pretregs == (mAX | mDX)))
+            if (!(size > REGSIZE && *pretregs == (
+#if TX86
+                            mAX | mDX
+#elif DM_TARGET_CPU_ARM
+                            mR0 | mR1
+#elif DM_TARGET_CPU_stub
+#warning cpu specific code
+                            0
+#else
+#error unknown cpu
+#endif
+                            )))
             {
                 retregs = (*pretregs &= ~(retregs & regcon.mvar));
                 goto L1;                // try other registers
@@ -1982,9 +1998,6 @@ L3:
         last2retregs = lastretregs;
         lastretregs = retregs;
         return getregs(retregs);
-#else
-#warning cpu specific code
-#endif
 }
 
 /******************************
@@ -2144,7 +2157,13 @@ code *cse_flush(int do87)
     //dbg_printf("cse_flush()\n");
     code* c = cse_save(regcon.cse.mops);      // save any CSEs to memory
     if (do87)
+    {
+#if TX86
         c = cat(c,save87());    // save any 8087 temporaries
+#else
+        // ARM TODO
+#endif
+    }
     return c;
 }
 
@@ -2298,8 +2317,10 @@ STATIC code * comsub(elem *e,regm_t *pretregs)
     code* c = CNIL;
     if (*pretregs == 0) goto done;        /* no possible side effects anyway */
 
+#if TX86
     if (tyfloating(e->Ety) && config.inline8087)
         return comsub87(e,pretregs);
+#endif
 
   /* First construct a mask, emask, of all the registers that   */
   /* have the right contents.                                   */
@@ -2369,7 +2390,11 @@ if (regcon.cse.mval & 1) elem_print(regcon.cse.value[0]);
                             retregs = allregs;
                         c = allocreg(&retregs,&reg,tym);
                         cr = &csextab[i].csimple;
+#if TX86
                         cr->setReg(reg);
+#else
+                        assert(0);
+#endif
                         c = gen(c,cr);
                         goto L10;
                     }
@@ -2565,6 +2590,7 @@ code *codelem(elem *e,regm_t *pretregs,bool constflag)
         printf("msavereg=%s regcon.cse.mval=%s regcon.cse.mops=%s\n",
                 regm_str(msavereg),regm_str(regcon.cse.mval),regm_str(regcon.cse.mops));
         printf("Ecount = %d, Ecomsub = %d\n", e->Ecount, e->Ecomsub);
+        elem_print(e);
   }
 #endif
   assert(e);
@@ -2856,8 +2882,6 @@ code *scodelem(elem *e,regm_t *pretregs,regm_t keepmsk,bool constflag)
  * Turn register mask into a string suitable for printing.
  */
 
-#ifdef DEBUG
-
 const char *regm_str(regm_t rm)
 {
     #define NUM 10
@@ -2896,8 +2920,6 @@ const char *regm_str(regm_t rm)
     assert(strlen(p) <= SMAX);
     return strdup(p);
 }
-
-#endif
 
 /*********************************
  * Scan down comma-expressions.

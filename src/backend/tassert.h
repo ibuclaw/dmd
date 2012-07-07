@@ -19,14 +19,14 @@
 #undef assert
 #define assert(e)       ((e) || (local_assert(__LINE__), 0))
 
-#if __clang__
+#if __clang__ || __GNUC__
 
 void util_assert(const char * , int) __attribute__((noreturn));
 
 __attribute__((noreturn)) static void local_assert(int line)
 {
     util_assert(__file__,line);
-    __builtin_unreachable();
+    //__builtin_unreachable();
 }
 
 #else

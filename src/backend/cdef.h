@@ -345,7 +345,19 @@ typedef long double longdouble;
 #define ANSI_STRICT config.ansi_c
 #define ANSI_RELAX  config.ansi_c
 #define TRIGRAPHS   ANSI
-#define T80x86(x)       x
+
+#if TX86
+#define T80x86(x) x
+#define TARM(x)
+#elif DM_TARGET_CPU_ARM
+#define T80x86(x)
+#define TARM(x) x
+#elif DM_TARGET_CPU_stub
+#define T80x86(x)
+#define TARM(x)
+#else
+#error unknown cpu
+#endif
 
 // For Share MEM_ macros - default to mem_xxx package
 // PH           precompiled header

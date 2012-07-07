@@ -68,6 +68,7 @@ typedef struct
     Elf32_Half e_machine;          /* Machine architecture */
         #define EM_386      3       /* Intel 80386 */
         #define EM_486      6       /* Intel 80486 */
+        #define EM_ARM      40      // ARM
         #define EM_X86_64   62      // Advanced Micro Devices X86-64 processor
 
     Elf32_Word e_version;              /* File format version */
@@ -110,6 +111,10 @@ typedef struct
         #define SHT_DYNTAB       11         /* Dynamic linker symbol table */
         #define SHT_GROUP        17         /* Section group (COMDAT) */
         #define SHT_SYMTAB_SHNDX 18         /* Extended section indeces */
+        #define SHT_LOPROC         0x70000000 /* beginning of processor specific flags */
+        #define SHT_ARM_EXIDX      0x70000001 /* arm unwind section */
+        #define SHT_ARM_PREEMPTMAP 0x70000002 /* arm preemption details */
+        #define SHT_ARM_ATTRIBUTES 0x70000003 /* arm attributes section */
   Elf32_Word   sh_flags;               /* Section attribute flags */
         #define SHF_WRITE       (1 << 0)    /* Writable during execution */
         #define SHF_ALLOC       (1 << 1)    /* In memory during execution */
@@ -223,6 +228,10 @@ typedef struct
         #define R_386_TLS_DTPMOD32 35
         #define R_386_TLS_DTPOFF32 36
         #define R_386_TLS_TPOFF32  37
+
+        #define R_ARM_ABS32     2               /* Direct 32 bit  */
+        #define R_ARM_CALL      28              /* Static function call */
+
 } Elf32_Rel;
 
 /* stabs debug records */

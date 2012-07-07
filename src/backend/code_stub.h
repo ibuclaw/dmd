@@ -36,6 +36,10 @@
 #define mSTACK (1 << STACK)
 
 // used in several generic parts of the code still
+#define mBX  0
+#define mCX  0
+#define mSI  0
+#define mDI  0
 #define mES  0
 
 #define mLSW 0
@@ -76,11 +80,15 @@ struct code
       #define CFseg       (1 << 4)          // get segment of immediate value
       #define CFswitch    (1 << 5)          // kludge for switch table fixups
 
-    unsigned char IFL1;                     // FLavors of 1st operands
+    unsigned char IFL1,IFL2;                // FLavors of 1st, 2nd operands
     union evc IEV1;                         // 1st operand, if any
       #define IEVsym1     IEV1.sp.Vsym
       #define IEVdsym1    IEV1.dsp.Vsym
       #define IEVlsym1    IEV1.lab.Vsym
+    union evc IEV2;                         // 2nd operand, if any
+      #define IEVsym2     IEV2.sp.Vsym
+      #define IEVdsym2    IEV2.dsp.Vsym
+      #define IEVlsym2    IEV2.lab.Vsym
 
     void setReg(unsigned) {}
 

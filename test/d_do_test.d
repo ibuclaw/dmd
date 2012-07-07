@@ -30,6 +30,7 @@ void usage()
           ~ "      DMD:           compiler to use, ex: ../src/dmd\n"
           ~ "      CC:            C++ compiler to use, ex: dmc, g++\n"
           ~ "      OS:            win32, win64, linux, freebsd, osx, netbsd\n"
+          ~ "      CPU:           i386, x86_64, arm\n"
           ~ "      RESULTS_DIR:   base directory for test results\n"
           ~ "   windows vs non-windows portability env vars:\n"
           ~ "      DSEP:          \\\\ or /\n"
@@ -76,6 +77,7 @@ struct EnvData
     string obj;
     string exe;
     string os;
+    string cpu;
     string compiler;
     string ccompiler;
     string model;
@@ -375,7 +377,7 @@ bool collectExtraSources (in string input_dir, in string output_dir, in string[]
             {
                 command ~= ` /c /nologo `~curSrc~` /Fo`~curObj;
             }
-            else if (envData.os == "win32")
+            else if (envData.os == "win32" || envData.cpu == "arm")
             {
                 command ~= " -c "~curSrc~" -o"~curObj;
             }
@@ -445,6 +447,7 @@ int main(string[] args)
     envData.obj           = environment.get("OBJ");
     envData.exe           = environment.get("EXE");
     envData.os            = environment.get("OS");
+    envData.cpu           = environment.get("CPU");
     envData.dmd           = replace(environment.get("DMD"), "/", envData.sep);
     envData.compiler      = "dmd"; //should be replaced for other compilers
     envData.ccompiler     = environment.get("CC");
@@ -525,6 +528,11 @@ int main(string[] args)
     {
         testArgs.disabled = true;
         writefln("!!! [DISABLED on %s]", envData.os);
+    }
+    else if (testArgs.disabledPlatforms.canFind(envData.cpu))
+    {
+        testArgs.disabled = true;
+        writefln("!!! [DISABLED on %s]", envData.cpu);
     }
     else
         write("\n");

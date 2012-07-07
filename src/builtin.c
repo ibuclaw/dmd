@@ -27,6 +27,14 @@
 
 StringTable builtins;
 
+#if __arm__
+#define cosl cos
+#define fabsl fabs
+#define sinl sin
+#define sqrtl sqrt
+#define tanl tan
+#endif
+
 void add_builtin(const char *mangle, builtin_fp fp)
 {
     builtins.insert(mangle, strlen(mangle), (void *)fp);

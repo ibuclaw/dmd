@@ -262,6 +262,7 @@ int dwarf_regno(int reg)
 }
 #endif
 
+// ARM TODO: should this block be platform specific?
 static CFA_state CFA_state_init_32 =       // initial CFA state as defined by CIE
 {   0,                // location
     -1,               // register
