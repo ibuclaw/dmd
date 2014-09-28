@@ -3913,7 +3913,7 @@ bool FuncDeclaration::addPreInvariant()
 {
     AggregateDeclaration *ad = isThis();
     ClassDeclaration *cd = ad ? ad->isClassDeclaration() : NULL;
-    return (ad && !(cd && cd->isCPPclass()) &&
+    return (ad && !(cd && (cd->isCPPclass() || cd->isJavaclass()) &&
             global.params.useInvariants &&
             (protection.kind == PROTprotected || protection.kind == PROTpublic || protection.kind == PROTexport) &&
             !naked &&
@@ -3924,7 +3924,7 @@ bool FuncDeclaration::addPostInvariant()
 {
     AggregateDeclaration *ad = isThis();
     ClassDeclaration *cd = ad ? ad->isClassDeclaration() : NULL;
-    return (ad && !(cd && cd->isCPPclass()) &&
+    return (ad && !(cd && (cd->isCPPclass() || cd->isJavaclass()) &&
             ad->inv &&
             global.params.useInvariants &&
             (protection.kind == PROTprotected || protection.kind == PROTpublic || protection.kind == PROTexport) &&

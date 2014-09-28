@@ -227,6 +227,7 @@ public:
             case LINKwindows:       mc = 'W';       break;
             case LINKpascal:        mc = 'V';       break;
             case LINKcpp:           mc = 'R';       break;
+            case LINKjava:          mc = 'Q';       break;
             default:
                 assert(0);
         }
@@ -408,7 +409,7 @@ public:
     {
         //printf("Declaration::mangle(this = %p, '%s', parent = '%s', linkage = %d)\n",
         //        d, d->toChars(), d->parent ? d->parent->toChars() : "null", d->linkage);
-        if (!d->parent || d->parent->isModule() || d->linkage == LINKcpp) // if at global scope
+        if (!d->parent || d->parent->isModule() || d->linkage == LINKcpp || d->linkage == LINKjava) // if at global scope
         {
             switch (d->linkage)
             {
@@ -422,6 +423,7 @@ public:
                     return;
 
                 case LINKcpp:
+                case LINKjava:
                     buf->writestring(toCppMangle(d));
                     return;
 

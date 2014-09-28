@@ -1459,6 +1459,7 @@ unsigned totym(Type *tx)
 
                 case LINKc:
                 case LINKcpp:
+                case LINKjava:
                 Lc:
                     t = TYnfunc;
 #if TARGET_LINUX || TARGET_OSX || TARGET_FREEBSD || TARGET_OPENBSD || TARGET_SOLARIS

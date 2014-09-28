@@ -9521,6 +9521,10 @@ Expression *CastExp::semantic(Scope *sc)
                 cdto->isCPPinterface())
                 goto Lunsafe;
 
+            if (cdfrom->isJavainterface() ||
+                cdto->isJavainterface())
+                goto Lunsafe;
+
             if (!MODimplicitConv(t1b->mod, tob->mod))
                 goto Lunsafe;
             goto Lsafe;

@@ -321,6 +321,7 @@ enum LINK
     LINKd,
     LINKc,
     LINKcpp,
+    LINKjava,
     LINKwindows,
     LINKpascal,
 };

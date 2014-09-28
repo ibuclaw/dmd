@@ -1205,6 +1205,8 @@ LINK Parser::parseLinkage(Identifiers **pidents)
             link = LINKpascal;
         else if (id == Id::D)
             link = LINKd;
+        else if (id == Id::Java)
+            link = LINKjava;
         else if (id == Id::C)
         {
             link = LINKc;

@@ -319,7 +319,7 @@ void ClassDeclaration::toObjFile(bool multiobj)
     dtsize_t(&dt, 0);                    // monitor
 
     // initializer[]
-    assert(structsize >= 8 || (cpp && structsize >= 4));
+    assert(structsize >= 8 || ((cpp || java) && structsize >= 4));
     dtsize_t(&dt, structsize);           // size
     dtxoff(&dt, sinit, 0, TYnptr);      // initializer
 
@@ -366,6 +366,7 @@ void ClassDeclaration::toObjFile(bool multiobj)
     ClassFlags::Type flags = ClassFlags::hasOffTi;
     if (isCOMclass()) flags |= ClassFlags::isCOMclass;
     if (isCPPclass()) flags |= ClassFlags::isCPPclass;
+    if (isJavaclass()) flags |= ClassFlags::isJavaclass;
     flags |= ClassFlags::hasGetMembers;
     flags |= ClassFlags::hasTypeInfo;
     if (ctor)

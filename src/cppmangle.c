@@ -684,6 +684,8 @@ public:
         buf.writeByte('F');
         if (t->linkage == LINKc)
             buf.writeByte('Y');
+        else if (t->linkage == LINKjava)
+            buf.writeByte('J');
         Type *tn = t->next;
         if (t->isref)
             tn  = tn->referenceTo();
@@ -706,6 +708,22 @@ public:
             c = 'l';
         else if (id == Id::__c_ulong)
             c = 'm';
+        else if (id == Id::__java_byte)
+            c = 'c';
+        else if (id == Id::__java_short)
+            c = 's';
+        else if (id == Id::__java_int)
+            c = 'i';
+        else if (id == Id::__java_long)
+            c = 'x';
+        else if (id == Id::__java_float)
+            c = 'f';
+        else if (id == Id::__java_double)
+            c = 'd';
+        else if (id == Id::__java_char)
+            c = 'w';
+        else if (id == Id::__java_boolean)
+            c = 'b';
         else
             c = 0;
         if (c)

@@ -1770,7 +1770,8 @@ elem *toElem(Expression *e, IRState *irs)
                 // If e1 is a class object, call the class invariant on it
                 if (global.params.useInvariants && t1->ty == Tclass &&
                     !((TypeClass *)t1)->sym->isInterfaceDeclaration() &&
-                    !((TypeClass *)t1)->sym->isCPPclass())
+                    !((TypeClass *)t1)->sym->isCPPclass() &&
+                    !((TypeClass *)t1)->sym->isJavaclass())
                 {
                     ts = symbol_genauto(Type_toCtype(t1));
                     int rtl;
@@ -3791,6 +3792,27 @@ elem *toElem(Expression *e, IRState *irs)
                      * information available to do it.
                      *
                      * Casting from a C++ interface to a non-C++ interface
+                     * always results in null because there's no way one
+                     * can be derived from the other.
+                     */
+                    e = el_bin(OPcomma, TYnptr, e, el_long(TYnptr, 0));
+                    goto Lret;
+                }
+                if (cdfrom->java)
+                {
+                    if (cdto->java)
+                    {
+                        /* Casting from a Java interface to a Java interface
+                         * is always a 'paint' operation
+                         */
+                        goto Lret;                  // no-op
+                    }
+
+                    /* Casting from a Java interface to a class
+                     * always results in null because there is no runtime
+                     * information available to do it.
+                     *
+                     * Casting from a Java interface to a non-Java interface
                      * always results in null because there's no way one
                      * can be derived from the other.
                      */

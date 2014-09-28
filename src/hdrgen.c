@@ -1210,6 +1210,7 @@ public:
             case LINKd:             p = "D";                break;
             case LINKc:             p = "C";                break;
             case LINKcpp:           p = "C++";              break;
+            case LINKjava:          p = "Java";             break;
             case LINKwindows:       p = "Windows";          break;
             case LINKpascal:        p = "Pascal";           break;
             default:
@@ -2997,6 +2998,7 @@ const char *linkageToChars(LINK linkage)
         case LINKd:         return "D";
         case LINKc:         return "C";
         case LINKcpp:       return "C++";
+        case LINKjava:      return "Java";
         case LINKwindows:   return "Windows";
         case LINKpascal:    return "Pascal";
         default:            assert(0);

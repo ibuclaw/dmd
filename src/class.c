@@ -236,6 +236,7 @@ ClassDeclaration::ClassDeclaration(Loc loc, Identifier *id, BaseClasses *basecla
 
     com = false;
     cpp = false;
+    java = false;
     isscope = false;
     isabstract = false;
     inuse = 0;
@@ -327,6 +328,8 @@ void ClassDeclaration::semantic(Scope *sc)
 
         if (sc->linkage == LINKcpp)
             cpp = true;
+        if (sc->linkage == LINKjava)
+            java = true;
     }
     else if (symtab)
     {
@@ -502,7 +505,7 @@ void ClassDeclaration::semantic(Scope *sc)
         doAncestorsSemantic = SemanticDone;
 
         // If no base class, and this is not an Object, use Object as base class
-        if (!baseClass && ident != Id::Object && !cpp)
+        if (!baseClass && ident != Id::Object && !cpp && !java)
         {
             if (!object)
             {
@@ -532,6 +535,8 @@ void ClassDeclaration::semantic(Scope *sc)
                 com = true;
             if (baseClass->isCPPclass())
                 cpp = true;
+            if (baseClass->isJavaclass())
+                java = true;
             if (baseClass->isscope)
                 isscope = true;
             enclosing = baseClass->enclosing;
@@ -551,6 +556,10 @@ void ClassDeclaration::semantic(Scope *sc)
             if (cpp && !b->base->isCPPinterface())
             {
                 ::error(loc, "C++ class '%s' cannot implement D interface '%s'", toPrettyChars(), b->base->toPrettyChars());
+            }
+	    if (java && !b->base->isJavainterface())
+            {
+                ::error(loc, "Java class '%s' cannot implement D interface '%s'", toPrettyChars(), b->base->toPrettyChars());
             }
         }
     }
@@ -676,7 +685,7 @@ Lancestorsdone:
     else
     {
         alignsize = Target::ptrsize;
-        if (cpp)
+        if (cpp || java)
             structsize = Target::ptrsize;       // allow room for __vptr
         else
             structsize = Target::ptrsize * 2;   // allow room for __vptr and __monitor
@@ -1154,6 +1163,15 @@ bool ClassDeclaration::isCPPinterface()
     return false;
 }
 
+bool ClassDeclaration::isJavaclass()
+{
+    return java;
+}
+
+bool ClassDeclaration::isJavainterface()
+{
+    return false;
+}
 
 /****************************************
  */
@@ -1327,6 +1345,8 @@ void InterfaceDeclaration::semantic(Scope *sc)
 
         if (!baseclasses->dim && sc->linkage == LINKcpp)
             cpp = true;
+        if (!baseclasses->dim && sc->linkage == LINKjava)
+            java = true;
 
         // Check for errors, handle forward references
         for (size_t i = 0; i < baseclasses->dim; )
@@ -1407,6 +1427,8 @@ void InterfaceDeclaration::semantic(Scope *sc)
                 com = true;
             if (b->base->isCPPinterface())
                 cpp = true;
+            if (b->base->isJavainterface())
+                java = true;
         }
     }
 Lancestorsdone:
@@ -1492,6 +1514,8 @@ Lancestorsdone:
         sc2->linkage = LINKwindows;
     else if (cpp)
         sc2->linkage = LINKcpp;
+    else if (java)
+        sc2->linkage = LINKjava;
     sc2->protection = Prot(PROTpublic);
     sc2->explicitProtection = 0;
     sc2->structalign = STRUCTALIGN_DEFAULT;
@@ -1634,6 +1658,7 @@ bool InterfaceDeclaration::isBaseOf(BaseClass *bc, int *poffset)
  * For class objects, yes, this is where the ClassInfo ptr goes.
  * For COM interfaces, no.
  * For non-COM interfaces, yes, this is where the Interface ptr goes.
+ * For Java objects, yes, this is where the Class ptr goes.
  */
 
 int InterfaceDeclaration::vtblOffset()
@@ -1651,6 +1676,11 @@ bool InterfaceDeclaration::isCOMinterface()
 bool InterfaceDeclaration::isCPPinterface()
 {
     return cpp;
+}
+
+bool InterfaceDeclaration::isJavainterface()
+{
+    return java;
 }
 
 /*******************************************

@@ -586,7 +586,11 @@ void toDebug(ClassDeclaration *cd)
 //    if (st->Sopeq && !(st->Sopeq->Sfunc->Fflags & Fnodebug))
 //      property |= 0x20;               // class has overloaded assignment
 
-    const char *id = cd->isCPPinterface() ? cd->ident->toChars() : cd->toPrettyChars(true);
+    const char *id;
+    if (cd->isCPPinterface() || cd->isJavainterface())
+        id = cd->ident->toChars();
+    else
+        id = cd->toPrettyChars(true);
     unsigned leaf = config.fulltypes == CV8 ? LF_CLASS_V3 : LF_CLASS;
 
     unsigned numidx = (leaf == LF_CLASS_V3) ? 18 : 12;

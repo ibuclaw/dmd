@@ -229,6 +229,7 @@ struct ClassFlags
         isAbstract = 0x40,
         isCPPclass = 0x80,
         hasDtor = 0x100,
+        isJavaclass = 0x200,
     };
 };
 
@@ -259,6 +260,7 @@ public:
     TypeInfoClassDeclaration *vclassinfo;       // the ClassInfo object for this ClassDeclaration
     bool com;                           // true if this is a COM class (meaning it derives from IUnknown)
     bool cpp;                           // true if this is a C++ interface
+    bool java;                          // true if this is a Java interface
     bool isscope;                       // true if this is a scope class
     bool isabstract;                    // true if abstract class
     int inuse;                          // to prevent recursive attempts
@@ -284,6 +286,8 @@ public:
     virtual bool isCOMinterface();
     bool isCPPclass();
     virtual bool isCPPinterface();
+    bool isJavaclass();
+    virtual bool isJavainterface();
     bool isAbstract();
     virtual int vtblOffset();
     const char *kind();
@@ -313,6 +317,7 @@ public:
     int vtblOffset();
     bool isCPPinterface();
     bool isCOMinterface();
+    bool isJavainterface();
 
     void toObjFile(bool multiobj);                       // compile to .obj file
 

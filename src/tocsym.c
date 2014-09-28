@@ -236,10 +236,13 @@ Symbol *toSymbol(Dsymbol *s)
                     case LINKd:
                         m = mTYman_d;
                         break;
+
                     case LINKcpp:
+                    case LINKjava:
                         s->Sflags |= SFLpublic;
                         m = mTYman_d;
                         break;
+
                     default:
                         printf("linkage = %d\n", vd->linkage);
                         assert(0);
@@ -341,7 +344,9 @@ Symbol *toSymbol(Dsymbol *s)
                         case LINKd:
                             t->Tmangle = mTYman_d;
                             break;
+
                         case LINKcpp:
+                        case LINKjava:
                             s->Sflags |= SFLpublic;
                             if (fd->isThis() && !global.params.is64bit && global.params.isWindows)
                             {
@@ -356,6 +361,7 @@ Symbol *toSymbol(Dsymbol *s)
                             }
                             t->Tmangle = mTYman_d;
                             break;
+
                         default:
                             printf("linkage = %d\n", fd->linkage);
                             assert(0);

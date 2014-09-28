@@ -602,7 +602,7 @@ void ClassDeclaration_toDt(ClassDeclaration *cd, dt_t **pdt)
 
     // Put in first two members, the vtbl[] and the monitor
     dtxoff(pdt, cd->toVtblSymbol(), 0);
-    if (!cd->cpp)
+    if (!cd->cpp && !cd->java)
         dtsize_t(pdt, 0);                    // monitor
 
     // Put in the rest
@@ -623,7 +623,7 @@ void membersToDt(ClassDeclaration *cd, dt_t **pdt, ClassDeclaration *concreteTyp
     }
     else
     {
-        if (cd->cpp)
+        if (cd->cpp || cd->java)
             offset = Target::ptrsize;       // allow room for __vptr
         else
             offset = Target::ptrsize * 2;   // allow room for __vptr and __monitor

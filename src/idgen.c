@@ -77,9 +77,21 @@ Msgtable msgtable[] =
     { "__vptr" },
     { "__monitor" },
     { "gate", "__gate" },
+
+    // Special C types.
     { "__c_long" },
     { "__c_ulong" },
     { "__c_long_double" },
+
+    // Special Java types.
+    { "__java_byte" },
+    { "__java_short" },
+    { "__java_int" },
+    { "__java_long" },
+    { "__java_float" },
+    { "__java_double" },
+    { "__java_char" },
+    { "__java_boolean" },
 
     { "TypeInfo" },
     { "TypeInfo_Class" },
@@ -136,6 +148,7 @@ Msgtable msgtable[] =
 
     { "C" },
     { "D" },
+    { "Java" },
     { "Windows" },
     { "Pascal" },
     { "System" },
@@ -349,6 +362,11 @@ Msgtable msgtable[] =
 
     // For C++ mangling
     { "allocator" },
+
+    // For Java support
+    { "JvAllocObject", "_Jv_AllocObject" },
+    { "JvThrow", "_Jv_Throw" },
+    { "JvLookupInterfaceMethodIdx", "_Jv_LookupInterfaceMethodIdx" },
 };
 
 

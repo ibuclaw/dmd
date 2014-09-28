@@ -320,6 +320,9 @@ public:
             case LINKcpp:
                 property(name, "cpp");
                 break;
+	    case LINKjava:
+                property(name, "java");
+                break;
             case LINKwindows:
                 property(name, "windows");
                 break;
