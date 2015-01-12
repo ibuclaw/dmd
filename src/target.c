@@ -206,40 +206,30 @@ Type *Target::va_listType()
  * Private helpers for Target::paintAsType.
  */
 
-// Write the integer value of 'e' into a unsigned byte buffer.
-static void encodeInteger(Expression *e, unsigned char *buffer)
-{
-    dinteger_t value = e->toInteger();
-    int size = (int)e->type->size();
-
-    for (int p = 0; p < size; p++)
-    {
-        int offset = p;     // Would be (size - 1) - p; on BigEndian
-        buffer[offset] = ((value >> (p * 8)) & 0xFF);
-    }
-}
-
-// Write the bytes encoded in 'buffer' into an integer and returns
-// the value as a new IntegerExp.
-static Expression *decodeInteger(Loc loc, Type *type, unsigned char *buffer)
-{
-    dinteger_t value = 0;
-    int size = (int)type->size();
-
-    for (int p = 0; p < size; p++)
-    {
-        int offset = p;     // Would be (size - 1) - p; on BigEndian
-        value |= ((dinteger_t)buffer[offset] << (p * 8));
-    }
-
-    return new IntegerExp(loc, value, type);
-}
-
-// Write the real value of 'e' into a unsigned byte buffer.
-static void encodeReal(Expression *e, unsigned char *buffer)
+// Write the Expression value of 'e' into a unsigned byte buffer.
+static void encodeExpression(Expression *e, unsigned char *buffer)
 {
     switch (e->type->ty)
     {
+        case Tint8:
+        case Tuns8:
+        case Tint16:
+        case Tuns16:
+        case Tint32:
+        case Tuns32:
+        case Tint64:
+        case Tuns64:
+        {
+            dinteger_t value = e->toInteger();
+            size_t size = e->type->size();
+
+            for (int p = 0; p < size; p++)
+            {
+                int offset = p;     // Would be (size - 1) - p; on BigEndian
+                buffer[offset] = ((value >> (p * 8)) & 0xFF);
+            }
+            break;
+        }
         case Tfloat32:
         {
             float *p = (float *)buffer;
@@ -252,36 +242,115 @@ static void encodeReal(Expression *e, unsigned char *buffer)
             *p = (double)e->toReal();
             break;
         }
+        case Tsarray:
+        {
+            size_t esize = e->type->nextOf()->size();
+            assert(e->op == TOKarrayliteral);
+            Expressions *elems = ((ArrayLiteralExp *) e)->elements;
+
+            // Encode each element into the buffer.
+            for (size_t i = 0; i < elems->dim; i++)
+            {
+                Expression *elem = (*elems)[i];
+                encodeExpression(elem, buffer + (esize * i));
+            }
+            break;
+        }
+        case Tvector:
+        {
+            VectorExp *ve = (VectorExp *)e;
+            if (ve->e1->op == TOKarrayliteral)
+            {
+                // Encode underlying static array.
+                encodeExpression(ve->e1, buffer);
+            }
+            else
+            {
+                // Construct from single value.
+                TypeVector *vtype = ((TypeVector *)ve->type);
+                size_t esize = vtype->elementType()->size(Loc());
+                size_t dims = ((TypeSArray *)vtype->basetype)->dim->toInteger();
+
+                for (size_t i = 0; i < dims; i++)
+                {
+                    encodeExpression(ve->e1, buffer + (esize * i));
+                }
+            }
+            break;
+        }
         default:
             assert(0);
     }
 }
 
-// Write the bytes encoded in 'buffer' into a longdouble and returns
-// the value as a new RealExp.
-static Expression *decodeReal(Loc loc, Type *type, unsigned char *buffer)
+// Write the bytes encoded in 'buffer' into a native value and returns
+// the value as a new Expression.
+static Expression *decodeExpression(Loc loc, Type *type, unsigned char *buffer)
 {
-    longdouble value;
-
     switch (type->ty)
     {
+        case Tint8:
+        case Tuns8:
+        case Tint16:
+        case Tuns16:
+        case Tint32:
+        case Tuns32:
+        case Tint64:
+        case Tuns64:
+        {
+            dinteger_t value = 0;
+            size_t size = type->size();
+
+            for (int p = 0; p < size; p++)
+            {
+                int offset = p;     // Would be (size - 1) - p; on BigEndian
+                value |= ((dinteger_t)buffer[offset] << (p * 8));
+            }
+            return new IntegerExp(loc, value, type);
+        }
         case Tfloat32:
         {
             float *p = (float *)buffer;
-            value = ldouble(*p);
-            break;
+            longdouble value = ldouble(*p);
+            return new RealExp(loc, value, type);
         }
         case Tfloat64:
         {
             double *p = (double *)buffer;
-            value = ldouble(*p);
-            break;
+            longdouble value = ldouble(*p);
+            return new RealExp(loc, value, type);
+        }
+        case Tsarray:
+        {
+            Type *etype = type->nextOf();
+            size_t esize = etype->size();
+            size_t dims = ((TypeSArray *)type)->dim->toInteger();
+
+            // Decode each offset of the buffer as the element type.
+            Expressions *elems = new Expressions();
+            elems->setDim(dims);
+            for (size_t i = 0; i < dims; i++)
+                (*elems)[i] = decodeExpression(loc, etype, buffer + (esize * i));
+
+            Expression *e = new ArrayLiteralExp(loc, elems);
+            e->type = type;
+            return e;
+        }
+        case Tvector:
+        {
+            // Decode underlying static array, and return as vector.
+            Type *atype = ((TypeVector *)type)->basetype;
+            Expression *e = decodeExpression(loc, atype, buffer);
+            e = new VectorExp(loc, e, type);
+            e->type = type;
+            return e;
         }
         default:
+        {
             assert(0);
+            return NULL;    // avoid warning
+        }
     }
-
-    return new RealExp(loc, value, type);
 }
 
 /******************************
@@ -299,42 +368,10 @@ Expression *Target::paintAsType(Expression *e, Type *type)
     assert(e->type->size() == type->size());
 
     // Write the expression into the buffer.
-    switch (e->type->ty)
-    {
-        case Tint32:
-        case Tuns32:
-        case Tint64:
-        case Tuns64:
-            encodeInteger(e, buffer);
-            break;
-
-        case Tfloat32:
-        case Tfloat64:
-            encodeReal(e, buffer);
-            break;
-
-        default:
-            assert(0);
-    }
+    encodeExpression(e, buffer);
 
     // Interpret the buffer as a new type.
-    switch (type->ty)
-    {
-        case Tint32:
-        case Tuns32:
-        case Tint64:
-        case Tuns64:
-            return decodeInteger(e->loc, type, buffer);
-
-        case Tfloat32:
-        case Tfloat64:
-            return decodeReal(e->loc, type, buffer);
-
-        default:
-            assert(0);
-    }
-
-    return NULL;    // avoid warning
+    return decodeExpression(e->loc, type, buffer);
 }
 
 /*
