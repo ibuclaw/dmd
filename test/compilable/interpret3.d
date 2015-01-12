@@ -4044,6 +4044,51 @@ bool bug9170()
 static assert(bug9170());
 
 /**************************************************
+    13974 Allow reinterpret casts between
+    scalar and static arrays.
+**************************************************/
+
+short[4] cast13974a(int[2] x) {
+    return *(cast(short[4]*)&x);
+}
+
+long cast13974b(short[4] x) {
+    return *(cast(long*)&x);
+}
+
+int[2] cast13974c(long x) {
+    return *(cast(int[2]*)&x);
+}
+
+byte[8] cast13974e(long x) {
+    return *(cast(byte[8]*)&x);
+}
+
+double cast13974f(byte[8] x) {
+    return *(cast(double*)&x);
+}
+
+byte[8] cast13974g(double x) {
+    return *(cast(byte[8]*)&x);
+}
+
+bool bug13974()
+{
+    int[2] l2arr = [1, 5];
+    short[4] s4arr = cast13974a(l2arr);
+    long lint = cast13974b(s4arr);
+    assert(cast13974c(lint) == l2arr);
+
+    byte[8] b8arr = cast13974e(lint);
+    double dfloat = cast13974f(b8arr);
+    assert(cast13974g(dfloat) == b8arr);
+
+    return true;
+}
+
+static assert(bug13974());
+
+/**************************************************
     6792 ICE with pointer cast of indexed array
 **************************************************/
 

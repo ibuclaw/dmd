@@ -215,11 +215,11 @@ UnionExp pointerArithmetic(Loc loc, TOK op, Type *type,
     Expression *eptr, Expression *e2);
 
 // True if conversion from type 'from' to 'to' involves a reinterpret_cast
-// floating point -> integer or integer -> floating point
-bool isFloatIntPaint(Type *to, Type *from);
+// that can be handled by CTFE.
+bool isCtfePaintable(Type *to, Type *from);
 
-// Reinterpret float/int value 'fromVal' as a float/integer of type 'to'.
-Expression *paintFloatInt(Expression *fromVal, Type *to);
+// Reinterpret CTFE'd expresion 'fromVal' as type 'to'.
+Expression *paintCtfeExpr(Expression *fromVal, Type *to);
 
 /// Return true if t is an AA
 bool isAssocArray(Type *t);

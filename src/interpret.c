@@ -5896,19 +5896,19 @@ public:
         // Check for int<->float and long<->double casts.
         if (e->e1->op == TOKsymoff && ((SymOffExp *)e->e1)->offset == 0 &&
             ((SymOffExp *)e->e1)->var->isVarDeclaration() &&
-            isFloatIntPaint(e->type, ((SymOffExp *)e->e1)->var->type))
+            isCtfePaintable(e->type, ((SymOffExp *)e->e1)->var->type))
         {
             // *(cast(int*)&v, where v is a float variable
-            result = paintFloatInt(getVarExp(e->loc, istate, ((SymOffExp *)e->e1)->var, ctfeNeedRvalue), e->type);
+            result = paintCtfeExpr(getVarExp(e->loc, istate, ((SymOffExp *)e->e1)->var, ctfeNeedRvalue), e->type);
             return;
         }
         if (e->e1->op == TOKcast && ((CastExp *)e->e1)->e1->op == TOKaddress)
         {
             // *(cast(int *))&x   where x is a float expression
             Expression *x = ((AddrExp *)(((CastExp *)e->e1)->e1))->e1;
-            if (isFloatIntPaint(e->type, x->type))
+            if (isCtfePaintable(e->type, x->type))
             {
-                result = paintFloatInt(interpret(x, istate), e->type);
+                result = paintCtfeExpr(interpret(x, istate), e->type);
                 return;
             }
         }

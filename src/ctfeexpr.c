@@ -885,21 +885,58 @@ int comparePointers(Loc loc, TOK op, Type *type, Expression *agg1, dinteger_t of
 }
 
 // True if conversion from type 'from' to 'to' involves a reinterpret_cast
-// floating point -> integer or integer -> floating point
-bool isFloatIntPaint(Type *to, Type *from)
+// that can be handled by CTFE.
+bool isCtfePaintable(Type *to, Type *from)
 {
-    return from->size() == to->size() &&
-           (from->isintegral() && to->isfloating() ||
-            from->isfloating() && to->isintegral());
+    // *&e is not a reinterpret cast.
+    if (from == to)
+        return false;
+
+    // Don't handle reinterpret casts of differing sizes.
+    if (from->size() != to->size())
+        return false;
+
+    // Don't handle anything larger than 512-bits.
+    if (from->size() > 64)
+        return false;
+
+    // Don't handle any cast to/from a non-scalar or static array type.
+    if (!from->isintegral() && !from->isfloating() && from->ty != Tsarray &&
+        !to->isintegral() && !to->isfloating() && to->ty != Tsarray)
+        return false;
+
+    // Don't handle casts from a non-scalar static array, or T[1]->T casts.
+    if (from->ty == Tsarray)
+    {
+        Type *tnext = from->nextOf();
+        if (!tnext->isintegral() && !tnext->isfloating())
+            return false;
+
+        if (tnext == to)
+            return false;
+    }
+
+    // Don't handle casts to a non-scalar static array, or T->T[1] casts.
+    if (to->ty == Tsarray)
+    {
+        Type *tnext = to->nextOf();
+        if (!tnext->isintegral() && !tnext->isfloating())
+            return false;
+
+        if (tnext == from)
+            return false;
+    }
+
+    return true;
 }
 
-// Reinterpret float/int value 'fromVal' as a float/integer of type 'to'.
-Expression *paintFloatInt(Expression *fromVal, Type *to)
+// Reinterpret CTFE'd expresion 'fromVal' as type 'to'.
+Expression *paintCtfeExpr(Expression *fromVal, Type *to)
 {
     if (exceptionOrCantInterpret(fromVal))
         return fromVal;
 
-    assert(to->size() == 4 || to->size() == 8);
+    assert(fromVal->type->size() == to->size());
     return Target::paintAsType(fromVal, to);
 }
 
