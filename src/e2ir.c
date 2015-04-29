@@ -404,6 +404,7 @@ if (I32) assert(tysize[TYnptr] == 4);
         }
         else if (op == OPind)
             e = el_una(op,mTYvolatile | tyret,ep);
+#if TX86
         else if (op == OPva_start && global.params.is64bit)
         {
             assert(I64);
@@ -417,6 +418,7 @@ if (I32) assert(tysize[TYnptr] == 4);
             e->E2 = NULL;
             e = el_combine(earg, e);
         }
+#endif
         else if (op == OPtoPrec)
         {
 #define X(fty, tty) (fty * TMAX + tty)
