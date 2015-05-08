@@ -31,7 +31,6 @@
 
 // D compiler
 #include        "mars.h"
-#include        "lexer.h"
 #include        "mtype.h"
 #include        "statement.h"
 #include        "id.h"
@@ -368,6 +367,9 @@ struct OPND
     bool         bOffset;           // if 'offset' keyword
     bool         bPtr;              // if 'ptr' keyword
 #endif
+
+    OPND() { memset(this, 0, sizeof(OPND)); }
+    ~OPND() { delete next; }
 };
 
 // Exported functions called from the compiler
@@ -378,8 +380,6 @@ void iasm_term();
 //
 // Local functions defined and only used here
 //
-static OPND *opnd_calloc();
-static void opnd_free(OPND *popnd);
 static code *asm_genloc(Loc loc, code *c);
 static int asm_getnum();
 
@@ -406,28 +406,11 @@ static OPND* asm_parse_reg(bool required);
 
 /********************************/
 
-static OPND *opnd_calloc()
-{
-    OPND *o = (OPND*)calloc(1, sizeof(OPND));
-    return o;
-}
-
-/********************************/
-
-static void opnd_free(OPND *o)
-{
-    if (o)
-    {
-        opnd_free(o->next);
-        free(o);
-    }
-}
-
 /********************************/
 
 static OPND* opnd_dup(OPND *o)
 {
-    OPND* onew = opnd_calloc();
+    OPND* onew = new OPND();
 
     onew->type      = o->type;
     onew->base      = o->base;
@@ -557,7 +540,7 @@ static code *asm_emit_dataproc(Loc loc, OP *op, size_t numargs, OPND* o[])
         op = &opcodes[opidx];
 
         asmstate.flags |= Fsetcc;
-        o[2] = opnd_calloc();
+        o[2] = new OPND();
         o[2]->type = OPNDTliteral;
         o[2]->disp = 0;
         numargs++;
@@ -568,7 +551,7 @@ static code *asm_emit_dataproc(Loc loc, OP *op, size_t numargs, OPND* o[])
         assert(numargs == 2);
 
         o[2] = o[1];
-        o[1] = opnd_calloc();
+        o[1] = new OPND();
         o[1]->base = asm_reg_lookup("PC");
         numargs++;
     }
@@ -615,7 +598,7 @@ static code *asm_emit_dataproc(Loc loc, OP *op, size_t numargs, OPND* o[])
     }
 
     if (c->Iop == OP_NEG || c->Iop == OP_ADR)
-        opnd_free(o[2]);
+        delete o[2];
 
     return c;
 }
@@ -663,7 +646,7 @@ static code *asm_emit_dataproc2(Loc loc, OP *op, size_t numargs, OPND* o[])
         case OP_RRX:
             if (numargs != 2) error(loc, "RRX requires just 2 operands, both core registers");
             ++numargs;
-            o[2] = opnd_calloc();
+            o[2] = new OPND();
             o[2]->shiftcode = 4;
             break;
 
@@ -677,7 +660,7 @@ static code *asm_emit_dataproc2(Loc loc, OP *op, size_t numargs, OPND* o[])
 
     if (origIop == OP_RRX)
     {
-        opnd_free(o[2]);
+        delete o[2];
         o[2] = NULL;
     }
 
@@ -1105,7 +1088,7 @@ static code *asm_emit_MSR(Loc loc, OP* op, size_t numargs, OPND* opnds[])
         OPND* o = asm_parse_reg(true);
         if (!o || o->type != OPNDTreg) asmerr("only bare register allowed in MSR operands");
         c->setRegN(o->base->val);
-        opnd_free(o);
+        delete o;
     }
     else
     {
@@ -1139,7 +1122,7 @@ static code *asm_emit_MRS(Loc loc, OP* op, size_t numargs, OPND* opnds[])
     c->setRegS(mask & 0xf);         // not really a register, but need a way to plumb the bits through
     c->setRegM((mask & 0xf0) >> 4); // not really a register, but need a way to plumb the bits through
 
-    opnd_free(o);
+    delete o;
     return c;
 }
 
@@ -1755,7 +1738,7 @@ Lunexpected:
         o1->ajt = o2->ajt;
 #endif
 
-    opnd_free(o2);
+    delete o2;
     o2 = NULL;
 #ifdef DEBUG
     if (debuga)
@@ -2397,6 +2380,10 @@ static void asm_lookup_symbol(OPND* o)
                 return;
             }
         }
+        if (v->isThreadlocal())
+            error(asmstate.loc, "cannot directly load TLS variable '%s'", v->toChars());
+        else if (v->isDataseg() && global.params.pic)
+            error(asmstate.loc, "cannot directly load global variable '%s' with PIC code", v->toChars());
     }
 
     {
@@ -2440,7 +2427,7 @@ static OPND* asm_parse_reg(bool required)
 
     asm_token();
 
-    OPND* o = opnd_calloc();
+    OPND* o = new OPND();
     o->type = OPNDTreg;
     o->base = regp;
 
@@ -2472,7 +2459,7 @@ static OPND* asm_parse_shift(bool required)
 
     asm_token();
 
-    OPND* o = opnd_calloc();
+    OPND* o = new OPND();
     o->type = OPNDTshift;
     o->shiftcode = scidx;
 
@@ -2507,7 +2494,7 @@ static OPND* asm_parse_shift(bool required)
 
 static OPND* asm_parse_literal()
 {
-    OPND* o = opnd_calloc();
+    OPND* o = new OPND();
     o->type = OPNDTliteral;
 
     asm_lookup_symbol(o);
@@ -2533,7 +2520,7 @@ static OPND* asm_parse_reg_or_shift()
 
 static OPND* asm_parse_offset()
 {
-    OPND* o = opnd_calloc();
+    OPND* o = new OPND();
 
     switch (tok_value)
     {
@@ -2568,7 +2555,7 @@ static OPND* asm_parse_offset()
             OPND* opreg = asm_parse_reg(true);
 
             o->regDisp1 = opreg->base;
-            opnd_free(opreg);
+            delete opreg;
 
             if (tok_value == TOKcomma)
             {
@@ -2588,7 +2575,7 @@ static OPND* asm_parse_offset()
 
 static OPND* asm_parse_index()
 {
-    OPND* o = opnd_calloc();
+    OPND* o = new OPND();
     o->type = OPNDToffset;
 
     assert(tok_value == TOKlbracket);
@@ -2655,7 +2642,7 @@ static OPND* asm_parse_list()
 
     asm_token();
 
-    OPND* o = opnd_calloc();
+    OPND* o = new OPND();
     o->type = OPNDTreglist;
 
     OPND* last = o;
@@ -2732,7 +2719,7 @@ static OPND* asm_parse_operand()
 
         case TOKpound:
             asm_token();
-            o = opnd_calloc();
+            o = new OPND();
             o->type = OPNDTliteral;
             o->disp = asm_getnum();
             break;
@@ -2896,7 +2883,7 @@ static code* asm_opcode_exp()
 Lemit:
     c = asm_emit(asmstate.loc, o, numopers, operands);
 
-    for (size_t i = 0; i < numopers; ++i) opnd_free(operands[i]);
+    for (size_t i = 0; i < numopers; ++i) delete operands[i];
 
     return c;
 }
