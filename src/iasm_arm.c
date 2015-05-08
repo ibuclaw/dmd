@@ -2873,7 +2873,7 @@ static code* asm_opcode_exp()
 
     while (tok_value != TOKeof)
     {
-        //printf("parsing operand #%d:\n", numopers);
+        //printf("parsing operand #%d: %s\n", numopers, asmtok->toChars());
         operands[numopers] = asm_parse_operand();
         //printf("parsed: "); asm_output_popnd(operands[numopers]); printf("\n");
         ++numopers;

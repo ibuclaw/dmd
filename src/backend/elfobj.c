@@ -2765,7 +2765,7 @@ size_t ElfObj::writerel(int targseg, size_t offset, unsigned reltype,
  *      targetdatum is a symidx rather than a segment.
  */
 
-void Obj::reftodatseg(int seg,targ_size_t offset,targ_size_t val,
+int Obj::reftodatseg(int seg,targ_size_t offset,targ_size_t val,
         unsigned targetdatum,int flags)
 {
 #if 0
@@ -2806,7 +2806,7 @@ void Obj::reftodatseg(int seg,targ_size_t offset,targ_size_t val,
         else
             relinfo = R_386_32;
     }
-    ElfObj::writerel(seg, offset, relinfo, targetsymidx, val);
+    return ElfObj::writerel(seg, offset, relinfo, targetsymidx, val);
 }
 
 /*******************************
@@ -2819,7 +2819,7 @@ void Obj::reftodatseg(int seg,targ_size_t offset,targ_size_t val,
  *      val =           displacement from start of this module
  */
 
-void Obj::reftocodeseg(int seg,targ_size_t offset,targ_size_t val)
+int Obj::reftocodeseg(int seg,targ_size_t offset,targ_size_t val)
 {
     //dbg_printf("Obj::reftocodeseg(seg=%d, offset=x%lx, val=x%lx )\n",seg,offset,val);
 
@@ -2832,12 +2832,19 @@ void Obj::reftocodeseg(int seg,targ_size_t offset,targ_size_t val)
     else
 #endif
     {
+#if TX86
         if (I64)
             relinfo = (config.flags3 & CFG3pic) ? R_X86_64_PC32 : R_X86_64_32;
         else
             relinfo = (config.flags3 & CFG3pic) ? R_386_GOTOFF : R_386_32;
+#else
+        if (config.flags3 & CFG3pic)
+            assert(false);
+        else
+            relinfo = R_ARM_ABS32;
+#endif
     }
-    ElfObj::writerel(seg, offset, relinfo, funcsym_p->Sxtrnnum, val - funcsym_p->Soffset);
+    return ElfObj::writerel(seg, offset, relinfo, funcsym_p->Sxtrnnum, val - funcsym_p->Soffset);
 }
 
 /*******************************
@@ -2988,7 +2995,6 @@ int Obj::reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val,
 #else
                             // ARM TODO: pic?
                             relinfo = R_ARM_CALL;
-                            retsize = 0;
 #endif
                         }
                         val = (targ_size_t)-4;
@@ -3226,7 +3232,6 @@ void Obj::moduleinfo(Symbol *scc)
 
 static void obj_rtinit()
 {
-#if TX86
     // section start/stop symbols are defined by the linker (http://www.airs.com/blog/archives/56)
     // make the symbols hidden so that each DSO gets it's own brackets
     IDXSYM deh_beg, deh_end, minfo_beg, minfo_end, dso_rec;
@@ -3325,6 +3330,7 @@ static void obj_rtinit()
             elf_addsym(namidx, 0, 0, STT_FUNC, STB_LOCAL, MAP_SEG2SECIDX(codseg));
 #endif
         }
+#if TX86
         Outbuffer *buf = SegData[codseg]->SDbuf;
         assert(!buf->size());
         size_t off = 0;
@@ -3555,6 +3561,10 @@ static void obj_rtinit()
 
             SegData[seg]->SDoffset += ElfObj::writerel(seg, 0, reltype, MAP_SEG2SYMIDX(codseg), 0);
         }
+#else
+        printf("need to write _d_dso related code\n");
+        //assert(0);
+#endif
     }
     // set group section infos
     Offset(groupseg) = SegData[groupseg]->SDbuf->size();
@@ -3563,9 +3573,6 @@ static void obj_rtinit()
     p->sh_info    = dso_rec; // set the dso_rec as group symbol
     p->sh_entsize = sizeof(IDXSYM);
     p->sh_size    = Offset(groupseg);
-#else
-    assert(0);
-#endif
 }
 
 #endif // MARS

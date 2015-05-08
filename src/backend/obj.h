@@ -74,9 +74,9 @@ struct Obj
     VIRTUAL unsigned bytes(int seg, targ_size_t offset, unsigned nbytes, void *p);
     VIRTUAL void ledata(int seg, targ_size_t offset, targ_size_t data, unsigned lcfd, unsigned idx1, unsigned idx2);
     VIRTUAL void write_long(int seg, targ_size_t offset, unsigned long data, unsigned lcfd, unsigned idx1, unsigned idx2);
-    VIRTUAL void reftodatseg(int seg, targ_size_t offset, targ_size_t val, unsigned targetdatum, int flags);
-    VIRTUAL void reftofarseg(int seg, targ_size_t offset, targ_size_t val, int farseg, int flags);
-    VIRTUAL void reftocodeseg(int seg, targ_size_t offset, targ_size_t val);
+    VIRTUAL int reftodatseg(int seg, targ_size_t offset, targ_size_t val, unsigned targetdatum, int flags);
+    VIRTUAL int reftofarseg(int seg, targ_size_t offset, targ_size_t val, int farseg, int flags);
+    VIRTUAL int reftocodeseg(int seg, targ_size_t offset, targ_size_t val);
     VIRTUAL int reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val, int flags);
     VIRTUAL void far16thunk(Symbol *s);
     VIRTUAL void fltused();
@@ -180,9 +180,9 @@ struct MsCoffObj : Obj
     VIRTUAL unsigned bytes(int seg, targ_size_t offset, unsigned nbytes, void *p);
 //    VIRTUAL void ledata(int seg, targ_size_t offset, targ_size_t data, unsigned lcfd, unsigned idx1, unsigned idx2);
 //    VIRTUAL void write_long(int seg, targ_size_t offset, unsigned long data, unsigned lcfd, unsigned idx1, unsigned idx2);
-    VIRTUAL void reftodatseg(int seg, targ_size_t offset, targ_size_t val, unsigned targetdatum, int flags);
-//    VIRTUAL void reftofarseg(int seg, targ_size_t offset, targ_size_t val, int farseg, int flags);
-    VIRTUAL void reftocodeseg(int seg, targ_size_t offset, targ_size_t val);
+    VIRTUAL int reftodatseg(int seg, targ_size_t offset, targ_size_t val, unsigned targetdatum, int flags);
+//    VIRTUAL int reftofarseg(int seg, targ_size_t offset, targ_size_t val, int farseg, int flags);
+    VIRTUAL int reftocodeseg(int seg, targ_size_t offset, targ_size_t val);
     VIRTUAL int reftoident(int seg, targ_size_t offset, Symbol *s, targ_size_t val, int flags);
     VIRTUAL void far16thunk(Symbol *s);
     VIRTUAL void fltused();
