@@ -2,7 +2,7 @@
 
 // Purely useful as a parse and emit test
 version = DONE;
-//version = BASIC;
+version = BASIC;
 version = NEW;
 
 version(ARM)
@@ -154,7 +154,7 @@ void foo()
 version(DONE)
 {
     asm
-    { // }{  annoying but works around a vim syntax highlighting bug
+    {
         naked;
 
         // A8.6.1 ADC (immediate)

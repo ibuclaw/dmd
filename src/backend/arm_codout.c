@@ -738,7 +738,7 @@ Lbranch_immed: // adds OP_BLX
 
                     // emit relocation
                     FLUSH();
-                    offset += Obj::reftoident(cseg, OFFSET(), c->IEVsym1, c->IEVoffset1, CFoff);
+                    offset += Obj::reftocodeseg(cseg, OFFSET(), c->IEVoffset1);
                 }
 
                 break;
