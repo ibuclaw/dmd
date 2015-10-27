@@ -911,14 +911,14 @@ public:
         thash_t = tsize_t;
     }
 
-    enum SIZE_INVALID = (~cast(d_uns64)0);
+    enum SIZE_INVALID = (~cast(ulong)0);
 
-    final d_uns64 size()
+    final ulong size()
     {
         return size(Loc());
     }
 
-    d_uns64 size(Loc loc)
+    ulong size(Loc loc)
     {
         error(loc, "no size for type %s", toChars());
         return SIZE_INVALID;
@@ -2409,7 +2409,7 @@ public:
         }
         if (ident == Id.__sizeof)
         {
-            d_uns64 sz = size(loc);
+            ulong sz = size(loc);
             if (sz == SIZE_INVALID)
                 return new ErrorExp();
             e = new IntegerExp(loc, sz, Type.tsize_t);
@@ -2944,7 +2944,7 @@ public:
         return this;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return SIZE_INVALID;
     }
@@ -3398,7 +3398,7 @@ public:
         return this;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         uint size;
         //printf("TypeBasic::size()\n");
@@ -4006,8 +4006,8 @@ public:
             // If converting from integral to integral
             if (tob.flags & TFLAGSintegral)
             {
-                d_uns64 sz = size(Loc());
-                d_uns64 tosz = tob.size(Loc());
+                ulong sz = size(Loc());
+                ulong tosz = tob.size(Loc());
                 /* Can't convert to smaller size
                  */
                 if (sz > tosz)
@@ -4177,7 +4177,7 @@ public:
         return merge();
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return basetype.size();
     }
@@ -4464,7 +4464,7 @@ public:
         return t;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         dinteger_t sz;
         if (!dim)
@@ -4900,7 +4900,7 @@ public:
         return t;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         //printf("TypeDArray::size()\n");
         return Target.ptrsize * 2;
@@ -5108,7 +5108,7 @@ public:
         return t;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return Target.ptrsize;
     }
@@ -5494,7 +5494,7 @@ public:
         }
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return Target.ptrsize;
     }
@@ -5644,7 +5644,7 @@ public:
         return merge();
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return Target.ptrsize;
     }
@@ -6706,7 +6706,7 @@ public:
         }
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return Target.ptrsize * 2;
     }
@@ -6861,7 +6861,7 @@ public:
         idents.push(e);
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         error(this.loc, "size of type %s is not known", toChars());
         return SIZE_INVALID;
@@ -7580,7 +7580,7 @@ public:
         return t;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         if (exp.type)
             return exp.type.size(loc);
@@ -7731,7 +7731,7 @@ public:
         return "struct";
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return sym.size(loc);
     }
@@ -8251,7 +8251,7 @@ public:
         return this;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return sym.getMemtype(loc).size(loc);
     }
@@ -8497,7 +8497,7 @@ public:
         return "class";
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return Target.ptrsize;
     }
@@ -9379,7 +9379,7 @@ public:
         return true;
     }
 
-    override d_uns64 size(Loc loc)
+    override ulong size(Loc loc)
     {
         return tvoidptr.size(loc);
     }

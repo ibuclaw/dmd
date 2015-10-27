@@ -242,9 +242,9 @@ public:
     static char needThisPrefix();
     static void init();
 
-    #define SIZE_INVALID (~(d_uns64)0)
-    d_uns64 size();
-    virtual d_uns64 size(Loc loc);
+    #define SIZE_INVALID (~(uint64_t)0)
+    uint64_t size();
+    virtual uint64_t size(Loc loc);
     virtual unsigned alignsize();
     virtual Type *semantic(Loc loc, Scope *sc);
     Type *trySemantic(Loc loc, Scope *sc);
@@ -355,7 +355,7 @@ public:
     TypeError();
     Type *syntaxCopy();
 
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     Expression *getProperty(Loc loc, Identifier *ident, int flag);
     Expression *dotExp(Scope *sc, Expression *e, Identifier *ident, int flag);
     Expression *defaultInit(Loc loc);
@@ -396,7 +396,7 @@ public:
     TypeBasic(TY ty);
     const char *kind();
     Type *syntaxCopy();
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     unsigned alignsize();
     Expression *getProperty(Loc loc, Identifier *ident, int flag);
     Expression *dotExp(Scope *sc, Expression *e, Identifier *ident, int flag);
@@ -425,7 +425,7 @@ public:
     const char *kind();
     Type *syntaxCopy();
     Type *semantic(Loc loc, Scope *sc);
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     unsigned alignsize();
     Expression *getProperty(Loc loc, Identifier *ident, int flag);
     Expression *dotExp(Scope *sc, Expression *e, Identifier *ident, int flag);
@@ -460,7 +460,7 @@ public:
     TypeSArray(Type *t, Expression *dim);
     const char *kind();
     Type *syntaxCopy();
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     unsigned alignsize();
     Type *semantic(Loc loc, Scope *sc);
     void resolve(Loc loc, Scope *sc, Expression **pe, Type **pt, Dsymbol **ps, bool intypeid = false);
@@ -487,7 +487,7 @@ public:
     TypeDArray(Type *t);
     const char *kind();
     Type *syntaxCopy();
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     unsigned alignsize();
     Type *semantic(Loc loc, Scope *sc);
     void resolve(Loc loc, Scope *sc, Expression **pe, Type **pt, Dsymbol **ps, bool intypeid = false);
@@ -513,7 +513,7 @@ public:
     static TypeAArray *create(Type *t, Type *index);
     const char *kind();
     Type *syntaxCopy();
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     Type *semantic(Loc loc, Scope *sc);
     void resolve(Loc loc, Scope *sc, Expression **pe, Type **pt, Dsymbol **ps, bool intypeid = false);
     Expression *dotExp(Scope *sc, Expression *e, Identifier *ident, int flag);
@@ -535,7 +535,7 @@ public:
     const char *kind();
     Type *syntaxCopy();
     Type *semantic(Loc loc, Scope *sc);
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     MATCH implicitConvTo(Type *to);
     MATCH constConv(Type *to);
     bool isscalar();
@@ -553,7 +553,7 @@ public:
     const char *kind();
     Type *syntaxCopy();
     Type *semantic(Loc loc, Scope *sc);
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     Expression *dotExp(Scope *sc, Expression *e, Identifier *ident, int flag);
     Expression *defaultInit(Loc loc);
     bool isZeroInit(Loc loc);
@@ -645,7 +645,7 @@ public:
     const char *kind();
     Type *syntaxCopy();
     Type *semantic(Loc loc, Scope *sc);
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     unsigned alignsize();
     MATCH implicitConvTo(Type *to);
     Expression *defaultInit(Loc loc);
@@ -670,7 +670,7 @@ public:
     void addIdent(Identifier *ident);
     void addInst(TemplateInstance *inst);
     void addIndex(RootObject *expr);
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
 
     void resolveTupleIndex(Loc loc, Scope *sc, Dsymbol *s,
         Expression **pe, Type **pt, Dsymbol **ps, RootObject *oindex);
@@ -727,7 +727,7 @@ public:
     Dsymbol *toDsymbol(Scope *sc);
     void resolve(Loc loc, Scope *sc, Expression **pe, Type **pt, Dsymbol **ps, bool intypeid = false);
     Type *semantic(Loc loc, Scope *sc);
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     void accept(Visitor *v) { v->visit(this); }
 };
 
@@ -763,7 +763,7 @@ public:
 
     TypeStruct(StructDeclaration *sym);
     const char *kind();
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     unsigned alignsize();
     Type *syntaxCopy();
     Type *semantic(Loc loc, Scope *sc);
@@ -794,7 +794,7 @@ public:
     TypeEnum(EnumDeclaration *sym);
     const char *kind();
     Type *syntaxCopy();
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     unsigned alignsize();
     Type *semantic(Loc loc, Scope *sc);
     Dsymbol *toDsymbol(Scope *sc);
@@ -831,7 +831,7 @@ public:
 
     TypeClass(ClassDeclaration *sym);
     const char *kind();
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     Type *syntaxCopy();
     Type *semantic(Loc loc, Scope *sc);
     Dsymbol *toDsymbol(Scope *sc);
@@ -895,7 +895,7 @@ public:
     MATCH implicitConvTo(Type *to);
     bool isBoolean();
 
-    d_uns64 size(Loc loc);
+    uint64_t size(Loc loc);
     Expression *defaultInit(Loc loc);
     void accept(Visitor *v) { v->visit(this); }
 };

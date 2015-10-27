@@ -1581,7 +1581,7 @@ elem *toElem(Expression *e, IRState *irs)
                 }
                 else
                 {
-                    d_uns64 elemsize = sd->size(ne->loc);
+                    uint64_t elemsize = sd->size(ne->loc);
 
                     // call _d_newitemT(ti)
                     e = getTypeInfo(ne->newtype, irs);
@@ -2279,7 +2279,7 @@ elem *toElem(Expression *e, IRState *irs)
                     elem *eptr1, *eptr2; // Pointer to data, to pass to memcmp
                     elem *elen1, *elen2; // Length, for comparison
                     elem *esiz1, *esiz2; // Data size, to pass to memcmp
-                    d_uns64 sz = telement->size(); // Size of one element
+                    uint64_t sz = telement->size(); // Size of one element
 
                     if (t1->ty == Tarray)
                     {

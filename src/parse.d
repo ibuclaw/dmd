@@ -6574,11 +6574,11 @@ public:
             nextToken();
             break;
         case TOKint32v:
-            e = new IntegerExp(loc, cast(d_int32)token.int64value, Type.tint32);
+            e = new IntegerExp(loc, cast(int)token.int64value, Type.tint32);
             nextToken();
             break;
         case TOKuns32v:
-            e = new IntegerExp(loc, cast(d_uns32)token.uns64value, Type.tuns32);
+            e = new IntegerExp(loc, cast(uint)token.uns64value, Type.tuns32);
             nextToken();
             break;
         case TOKint64v:
@@ -6652,15 +6652,15 @@ public:
             nextToken();
             break;
         case TOKcharv:
-            e = new IntegerExp(loc, cast(d_uns8)token.uns64value, Type.tchar);
+            e = new IntegerExp(loc, cast(ubyte)token.uns64value, Type.tchar);
             nextToken();
             break;
         case TOKwcharv:
-            e = new IntegerExp(loc, cast(d_uns16)token.uns64value, Type.twchar);
+            e = new IntegerExp(loc, cast(ushort)token.uns64value, Type.twchar);
             nextToken();
             break;
         case TOKdcharv:
-            e = new IntegerExp(loc, cast(d_uns32)token.uns64value, Type.tdchar);
+            e = new IntegerExp(loc, cast(uint)token.uns64value, Type.tdchar);
             nextToken();
             break;
         case TOKstring:

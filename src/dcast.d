@@ -1449,8 +1449,8 @@ extern (C++) Expression castTo(Expression e, Scope* sc, Type t)
                 {
                     // T[n] sa;
                     // cast(U[])sa; // ==> cast(U[])sa[];
-                    d_uns64 fsize = t1b.nextOf().size();
-                    d_uns64 tsize = tob.nextOf().size();
+                    ulong fsize = t1b.nextOf().size();
+                    ulong tsize = tob.nextOf().size();
                     if (((cast(TypeSArray)t1b).dim.toInteger() * fsize) % tsize != 0)
                     {
                         // copied from sarray_toDarray() in e2ir.c
@@ -1621,7 +1621,7 @@ extern (C++) Expression castTo(Expression e, Scope* sc, Type t)
             if (e.committed && tb.ty == Tsarray && typeb.ty == Tarray)
             {
                 se = cast(StringExp)e.copy();
-                d_uns64 szx = tb.nextOf().size();
+                ulong szx = tb.nextOf().size();
                 assert(szx <= 255);
                 se.sz = cast(ubyte)szx;
                 se.len = cast(size_t)(cast(TypeSArray)tb).dim.toInteger();
@@ -1774,7 +1774,7 @@ extern (C++) Expression castTo(Expression e, Scope* sc, Type t)
                     se.string = buffer.extractData();
                     se.len = newlen;
                     {
-                        d_uns64 szx = tb.nextOf().size();
+                        ulong szx = tb.nextOf().size();
                         assert(szx <= 255);
                         se.sz = cast(ubyte)szx;
                     }
@@ -2364,7 +2364,7 @@ extern (C++) Expression scaleFactor(BinExp be, Scope* sc)
         // Need to adjust operator by the stride
         // Replace (ptr + int) with (ptr + (int * stride))
         Type t = Type.tptrdiff_t;
-        d_uns64 stride = t1b.nextOf().size(be.loc);
+        ulong stride = t1b.nextOf().size(be.loc);
         if (!t.equals(t2b))
             be.e2 = be.e2.castTo(sc, t);
         eoff = be.e2;
@@ -2378,7 +2378,7 @@ extern (C++) Expression scaleFactor(BinExp be, Scope* sc)
         // Replace (int + ptr) with (ptr + (int * stride))
         Type t = Type.tptrdiff_t;
         Expression e;
-        d_uns64 stride = t2b.nextOf().size(be.loc);
+        ulong stride = t2b.nextOf().size(be.loc);
         if (!t.equals(t1b))
             e = be.e1.castTo(sc, t);
         else

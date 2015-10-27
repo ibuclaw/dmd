@@ -2044,7 +2044,7 @@ public:
         {
             // Check for unsupported type painting operations
             Type elemtype = (cast(TypeArray)val.type).next;
-            d_uns64 elemsize = elemtype.size();
+            ulong elemsize = elemtype.size();
             // It's OK to cast from fixed length to dynamic array, eg &int[3] to int[]*
             if (val.type.ty == Tsarray && pointee.ty == Tarray && elemsize == pointee.nextOf().size())
             {
@@ -3142,7 +3142,7 @@ public:
         if (e.op == TOKshr || e.op == TOKshl || e.op == TOKushr)
         {
             sinteger_t i2 = e2.toInteger();
-            d_uns64 sz = e1.type.size() * 8;
+            ulong sz = e1.type.size() * 8;
             if (i2 < 0 || i2 >= sz)
             {
                 e.error("shift by %lld is outside the range 0..%llu", i2, cast(ulong)sz - 1);

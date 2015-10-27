@@ -3180,7 +3180,7 @@ public:
     {
         super(Loc(), TOKint64, __traits(classInstanceSize, IntegerExp));
         this.type = Type.tint32;
-        this.value = cast(d_int32)value;
+        this.value = cast(int)value;
     }
 
     override bool equals(RootObject o)
@@ -3219,9 +3219,9 @@ public:
         normalize(); // necessary until we fix all the paints of 'type'
         Type t = type.toBasetype();
         if (t.ty == Tuns64)
-            return ldouble(cast(d_uns64)value);
+            return ldouble(cast(ulong)value);
         else
-            return ldouble(cast(d_int64)value);
+            return ldouble(cast(long)value);
     }
 
     override real_t toImaginary()
@@ -3277,37 +3277,37 @@ private:
             value = (value != 0);
             break;
         case Tint8:
-            value = cast(d_int8)value;
+            value = cast(byte)value;
             break;
         case Tchar:
         case Tuns8:
-            value = cast(d_uns8)value;
+            value = cast(ubyte)value;
             break;
         case Tint16:
-            value = cast(d_int16)value;
+            value = cast(short)value;
             break;
         case Twchar:
         case Tuns16:
-            value = cast(d_uns16)value;
+            value = cast(ushort)value;
             break;
         case Tint32:
-            value = cast(d_int32)value;
+            value = cast(int)value;
             break;
         case Tdchar:
         case Tuns32:
-            value = cast(d_uns32)value;
+            value = cast(uint)value;
             break;
         case Tint64:
-            value = cast(d_int64)value;
+            value = cast(long)value;
             break;
         case Tuns64:
-            value = cast(d_uns64)value;
+            value = cast(ulong)value;
             break;
         case Tpointer:
             if (Target.ptrsize == 4)
-                value = cast(d_uns32)value;
+                value = cast(uint)value;
             else if (Target.ptrsize == 8)
-                value = cast(d_uns64)value;
+                value = cast(ulong)value;
             else
                 assert(0);
             break;
@@ -13021,7 +13021,7 @@ public:
             {
                 // Need to divide the result by the stride
                 // Replace (ptr - ptr) with (ptr - ptr) / stride
-                d_int64 stride;
+                long stride;
                 // make sure pointer types are compatible
                 if (Expression ex = typeCombine(this, sc))
                     return ex;

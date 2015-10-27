@@ -849,7 +849,7 @@ RET retStyle(TypeFunction *tf)
 
     Type *tn = tf->next->toBasetype();
     //printf("tn = %s\n", tn->toChars());
-    d_uns64 sz = tn->size();
+    uint64_t sz = tn->size();
     Type *tns = tn;
 
     if (global.params.isWindows && global.params.is64bit)

@@ -622,7 +622,7 @@ extern (C++) Expression Expression_optimize(Expression e, int result, bool keepL
                 if (e.e2.isConst() == 1)
                 {
                     sinteger_t i2 = e.e2.toInteger();
-                    d_uns64 sz = e.e1.type.size() * 8;
+                    ulong sz = e.e1.type.size() * 8;
                     if (i2 < 0 || i2 >= sz)
                     {
                         e.error("shift assign by %lld is outside the range 0..%llu", i2, cast(ulong)sz - 1);
@@ -697,7 +697,7 @@ extern (C++) Expression Expression_optimize(Expression e, int result, bool keepL
             if (e.e2.isConst() == 1)
             {
                 sinteger_t i2 = e.e2.toInteger();
-                d_uns64 sz = e.e1.type.size() * 8;
+                ulong sz = e.e1.type.size() * 8;
                 if (i2 < 0 || i2 >= sz)
                 {
                     e.error("shift by %lld is outside the range 0..%llu", i2, cast(ulong)sz - 1);

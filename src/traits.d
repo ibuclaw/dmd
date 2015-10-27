@@ -351,14 +351,14 @@ extern (C++) Expression pointerBitmap(TraitsExp e)
         error(e.loc, "%s is not a type", (*e.args)[0].toChars());
         return new ErrorExp();
     }
-    d_uns64 sz = t.size(e.loc);
+    ulong sz = t.size(e.loc);
     if (t.ty == Tclass && !(cast(TypeClass)t).sym.isInterfaceDeclaration())
         sz = (cast(TypeClass)t).sym.AggregateDeclaration.size(e.loc);
-    d_uns64 sz_size_t = Type.tsize_t.size(e.loc);
-    d_uns64 bitsPerWord = sz_size_t * 8;
-    d_uns64 cntptr = (sz + sz_size_t - 1) / sz_size_t;
-    d_uns64 cntdata = (cntptr + bitsPerWord - 1) / bitsPerWord;
-    Array!(d_uns64) data;
+    ulong sz_size_t = Type.tsize_t.size(e.loc);
+    ulong bitsPerWord = sz_size_t * 8;
+    ulong cntptr = (sz + sz_size_t - 1) / sz_size_t;
+    ulong cntdata = (cntptr + bitsPerWord - 1) / bitsPerWord;
+    Array!(ulong) data;
     data.setDim(cast(size_t)cntdata);
     data.zero();
 
@@ -366,15 +366,15 @@ extern (C++) Expression pointerBitmap(TraitsExp e)
     {
         alias visit = super.visit;
     public:
-        extern (D) this(Array!(d_uns64)* _data, d_uns64 _sz_size_t)
+        extern (D) this(Array!(ulong)* _data, ulong _sz_size_t)
         {
             this.data = _data;
             this.sz_size_t = _sz_size_t;
         }
 
-        void setpointer(d_uns64 off)
+        void setpointer(ulong off)
         {
-            d_uns64 ptroff = off / sz_size_t;
+            ulong ptroff = off / sz_size_t;
             (*data)[cast(size_t)(ptroff / (8 * sz_size_t))] |= 1L << (ptroff % (8 * sz_size_t));
         }
 
@@ -412,10 +412,10 @@ extern (C++) Expression pointerBitmap(TraitsExp e)
 
         override void visit(TypeSArray t)
         {
-            d_uns64 arrayoff = offset;
-            d_uns64 nextsize = t.next.size();
-            d_uns64 dim = t.dim.toInteger();
-            for (d_uns64 i = 0; i < dim; i++)
+            ulong arrayoff = offset;
+            ulong nextsize = t.next.size();
+            ulong dim = t.dim.toInteger();
+            for (ulong i = 0; i < dim; i++)
             {
                 offset = arrayoff + i * nextsize;
                 t.next.accept(this);
@@ -508,7 +508,7 @@ extern (C++) Expression pointerBitmap(TraitsExp e)
 
         override void visit(TypeStruct t)
         {
-            d_uns64 structoff = offset;
+            ulong structoff = offset;
             for (size_t i = 0; i < t.sym.fields.dim; i++)
             {
                 VarDeclaration v = t.sym.fields[i];
@@ -524,7 +524,7 @@ extern (C++) Expression pointerBitmap(TraitsExp e)
         // a "toplevel" class is treated as an instance, while TypeClass fields are treated as references
         void visitClass(TypeClass t)
         {
-            d_uns64 classoff = offset;
+            ulong classoff = offset;
             // skip vtable-ptr and monitor
             if (t.sym.baseClass)
                 visitClass(cast(TypeClass)t.sym.baseClass.type);
@@ -537,9 +537,9 @@ extern (C++) Expression pointerBitmap(TraitsExp e)
             offset = classoff;
         }
 
-        Array!(d_uns64)* data;
-        d_uns64 offset;
-        d_uns64 sz_size_t;
+        Array!(ulong)* data;
+        ulong offset;
+        ulong sz_size_t;
     }
 
     scope PointerBitmapVisitor pbv = new PointerBitmapVisitor(&data, sz_size_t);
@@ -549,7 +549,7 @@ extern (C++) Expression pointerBitmap(TraitsExp e)
         t.accept(pbv);
     auto exps = new Expressions();
     exps.push(new IntegerExp(e.loc, sz, Type.tsize_t));
-    for (d_uns64 i = 0; i < cntdata; i++)
+    for (ulong i = 0; i < cntdata; i++)
         exps.push(new IntegerExp(e.loc, data[cast(size_t)i], Type.tsize_t));
     auto ale = new ArrayLiteralExp(e.loc, exps);
     ale.type = Type.tsize_t.sarrayOf(cntdata + 1);

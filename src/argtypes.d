@@ -280,7 +280,7 @@ extern (C++) TypeTuple toArgTypes(Type t)
             }
             Type t1 = null;
             Type t2 = null;
-            d_uns64 sz = t.size(Loc());
+            ulong sz = t.size(Loc());
             assert(sz < 0xFFFFFFFF);
             switch (cast(uint)sz)
             {
@@ -358,7 +358,7 @@ extern (C++) TypeTuple toArgTypes(Type t)
                             if (f.offset & (alignsz - 1))
                                 goto Lmemory;
                             // Fields that overlap the 8byte boundary goto Lmemory
-                            d_uns64 fieldsz = f.type.size(Loc());
+                            ulong fieldsz = f.type.size(Loc());
                             if (f.offset < 8 && (f.offset + fieldsz) > 8)
                                 goto Lmemory;
                         }
