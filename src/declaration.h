@@ -599,7 +599,7 @@ public:
     void semantic2(Scope *sc);
     void semantic3(Scope *sc);
     bool functionSemantic();
-    bool functionSemantic3();
+    bool functionSemantic3(bool inlineScan = false);
     // called from semantic3
     VarDeclaration *declareThis(Scope *sc, AggregateDeclaration *ad);
     bool equals(RootObject *o);

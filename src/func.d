@@ -2243,18 +2243,19 @@ public:
         return true;
     }
 
-    final bool functionSemantic3()
+    final bool functionSemantic3(bool inlineScan = false)
     {
         if (semanticRun < PASSsemantic3 && _scope)
         {
             /* Forward reference - we need to run semantic3 on this function.
              * If errors are gagged, and it's not part of a template instance,
-             * we need to temporarily ungag errors.
+             * or we are not looking for functions to inline via canInline(),
+             * then we need to temporarily ungag errors.
              */
             TemplateInstance spec = isSpeculative();
             uint olderrs = global.errors;
             uint oldgag = global.gag;
-            if (global.gag && !spec)
+            if (global.gag && !spec && !inlineScan)
                 global.gag = 0;
             semantic3(_scope);
             global.gag = oldgag;

@@ -1792,12 +1792,13 @@ bool canInline(FuncDeclaration fd, bool hasthis, bool hdrscan, bool statementsTo
 
     if (fd.semanticRun < PASSsemantic3 && !hdrscan)
     {
+        uint errors = global.startGagging();
         if (!fd.fbody)
             return false;
-        if (!fd.functionSemantic3())
+        if (!fd.functionSemantic3(true))
             return false;
         Module.runDeferredSemantic3();
-        if (global.errors)
+        if (global.endGagging(errors) || global.errors)
             return false;
         assert(fd.semanticRun >= PASSsemantic3done);
     }
