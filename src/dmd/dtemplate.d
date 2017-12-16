@@ -6247,6 +6247,12 @@ extern (C++) class TemplateInstance : ScopeDsymbol
             // At first, disconnect chain first to prevent infinite recursion.
             this.tnext = null;
             this.tinst = null;
+            // Restore the chain back to its original order before returning.
+            scope(exit)
+            {
+                this.tnext = tnext;
+                this.tinst = tinst;
+            }
 
             // Determine necessity of tinst before tnext.
             if (tinst && tinst.needsCodegen())
@@ -6303,8 +6309,15 @@ extern (C++) class TemplateInstance : ScopeDsymbol
 
             TemplateInstance tnext = this.tnext;
             TemplateInstance tinst = this.tinst;
+            // At first, disconnect chain first to prevent infinite recursion.
             this.tnext = null;
             this.tinst = null;
+            // Restore the chain back to its original order before returning.
+            scope(exit)
+            {
+                this.tnext = tnext;
+                this.tinst = tinst;
+            }
 
             if (tinst && tinst.needsCodegen())
             {
@@ -6349,6 +6362,7 @@ extern (C++) class TemplateInstance : ScopeDsymbol
 
             TemplateInstance tnext = this.tnext;
             this.tnext = null;
+            scope(exit) this.next = tnext;
 
             if (tnext && !tnext.needsCodegen() && tnext.minst)
             {
