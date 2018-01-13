@@ -11,8 +11,8 @@
 
 module dmd.globals;
 
-import core.stdc.stdint;
 import dmd.root.array;
+import dmd.root.ctinteger;
 import dmd.root.filename;
 import dmd.common.outbuffer;
 import dmd.identifier;
@@ -472,27 +472,6 @@ extern (C++) struct Global
             params.symdebug ? params.debuglibname : params.defaultlibname;
     }
 }
-
-// Because int64_t and friends may be any integral type of the
-// correct size, we have to explicitly ask for the correct
-// integer type to get the correct mangling with dmd
-
-// Be careful not to care about sign when using dinteger_t
-// use this instead of integer_t to
-// avoid conflicts with system #include's
-alias dinteger_t = ulong;
-// Signed and unsigned variants
-alias sinteger_t = long;
-alias uinteger_t = ulong;
-
-alias d_int8 = int8_t;
-alias d_uns8 = uint8_t;
-alias d_int16 = int16_t;
-alias d_uns16 = uint16_t;
-alias d_int32 = int32_t;
-alias d_uns32 = uint32_t;
-alias d_int64 = int64_t;
-alias d_uns64 = uint64_t;
 
 version (DMDLIB)
 {

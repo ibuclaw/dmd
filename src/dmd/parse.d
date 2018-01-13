@@ -21,6 +21,7 @@ import dmd.id;
 import dmd.identifier;
 import dmd.lexer;
 import dmd.errors;
+import dmd.root.ctinteger;
 import dmd.root.filename;
 import dmd.common.outbuffer;
 import dmd.root.rmem;

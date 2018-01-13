@@ -55,6 +55,7 @@ import dmd.opover;
 import dmd.parse;
 import dmd.printast;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.root.string;
 import dmd.semantic2;
 import dmd.sideeffect;

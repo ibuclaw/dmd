@@ -35,6 +35,7 @@ import dmd.globals;
 import dmd.id;
 import dmd.identifier;
 import dmd.mtype;
+import dmd.root.ctinteger;
 import dmd.tokens;
 import dmd.typesem : defaultInit;
 import dmd.visitor;

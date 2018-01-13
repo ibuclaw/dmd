@@ -18,6 +18,7 @@ import core.stdc.stdlib;
 
 import dmd.root.array;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.root.rmem;
 
 import dmd.backend.cdef;

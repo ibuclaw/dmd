@@ -53,6 +53,7 @@ import dmd.objc;
 import dmd.opover;
 import dmd.parse;
 import dmd.root.ctfloat;
+import dmd.root.ctinteger;
 import dmd.root.rmem;
 import dmd.common.outbuffer;
 import dmd.root.rootobject;

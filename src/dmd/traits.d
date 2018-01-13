@@ -42,6 +42,7 @@ import dmd.mtype;
 import dmd.nogc;
 import dmd.parse;
 import dmd.root.array;
+import dmd.root.ctinteger;
 import dmd.root.speller;
 import dmd.root.stringtable;
 import dmd.target;

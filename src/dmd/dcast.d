@@ -39,6 +39,7 @@ import dmd.mtype;
 import dmd.opover;
 import dmd.root.ctfloat;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.root.rmem;
 import dmd.tokens;
 import dmd.typesem;

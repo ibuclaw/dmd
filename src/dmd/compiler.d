@@ -26,6 +26,7 @@ import dmd.mtype;
 import dmd.parse;
 import dmd.root.array;
 import dmd.root.ctfloat;
+import dmd.root.ctinteger;
 import dmd.semantic2;
 import dmd.semantic3;
 import dmd.tokens;

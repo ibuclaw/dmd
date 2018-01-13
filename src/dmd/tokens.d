@@ -20,6 +20,7 @@ import dmd.globals;
 import dmd.identifier;
 import dmd.root.ctfloat;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.root.rmem;
 import dmd.utf;
 

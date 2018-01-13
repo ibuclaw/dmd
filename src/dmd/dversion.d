@@ -23,6 +23,7 @@ import dmd.dsymbolsem;
 import dmd.globals;
 import dmd.identifier;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.visitor;
 
 /***********************************************************

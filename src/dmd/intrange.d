@@ -17,6 +17,7 @@ import dmd.astenums;
 import dmd.mtype;
 import dmd.expression;
 import dmd.globals;
+import dmd.root.ctinteger;
 
 private uinteger_t copySign(uinteger_t x, bool sign)
 {

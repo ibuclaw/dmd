@@ -62,6 +62,7 @@ import dmd.optimize;
 import dmd.parse;
 import dmd.printast;
 import dmd.root.ctfloat;
+import dmd.root.ctinteger;
 import dmd.root.file;
 import dmd.root.filename;
 import dmd.common.outbuffer;

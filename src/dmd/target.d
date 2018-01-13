@@ -80,10 +80,11 @@ extern (C++) struct Target
     import dmd.dscope : Scope;
     import dmd.expression : Expression;
     import dmd.func : FuncDeclaration;
-    import dmd.globals : LINK, Loc, d_int64;
+    import dmd.globals : LINK, Loc;
     import dmd.astenums : TY;
     import dmd.mtype : Type, TypeFunction, TypeTuple;
     import dmd.root.ctfloat : real_t;
+    import dmd.root.ctinteger : d_int64;
     import dmd.statement : Statement;
     import dmd.tokens : EXP;
 

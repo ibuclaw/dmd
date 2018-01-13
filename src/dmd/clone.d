@@ -33,6 +33,7 @@ import dmd.identifier;
 import dmd.init;
 import dmd.mtype;
 import dmd.opover;
+import dmd.root.ctinteger;
 import dmd.semantic2;
 import dmd.semantic3;
 import dmd.statement;

@@ -28,6 +28,7 @@ import dmd.init;
 import dmd.mtype;
 import dmd.printast;
 import dmd.root.ctfloat;
+import dmd.root.ctinteger;
 import dmd.sideeffect;
 import dmd.tokens;
 import dmd.visitor;

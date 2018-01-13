@@ -56,6 +56,7 @@ import dmd.nspace;
 import dmd.objc;
 import dmd.opover;
 import dmd.parse;
+import dmd.root.ctinteger;
 import dmd.root.filename;
 import dmd.common.outbuffer;
 import dmd.root.rmem;

@@ -38,6 +38,7 @@ import dmd.tokens;
 
 import dmd.root.ctfloat;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.root.rmem;
 import dmd.root.rootobject;
 

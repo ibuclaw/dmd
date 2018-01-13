@@ -58,6 +58,7 @@ import dmd.objc;
 import dmd.opover;
 import dmd.optimize;
 import dmd.root.ctfloat;
+import dmd.root.ctinteger;
 import dmd.root.filename;
 import dmd.common.outbuffer;
 import dmd.root.optional;

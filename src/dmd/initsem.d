@@ -35,6 +35,7 @@ import dmd.importc;
 import dmd.init;
 import dmd.mtype;
 import dmd.opover;
+import dmd.root.ctinteger;
 import dmd.statement;
 import dmd.target;
 import dmd.tokens;

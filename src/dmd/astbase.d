@@ -27,6 +27,7 @@ struct ASTBase
     import dmd.root.rootobject;
     import dmd.common.outbuffer;
     import dmd.root.ctfloat;
+    import dmd.root.ctinteger;
     import dmd.root.rmem;
     import dmd.root.string : toDString;
     import dmd.root.stringtable;

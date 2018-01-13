@@ -11,6 +11,7 @@
 #include "root/array.h"
 #include "root/bitarray.h"
 #include "root/ctfloat.h"
+#include "root/ctinteger.h"
 #include "root/dcompat.h"
 #include "root/dsystem.h"
 #include "root/file.h"

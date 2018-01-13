@@ -30,6 +30,7 @@ import dmd.func;
 import dmd.globals;
 import dmd.mtype;
 import dmd.root.ctfloat;
+import dmd.root.ctinteger;
 import dmd.root.port;
 import dmd.root.rmem;
 import dmd.tokens;

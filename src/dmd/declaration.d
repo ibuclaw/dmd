@@ -36,6 +36,7 @@ import dmd.initsem;
 import dmd.intrange;
 import dmd.mtype;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.root.rootobject;
 import dmd.target;
 import dmd.tokens;

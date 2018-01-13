@@ -44,6 +44,7 @@ import dmd.printast;
 import dmd.root.rmem;
 import dmd.root.array;
 import dmd.root.ctfloat;
+import dmd.root.ctinteger;
 import dmd.root.region;
 import dmd.root.rootobject;
 import dmd.statement;

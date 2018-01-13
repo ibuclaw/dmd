@@ -1408,7 +1408,7 @@ auto sourceFiles()
         lexer: fileArray(env["D"], "
             console.d entity.d errors.d file_manager.d globals.d id.d identifier.d lexer.d tokens.d utf.d
         ") ~ fileArray(env["ROOT"], "
-            array.d bitarray.d ctfloat.d file.d filename.d hash.d port.d region.d rmem.d
+            array.d bitarray.d ctfloat.d ctinteger.d file.d filename.d hash.d port.d region.d rmem.d
             rootobject.d stringtable.d
         "),
         common: fileArray(env["COMMON"], "
@@ -1421,7 +1421,7 @@ auto sourceFiles()
             aav.d longdouble.d man.d optional.d response.d speller.d string.d strtold.d
         "),
         rootHeaders: fileArray(env["ROOT"], "
-            array.h bitarray.h ctfloat.h dcompat.h dsystem.h file.h filename.h longdouble.h
+            array.h bitarray.h ctfloat.h ctinteger.h dcompat.h dsystem.h file.h filename.h longdouble.h
             object.h optional.h port.h rmem.h root.h
         "),
         backend: fileArray(env["C"], "

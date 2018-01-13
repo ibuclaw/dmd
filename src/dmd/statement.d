@@ -40,6 +40,7 @@ import dmd.identifier;
 import dmd.dinterpret;
 import dmd.mtype;
 import dmd.common.outbuffer;
+import dmd.root.ctinteger;
 import dmd.root.rootobject;
 import dmd.sapply;
 import dmd.sideeffect;
