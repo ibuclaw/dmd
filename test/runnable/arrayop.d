@@ -1,3 +1,22 @@
+/*
+TEST_OUTPUT:
+---
+../../druntime/import/core/internal/arrayop.d-mixin-144(144): Deprecation: integral promotion not done for `-a`, use '-transition=intpromote' switch or `-cast(int)(a)`
+../../druntime/import/core/internal/arrayop.d-mixin-57(57): Deprecation: integral promotion not done for `-_param_1[pos]`, use '-transition=intpromote' switch or `-cast(int)(_param_1[pos])`
+../../druntime/import/core/internal/arrayop.d-mixin-144(144): Deprecation: integral promotion not done for `~a`, use '-transition=intpromote' switch or `~cast(int)(a)`
+../../druntime/import/core/internal/arrayop.d-mixin-57(57): Deprecation: integral promotion not done for `~_param_1[pos]`, use '-transition=intpromote' switch or `~cast(int)(_param_1[pos])`
+runnable/arrayop.d(388): Deprecation: integral promotion not done for `~cast(byte)1`, use '-transition=intpromote' switch or `~cast(int)(cast(byte)1)`
+runnable/arrayop.d(389): Deprecation: integral promotion not done for `~cast(byte)2`, use '-transition=intpromote' switch or `~cast(int)(cast(byte)2)`
+runnable/arrayop.d(390): Deprecation: integral promotion not done for `~cast(byte)3`, use '-transition=intpromote' switch or `~cast(int)(cast(byte)3)`
+../../druntime/import/core/internal/arrayop.d-mixin-144(144): Deprecation: integral promotion not done for `-a`, use '-transition=intpromote' switch or `-cast(int)(a)`
+../../druntime/import/core/internal/arrayop.d-mixin-57(57): Deprecation: integral promotion not done for `-_param_1[pos]`, use '-transition=intpromote' switch or `-cast(int)(_param_1[pos])`
+../../druntime/import/core/internal/arrayop.d-mixin-144(144): Deprecation: integral promotion not done for `~a`, use '-transition=intpromote' switch or `~cast(int)(a)`
+../../druntime/import/core/internal/arrayop.d-mixin-57(57): Deprecation: integral promotion not done for `~_param_1[pos]`, use '-transition=intpromote' switch or `~cast(int)(_param_1[pos])`
+runnable/arrayop.d(388): Deprecation: integral promotion not done for `~cast(short)1`, use '-transition=intpromote' switch or `~cast(int)(cast(short)1)`
+runnable/arrayop.d(389): Deprecation: integral promotion not done for `~cast(short)2`, use '-transition=intpromote' switch or `~cast(int)(cast(short)2)`
+runnable/arrayop.d(390): Deprecation: integral promotion not done for `~cast(short)3`, use '-transition=intpromote' switch or `~cast(int)(cast(short)3)`
+---
+*/
 import std.math;
 
 extern(C) int printf(const char*, ...);

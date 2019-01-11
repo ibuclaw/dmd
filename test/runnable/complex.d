@@ -1,4 +1,12 @@
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/complex.d(20): Deprecation: function `std.math.sqrt` is deprecated - Use std.complex.sqrt
+../../phobos/std/format.d(1854): Deprecation: function `std.format.formatValueImpl!(LockingTextWriter, creal, char).formatValueImpl` is deprecated - Use of complex types is deprecated. Use std.complex
+../../phobos/std/format.d(1854): Deprecation: function `std.format.formatValueImpl!(LockingTextWriter, ireal, char).formatValueImpl` is deprecated - Use of imaginary types is deprecated. Use std.complex
+---
+*/
 
 import std.stdio;
 import std.math;

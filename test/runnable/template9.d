@@ -1,4 +1,46 @@
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/template9.d(2077): Deprecation: Using `this` as a type is deprecated. Use `typeof(this)` instead
+runnable/template9.d(2077): Deprecation: Using `this` as a type is deprecated. Use `typeof(this)` instead
+func
+double
+All good 1
+All good 2
+All good 3
+_D7imports10testmangle12detectMangleFPSQBlQBg6DetectZQq
+_D7imports10testmangle__T10DetectTmplTiZQpFNaNbNiNfZv
+true
+false
+ulong
+int[]
+int[]
+const(K5886)
+4 ; const(K5886)
+8 ; const(K5886)
+K5886
+immutable(K5886)
+4 ; K5886
+4 ; immutable(K5886)
+1 ; K5886
+2 ; const(K5886)
+3 ; immutable(K5886)
+8 ; K5886
+9 ; const(K5886)
+10 ; immutable(K5886)
+> U = int, N:ulong = 3LU
+K=string, V=int
+K=char, V=string
+T = SA, E = int, dim = 5LU
+T = DA, E = int
+T = AA, K = string, V = int
+pure nothrow @nogc @safe void(int t)
+pure nothrow @nogc @safe void(int t)
+T = byte
+T = char
+---
+*/
 
 module breaker;
 

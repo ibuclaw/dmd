@@ -1,4 +1,12 @@
 // REQUIRED_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/test15.d(57): Deprecation: Built-in hex string literals are deprecated, use `std.conv.hexString` instead.
+runnable/test15.d(910): Deprecation: foreach: loop index implicitly converted from `size_t` to `int`
+runnable/test15.d(915): Deprecation: foreach: loop index implicitly converted from `size_t` to `int`
+---
+*/
 
 import std.array;
 import core.stdc.math : cos, fabs, sin, sqrt;

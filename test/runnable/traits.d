@@ -1,4 +1,40 @@
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/traits.d(986): Deprecation: `imports.a9546.S.privA` is not visible from module `traits`
+runnable/traits.d(986): Deprecation: `imports.a9546.S.privA` is not visible from module `traits`
+runnable/traits.d(987): Deprecation: `imports.a9546.S.protA` is not visible from module `traits`
+runnable/traits.d(987): Deprecation: `imports.a9546.S.protA` is not visible from module `traits`
+runnable/traits.d(988): Deprecation: `imports.a9546.S.packA` is not visible from module `traits`
+runnable/traits.d(988): Deprecation: `imports.a9546.S.packA` is not visible from module `traits`
+runnable/traits.d(989): Deprecation: `imports.a9546.S.privA` is not visible from module `traits`
+runnable/traits.d(990): Deprecation: `imports.a9546.S.protA` is not visible from module `traits`
+runnable/traits.d(991): Deprecation: `imports.a9546.S.packA` is not visible from module `traits`
+runnable/traits.d-mixin-993(993): Deprecation: `imports.a9546.S.privA` is not visible from module `traits`
+runnable/traits.d-mixin-994(994): Deprecation: `imports.a9546.S.protA` is not visible from module `traits`
+runnable/traits.d-mixin-995(995): Deprecation: `imports.a9546.S.packA` is not visible from module `traits`
+runnable/traits.d-mixin-996(996): Deprecation: `imports.a9546.S.privA` is not visible from module `traits`
+runnable/traits.d-mixin-997(997): Deprecation: `imports.a9546.S.protA` is not visible from module `traits`
+runnable/traits.d-mixin-998(998): Deprecation: `imports.a9546.S.packA` is not visible from module `traits`
+runnable/traits.d(1007): Deprecation: `imports.a9546.S.privF` is not visible from module `traits`
+runnable/traits.d(1007): Deprecation: `imports.a9546.S.privF` is not visible from module `traits`
+runnable/traits.d(1008): Deprecation: `imports.a9546.S.protF` is not visible from module `traits`
+runnable/traits.d(1008): Deprecation: `imports.a9546.S.protF` is not visible from module `traits`
+runnable/traits.d(1009): Deprecation: `imports.a9546.S.packF` is not visible from module `traits`
+runnable/traits.d(1009): Deprecation: `imports.a9546.S.packF` is not visible from module `traits`
+runnable/traits.d(1010): Deprecation: `imports.a9546.S.privF` is not visible from module `traits`
+runnable/traits.d(1011): Deprecation: `imports.a9546.S.protF` is not visible from module `traits`
+runnable/traits.d(1012): Deprecation: `imports.a9546.S.packF` is not visible from module `traits`
+runnable/traits.d-mixin-1014(1014): Deprecation: `imports.a9546.S.privF` is not visible from module `traits`
+runnable/traits.d-mixin-1015(1015): Deprecation: `imports.a9546.S.protF` is not visible from module `traits`
+runnable/traits.d-mixin-1016(1016): Deprecation: `imports.a9546.S.packF` is not visible from module `traits`
+runnable/traits.d-mixin-1017(1017): Deprecation: `imports.a9546.S.privF` is not visible from module `traits`
+runnable/traits.d-mixin-1018(1018): Deprecation: `imports.a9546.S.protF` is not visible from module `traits`
+runnable/traits.d-mixin-1019(1019): Deprecation: `imports.a9546.S.packF` is not visible from module `traits`
+__lambda1
+---
+*/
 module traits;
 
 import std.stdio;

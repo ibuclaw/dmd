@@ -1,3 +1,11 @@
+/*
+TEST_OUTPUT:
+---
+runnable/test20.d(754): Deprecation: Built-in hex string literals are deprecated, use `std.conv.hexString` instead.
+runnable/test20.d(345): Deprecation: class allocators have been deprecated, consider moving the allocation strategy outside of the class
+runnable/test20.d(457): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+---
+*/
 import core.vararg;
 
 extern(C) int printf(const char*, ...);

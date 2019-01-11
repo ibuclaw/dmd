@@ -1,4 +1,12 @@
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/stress.d(100): Deprecation: foreach: loop index implicitly converted from `size_t` to `int`
+runnable/stress.d(119): Deprecation: foreach: loop index implicitly converted from `size_t` to `int`
+runnable/stress.d(145): Deprecation: foreach: loop index implicitly converted from `size_t` to `int`
+---
+*/
 
 import core.stdc.stdio : printf;
 import std.string : splitLines;

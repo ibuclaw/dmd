@@ -1,3 +1,15 @@
+/*
+TEST_OUTPUT:
+---
+hello
+hello
+
+
+
+hello
+hello
+---
+*/
 import std.stdio;
 
 /*********************************************/

@@ -1,3 +1,10 @@
+/*
+TEST_OUTPUT:
+---
+runnable/implicit.d(157): Deprecation: slice of static array temporary returned by `pureMaker3c()` assigned to longer lived variable `z1`
+runnable/implicit.d(158): Deprecation: slice of static array temporary returned by `pureMaker3c()` assigned to longer lived variable `z2`
+---
+*/
 
 import std.stdio;
 

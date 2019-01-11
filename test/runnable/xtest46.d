@@ -1,4 +1,55 @@
 // PERMUTE_ARGS: -unittest -O -release -inline -fPIC -g
+/*
+TEST_OUTPUT:
+---
+runnable/xtest46.d(1369): Deprecation: Built-in hex string literals are deprecated, use `std.conv.hexString` instead.
+runnable/xtest46.d(1382): Deprecation: Built-in hex string literals are deprecated, use `std.conv.hexString` instead.
+runnable/xtest46.d(4147): Deprecation: Built-in hex string literals are deprecated, use `std.conv.hexString` instead.
+Boo!double
+Boo!int
+true
+int
+!! immutable(int)[]
+runnable/xtest46.d(3699): Deprecation: Using `super` as a type is deprecated. Use `typeof(super)` instead
+runnable/xtest46.d(3701): Deprecation: Using `this` as a type is deprecated. Use `typeof(this)` instead
+runnable/xtest46.d(3702): Deprecation: Using `this` as a type is deprecated. Use `typeof(this)` instead
+runnable/xtest46.d(3703): Deprecation: Using `super` as a type is deprecated. Use `typeof(super)` instead
+runnable/xtest46.d(3704): Deprecation: Using `super` as a type is deprecated. Use `typeof(super)` instead
+runnable/xtest46.d(3705): Deprecation: Using `this` as a type is deprecated. Use `typeof(this)` instead
+runnable/xtest46.d(3710): Deprecation: Using `this` as a type is deprecated. Use `typeof(this)` instead
+int(int i, long j = 7L)
+long
+C10390(C10390(<recursion>))
+tuple(height)
+tuple(get, get)
+tuple(clear)
+tuple(draw, draw)
+runnable/xtest46.d(190): Deprecation: `opDot` is deprecated. Use `alias this`
+runnable/xtest46.d(192): Deprecation: `opDot` is deprecated. Use `alias this`
+runnable/xtest46.d(193): Deprecation: `opDot` is deprecated. Use `alias this`
+runnable/xtest46.d(195): Deprecation: `opDot` is deprecated. Use `alias this`
+runnable/xtest46.d(222): Deprecation: `opDot` is deprecated. Use `alias this`
+runnable/xtest46.d(224): Deprecation: `opDot` is deprecated. Use `alias this`
+runnable/xtest46.d(225): Deprecation: `opDot` is deprecated. Use `alias this`
+runnable/xtest46.d(227): Deprecation: `opDot` is deprecated. Use `alias this`
+const(int)
+string[]
+double[]
+double[]
+runnable/xtest46.d(2611): Deprecation: class allocators have been deprecated, consider moving the allocation strategy outside of the class
+{}
+tuple("m")
+true
+TFunction1: extern (C) void function()
+f
+toString
+toHash
+opCmp
+opEquals
+Monitor
+factory
+---
+*/
 
 //import std.stdio;
 import core.stdc.stdio;

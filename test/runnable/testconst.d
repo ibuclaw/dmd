@@ -1,3 +1,46 @@
+/*
+TEST_OUTPUT:
+---
+runnable/testconst.d(3120): Deprecation: Using `super` as a type is deprecated. Use `typeof(super)` instead
+const(immutable(char)*)
+inout(immutable(char)*)
+inout(const(char)*)
+inout(const(char))
+shared(inout(char))
+shared(inout(char))
+immutable(char)
+immutable(char)
+inout(const(char))
+inout(const(char))
+shared(const(char))
+shared(const(char))
+inout(char*****)
+inout(char****)*
+const(char*****)
+const(char****)*
+immutable(char*****)
+immutable(char****)*
+shared(char*****)
+shared(char****)*
+const(shared(char****)*)
+shared(const(char*****))
+shared(char*****)
+immutable(char*****)
+inout(shared(char****)*)
+inout(shared(char**)***)
+shared(inout(char**))
+immutable(string)
+const(char[])
+char[]
+shared(foo85)
+const(char[26])
+const(char[26])
+immutable(char[26])
+immutable(char[26])
+string
+int[3]
+---
+*/
 
 import core.stdc.stdio;
 

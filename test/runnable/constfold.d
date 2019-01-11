@@ -1,6 +1,12 @@
 #! blah
+/*
+TEST_OUTPUT:
+---
+extern (Windows) uint function(void*)
+---
+*/
 
-static assert(__LINE__ == 3); // fails as __LINE__ is 2
+static assert(__LINE__ == 9); // fails as __LINE__ is 8
 
 import std.stdio;
 import std.math : signbit, sqrt;

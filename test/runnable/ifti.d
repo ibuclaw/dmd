@@ -1,3 +1,9 @@
+/*
+TEST_OUTPUT:
+---
+../../phobos/std/format.d(1854): Deprecation: function `std.format.formatValueImpl!(LockingTextWriter, idouble, char).formatValueImpl` is deprecated - Use of imaginary types is deprecated. Use std.complex
+---
+*/
 import std.stdio;
 
 struct S {

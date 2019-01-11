@@ -1,4 +1,14 @@
 // REQUIRED_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/test23.d(716): Deprecation: class allocators have been deprecated, consider moving the allocation strategy outside of the class
+runnable/test23.d(724): Deprecation: class deallocators have been deprecated, consider moving the deallocation strategy outside of the class
+runnable/test23.d(748): Deprecation: class allocators have been deprecated, consider moving the allocation strategy outside of the class
+runnable/test23.d(756): Deprecation: class deallocators have been deprecated, consider moving the deallocation strategy outside of the class
+runnable/test23.d(735): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+---
+*/
 
 module test;
 

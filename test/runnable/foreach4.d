@@ -1,3 +1,9 @@
+/*
+TEST_OUTPUT:
+---
+runnable/foreach4.d(586): Deprecation: Built-in hex string literals are deprecated, use `std.conv.hexString` instead.
+---
+*/
 
 import core.stdc.stdio;
 import std.stdio;

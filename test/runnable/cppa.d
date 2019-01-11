@@ -1,5 +1,11 @@
 // PERMUTE_ARGS: -g
 // EXTRA_CPP_SOURCES: cppb.cpp
+/*
+TEST_OUTPUT:
+---
+
+---
+*/
 
 import core.stdc.stdio;
 import core.stdc.stdarg;

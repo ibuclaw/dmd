@@ -1,4 +1,15 @@
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/newdel.d(23): Deprecation: class allocators have been deprecated, consider moving the allocation strategy outside of the class
+runnable/newdel.d(48): Deprecation: class deallocators have been deprecated, consider moving the deallocation strategy outside of the class
+runnable/newdel.d(81): Deprecation: class allocators have been deprecated, consider moving the allocation strategy outside of the class
+runnable/newdel.d(93): Deprecation: class deallocators have been deprecated, consider moving the deallocation strategy outside of the class
+runnable/newdel.d(70): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/newdel.d(106): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+---
+*/
 
 import core.stdc.stdio;
 import core.stdc.stdlib;

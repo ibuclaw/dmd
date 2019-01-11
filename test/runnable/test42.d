@@ -1,5 +1,20 @@
 // REQUIRED_ARGS:
-//
+/*
+TEST_OUTPUT:
+---
+success
+Not ported to x86-64 compatible varargs, yet.
+../../phobos/std/format.d(1854): Deprecation: function `std.format.formatValueImpl!(LockingTextWriter, ifloat, char).formatValueImpl` is deprecated - Use of imaginary types is deprecated. Use std.complex
+myInt int
+myBool bool
+runnable/test42.d(2001): Deprecation: foreach: loop index implicitly converted from `size_t` to `uint`
+i
+s
+C6test42__T4T219TiZ1C
+C6test427test219FZ8__mixin11C
+runnable/test42.d(4213): Deprecation: identity comparison of static arrays implicitly coerces them to slices, which are compared by reference
+---
+*/
 
 module test42;
 
@@ -52,7 +67,7 @@ void test3()
 {
     auto i = mixin("__LINE__");
     writefln("%d", i);
-    assert(i == 53);
+    assert(i == 68);
 }
 
 /***************************************************/

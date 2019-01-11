@@ -1,4 +1,12 @@
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+runnable/testdstress.d(682): Deprecation: Built-in hex string literals are deprecated, use `std.conv.hexString` instead.
+runnable/testdstress.d(859): Deprecation: class allocators have been deprecated, consider moving the allocation strategy outside of the class
+runnable/testdstress.d(667): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+---
+*/
 
 module run.module_01;
 

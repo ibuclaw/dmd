@@ -1,5 +1,21 @@
 // PERMUTE_ARGS: -unittest -O -release -inline -fPIC -g
 // REQUIRED_ARGS: -transition=dtorfields
+/*
+TEST_OUTPUT:
+---
+runnable/sdtor.d(49): Deprecation: class deallocators have been deprecated, consider moving the deallocation strategy outside of the class
+runnable/sdtor.d(38): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(55): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(78): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(112): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(136): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(162): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(196): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(222): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+runnable/sdtor.d(295): Deprecation: The `delete` keyword has been deprecated.  Use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead.
+S7353
+---
+*/
 
 import core.vararg;
 
