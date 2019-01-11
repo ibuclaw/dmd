@@ -1,5 +1,11 @@
 // PERMUTE_ARGS:
 // REQUIRED_ARGS: -o-
+/*
+TEST_OUTPUT:
+---
+false
+---
+*/
 
 /***************************************************/
 // https://issues.dlang.org/show_bug.cgi?id=6719

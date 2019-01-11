@@ -1,5 +1,63 @@
 // REQUIRED_ARGS: -o-
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+S(1, 2, 3, [0, 1, 2])
+x0: 1
+x1: 2
+x2: 3
+a: [0, 1, 2]
+compilable/staticforeach.d(132): Deprecation: integral promotion not done for `-x`, use '-transition=intpromote' switch or `-cast(int)(x)`
+(int[], char[], bool[], Object[])
+[0LU, 0LU]
+x0: int
+x1: double
+x2: char
+test(0)→ 0
+test(1)→ 1
+test(2)→ 2
+test(3)→ 3
+test(4)→ 4
+test(5)→ 5
+test(6)→ 6
+test(7)→ 7
+test(8)→ 8
+test(9)→ 9
+test(10)→ -1
+test(11)→ -1
+test(12)→ -1
+test(13)→ -1
+test(14)→ -1
+1
+[1, 2, 3]
+2
+[1, 2, 3]
+3
+[1, 2, 3]
+0LU 1
+1LU 2
+2LU 3
+1
+3
+4
+1 2 '3'
+2 3 '4'
+0LU 1
+1LU 2
+2LU 3
+---
+*/
 
 struct Tuple(T...){
     T expand;

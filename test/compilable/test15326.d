@@ -1,4 +1,11 @@
 // REQUIRED_ARGS: -w -c -unittest
+/*
+TEST_OUTPUT:
+---
+64
+X86_64
+---
+*/
 
 version (unittest)
 private struct _NestedSym_

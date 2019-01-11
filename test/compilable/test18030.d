@@ -1,4 +1,10 @@
 // https://issues.dlang.org/show_bug.cgi?id=18030
+/*
+TEST_OUTPUT:
+---
+Inside S: func() is public
+---
+*/
 
 struct S(T)
 {

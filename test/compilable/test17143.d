@@ -1,3 +1,10 @@
+/*
+TEST_OUTPUT:
+---
+(int, int)
+tuple(1, 2)
+---
+*/
 import std.typecons : tuple;
 enum foo = tuple(1, 2).expand;
 static assert(typeof(foo).stringof == "(int, int)");

@@ -1,3 +1,9 @@
+/*
+TEST_OUTPUT:
+---
+pure nothrow @nogc @safe void()
+---
+*/
 
 /***************************************************/
 // https://issues.dlang.org/show_bug.cgi?id=6265

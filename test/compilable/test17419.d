@@ -1,4 +1,10 @@
 // https://issues.dlang.org/show_bug.cgi?id=17419
+/*
+TEST_OUTPUT:
+---
+compilable/test17419.d(19): Deprecation: `extern(Pascal)` is deprecated. You might want to use `extern(Windows)` instead.
+---
+*/
 
 
 extern (C) int fooc();

@@ -1,3 +1,12 @@
+/*
+TEST_OUTPUT:
+---
+compiled in!
+"object"
+"World"
+"BuildStuff"
+---
+*/
 static if (__traits(allMembers, __traits(parent,{}))[0]=="object") {
 	enum test = 0;
 }

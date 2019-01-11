@@ -1,4 +1,19 @@
 // PERMUTE_ARGS:
+/*
+TEST_OUTPUT:
+---
+true
+false
+int
+ulong
+S14166
+int
+double
+X14166
+(int, int)
+missing ;
+---
+*/
 
 /***************************************************/
 // https://issues.dlang.org/show_bug.cgi?id=1748

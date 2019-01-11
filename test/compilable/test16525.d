@@ -1,3 +1,11 @@
+/*
+TEST_OUTPUT:
+---
+1234
+1234
+_ZN3CPP6memvarE
+---
+*/
 static immutable templ(alias var) = 1234;
 
 struct D

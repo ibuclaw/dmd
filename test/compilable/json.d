@@ -1,6 +1,13 @@
 // PERMUTE_ARGS:
 // REQUIRED_ARGS: -dip1000 -o- -X -Xf${RESULTS_DIR}/compilable/json.out
 // POST_SCRIPT: compilable/extra-files/json-postscript.sh
+/*
+TEST_OUTPUT:
+---
+compilable/json.d(192): Deprecation: `extern(Pascal)` is deprecated. You might want to use `extern(Windows)` instead.
+compilable/json.d(200): Deprecation: `extern(Pascal)` is deprecated. You might want to use `extern(Windows)` instead.
+---
+*/
 
 module json;
 
