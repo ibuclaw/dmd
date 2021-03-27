@@ -12,7 +12,7 @@ module dmd.env;
 
 import core.stdc.string;
 import core.sys.posix.stdlib;
-import dmd.globals;
+import dmd.globaltypes;
 import dmd.root.array;
 import dmd.root.rmem;
 import dmd.root.string;

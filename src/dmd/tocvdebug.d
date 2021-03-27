@@ -33,7 +33,7 @@ import dmd.dsymbol;
 import dmd.dstruct;
 import dmd.dtemplate;
 import dmd.func;
-import dmd.globals;
+import dmd.globaltypes;
 import dmd.id;
 import dmd.mtype;
 import dmd.target;

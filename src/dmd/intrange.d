@@ -15,7 +15,7 @@ import core.stdc.stdio;
 
 import dmd.mtype;
 import dmd.expression;
-import dmd.globals;
+import dmd.globaltypes;
 
 private uinteger_t copySign(uinteger_t x, bool sign)
 {

@@ -36,6 +36,7 @@
 #include "errors.h"
 #include "expression.h"
 #include "globals.h"
+#include "globaltypes.h"
 #include "hdrgen.h"
 #include "identifier.h"
 #include "id.h"

@@ -6851,6 +6851,32 @@ enum class FeatureState : int8_t
     enabled = 1,
 };
 
+typedef uint32_t structalign_t;
+
+typedef uint64_t dinteger_t;
+
+typedef int64_t sinteger_t;
+
+typedef uint64_t uinteger_t;
+
+typedef int8_t d_int8;
+
+typedef uint8_t d_uns8;
+
+typedef int16_t d_int16;
+
+typedef uint16_t d_uns16;
+
+typedef int32_t d_int32;
+
+typedef uint32_t d_uns32;
+
+typedef int64_t d_int64;
+
+typedef uint64_t d_uns64;
+
+typedef uint64_t StorageClass;
+
 struct Param
 {
     bool obj;
@@ -7249,8 +7275,6 @@ struct Param
         {}
 };
 
-typedef uint32_t structalign_t;
-
 struct Global
 {
     _d_dynamicArray< const char > inifilename;
@@ -7334,30 +7358,6 @@ struct Global
         debugids(debugids)
         {}
 };
-
-typedef uint64_t dinteger_t;
-
-typedef int64_t sinteger_t;
-
-typedef uint64_t uinteger_t;
-
-typedef int8_t d_int8;
-
-typedef uint8_t d_uns8;
-
-typedef int16_t d_int16;
-
-typedef uint16_t d_uns16;
-
-typedef int32_t d_int32;
-
-typedef uint32_t d_uns32;
-
-typedef int64_t d_int64;
-
-typedef uint64_t d_uns64;
-
-typedef uint64_t StorageClass;
 
 struct Id
 {
