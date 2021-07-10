@@ -13,6 +13,7 @@
 module dmd.backend.backconfig;
 
 import core.stdc.stdio;
+import core.stdc.stdlib;
 
 import dmd.backend.cdef;
 import dmd.backend.cc;
@@ -64,6 +65,8 @@ extern (C) void out_config_init(
 version (MARS)
 {
     //printf("out_config_init()\n");
+    assert(config is null);
+    config = cast(Config*)calloc(1, Config.sizeof);
 
     config._version = _version;
     if (!config.target_cpu)

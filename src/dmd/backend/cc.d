@@ -166,7 +166,7 @@ alias symlist_t = list_t;
 alias vec_t = size_t*;
 alias enum_TK = ubyte;
 
-__gshared Config config;
+__gshared Config *config;
 
 @trusted
 uint CPP() { return config.flags3 & CFG3cpp; }
