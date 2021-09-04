@@ -32,6 +32,7 @@ fail_compilation/failcstuff2.c(254): Error: identifier or `(` expected before `)
 fail_compilation/failcstuff2.c(255): Error: identifier or `(` expected
 fail_compilation/failcstuff2.c(302): Error: incompatible types for `(buf) is (1)`: `ubyte*` and `int`
 fail_compilation/failcstuff2.c(304): Error: incompatible types for `(2) is (buf)`: `int` and `ubyte*`
+fail_compilation/failcstuff2.c(302): Error: cannot modify `const` expression `buf`
 ---
 */
 
@@ -124,3 +125,9 @@ void test22262(unsigned char *buf)
     return;
 }
 
+// https://issues.dlang.org/show_bug.cgi?id=22265
+#line 300
+int test22265(char *const buf)
+{
+    return *buf++;
+}

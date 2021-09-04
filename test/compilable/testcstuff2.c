@@ -424,3 +424,11 @@ unsigned long test22264(crc, buf, len)
 }
 
 /***************************************************/
+// https://issues.dlang.org/show_bug.cgi?id=22265
+
+int test22265(const char *buf)
+{
+    return *buf++;
+}
+
+/***************************************************/
