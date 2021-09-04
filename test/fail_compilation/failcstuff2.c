@@ -35,6 +35,7 @@ fail_compilation/failcstuff2.c(304): Error: incompatible types for `(2) is (buf)
 fail_compilation/failcstuff2.c(302): Error: cannot modify `const` expression `buf`
 fail_compilation/failcstuff2.c(302): Error: incompatible types for `(buf) is (1)`: `ubyte*` and `int`
 fail_compilation/failcstuff2.c(304): Error: incompatible types for `(2) is (buf)`: `int` and `ubyte*`
+fail_compilation/failcstuff2.c(352): Error: cannot modify `const` expression `buf`
 ---
 */
 
