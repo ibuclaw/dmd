@@ -193,7 +193,7 @@ extern (C++) abstract class AggregateDeclaration : ScopeDsymbol
      */
     final size_t nonHiddenFields()
     {
-        return fields.dim - isNested() - (vthis2 !is null);
+        return fields.dim - isNested();
     }
 
     /***************************************
