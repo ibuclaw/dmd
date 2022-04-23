@@ -388,9 +388,9 @@ private extern(C++) final class Semantic3Visitor : Visitor
             // functions to be reworked as a frontend-only feature.
             if (funcdecl.hasDualContext())
             {
-                funcdecl.deprecation("function requires a dual-context, which is deprecated");
+                funcdecl.error("function requires a dual-context");
                 if (auto ti = sc2.parent ? sc2.parent.isInstantiated() : null)
-                    ti.printInstantiationTrace(Classification.deprecation);
+                    ti.printInstantiationTrace();
             }
 
             //printf("[%s] ad = %p vthis = %p\n", loc.toChars(), ad, vthis);
