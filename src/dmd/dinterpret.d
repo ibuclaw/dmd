@@ -454,7 +454,7 @@ private Expression interpretFunction(UnionExp* pue, FuncDeclaration fd, InterSta
     // except for delegates. (Note that the 'this' pointer may be null).
     // Func literals report isNested() even if they are in global scope,
     // so we need to check that the parent is a function.
-    if (fd.isNested() && fd.toParentLocal().isFuncDeclaration() && !thisarg && istate)
+    if (fd.isNested() && fd.toParent2().isFuncDeclaration() && !thisarg && istate)
         thisarg = ctfeGlobals.stack.getThis();
 
     if (fd.needThis() && !thisarg)
@@ -534,25 +534,6 @@ private Expression interpretFunction(UnionExp* pue, FuncDeclaration fd, InterSta
     InterState istatex;
     istatex.caller = istate;
     istatex.fd = fd;
-
-    if (fd.hasDualContext())
-    {
-        Expression arg0 = thisarg;
-        if (arg0 && arg0.type.ty == Tstruct)
-        {
-            Type t = arg0.type.pointerTo();
-            arg0 = ctfeEmplaceExp!AddrExp(arg0.loc, arg0);
-            arg0.type = t;
-        }
-        auto elements = new Expressions(2);
-        (*elements)[0] = arg0;
-        (*elements)[1] = ctfeGlobals.stack.getThis();
-        Type t2 = Type.tvoidptr.sarrayOf(2);
-        const loc = thisarg ? thisarg.loc : fd.loc;
-        thisarg = ctfeEmplaceExp!ArrayLiteralExp(loc, t2, elements);
-        thisarg = ctfeEmplaceExp!AddrExp(loc, thisarg);
-        thisarg.type = t2.pointerTo();
-    }
 
     ctfeGlobals.stack.startFrame(thisarg);
     if (fd.vthis && thisarg)
@@ -678,23 +659,6 @@ private Expression interpretFunction(UnionExp* pue, FuncDeclaration fd, InterSta
         e = CTFEExp.voidexp;
     if (tf.isref && e.op == EXP.variable && e.isVarExp().var == fd.vthis)
         e = thisarg;
-    if (tf.isref && fd.hasDualContext() && e.op == EXP.index)
-    {
-        auto ie = e.isIndexExp();
-        auto pe = ie.e1.isPtrExp();
-        auto ve = !pe ?  null : pe.e1.isVarExp();
-        if (ve && ve.var == fd.vthis)
-        {
-            auto ne = ie.e2.isIntegerExp();
-            assert(ne);
-            auto ale = thisarg.isAddrExp().e1.isArrayLiteralExp();
-            e = (*ale.elements)[cast(size_t)ne.getInteger()];
-            if (auto ae = e.isAddrExp())
-            {
-                e = ae.e1;
-            }
-        }
-    }
     assert(e !is null);
 
     // Leave the function
@@ -1752,12 +1716,6 @@ public:
             if (istate && istate.fd.vthis)
             {
                 result = ctfeEmplaceExp!VarExp(e.loc, istate.fd.vthis);
-                if (istate.fd.hasDualContext())
-                {
-                    result = ctfeEmplaceExp!PtrExp(e.loc, result);
-                    result.type = Type.tvoidptr.sarrayOf(2);
-                    result = ctfeEmplaceExp!IndexExp(e.loc, result, IntegerExp.literal!0);
-                }
                 result.type = e.type;
             }
             else
@@ -1768,18 +1726,6 @@ public:
         result = ctfeGlobals.stack.getThis();
         if (result)
         {
-            if (istate && istate.fd.hasDualContext())
-            {
-                assert(result.op == EXP.address);
-                result = result.isAddrExp().e1;
-                assert(result.op == EXP.arrayLiteral);
-                result = (*result.isArrayLiteralExp().elements)[0];
-                if (e.type.ty == Tstruct)
-                {
-                    result = result.isAddrExp().e1;
-                }
-                return;
-            }
             assert(result.op == EXP.structLiteral || result.op == EXP.classReference || result.op == EXP.type);
             return;
         }
@@ -4862,7 +4808,7 @@ public:
             // Member function call
 
             // Currently this is satisfied because closure is not yet supported.
-            assert(!fd.isNested() || fd.needThis());
+            assert(!fd.isNested());
 
             if (pthis.op == EXP.typeid_)
             {

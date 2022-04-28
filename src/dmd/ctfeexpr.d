@@ -1892,13 +1892,12 @@ bool isCtfeValueValid(Expression newval)
             // e1 should be a CTFE reference
             Expression e1 = newval.isAddrExp().e1;
             return tb.ty == Tpointer &&
-            (
-                (e1.op == EXP.structLiteral || e1.op == EXP.arrayLiteral) && isCtfeValueValid(e1) ||
+                (e1.op == EXP.structLiteral && isCtfeValueValid(e1) ||
                  e1.op == EXP.variable ||
                  e1.op == EXP.dotVariable && isCtfeReferenceValid(e1) ||
                  e1.op == EXP.index && isCtfeReferenceValid(e1) ||
                  e1.op == EXP.slice && e1.type.toBasetype().ty == Tsarray
-            );
+                );
         }
 
         case EXP.slice:
