@@ -92,7 +92,6 @@ public:
      */
     Dsymbol *enclosing;
     VarDeclaration *vthis;      // 'this' parameter if this aggregate is nested
-    VarDeclaration *vthis2;     // 'this' parameter if this aggregate is a template and is nested
     // Special member functions
     FuncDeclarations invs;              // Array of invariants
     FuncDeclaration *inv;               // invariant

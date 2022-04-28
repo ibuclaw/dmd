@@ -5133,7 +5133,6 @@ public:
     MangleOverride* mangleOverride;
     Dsymbol* enclosing;
     VarDeclaration* vthis;
-    VarDeclaration* vthis2;
     Array<FuncDeclaration* > invs;
     FuncDeclaration* inv;
     Dsymbol* ctor;
