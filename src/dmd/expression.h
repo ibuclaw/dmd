@@ -556,7 +556,6 @@ class SymbolExp : public Expression
 {
 public:
     Declaration *var;
-    Dsymbol *originalScope;
     bool hasOverloads;
 
     void accept(Visitor *v) { v->visit(this); }

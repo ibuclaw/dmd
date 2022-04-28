@@ -464,8 +464,6 @@ public:
             if (ids.fd && e.var == ids.fd.vthis)
             {
                 result = new VarExp(e.loc, ids.vthis);
-                if (ids.fd.hasDualContext())
-                    result = new AddrExp(e.loc, result);
                 result.type = e.type;
                 return;
             }
@@ -497,57 +495,15 @@ public:
                 assert(fdv);
                 result = new VarExp(e.loc, ids.vthis);
                 result.type = ids.vthis.type;
-                if (ids.fd.hasDualContext())
-                {
-                    // &__this
-                    result = new AddrExp(e.loc, result);
-                    result.type = ids.vthis.type.pointerTo();
-                }
                 while (s != fdv)
                 {
                     auto f = s.isFuncDeclaration();
-                    AggregateDeclaration ad;
-                    if (f && f.hasDualContext())
+                    if (auto ad = s.isThis())
                     {
-                        if (f.hasNestedFrameRefs())
-                        {
-                            result = new DotVarExp(e.loc, result, f.vthis);
-                            result.type = f.vthis.type;
-                        }
-                        // (*__this)[i]
-                        uint i = f.followInstantiationContext(fdv);
-                        if (i == 1 && f == ids.fd)
-                        {
-                            auto ve = e.copy().isVarExp();
-                            ve.originalScope = ids.fd;
-                            result = ve;
-                            return;
-                        }
-                        result = new PtrExp(e.loc, result);
-                        result.type = Type.tvoidptr.sarrayOf(2);
-                        auto ie = new IndexExp(e.loc, result, new IntegerExp(i));
-                        ie.indexIsInBounds = true; // no runtime bounds checking
-                        result = ie;
-                        result.type = Type.tvoidptr;
-                        s = f.toParentP(fdv);
-                        ad = s.isAggregateDeclaration();
-                        if (ad)
-                            goto Lad;
-                        continue;
-                    }
-                    else if ((ad = s.isThis()) !is null)
-                    {
-                Lad:
-                        while (ad)
-                        {
-                            assert(ad.vthis);
-                            bool i = ad.followInstantiationContext(fdv);
-                            auto vthis = i ? ad.vthis2 : ad.vthis;
-                            result = new DotVarExp(e.loc, result, vthis);
-                            result.type = vthis.type;
-                            s = ad.toParentP(fdv);
-                            ad = s.isAggregateDeclaration();
-                        }
+                        assert(ad.vthis);
+                        result = new DotVarExp(e.loc, result, ad.vthis);
+                        result.type = ad.vthis.type;
+                        s = ad.toParent2();
                     }
                     else if (f && f.isNested())
                     {
@@ -568,13 +524,6 @@ public:
                 //printf("\t==> result = %s, type = %s\n", result.toChars(), result.type.toChars());
                 return;
             }
-            else if (v && v.nestedrefs.dim)
-            {
-                auto ve = e.copy().isVarExp();
-                ve.originalScope = ids.fd;
-                result = ve;
-                return;
-            }
 
             result = e;
         }
@@ -589,19 +538,6 @@ public:
                 return;
             }
             result = new VarExp(e.loc, ids.vthis);
-            if (ids.fd.hasDualContext())
-            {
-                // __this[0]
-                result.type = ids.vthis.type;
-                auto ie = new IndexExp(e.loc, result, IntegerExp.literal!0);
-                ie.indexIsInBounds = true; // no runtime bounds checking
-                result = ie;
-                if (e.type.ty == Tstruct)
-                {
-                    result.type = e.type.pointerTo();
-                    result = new PtrExp(e.loc, result);
-                }
-            }
             result.type = e.type;
         }
 
@@ -609,14 +545,6 @@ public:
         {
             assert(ids.vthis);
             result = new VarExp(e.loc, ids.vthis);
-            if (ids.fd.hasDualContext())
-            {
-                // __this[0]
-                result.type = ids.vthis.type;
-                auto ie = new IndexExp(e.loc, result, IntegerExp.literal!0);
-                ie.indexIsInBounds = true; // no runtime bounds checking
-                result = ie;
-            }
             result.type = e.type;
         }
 
@@ -1331,7 +1259,7 @@ public:
 
             if (canInline(fd, false, false, asStates))
             {
-                expandInline(e.loc, fd, parent, eret, null, e.arguments, asStates, e.vthis2, eresult, sresult, again);
+                expandInline(e.loc, fd, parent, eret, null, e.arguments, asStates, eresult, sresult, again);
                 if (asStatements && eresult)
                 {
                     sresult = new ExpStatement(eresult.loc, eresult);
@@ -1395,7 +1323,7 @@ public:
                 }
                 else
                 {
-                    expandInline(e.loc, fd, parent, eret, dve.e1, e.arguments, asStatements, e.vthis2, eresult, sresult, again);
+                    expandInline(e.loc, fd, parent, eret, dve.e1, e.arguments, asStatements, eresult, sresult, again);
                 }
             }
         }
@@ -1860,7 +1788,7 @@ Lno:
  *           more opportunities for inlining
  */
 private void expandInline(Loc callLoc, FuncDeclaration fd, FuncDeclaration parent, Expression eret,
-        Expression ethis, Expressions* arguments, bool asStatements, VarDeclaration vthis2,
+        Expression ethis, Expressions* arguments, bool asStatements,
         out Expression eresult, out Statement sresult, out bool again)
 {
     auto tf = fd.type.isTypeFunction();
@@ -1941,27 +1869,7 @@ private void expandInline(Loc callLoc, FuncDeclaration fd, FuncDeclaration paren
     {
         Expression e0;
         ethis = Expression.extractLast(ethis, e0);
-        assert(vthis2 || !fd.hasDualContext());
-        if (vthis2)
-        {
-            // void*[2] __this = [ethis, this]
-            if (ethis.type.ty == Tstruct)
-            {
-                // &ethis
-                Type t = ethis.type.pointerTo();
-                ethis = new AddrExp(ethis.loc, ethis);
-                ethis.type = t;
-            }
-            auto elements = new Expressions(2);
-            (*elements)[0] = ethis;
-            (*elements)[1] = new NullExp(Loc.initial, Type.tvoidptr);
-            Expression ae = new ArrayLiteralExp(vthis2.loc, vthis2.type, elements);
-            Expression ce = new ConstructExp(vthis2.loc, vthis2, ae);
-            ce.type = vthis2.type;
-            vthis2._init = new ExpInitializer(vthis2.loc, ce);
-            vthis = vthis2;
-        }
-        else if (auto ve = ethis.isVarExp())
+        if (auto ve = ethis.isVarExp())
         {
             vthis = ve.var.isVarDeclaration();
         }

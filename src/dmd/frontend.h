@@ -6553,7 +6553,7 @@ private:
         char errorexp[40LLU];
         char realexp[64LLU];
         char complexexp[80LLU];
-        char symoffexp[72LLU];
+        char symoffexp[64LLU];
         char stringexp[60LLU];
         char arrayliteralexp[57LLU];
         char assocarrayliteralexp[57LLU];
@@ -6862,7 +6862,6 @@ class SymbolExp : public Expression
 {
 public:
     Declaration* var;
-    Dsymbol* originalScope;
     bool hasOverloads;
     void accept(Visitor* v);
 };
