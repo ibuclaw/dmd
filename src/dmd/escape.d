@@ -1807,13 +1807,6 @@ void escapeByValue(Expression e, EscapeByResults* er, bool live = false)
                 else if (psr == ScopeRef.ReturnRef || psr == ScopeRef.ReturnRef_Scope)
                     escapeByRef(dve.e1, er, live);
             }
-
-            // If it's also a nested function that is 'return scope'
-            if (fd && fd.isNested())
-            {
-                if (tf.isreturn && tf.isScopeQual)
-                    er.byexp.push(e);
-            }
         }
 
         /* If returning the result of a delegate call, the .ptr
@@ -1922,9 +1915,7 @@ void escapeByRef(Expression e, EscapeByResults* er, bool live = false)
 
     void visitThis(ThisExp e)
     {
-        if (e.var && e.var.toParent2().isFuncDeclaration().hasDualContext())
-            escapeByValue(e, er, live);
-        else if (e.var)
+        if (e.var)
             er.byref.push(e.var);
     }
 
@@ -2074,15 +2065,6 @@ void escapeByRef(Expression e, EscapeByResults* er, bool live = false)
                         escapeByRef(dve.e1, er, live);
                 else if (psr == ScopeRef.ReturnScope || psr == ScopeRef.Ref_ReturnScope)
                         escapeByValue(dve.e1, er, live);
-
-                // If it's also a nested function that is 'return ref'
-                if (FuncDeclaration fd = dve.var.isFuncDeclaration())
-                {
-                    if (fd.isNested() && tf.isreturn)
-                    {
-                        er.byexp.push(e);
-                    }
-                }
             }
             // If it's a delegate, check it too
             if (e.e1.op == EXP.variable && t1.ty == Tdelegate)
