@@ -1021,7 +1021,7 @@ Lagain:
  * Returns:
  *      Expression representing the `this` for the var
  */
-private Expression getRightThis(const ref Loc loc, Scope* sc, AggregateDeclaration ad, Expression e1, Dsymbol var, int flag = 0)
+private Expression getRightThis(const ref Loc loc, Scope* sc, AggregateDeclaration ad, Expression e1, Declaration var, int flag = 0)
 {
     //printf("\ngetRightThis(e1 = %s, ad = %s, var = %s)\n", e1.toChars(), ad.toChars(), var.toChars());
 L1:
@@ -3654,21 +3654,6 @@ private extern (C++) final class ExpressionSemanticVisitor : Visitor
                 return setError();
             }
 
-            if (cd.vthis2)
-            {
-                if (AggregateDeclaration ad2 = cd.isMember2())
-                {
-                    Expression te = new ThisExp(exp.loc).expressionSemantic(sc);
-                    if (te.op != EXP.error)
-                        te = getRightThis(exp.loc, sc, ad2, te, cd);
-                    if (te.op == EXP.error)
-                    {
-                        exp.error("need `this` of type `%s` needed to `new` nested class `%s`", ad2.toChars(), cd.toChars());
-                        return setError();
-                    }
-                }
-            }
-
             if (cd.disableNew)
             {
                 exp.error("cannot allocate `class %s` with `new` because it is annotated with `@disable new()`",
@@ -5157,18 +5142,6 @@ private extern (C++) final class ExpressionSemanticVisitor : Visitor
         // declare dual-context container
         if (exp.f && exp.f.hasDualContext() && !sc.intypeof && sc.func)
         {
-            // check access to second `this`
-            if (AggregateDeclaration ad2 = exp.f.isMember2())
-            {
-                Expression te = new ThisExp(exp.loc).expressionSemantic(sc);
-                if (te.op != EXP.error)
-                    te = getRightThis(exp.loc, sc, ad2, te, exp.f);
-                if (te.op == EXP.error)
-                {
-                    exp.error("need `this` of type `%s` to call function `%s`", ad2.toChars(), exp.f.toChars());
-                    return setError();
-                }
-            }
             exp.vthis2 = makeThis2Argument(exp.loc, sc, exp.f);
             Expression de = new DeclarationExp(exp.loc, exp.vthis2);
             result = Expression.combine(de, result);
@@ -6730,18 +6703,6 @@ private extern (C++) final class ExpressionSemanticVisitor : Visitor
         // declare dual-context container
         if (f.hasDualContext() && !sc.intypeof && sc.func)
         {
-            // check access to second `this`
-            if (AggregateDeclaration ad2 = f.isMember2())
-            {
-                Expression te = new ThisExp(e.loc).expressionSemantic(sc);
-                if (te.op != EXP.error)
-                    te = getRightThis(e.loc, sc, ad2, te, f);
-                if (te.op == EXP.error)
-                {
-                    e.error("need `this` of type `%s` to make delegate from function `%s`", ad2.toChars(), f.toChars());
-                    return setError();
-                }
-            }
             VarDeclaration vthis2 = makeThis2Argument(e.loc, sc, f);
             e.vthis2 = vthis2;
             Expression de = new DeclarationExp(e.loc, vthis2);

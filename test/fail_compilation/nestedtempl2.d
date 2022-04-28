@@ -1,10 +1,8 @@
 /*
 TEST_OUTPUT:
 ---
-fail_compilation/nestedtempl2.d(18): Error: function `nestedtempl2.B.func!(n).func` function requires a dual-context
-fail_compilation/nestedtempl2.d(30):        instantiated from here: `func!(n)`
-fail_compilation/nestedtempl2.d(33): Error: `this` is only defined in non-static member functions, not `test`
-fail_compilation/nestedtempl2.d(33): Error: need `this` of type `B` needed to `new` nested class `N`
+fail_compilation/nestedtempl2.d(16): Error: function `nestedtempl2.B.func!(n).func` function requires a dual-context
+fail_compilation/nestedtempl2.d(28):        instantiated from here: `func!(n)`
 ---
 */
 
