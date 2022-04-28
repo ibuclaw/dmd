@@ -1927,13 +1927,10 @@ extern (C++) class FuncDeclaration : Declaration
         if (!fdthis)
             return false; // out of function scope
 
-        Dsymbol p = toParentLocal();
-        Dsymbol p2 = toParent2();
+        Dsymbol p = toParent2();
 
         // Function literals from fdthis to p must be delegates
         ensureStaticLinkTo(fdthis, p);
-        if (p != p2)
-            ensureStaticLinkTo(fdthis, p2);
 
         if (isNested())
         {
@@ -1978,8 +1975,6 @@ extern (C++) class FuncDeclaration : Declaration
             }
 
             if (checkEnclosing(p.isFuncDeclaration()))
-                return true;
-            if (checkEnclosing(p == p2 ? null : p2.isFuncDeclaration()))
                 return true;
         }
         return false;
@@ -2040,7 +2035,7 @@ extern (C++) class FuncDeclaration : Declaration
                  * so does f.
                  * Mark all affected functions as requiring closures.
                  */
-                for (Dsymbol s = f; s && s != this; s = s.toParentP(this))
+                for (Dsymbol s = f; s && s != this; s = s.parent)
                 {
                     FuncDeclaration fx = s.isFuncDeclaration();
                     if (!fx)
@@ -2051,7 +2046,7 @@ extern (C++) class FuncDeclaration : Declaration
 
                         /* Mark as needing closure any functions between this and f
                          */
-                        markAsNeedingClosure((fx == f) ? fx.toParentP(this) : fx, this);
+                        markAsNeedingClosure((fx == f) ? fx.parent : fx, this);
 
                         requiresClosure = true;
                     }
@@ -2113,7 +2108,7 @@ extern (C++) class FuncDeclaration : Declaration
                 assert(f !is this);
 
             LcheckAncestorsOfANestedRef:
-                for (Dsymbol s = f; s && s !is this; s = s.toParentP(this))
+                for (Dsymbol s = f; s && s !is this; s = s.parent)
                 {
                     auto fx = s.isFuncDeclaration();
                     if (!fx)
@@ -3514,7 +3509,7 @@ private bool traverseIndirections(Type ta, Type tb)
  */
 private void markAsNeedingClosure(Dsymbol f, FuncDeclaration outerFunc)
 {
-    for (Dsymbol sx = f; sx && sx != outerFunc; sx = sx.toParentP(outerFunc))
+    for (Dsymbol sx = f; sx && sx != outerFunc; sx = sx.parent)
     {
         FuncDeclaration fy = sx.isFuncDeclaration();
         if (fy && fy.closureVars.dim)
@@ -3564,7 +3559,7 @@ private bool checkEscapingSiblings(FuncDeclaration f, FuncDeclaration outerFunc,
             bAnyClosures = true;
         }
 
-        for (auto parent = g.toParentP(outerFunc); parent && parent !is outerFunc; parent = parent.toParentP(outerFunc))
+        for (auto parent = g.parent; parent && parent !is outerFunc; parent = parent.parent)
         {
             // A parent of the sibling had its address taken.
             // Assume escaping of parent affects its children, so needs propagating.
