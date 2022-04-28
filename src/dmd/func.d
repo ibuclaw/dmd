@@ -1138,7 +1138,7 @@ extern (C++) class FuncDeclaration : Declaration
                     return LevelError;
             }
 
-            s = s.toParentP(fd);
+            s = s.toParent2();
             assert(s);
             level++;
         }
