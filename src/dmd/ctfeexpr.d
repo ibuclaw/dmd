@@ -1667,12 +1667,8 @@ void assignInPlace(Expression dest, Expression src)
         assert(dest.op == src.op);
         oldelems = dest.isStructLiteralExp().elements;
         newelems = src.isStructLiteralExp().elements;
-        auto sd = dest.isStructLiteralExp().sd;
-        const nfields = sd.nonHiddenFields();
-        const nvthis = sd.fields.dim - nfields;
-        if (nvthis && oldelems.dim >= nfields && oldelems.dim < newelems.dim)
-            foreach (_; 0 .. newelems.dim - oldelems.dim)
-                oldelems.push(null);
+        if (dest.isStructLiteralExp().sd.isNested() && oldelems.dim == newelems.dim - 1)
+            oldelems.push(null);
     }
     else if (dest.op == EXP.arrayLiteral && src.op == EXP.arrayLiteral)
     {
