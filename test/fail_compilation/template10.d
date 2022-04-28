@@ -1,21 +1,23 @@
 // PERMUTE_ARGS: -inline
 /* TEST_OUTPUT:
 ---
-fail_compilation/template10.d(51): Error: function `template10.test1b.f0.f!(a).f` function requires a dual-context
-fail_compilation/template10.d(56):        instantiated from here: `f!(a)`
-fail_compilation/template10.d(67): Error: function `template10.test1c.f0.f1.v!(c).sum` function requires a dual-context
-fail_compilation/template10.d(84):        instantiated from here: `v!(c)`
-fail_compilation/template10.d(132): Error: function `template10.test3.exec!(set).exec` function requires a dual-context
-fail_compilation/template10.d(144):        instantiated from here: `exec!(set)`
-fail_compilation/template10.d(163): Error: function `template10.get4i.inner!(a).inner` function requires a dual-context
-fail_compilation/template10.d(200):        instantiated from here: `inner!(a)`
-fail_compilation/template10.d(178): Error: constructor `template10.get4i.inner!(a).inner.I.this()` is not callable using argument types `()`
-fail_compilation/template10.d(158): Error: function `template10.test4.add!(a).add` function requires a dual-context
-fail_compilation/template10.d(207):        instantiated from here: `add!(a)`
-fail_compilation/template10.d(163): Error: function `template10.test4.inner!(a).inner` function requires a dual-context
-fail_compilation/template10.d(218):        instantiated from here: `inner!(a)`
-fail_compilation/template10.d(178): Error: constructor `template10.test4.inner!(a).inner.I.this()` is not callable using argument types `()`
-fail_compilation/template10.d(220): Error: static assert:  `is(T0 == T1)` is false
+fail_compilation/template10.d(53): Error: function `template10.test1b.f0.f!(a).f` function requires a dual-context
+fail_compilation/template10.d(58):        instantiated from here: `f!(a)`
+fail_compilation/template10.d(69): Error: function `template10.test1c.v!(c).sum` function requires a dual-context
+fail_compilation/template10.d(86):        instantiated from here: `v!(c)`
+fail_compilation/template10.d(71): Error: function `template10.test1c.v!(c).sum` cannot access variable `b` in frame of function `template10.test1c.f0.f1`
+fail_compilation/template10.d(85):        `b` declared here
+fail_compilation/template10.d(134): Error: function `template10.test3.exec!(set).exec` function requires a dual-context
+fail_compilation/template10.d(146):        instantiated from here: `exec!(set)`
+fail_compilation/template10.d(165): Error: function `template10.get4i.inner!(a).inner` function requires a dual-context
+fail_compilation/template10.d(202):        instantiated from here: `inner!(a)`
+fail_compilation/template10.d(180): Error: constructor `template10.get4i.inner!(a).inner.I.this()` is not callable using argument types `()`
+fail_compilation/template10.d(160): Error: function `template10.test4.add!(a).add` function requires a dual-context
+fail_compilation/template10.d(209):        instantiated from here: `add!(a)`
+fail_compilation/template10.d(165): Error: function `template10.test4.inner!(a).inner` function requires a dual-context
+fail_compilation/template10.d(220):        instantiated from here: `inner!(a)`
+fail_compilation/template10.d(180): Error: constructor `template10.test4.inner!(a).inner.I.this()` is not callable using argument types `()`
+fail_compilation/template10.d(222): Error: static assert:  `is(T0 == T1)` is false
 ---
 */
 
