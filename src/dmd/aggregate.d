@@ -280,8 +280,6 @@ extern (C++) abstract class AggregateDeclaration : ScopeDsymbol
             auto cd = isClassDeclaration();
             if (!cd || !cd.baseClass || !cd.baseClass.isNested())
                 nfields--;
-            if (vthis2 && !(cd && cd.baseClass && cd.baseClass.vthis2))
-                nfields--;
         }
         bool errors = false;
 
