@@ -1,10 +1,3 @@
-/*
-TEST_OUTPUT:
----
-fail_compilation/nestedtempl3.d(23): Error: cannot access frame pointer of `nestedtempl3.test.S!(i).S`
----
-*/
-
 void test()
 {
     int i;
