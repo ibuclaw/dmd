@@ -2836,7 +2836,6 @@ public:
     bool hasSemantic3Errors() const;
     bool hasNoEH() const;
     bool inferRetType() const;
-    bool hasDualContext() const;
     bool hasAlwaysInlines() const;
     bool isCrtCtor() const;
     bool isCrtDtor() const;
@@ -2912,7 +2911,6 @@ enum class FUNCFLAG : uint32_t
     semantic3Errors = 65536u,
     noEH = 131072u,
     inferRetType = 262144u,
-    dualContext = 524288u,
     hasAlwaysInline = 1048576u,
     CRTCtor = 2097152u,
     CRTDtor = 4194304u,
@@ -7066,7 +7064,6 @@ class DelegateExp final : public UnaExp
 public:
     FuncDeclaration* func;
     bool hasOverloads;
-    VarDeclaration* vthis2;
     void accept(Visitor* v);
 };
 
@@ -7085,7 +7082,6 @@ public:
     bool directcall;
     bool inDebugStatement;
     bool ignoreAttributes;
-    VarDeclaration* vthis2;
     static CallExp* create(const Loc& loc, Expression* e, Array<Expression* >* exps);
     static CallExp* create(const Loc& loc, Expression* e);
     static CallExp* create(const Loc& loc, Expression* e, Expression* earg1);
@@ -8036,7 +8032,6 @@ struct Id final
     static Identifier* require;
     static Identifier* ensure;
     static Identifier* capture;
-    static Identifier* this2;
     static Identifier* _init;
     static Identifier* _mangleof;
     static Identifier* stringof;

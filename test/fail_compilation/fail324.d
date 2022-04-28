@@ -1,15 +1,6 @@
 /* TEST_OUTPUT:
 ---
-fail_compilation/fail324.d(17): Error: function `fail324.main.doStuff!((i)
-{
-return i;
-}
-).doStuff` function requires a dual-context
-fail_compilation/fail324.d(23):        instantiated from here: `doStuff!((i)
-{
-return i;
-}
-)`
+fail_compilation/fail324.d(14): Error: need `this` to access member `doStuff`
 ---
 */
 struct Foo

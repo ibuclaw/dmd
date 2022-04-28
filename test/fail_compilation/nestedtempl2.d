@@ -1,8 +1,8 @@
 /*
 TEST_OUTPUT:
 ---
-fail_compilation/nestedtempl2.d(16): Error: function `nestedtempl2.B.func!(n).func` function requires a dual-context
-fail_compilation/nestedtempl2.d(28):        instantiated from here: `func!(n)`
+fail_compilation/nestedtempl2.d(18): Error: need `this` for `n` of type `int`
+fail_compilation/nestedtempl2.d(28): Error: template instance `nestedtempl2.B.func!(n)` error instantiating
 ---
 */
 

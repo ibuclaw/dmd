@@ -1,7 +1,6 @@
 /* TEST_OUTPUT:
 ---
-fail_compilation/fail20063.d(10): Error: function `fail20063.main.f!(delegate () pure nothrow @safe => new C).f` function requires a dual-context
-fail_compilation/fail20063.d(19):        instantiated from here: `f!(delegate () pure nothrow @safe => new C)`
+fail_compilation/fail20063.d(18): Error: cannot pass function `S() , f` as a function argument
 ---
 */
 

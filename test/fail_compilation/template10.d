@@ -1,23 +1,25 @@
 // PERMUTE_ARGS: -inline
 /* TEST_OUTPUT:
 ---
-fail_compilation/template10.d(53): Error: function `template10.test1b.f0.f!(a).f` function requires a dual-context
-fail_compilation/template10.d(58):        instantiated from here: `f!(a)`
-fail_compilation/template10.d(69): Error: function `template10.test1c.v!(c).sum` function requires a dual-context
-fail_compilation/template10.d(86):        instantiated from here: `v!(c)`
-fail_compilation/template10.d(71): Error: function `template10.test1c.v!(c).sum` cannot access variable `b` in frame of function `template10.test1c.f0.f1`
-fail_compilation/template10.d(85):        `b` declared here
-fail_compilation/template10.d(134): Error: function `template10.test3.exec!(set).exec` function requires a dual-context
-fail_compilation/template10.d(146):        instantiated from here: `exec!(set)`
-fail_compilation/template10.d(165): Error: function `template10.get4i.inner!(a).inner` function requires a dual-context
-fail_compilation/template10.d(202):        instantiated from here: `inner!(a)`
-fail_compilation/template10.d(180): Error: constructor `template10.get4i.inner!(a).inner.I.this()` is not callable using argument types `()`
-fail_compilation/template10.d(160): Error: function `template10.test4.add!(a).add` function requires a dual-context
-fail_compilation/template10.d(209):        instantiated from here: `add!(a)`
-fail_compilation/template10.d(165): Error: function `template10.test4.inner!(a).inner` function requires a dual-context
-fail_compilation/template10.d(220):        instantiated from here: `inner!(a)`
-fail_compilation/template10.d(180): Error: constructor `template10.test4.inner!(a).inner.I.this()` is not callable using argument types `()`
-fail_compilation/template10.d(222): Error: static assert:  `is(T0 == T1)` is false
+fail_compilation/template10.d(55): Error: function `template10.test1b.f0.f!(a).f` cannot access variable `a` in frame of function `template10.test1b.f0`
+fail_compilation/template10.d(59):        `a` declared here
+fail_compilation/template10.d(60): Error: template instance `template10.test1b.f0.f!(a)` error instantiating
+fail_compilation/template10.d(73): Error: function `template10.test1c.v!(c).sum` cannot access variable `b` in frame of function `template10.test1c.f0.f1`
+fail_compilation/template10.d(87):        `b` declared here
+fail_compilation/template10.d(88): Error: template instance `template10.test1c.v!(c)` error instantiating
+fail_compilation/template10.d(115): Error: need `this` of type `C2` to access member `m` from static function `test2`
+fail_compilation/template10.d(127): Error: template instance `template10.test2.K!(a)` error instantiating
+fail_compilation/template10.d(138): Error: need `this` for `m` of type `int`
+fail_compilation/template10.d(138): Error: function `template10.test3.set!(a).set(int c)` is not callable using argument types `(_error_)`
+fail_compilation/template10.d(138):        cannot pass argument `__error` of type `_error_` to parameter `int c`
+fail_compilation/template10.d(148): Error: template instance `template10.test3.exec!(set)` error instantiating
+fail_compilation/template10.d(175): Error: need `this` of type `S4` to access member `m` from static function `get4i`
+fail_compilation/template10.d(204): Error: template instance `template10.get4i.inner!(a)` error instantiating
+fail_compilation/template10.d(164): Error: need `this` for `m` of type `int`
+fail_compilation/template10.d(211): Error: template instance `template10.test4.add!(a)` error instantiating
+fail_compilation/template10.d(175): Error: need `this` of type `S4` to access member `m` from static function `test4`
+fail_compilation/template10.d(222): Error: template instance `template10.test4.inner!(a)` error instantiating
+fail_compilation/template10.d(224): Error: static assert:  `is(T0 == T1)` is false
 ---
 */
 

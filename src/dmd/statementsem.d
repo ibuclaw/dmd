@@ -1414,8 +1414,7 @@ package (dmd) extern (C++) final class StatementSemanticVisitor : Visitor
         /* Call:
          *      aggr(flde)
          */
-        if (fs.aggr.op == EXP.delegate_ && (cast(DelegateExp)fs.aggr).func.isNested() &&
-            !(cast(DelegateExp)fs.aggr).func.needThis())
+        if (fs.aggr.op == EXP.delegate_ && (cast(DelegateExp)fs.aggr).func.isNested())
         {
             // https://issues.dlang.org/show_bug.cgi?id=3560
             fs.aggr = (cast(DelegateExp)fs.aggr).e1;

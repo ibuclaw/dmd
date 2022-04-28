@@ -1,8 +1,7 @@
 /*
 TEST_OUTPUT:
 ---
-fail_compilation/nestedtempl1.d(13): Error: function `nestedtempl1.main.bar!(a).bar` function requires a dual-context
-fail_compilation/nestedtempl1.d(25):        instantiated from here: `bar!(a)`
+fail_compilation/nestedtempl1.d(24): Error: cannot modify `inout` expression `(o , bar)()`
 ---
 */
 

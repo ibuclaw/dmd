@@ -661,7 +661,6 @@ public:
     bool hasSemantic3Errors() const;
     bool hasNoEH() const;
     bool inferRetType() const;
-    bool hasDualContext() const;
     bool hasAlwaysInlines() const;
     bool isCrtCtor() const;
     bool isCrtDtor() const;

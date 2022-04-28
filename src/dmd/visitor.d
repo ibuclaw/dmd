@@ -179,7 +179,7 @@ extern (C++) class SemanticTimeTransitiveVisitor : SemanticTimePermissiveVisitor
 
     override void visit(ASTCodegen.DelegateExp e)
     {
-        if (!e.func.isNested() || e.func.needThis())
+        if (!e.func.isNested())
             e.e1.accept(this);
     }
 

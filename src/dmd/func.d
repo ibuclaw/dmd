@@ -212,7 +212,7 @@ enum FUNCFLAG : uint
     semantic3Errors  = 0x10000, /// If errors in semantic3 this function's frame ptr
     noEH             = 0x20000, /// No exception unwinding is needed
     inferRetType     = 0x40000, /// Return type is to be inferred
-    dualContext      = 0x80000, /// has a dual-context 'this' parameter
+    //               = 0x80000, ///
     hasAlwaysInline  = 0x100000, /// Contains references to functions that must be inlined
     CRTCtor          = 0x200000, /// Has attribute pragma(crt_constructor)
     CRTDtor          = 0x400000, /// Has attribute pragma(crt_destructor)
@@ -516,11 +516,8 @@ extern (C++) class FuncDeclaration : Declaration
      */
     extern (D) final void declareThis(Scope* sc)
     {
-        const bool dualCtx = (toParent2() != toParentLocal());
-        if (dualCtx)
-            this.flags |= FUNCFLAG.dualContext;
         auto ad = isThis();
-        if (!dualCtx && !ad && !isNested())
+        if (!ad && !isNested())
         {
             vthis = null;
             objc.selectorParameter = null;
@@ -532,16 +529,14 @@ extern (C++) class FuncDeclaration : Declaration
             return t.addMod(type.mod).addStorageClass(storage_class);
         }
 
-        if (dualCtx || isNested())
+        if (isNested())
         {
             /* The 'this' for a nested function is the link to the
              * enclosing function's stack frame.
              * Note that nested functions and member functions are disjoint.
              */
-            Type tthis = addModStc(dualCtx ?
-                                   Type.tvoidptr.sarrayOf(2).pointerTo() :
-                                   Type.tvoid.pointerTo());
-            vthis = new VarDeclaration(loc, tthis, dualCtx ? Id.this2 : Id.capture, null);
+            Type tthis = addModStc(Type.tvoid.pointerTo());
+            vthis = new VarDeclaration(loc, tthis, Id.capture, null);
             vthis.storage_class |= STC.parameter | STC.nodtor;
         }
         else if (ad)
@@ -1505,11 +1500,6 @@ extern (C++) class FuncDeclaration : Declaration
         return !!(this.flags & FUNCFLAG.inferRetType);
     }
 
-    final bool hasDualContext() const scope @safe pure nothrow @nogc
-    {
-        return !!(this.flags & FUNCFLAG.dualContext);
-    }
-
     final bool hasAlwaysInlines() const scope @safe pure nothrow @nogc
     {
         return !!(this.flags & FUNCFLAG.hasAlwaysInline);
@@ -1750,8 +1740,7 @@ extern (C++) class FuncDeclaration : Declaration
      * Returns:
      *  `true` if function is really nested within other function.
      * Contracts:
-     *  If isNested() returns true, isThis() should return false,
-     *  unless the function needs a dual-context pointer.
+     *  If isNested() returns true, isThis() should return false.
      */
     bool isNested() const
     {
@@ -1759,8 +1748,7 @@ extern (C++) class FuncDeclaration : Declaration
         //printf("\ttoParent2() = '%s'\n", f.toParent2().toChars());
         return ((f.storage_class & STC.static_) == 0) &&
                 (f.linkage == LINK.d) &&
-                (f.toParent2().isFuncDeclaration() !is null ||
-                 f.toParent2() !is f.toParentLocal());
+                (f.toParent2().isFuncDeclaration() !is null);
     }
 
     /****************************************
@@ -1769,8 +1757,7 @@ extern (C++) class FuncDeclaration : Declaration
      * Returns:
      *  The aggregate it is a member of, or null.
      * Contracts:
-     *  Both isThis() and isNested() should return true if function needs a dual-context pointer,
-     *  otherwise if isThis() returns true, isNested() should return false.
+     *  If isThis() returns true, isNested() should return false.
      */
     override inout(AggregateDeclaration) isThis() inout
     {
@@ -2871,7 +2858,7 @@ Expression addInvariant(AggregateDeclaration ad, VarDeclaration vthis)
          * Change the behavior of pre-invariant call by following it.
          */
         e = new ThisExp(Loc.initial);
-        e.type = ad.type.addMod(vthis.type.mod);
+        e.type = vthis.type;
         e = new DotVarExp(Loc.initial, e, inv, false);
         e.type = inv.type;
         e = new CallExp(Loc.initial, e);

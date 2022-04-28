@@ -801,7 +801,6 @@ class DelegateExp : public UnaExp
 public:
     FuncDeclaration *func;
     bool hasOverloads;
-    VarDeclaration *vthis2;  // container for multi-context
 
 
     void accept(Visitor *v) { v->visit(this); }
@@ -823,7 +822,6 @@ public:
     bool directcall;            // true if a virtual call is devirtualized
     bool inDebugStatement;      // true if this was in a debug statement
     bool ignoreAttributes;      // don't enforce attributes (e.g. call @gc function in @nogc code)
-    VarDeclaration *vthis2;     // container for multi-context
 
     static CallExp *create(const Loc &loc, Expression *e, Expressions *exps);
     static CallExp *create(const Loc &loc, Expression *e);
