@@ -1,8 +1,8 @@
 /*
 TEST_OUTPUT:
 ---
-fail_compilation/nestedtempl2.d(18): Error: need `this` for `n` of type `int`
-fail_compilation/nestedtempl2.d(28): Error: template instance `nestedtempl2.B.func!(n)` error instantiating
+fail_compilation/nestedtempl2.d(28): Error: need `this` for `func` of type `pure nothrow @nogc @safe int()`
+fail_compilation/nestedtempl2.d(31): Error: cannot construct nested class `N` because no implicit `this` reference to outer class `B` is available
 ---
 */
 

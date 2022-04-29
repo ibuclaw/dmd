@@ -308,7 +308,7 @@ struct Scope
             FuncDeclaration f = func;
             if (fes)
                 f = fes.func;
-            auto ad = f.isMemberDecl();
+            auto ad = f.isMember2();
             assert(ad);
             foreach (i, v; ad.fields)
             {

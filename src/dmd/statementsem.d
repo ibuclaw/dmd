@@ -3064,7 +3064,7 @@ package (dmd) extern (C++) final class StatementSemanticVisitor : Visitor
 
         if (sc.ctorflow.fieldinit.length)       // if aggregate fields are being constructed
         {
-            auto ad = fd.isMemberLocal();
+            auto ad = fd.isMember2();
             assert(ad);
             foreach (i, v; ad.fields)
             {

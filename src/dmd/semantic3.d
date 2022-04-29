@@ -569,7 +569,7 @@ private extern(C++) final class Semantic3Visitor : Visitor
                 sym.endlinnum = funcdecl.endloc.linnum;
                 sc2 = sc2.push(sym);
 
-                auto ad2 = funcdecl.isMemberLocal();
+                auto ad2 = funcdecl.isMember2();
 
                 /* If this is a class constructor
                  */
@@ -1162,10 +1162,12 @@ private extern(C++) final class Semantic3Visitor : Visitor
 
                 if (funcdecl.isSynchronized())
                 {
-                    /* Wrap the entire function body in a synchronized statement
+                    /* Wrap the entire function body in a synchronized statement.
+                     * Use toParentDecl to look-up the enclosing class declaration.
+                     * https://issues.dlang.org/show_bug.cgi?id=5664
+                     * https://issues.dlang.org/show_bug.cgi?id=6541
                      */
-                    ClassDeclaration cd = funcdecl.toParentDecl().isClassDeclaration();
-                    if (cd)
+                    if (ClassDeclaration cd = funcdecl.toParentDecl().isClassDeclaration())
                     {
                         if (target.libraryObjectMonitors(funcdecl, sbody))
                         {
@@ -1374,7 +1376,7 @@ private extern(C++) final class Semantic3Visitor : Visitor
          * structs should be benign.
          * https://issues.dlang.org/show_bug.cgi?id=14246
          */
-        AggregateDeclaration ad = ctor.isMemberDecl();
+        AggregateDeclaration ad = ctor.isMember2();
         if (!ctor.fbody || !ad || !ad.fieldDtor || !global.params.dtorFields || global.params.betterC || ctor.type.toTypeFunction.isnothrow)
             return visit(cast(FuncDeclaration)ctor);
 

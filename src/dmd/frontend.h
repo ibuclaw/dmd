@@ -950,7 +950,6 @@ public:
     Dsymbol* toParent();
     Dsymbol* toParent2();
     Dsymbol* toParentDecl();
-    Dsymbol* toParentLocal();
     TemplateInstance* isInstantiated();
     TemplateInstance* isSpeculative();
     Ungag ungagSpeculative() const;
@@ -976,7 +975,6 @@ public:
     AggregateDeclaration* isMember();
     AggregateDeclaration* isMember2();
     AggregateDeclaration* isMemberDecl();
-    AggregateDeclaration* isMemberLocal();
     ClassDeclaration* isClassMember();
     virtual Type* getType();
     virtual bool needThis();

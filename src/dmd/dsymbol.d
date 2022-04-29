@@ -529,9 +529,6 @@ extern (C++) class Dsymbol : ASTNode
      * `toParentDecl()` similar to `toParent2()` but always follows the template declaration scope
      * instead of the instantiation scope.
      *
-     * `toParentLocal()` similar to `toParentDecl()` but follows the instantiation scope
-     * if a template declaration is non-local i.e. global or static.
-     *
      * Examples:
      * ---
      *  module mod;
@@ -553,7 +550,6 @@ extern (C++) class Dsymbol : ASTNode
      *  // s.toParent() == TemplateInstance('mod.test.Foo!()')
      *  // s.toParent2() == FuncDeclaration('mod.test')
      *  // s.toParentDecl() == Module('mod')
-     *  // s.toParentLocal() == FuncDeclaration('mod.test')
      * ---
      */
     final inout(Dsymbol) toParent() inout
@@ -572,24 +568,13 @@ extern (C++) class Dsymbol : ASTNode
     /// ditto
     final inout(Dsymbol) toParentDecl() inout
     {
-        return toParentDeclImpl(false);
-    }
-
-    /// ditto
-    final inout(Dsymbol) toParentLocal() inout
-    {
-        return toParentDeclImpl(true);
-    }
-
-    private inout(Dsymbol) toParentDeclImpl(bool localOnly) inout
-    {
         auto p = toParent();
         if (!p || !p.isTemplateInstance())
             return p;
         auto ti = p.isTemplateInstance();
-        if (ti.tempdecl && (!localOnly || !(cast(TemplateDeclaration)ti.tempdecl).isstatic))
-            return ti.tempdecl.toParentDeclImpl(localOnly);
-        return parent.toParentDeclImpl(localOnly);
+        if (ti.tempdecl)
+            return ti.tempdecl.toParentDecl();
+        return parent.toParentDecl();
     }
 
     final inout(TemplateInstance) isInstantiated() inout
@@ -997,15 +982,6 @@ extern (C++) class Dsymbol : ASTNode
     {
         //printf("Dsymbol::isMemberDecl() '%s'\n", toChars());
         auto p = toParentDecl();
-        //printf("parent is %s %s\n", p.kind(), p.toChars());
-        return p ? p.isAggregateDeclaration() : null;
-    }
-
-    /// Returns an AggregateDeclaration when toParentLocal() is that.
-    final inout(AggregateDeclaration) isMemberLocal() inout
-    {
-        //printf("Dsymbol::isMemberLocal() '%s'\n", toChars());
-        auto p = toParentLocal();
         //printf("parent is %s %s\n", p.kind(), p.toChars());
         return p ? p.isAggregateDeclaration() : null;
     }

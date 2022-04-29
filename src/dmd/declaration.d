@@ -92,7 +92,7 @@ bool modifyFieldVar(Loc loc, Scope* sc, VarDeclaration var, Expression e1)
         if (fd &&
             ((fd.isCtorDeclaration() && var.isField()) ||
              (fd.isStaticCtorDeclaration() && !var.isField())) &&
-            fd.toParentDecl() == var.toParent2() &&
+            fd.toParent2() == var.toParent2() &&
             (!e1 || e1.op == EXP.this_))
         {
             bool result = true;
@@ -107,7 +107,7 @@ bool modifyFieldVar(Loc loc, Scope* sc, VarDeclaration var, Expression e1)
                                  var.type.needsNested());
 
                 const dim = sc.ctorflow.fieldinit.length;
-                auto ad = fd.isMemberDecl();
+                auto ad = fd.isMember2();
                 assert(ad);
                 size_t i;
                 for (i = 0; i < dim; i++) // same as findFieldIndexByName in ctfeexp.c ?

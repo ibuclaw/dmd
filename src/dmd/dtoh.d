@@ -2161,7 +2161,7 @@ public:
     private AST.Dsymbol findSymbol(Identifier name, AST.Dsymbol context)
     {
         // Follow the declaration context
-        for (auto par = context; par; par = par.toParentDecl())
+        for (auto par = context; par; par = par.toParent2())
         {
             // Check that `name` doesn't refer to a template parameter
             if (auto td = par.isTemplateDeclaration())

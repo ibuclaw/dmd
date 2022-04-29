@@ -93,7 +93,7 @@ uint cv4_memfunctypidx(FuncDeclaration fd)
     //printf("cv4_memfunctypidx(fd = '%s')\n", fd.toChars());
 
     type *t = Type_toCtype(fd.type);
-    AggregateDeclaration ad = fd.isMemberLocal();
+    AggregateDeclaration ad = fd.isMember2();
     if (!ad)
          return cv4_typidx(t);
 

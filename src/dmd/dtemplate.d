@@ -2413,7 +2413,7 @@ extern (C++) final class TemplateDeclaration : ScopeDsymbol
             // isReturnIsolated() in functionResolve.
             tf.isctor = true;
 
-            Dsymbol parent = toParentDecl();
+            Dsymbol parent = toParent2();
             Type tret;
             AggregateDeclaration ad = parent.isAggregateDeclaration();
             if (!ad || parent.isUnionDeclaration())
