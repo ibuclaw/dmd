@@ -211,8 +211,10 @@ immutable(EnvData) processEnvironment()
     {
         case "dmd":
         case "ldc":
-            if(envData.os != "windows")
+            version (CppRuntime_Gcc)
                 envData.cxxCompatFlags = " -L-lstdc++ -L--no-demangle";
+            else version (CppRuntime_Clang)
+                envData.cxxCompatFlags = " -L-lc++ -L--no-demangle";
             break;
 
         case "gdc":
@@ -979,7 +981,7 @@ string unifyDirSep(string str, string sep)
     }
     auto mStr = str.dup;
     auto remaining = mStr;
-    alias needles = AliasSeq!(".d", ".di", ".mixin", ".c");
+    alias needles = AliasSeq!(".d", ".di", ".mixin", ".c", ".i");
     enum needlesArray = [needles];
     // simple multi-delimiter word identification
     while (!remaining.empty)

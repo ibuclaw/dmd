@@ -191,6 +191,11 @@ struct ASTBase
             return null;
         }
 
+        inout(StorageClassDeclaration) isStorageClassDeclaration() inout
+        {
+            return null;
+        }
+
         inout(FuncLiteralDeclaration) isFuncLiteralDeclaration() inout
         {
             return null;
@@ -1240,6 +1245,11 @@ struct ASTBase
         override void accept(Visitor v)
         {
             v.visit(this);
+        }
+
+        override final inout(StorageClassDeclaration) isStorageClassDeclaration() inout
+        {
+            return this;
         }
     }
 
@@ -3486,7 +3496,7 @@ struct ASTBase
             merge();
         }
 
-        override bool isscalar() const
+        override bool isscalar()
         {
             return (flags & (TFlags.integral | TFlags.floating)) != 0;
         }
@@ -4217,23 +4227,25 @@ struct ASTBase
             for (size_t i = 0; i < idents.dim; i++)
             {
                 RootObject id = t.idents[i];
-                if (id.dyncast() == DYNCAST.dsymbol)
+                switch (id.dyncast()) with (DYNCAST)
                 {
+                case dsymbol:
                     TemplateInstance ti = cast(TemplateInstance)id;
                     ti = ti.syntaxCopy(null);
                     id = ti;
-                }
-                else if (id.dyncast() == DYNCAST.expression)
-                {
+                    break;
+                case expression:
                     Expression e = cast(Expression)id;
                     e = e.syntaxCopy();
                     id = e;
-                }
-                else if (id.dyncast() == DYNCAST.type)
-                {
+                    break;
+                case type:
                     Type tx = cast(Type)id;
                     tx = tx.syntaxCopy();
                     id = tx;
+                    break;
+                default:
+                    break;
                 }
                 idents[i] = id;
             }
@@ -5115,21 +5127,24 @@ struct ASTBase
                     Expression e = new DsymbolExp(loc, s);
                     this.exps.push(e);
                 }
-                else if (o.dyncast() == DYNCAST.expression)
-                {
-                    auto e = (cast(Expression)o).copy();
-                    e.loc = loc;    // Bugzilla 15669
-                    this.exps.push(e);
-                }
-                else if (o.dyncast() == DYNCAST.type)
-                {
-                    Type t = cast(Type)o;
-                    Expression e = new TypeExp(loc, t);
-                    this.exps.push(e);
-                }
                 else
                 {
-                    error("%s is not an expression", o.toChars());
+                    switch (o.dyncast()) with (DYNCAST)
+                    {
+                    case expression:
+                        auto e = (cast(Expression)o).copy();
+                        e.loc = loc;    // Bugzilla 15669
+                        this.exps.push(e);
+                        break;
+                    case type:
+                        Type t = cast(Type)o;
+                        Expression e = new TypeExp(loc, t);
+                        this.exps.push(e);
+                        break;
+                    default:
+                        error("%s is not an expression", o.toChars());
+                        break;
+                    }
                 }
             }
         }
@@ -6050,11 +6065,44 @@ struct ASTBase
         }
     }
 
-    extern (C++) final class CatAssignExp : BinAssignExp
+    extern (C++) class CatAssignExp : BinAssignExp
     {
         extern (D) this(const ref Loc loc, Expression e1, Expression e2)
         {
             super(loc, EXP.concatenateAssign, __traits(classInstanceSize, CatAssignExp), e1, e2);
+        }
+
+        extern (D) this(const ref Loc loc, EXP tok, Expression e1, Expression e2)
+        {
+            super(loc, tok, __traits(classInstanceSize, CatAssignExp), e1, e2);
+        }
+
+        override void accept(Visitor v)
+        {
+            v.visit(this);
+        }
+    }
+
+    extern (C++) final class CatElemAssignExp : CatAssignExp
+    {
+        extern (D) this(const ref Loc loc, Type type, Expression e1, Expression e2)
+        {
+            super(loc, EXP.concatenateElemAssign, e1, e2);
+            this.type = type;
+        }
+
+        override void accept(Visitor v)
+        {
+            v.visit(this);
+        }
+    }
+
+    extern (C++) final class CatDcharAssignExp : CatAssignExp
+    {
+        extern (D) this(const ref Loc loc, Type type, Expression e1, Expression e2)
+        {
+            super(loc, EXP.concatenateDcharAssign, e1, e2);
+            this.type = type;
         }
 
         override void accept(Visitor v)

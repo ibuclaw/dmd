@@ -761,10 +761,13 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
         {
             foreach (i, field; ad.fields)
             {
-                printf("  fields[%d]: %s %d\n", cast(int)i, field.toChars(), field.offset);
+                if (auto bf = field.isBitFieldDeclaration())
+                    printf("  fields[%d]: %s %2d bitoffset %2d width %2d\n", cast(int)i, bf.toChars(), bf.offset, bf.bitOffset, bf.fieldWidth);
+                else
+                    printf("  fields[%d]: %s %2d\n", cast(int)i, field.toChars(), field.offset);
             }
         }
-        version (all)
+        version (none)
         {
             printf("  firstFieldIndex: %d\n", cast(int)firstFieldIndex);
             foreach (i; 0 .. elements.length)
@@ -786,6 +789,9 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
     uint offset;
     if (cd)
     {
+        const bool gentypeinfo = global.params.useTypeInfo && Type.dtypeinfo;
+        const bool genclassinfo = gentypeinfo || !(cd.isCPPclass || cd.isCOMclass);
+
         if (ClassDeclaration cdb = cd.baseClass)
         {
             // Insert { base class }
@@ -798,7 +804,7 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
         else if (InterfaceDeclaration id = cd.isInterfaceDeclaration())
         {
             offset = (**ppb).offset;
-            if (id.vtblInterfaces.dim == 0)
+            if (id.vtblInterfaces.dim == 0 && genclassinfo)
             {
                 BaseClass* b = **ppb;
                 //printf("  Interface %s, b = %p\n", id.toChars(), b);
@@ -830,7 +836,10 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
         }
 
         // Interface vptr initializations
-        toSymbol(cd);                                         // define csym
+        if (genclassinfo)
+        {
+            toSymbol(cd);                                         // define csym
+        }
 
         BaseClass** pb;
         if (!ppb)
@@ -857,6 +866,7 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
            firstFieldIndex <= elements.dim &&
            firstFieldIndex + ad.fields.dim <= elements.dim);
 
+    uint bitByteOffset = 0;     // byte offset of bit field
     uint bitOffset = 0;         // starting bit number
     ulong bitFieldValue = 0;    // in-flight bit field value
     uint bitFieldSize;          // in-flight size in bytes of bit field
@@ -865,13 +875,43 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
     {
         if (bitOffset)
         {
-            //printf("finishInFlightBitField() offset %d bitOffset %d bitFieldSize %d\n", offset, bitOffset, bitFieldSize);
+            //printf("finishInFlightBitField() offset %d bitOffset %d bitFieldSize %d bitFieldValue x%llx\n", offset, bitOffset, bitFieldSize, bitFieldValue);
             assert(bitFieldSize);
+
+            // advance to start of bit field
+            if (offset < bitByteOffset)
+            {
+                dtb.nzeros(bitByteOffset - offset);
+                offset = bitByteOffset;
+            }
+
             dtb.nbytes(bitFieldSize, cast(char*)&bitFieldValue);
             offset += bitFieldSize;
             bitOffset = 0;
             bitFieldValue = 0;
             bitFieldSize = 0;
+        }
+    }
+
+    static if (0)
+    {
+        foreach (i, field; ad.fields)
+        {
+            if (elements && !(*elements)[firstFieldIndex + i])
+                continue;       // no element for this field
+
+            if (!elements || !(*elements)[firstFieldIndex + i])
+            {
+                if (field._init && field._init.isVoidInitializer())
+                    continue;   // void initializer for this field
+            }
+
+            VarDeclaration vd = field;
+            auto bf = vd.isBitFieldDeclaration();
+            if (bf)
+                printf("%s\t offset: %d width: %u bit: %u\n", bf.toChars(), bf.offset, bf.fieldWidth, bf.bitOffset);
+            else
+                printf("%s\t offset: %d\n", vd.toChars(), vd.offset);
         }
     }
 
@@ -943,7 +983,7 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
             switch (target.c.bitFieldStyle)
             {
                 case TargetC.BitFieldStyle.Gcc_Clang:
-                    bitFieldSize = (bitOffset + bf.fieldWidth + 7) / 8;
+                    bitFieldSize = (bf.bitOffset + bf.fieldWidth + 7) / 8;
                     break;
 
                 case TargetC.BitFieldStyle.DM:
@@ -957,10 +997,14 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
             }
         }
 
-        assert(offset <= vd.offset);
-        if (offset < vd.offset)
-            dtb.nzeros(vd.offset - offset);
         //printf("offset: %u, vd: %s vd.offset: %u\n", offset, vd.toChars(), vd.offset);
+        if (vd.offset < offset)
+            continue;           // a union field
+        if (offset < vd.offset)
+        {
+            dtb.nzeros(vd.offset - offset);
+            offset = vd.offset;
+        }
 
         auto dtbx = DtBuilder(0);
         if (elements)
@@ -1012,6 +1056,7 @@ private void membersToDt(AggregateDeclaration ad, ref DtBuilder dtb,
             dtb.cat(dtbx);
         if (bf)
         {
+            bitByteOffset = bf.offset;
             bitOffset = bf.bitOffset + bf.fieldWidth;
         }
         else

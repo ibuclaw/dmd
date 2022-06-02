@@ -7,7 +7,9 @@ fail_compilation/failcstuff1.c(152): Error: `;` or `,` expected
 fail_compilation/failcstuff1.c(153): Error: `void` has no value
 fail_compilation/failcstuff1.c(153): Error: missing comma
 fail_compilation/failcstuff1.c(153): Error: `;` or `,` expected
-fail_compilation/failcstuff1.c(157): Error: identifier not allowed in abstract-declarator
+fail_compilation/failcstuff1.c(157): Error: expression expected, not `struct`
+fail_compilation/failcstuff1.c(157): Error: found `S22028` when expecting `)`
+fail_compilation/failcstuff1.c(157): Error: missing comma or semicolon after declaration of `test22028`, found `ident` instead
 fail_compilation/failcstuff1.c(203): Error: storage class not allowed in specifier-qualified-list
 fail_compilation/failcstuff1.c(204): Error: storage class not allowed in specifier-qualified-list
 fail_compilation/failcstuff1.c(205): Error: storage class not allowed in specifier-qualified-list
@@ -46,7 +48,6 @@ fail_compilation/failcstuff1.c(504): Error: found `;` when expecting `)`
 fail_compilation/failcstuff1.c(505): Error: `=`, `;` or `,` expected to end declaration instead of `int`
 fail_compilation/failcstuff1.c(551): Error: missing comma or semicolon after declaration of `pluto`, found `p` instead
 fail_compilation/failcstuff1.c(601): Error: `=`, `;` or `,` expected to end declaration instead of `'s'`
-fail_compilation/failcstuff1.c(605): Error: invalid flag for line marker directive
 ---
 */
 
@@ -159,7 +160,3 @@ int * pluto p;
 #line 600
 
 char c22909 = u8's';
-
-/****************************************************/
-
-#650 "fail_compilation/failcstuff1.c" invalid

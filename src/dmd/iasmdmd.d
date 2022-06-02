@@ -21,6 +21,7 @@ import core.stdc.string;
 import dmd.astenums;
 import dmd.declaration;
 import dmd.denum;
+import dmd.dmdparams;
 import dmd.dscope;
 import dmd.dsymbol;
 import dmd.errors;
@@ -48,7 +49,7 @@ import dmd.backend.code_x86;
 import dmd.backend.codebuilder : CodeBuilder;
 import dmd.backend.global;
 import dmd.backend.iasm;
-import dmd.backend.ptrntab : asm_opstr, asm_op_lookup, init_optab;
+import dmd.backend.ptrntab : asm_opstr, asm_op_lookup;
 import dmd.backend.xmm;
 
 //debug = EXTRA_DEBUG;
@@ -111,7 +112,6 @@ version (none) // don't use bReturnax anymore, and will fail anyway if we use re
     if (!asmstate.bInit)
     {
         asmstate.bInit = true;
-        init_optab();
         asmstate.psDollar = LabelDsymbol.create(Id._dollar);
         asmstate.psLocalsize = Dsymbol.create(Id.__LOCAL_SIZE);
     }
@@ -1431,7 +1431,7 @@ code *asm_emit(Loc loc,
         CodeBuilder cdb;
         cdb.ctor();
 
-        if (global.params.symdebug)
+        if (driverParams.symdebug)
         {
             cdb.genlinnum(Srcpos.create(loc.filename, loc.linnum, loc.charnum));
         }
@@ -2214,13 +2214,12 @@ private void asm_merge_opnds(ref OPND o1, ref OPND o2)
         else
         {
             RootObject o = (*tup.objects)[index];
-            if (o.dyncast() == DYNCAST.dsymbol)
+            switch (o.dyncast()) with (DYNCAST)
             {
+            case dsymbol:
                 o1.s = cast(Dsymbol)o;
                 return;
-            }
-            else if (o.dyncast() == DYNCAST.expression)
-            {
+            case expression:
                 Expression e = cast(Expression)o;
                 if (auto ve = e.isVarExp())
                 {
@@ -2232,6 +2231,9 @@ private void asm_merge_opnds(ref OPND o1, ref OPND o2)
                     o1.s = fe.fd;
                     return;
                 }
+                break;
+            default:
+                break;
             }
             asmerr("invalid asm operand `%s`", o1.s.toChars());
         }
@@ -2374,7 +2376,7 @@ void asm_merge_symbol(ref OPND o1, Dsymbol s)
             asmerr("cannot directly load TLS variable `%s`", v.toChars());
             return;
         }
-        else if (v.isDataseg() && global.params.pic != PIC.fixed)
+        else if (v.isDataseg() && driverParams.pic != PIC.fixed)
         {
             asmerr("cannot directly load global variable `%s` with PIC or PIE code", v.toChars());
             return;
@@ -3505,7 +3507,7 @@ code *asm_da_parse(OP *pop)
             else
                 label.iasm = true;
 
-            if (global.params.symdebug)
+            if (driverParams.symdebug)
                 cdb.genlinnum(Srcpos.create(asmstate.loc.filename, asmstate.loc.linnum, asmstate.loc.charnum));
             cdb.genasm(cast(_LabelDsymbol*)label);
         }
@@ -3689,7 +3691,7 @@ code *asm_db_parse(OP *pop)
 
     CodeBuilder cdb;
     cdb.ctor();
-    if (global.params.symdebug)
+    if (driverParams.symdebug)
         cdb.genlinnum(Srcpos.create(asmstate.loc.filename, asmstate.loc.linnum, asmstate.loc.charnum));
     cdb.genasm(bytes.peekChars(), cast(uint)bytes.length);
     code *c = cdb.finish();

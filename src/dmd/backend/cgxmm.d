@@ -394,6 +394,7 @@ void xmmcnvt(ref CodeBuilder cdb,elem *e,regm_t *pretregs)
         ty = TYdouble;
         break;
 
+    case OPd_s16:
     case OPd_s32: ty = TYint;  goto Ldtoi;
     case OPd_u32: ty = TYlong; if (I64) rex = REX_W; goto Ldtoi;
     case OPd_s64: ty = TYlong; rex = REX_W; goto Ldtoi;
@@ -1689,7 +1690,7 @@ bool xmmIsAligned(elem *e)
     {
         Symbol *s = e.EV.Vsym;
         const alignsz = tyalignsize(e.Ety);
-        if (Symbol_Salignsize(s) < alignsz ||
+        if (Symbol_Salignsize(*s) < alignsz ||
             e.EV.Voffset & (alignsz - 1) ||
             alignsz > STACKALIGN
            )
