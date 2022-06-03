@@ -13,7 +13,7 @@ name: build-release
 on: 
   push:
     tags:
-    - '*'
+    - 'v*'
 
 jobs:
   # Build and package a new release for all supported platforms
