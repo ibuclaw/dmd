@@ -676,6 +676,13 @@ private void verrorPrint(const(char)* format, va_list ap, ref ErrorInfo info)
             return;
     }
 
+    static bool initLibIntl;
+    if (!initLibIntl)
+    {
+        initializeLibIntl();
+        initLibIntl = true;
+    }
+
     if (global.params.v.showGaggedErrors && global.gag)
         fprintf(stderr, "(spec:%d) ", global.gag);
     auto con = cast(Console) global.console;
@@ -706,7 +713,7 @@ private void verrorPrint(const(char)* format, va_list ap, ref ErrorInfo info)
         tmp.writestring(info.p2);
         tmp.writestring(" ");
     }
-    tmp.vprintf(format, ap);
+    tmp.vprintf(_(format), ap);
 
     if (con && strchr(tmp.peekChars(), '`'))
     {
@@ -1050,5 +1057,46 @@ private void writeHighlights(Console con, ref const OutBuffer buf)
             con.setColor(cast(Color)color);
             colors = true;
         }
+    }
+}
+
+///////////////////////////// Intl/Locale support /////////////////////////////
+private:
+
+version (CRuntime_Glibc)
+{
+    // Native support.
+    extern (C)
+    {
+        char *textdomain(scope const char* domainname);
+        char *bindtextdomain(scope const char* domainname, scope const char* dirname);
+        const(char)* gettext(scope const char* msgid);
+    }
+
+    alias _ = gettext;
+}
+else
+{
+    // No-op support.
+    // Could we roll our own by string importing the msgcat files at compile-time?
+    alias _ = (scope const char* msgid) => msgid;
+}
+
+void initializeLibIntl()
+{
+    import core.stdc.locale;
+
+    static if (__traits(compiles, LC_MESSAGES))
+    {
+        setlocale(LC_CTYPE, "");
+        setlocale(LC_MESSAGES, "");
+    }
+    else
+        setlocale(LC_ALL, "");
+
+    static if (__traits(compiles, bindtextdomain))
+    {
+        bindtextdomain("dmd", "/usr/share/locale");
+        textdomain("dmd");
     }
 }
