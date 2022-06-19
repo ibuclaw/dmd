@@ -1,0 +1,57 @@
+# Turn off all default rules
+--keyword
+# dmd/errors.d: Entrypoint diagostics
+--keyword=error:2
+--flag=error:2:c-format
+--keyword=errorSupplemental:2
+--flag=errorSupplemental:2:c-format
+--keyword=warning:2
+--flag=warning:2:c-format
+--keyword=warningSupplemental:2
+--flag=warningSupplemental:2:c-format
+--keyword=deprecation:2
+--flag=deprecation:2:c-format
+--keyword=deprecationSupplemental:2
+--flag=deprecationSupplemental:2:c-format
+--keyword=tip:1
+--flag=tip:1:c-format
+# dmd/dsymbol.d, dmd/expression.d, dmd.lexer.d, dmd.statement.d:
+# Some AST nodes have helper diagnostics that wrap their location
+--keyword=error:1
+--flag=error:1:c-format
+--keyword=errorSupplemental:1
+--flag=errorSupplemental:1:c-format
+--keyword=warning:1
+--flag=warning:1:c-format
+--keyword=deprecation:1
+--flag=deprecation:1:c-format
+# dmd/errors.d: va_arg equivalents, not usually called directly, but included anyway
+--keyword=verror:2,3t
+--keyword=verror:2,4t
+--keyword=verror:2,5t
+--keyword=verror:2,6t
+--flag=verror:2:pass-c-format
+--flag=verror:4:no-c-format
+--flag=verror:5:no-c-format
+--flag=verror:6:no-c-format
+--keyword=verrorSupplemental:2,3t
+--flag=verrorSupplemental:2:pass-c-format
+--keyword=vwarning:2,3t
+--flag=vwarning:2:pass-c-format
+--keyword=vwarningSupplemental:2,3t
+--flag=vwarningSupplemental:2:pass-c-format
+--keyword=vdeprecation:2,3t
+--flag=vdeprecation:2:pass-c-format
+--keyword=vdeprecation:2,4t
+--keyword=vdeprecation:2,5t
+--keyword=vdeprecationSupplemental:2,3t
+--flag=vdeprecationSupplemental:2:pass-c-format
+--keyword=vtip:1:2t
+--flag=vtip:2:pass-c-format
+# dmd/errors.d: Diagnostic messages, leave them out for now
+#--keyword=message:1
+#--flag=message:1:c-format
+#--keyword=message:2
+#--flag=message:2:c-format
+#--keyword=vmessage:2:3t
+#--flag=vmessage:2:pass-c-format

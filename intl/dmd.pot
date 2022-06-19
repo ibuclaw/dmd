@@ -1,0 +1,8168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR D Language Foundation
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: dmd/parse.d:2888
+#, fuzzy, c-format
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: https://issues.dlang.org/\n"
+"POT-Creation-Date: 2022-06-19 19:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dmd/typinf.d:49
+#, c-format
+msgid "expression `%s` uses the GC and cannot be used with switch `-betterC`"
+msgstr ""
+
+#: dmd/typinf.d:51
+#, c-format
+msgid "`TypeInfo` cannot be used with -betterC"
+msgstr ""
+
+#: dmd/typinf.d:58
+#, c-format
+msgid "`object.TypeInfo` could not be found, but is implicitly used"
+msgstr ""
+
+#: dmd/scanomf.d:111
+#, c-format
+msgid "corrupt COMDAT"
+msgstr ""
+
+#: dmd/dversion.d:79 dmd/dversion.d:174 dmd/parse.d:6111 dmd/parse.d:6127
+#, c-format
+msgid "declaration must be at module level"
+msgstr ""
+
+#: dmd/dversion.d:86 dmd/dversion.d:181
+#, c-format
+msgid "defined after use"
+msgstr ""
+
+#: dmd/dversion.d:98 dmd/dversion.d:193 dmd/parse.d:6113 dmd/parse.d:6129
+#, c-format
+msgid "level declaration must be at module level"
+msgstr ""
+
+#: dmd/dstruct.d:267 dmd/dclass.d:486 dmd/nspace.d:136
+#, c-format
+msgid "is forward referenced when looking for `%s`"
+msgstr ""
+
+#: dmd/dclass.d:227 dmd/astbase.d:1456
+#, c-format
+msgid "illegal class name"
+msgstr ""
+
+#: dmd/dclass.d:235 dmd/dclass.d:241 dmd/dclass.d:247 dmd/dclass.d:253
+#: dmd/dclass.d:259 dmd/dclass.d:265 dmd/dclass.d:277 dmd/dclass.d:283
+#: dmd/dclass.d:289 dmd/dclass.d:295 dmd/dclass.d:301 dmd/dclass.d:307
+#: dmd/dclass.d:313 dmd/dclass.d:319 dmd/dclass.d:325 dmd/dclass.d:331
+#: dmd/dclass.d:339 dmd/dclass.d:346 dmd/dclass.d:352 dmd/dclass.d:358
+#: dmd/dclass.d:364 dmd/expressionsem.d:4995 dmd/expressionsem.d:5066
+#: dmd/dcast.d:2451 dmd/dcast.d:2467 dmd/dcast.d:2475 dmd/astbase.d:1464
+#: dmd/astbase.d:1470 dmd/astbase.d:1476 dmd/astbase.d:1482 dmd/astbase.d:1488
+#: dmd/astbase.d:1494 dmd/astbase.d:1506 dmd/astbase.d:1512 dmd/astbase.d:1518
+#: dmd/astbase.d:1524 dmd/astbase.d:1530 dmd/astbase.d:1536 dmd/astbase.d:1542
+#: dmd/astbase.d:1548 dmd/astbase.d:1554 dmd/astbase.d:1560 dmd/astbase.d:1568
+#: dmd/astbase.d:1575 dmd/astbase.d:1581 dmd/astbase.d:1587 dmd/astbase.d:1593
+#: dmd/lexer.d:1879 dmd/lexer.d:1897
+#, c-format
+msgid "%s"
+msgstr ""
+
+#: dmd/dclass.d:508
+#, c-format
+msgid "base `%s` is forward referenced"
+msgstr ""
+
+#: dmd/dclass.d:819
+#, c-format
+msgid "ambiguous virtual function `%s`"
+msgstr ""
+
+#: dmd/cparse.d:274 dmd/parse.d:5709
+#, c-format
+msgid "found `%s` when expecting `;` or `=`, did you mean `%s %s = %s`?"
+msgstr ""
+
+#: dmd/cparse.d:489
+#, c-format
+msgid "found `else` without a corresponding `if` statement"
+msgstr ""
+
+#: dmd/cparse.d:588 dmd/parse.d:6346
+#, c-format
+msgid "identifier expected following `goto`"
+msgstr ""
+
+#: dmd/cparse.d:606 dmd/parse.d:6501
+#, c-format
+msgid "found `%s` instead of statement"
+msgstr ""
+
+#: dmd/cparse.d:754 dmd/parse.d:8061
+#, c-format
+msgid "mismatched string literal postfixes `'%c'` and `'%c'`"
+msgstr ""
+
+#: dmd/cparse.d:784 dmd/parse.d:8436
+#, c-format
+msgid "expression expected, not `%s`"
+msgstr ""
+
+#: dmd/cparse.d:840
+#, c-format
+msgid "identifier expected following `.`, not `%s`"
+msgstr ""
+
+#: dmd/cparse.d:853
+#, c-format
+msgid "identifier expected following `->`, not `%s`"
+msgstr ""
+
+#: dmd/cparse.d:1527
+#, c-format
+msgid "only one `default` allowed in generic-assoc-list"
+msgstr ""
+
+#: dmd/cparse.d:1649
+#, c-format
+msgid "type-specifier missing for declaration of `%s`"
+msgstr ""
+
+#: dmd/cparse.d:1675
+#, c-format
+msgid "`enum %s` has no members"
+msgstr ""
+
+#: dmd/cparse.d:1682
+#, c-format
+msgid "no type for declarator before `%s`"
+msgstr ""
+
+#: dmd/cparse.d:1706
+#, c-format
+msgid "type-specifier omitted for declaration of `%s`"
+msgstr ""
+
+#: dmd/cparse.d:1754
+#, c-format
+msgid "no alignment-specifier for function declaration"
+msgstr ""
+
+#: dmd/cparse.d:1756
+#, c-format
+msgid "no alignment-specifier for `register` storage class"
+msgstr ""
+
+#: dmd/cparse.d:1787
+#, c-format
+msgid "declaration-specifier-seq required"
+msgstr ""
+
+#: dmd/cparse.d:1791
+#, c-format
+msgid "no initializer for typedef declaration"
+msgstr ""
+
+#: dmd/cparse.d:1793
+#, c-format
+msgid "no alignment-specifier for typedef declaration"
+msgstr ""
+
+#: dmd/cparse.d:1847 dmd/cparse.d:3639
+#, c-format
+msgid "`void` has no value"
+msgstr ""
+
+#: dmd/cparse.d:1863
+#, c-format
+msgid "no initializer for function declaration"
+msgstr ""
+
+#: dmd/cparse.d:1865
+#, c-format
+msgid "functions cannot be `_Thread_local`"
+msgstr ""
+
+#: dmd/cparse.d:1923
+#, c-format
+msgid "missing comma or semicolon after declaration of `%s`, found `%s` instead"
+msgstr ""
+
+#: dmd/cparse.d:1939
+#, c-format
+msgid "`=`, `;` or `,` expected to end declaration instead of `%s`"
+msgstr ""
+
+#: dmd/cparse.d:1984
+#, c-format
+msgid "function identifier-list cannot end with `...`"
+msgstr ""
+
+#: dmd/cparse.d:1989
+#, c-format
+msgid "%d identifiers does not match %d declarations"
+msgstr ""
+
+#: dmd/cparse.d:2008
+#, c-format
+msgid "storage class and type are not allowed in identifier-list"
+msgstr ""
+
+#: dmd/cparse.d:2022
+#, c-format
+msgid "no declaration for identifier `%s`"
+msgstr ""
+
+#: dmd/cparse.d:2108
+#, c-format
+msgid "identifier expected following `.` designator"
+msgstr ""
+
+#: dmd/cparse.d:2288
+#, c-format
+msgid "no alignment-specifier for parameters"
+msgstr ""
+
+#: dmd/cparse.d:2343
+#, c-format
+msgid "`typeof` operator expects an expression or type name in parentheses"
+msgstr ""
+
+#: dmd/cparse.d:2395
+#, c-format
+msgid "illegal combination of type specifiers"
+msgstr ""
+
+#: dmd/cparse.d:2414
+#, c-format
+msgid "duplicate storage class"
+msgstr ""
+
+#: dmd/cparse.d:2420
+#, c-format
+msgid "conflicting storage class"
+msgstr ""
+
+#: dmd/cparse.d:2426
+#, c-format
+msgid "only `register` storage class allowed for function parameters"
+msgstr ""
+
+#: dmd/cparse.d:2432
+#, c-format
+msgid "`auto` and `register` storage class not allowed for global"
+msgstr ""
+
+#: dmd/cparse.d:2521
+#, c-format
+msgid "illegal type combination"
+msgstr ""
+
+#: dmd/cparse.d:2596
+#, c-format
+msgid "identifier not allowed in abstract-declarator"
+msgstr ""
+
+#: dmd/cparse.d:2635
+#, c-format
+msgid "no type-specifier for declarator"
+msgstr ""
+
+#: dmd/cparse.d:2639 dmd/expressionsem.d:4474
+#, c-format
+msgid "identifier or `(` expected"
+msgstr ""
+
+#: dmd/cparse.d:2710
+#, c-format
+msgid "variable length arrays are not supported"
+msgstr ""
+
+#: dmd/cparse.d:2714
+#, c-format
+msgid "static array parameters are not supported"
+msgstr ""
+
+#: dmd/cparse.d:2721
+#, c-format
+msgid "variable length array used outside of function prototype"
+msgstr ""
+
+#: dmd/cparse.d:2726
+#, c-format
+msgid "static or type qualifier used outside of function prototype"
+msgstr ""
+
+#: dmd/cparse.d:2734
+#, c-format
+msgid "static or type qualifier used in non-outermost array type derivation"
+msgstr ""
+
+#: dmd/cparse.d:2739
+#, c-format
+msgid "array type has incomplete element type `%s`"
+msgstr ""
+
+#: dmd/cparse.d:2857
+#, c-format
+msgid "type-specifier is missing"
+msgstr ""
+
+#: dmd/cparse.d:2884
+#, c-format
+msgid "storage class not allowed in specifier-qualified-list"
+msgstr ""
+
+#: dmd/cparse.d:2934
+#, c-format
+msgid "named parameter required before `...`"
+msgstr ""
+
+#: dmd/cparse.d:2947
+#, c-format
+msgid "no type-specifier for parameter"
+msgstr ""
+
+#: dmd/cparse.d:2955
+#, c-format
+msgid "type-specifier omitted for parameter `%s`"
+msgstr ""
+
+#: dmd/cparse.d:2991 dmd/cparse.d:3096
+#, c-format
+msgid "string literal expected"
+msgstr ""
+
+#: dmd/cparse.d:3076
+#, c-format
+msgid "extended-decl-modifier expected"
+msgstr ""
+
+#: dmd/cparse.d:3272
+#, c-format
+msgid "extra right parenthesis"
+msgstr ""
+
+#: dmd/cparse.d:3283
+#, c-format
+msgid "end of file found before right parenthesis"
+msgstr ""
+
+#: dmd/cparse.d:3364
+#, c-format
+msgid "no members for `enum %s`"
+msgstr ""
+
+#: dmd/cparse.d:3366
+#, c-format
+msgid "no members for anonymous enum"
+msgstr ""
+
+#: dmd/cparse.d:3422
+#, c-format
+msgid "missing `identifier` after `enum`"
+msgstr ""
+
+#: dmd/cparse.d:3487
+#, c-format
+msgid "missing tag `identifier` after `%s`"
+msgstr ""
+
+#: dmd/cparse.d:3528
+#, c-format
+msgid "no type-specifier for struct member"
+msgstr ""
+
+#: dmd/cparse.d:3547
+#, c-format
+msgid "type-specifier omitted before declaration of `%s`"
+msgstr ""
+
+#: dmd/cparse.d:3592
+#, c-format
+msgid "type-specifier omitted before bit field declaration of `%s`"
+msgstr ""
+
+#: dmd/cparse.d:3628
+#, c-format
+msgid "specifier-qualifier-list required"
+msgstr ""
+
+#: dmd/cparse.d:3632
+#, c-format
+msgid "no alignment-specifier for bit field declaration"
+msgstr ""
+
+#: dmd/cparse.d:3652
+#, c-format
+msgid "missing comma"
+msgstr ""
+
+#: dmd/cparse.d:3664
+#, c-format
+msgid "`;` or `,` expected"
+msgstr ""
+
+#: dmd/cparse.d:4662 dmd/cparse.d:4683
+#, c-format
+msgid "unsupported integer type"
+msgstr ""
+
+#: dmd/cparse.d:4946 dmd/lexer.d:2659
+#, c-format
+msgid "C preprocessor directive `#%s` is not supported"
+msgstr ""
+
+#: dmd/cparse.d:4982
+#, c-format
+msgid "left parenthesis expected to follow `#pragma pack`"
+msgstr ""
+
+#: dmd/cparse.d:4992
+#, c-format
+msgid "right parenthesis expected to close `#pragma pack(`"
+msgstr ""
+
+#: dmd/cparse.d:5002
+#, c-format
+msgid "pack must be an integer positive power of 2, not 0x%llx"
+msgstr ""
+
+#: dmd/cparse.d:5020
+#, c-format
+msgid "current pack attribute is default"
+msgstr ""
+
+#: dmd/cparse.d:5022
+#, c-format
+msgid "current pack attribute is %d"
+msgstr ""
+
+#: dmd/cparse.d:5051 dmd/cparse.d:5060
+#, c-format
+msgid "alignment value expected, not `%s`"
+msgstr ""
+
+#: dmd/cparse.d:5121
+#, c-format
+msgid "unrecognized `#pragma pack(%s)`"
+msgstr ""
+
+#: dmd/e2ir.d:528 dmd/dinterpret.d:464
+#, c-format
+msgid "need `this` to access member `%s`"
+msgstr ""
+
+#: dmd/e2ir.d:1122 dmd/typesem.d:402 dmd/typesem.d:2853
+#, c-format
+msgid "forward reference to `%s`"
+msgstr ""
+
+#: dmd/e2ir.d:1311
+#, c-format
+msgid "internal compiler error: cannot new type `%s`\n"
+msgstr ""
+
+#: dmd/e2ir.d:1699
+#, c-format
+msgid "array concatenation of expression `%s` requires the GC which is not available with -betterC"
+msgstr ""
+
+#: dmd/e2ir.d:2962 dmd/expression.d:3417
+#, c-format
+msgid "type `%s` is not an expression"
+msgstr ""
+
+#: dmd/e2ir.d:2968 dmd/expressionsem.d:6602 dmd/expressionsem.d:11460
+#: dmd/typesem.d:3399 dmd/typesem.d:3448 dmd/expression.d:2892 dmd/dcast.d:241
+#, c-format
+msgid "`%s` is not an expression"
+msgstr ""
+
+#: dmd/e2ir.d:2981
+#, c-format
+msgid "`%s` is not a field, but a %s"
+msgstr ""
+
+#: dmd/e2ir.d:3091
+#, c-format
+msgid "delegates are only for non-static functions"
+msgstr ""
+
+#: dmd/e2ir.d:5181
+#, c-format
+msgid "e2ir: cannot cast `%s` of type `%s` to type `%s`"
+msgstr ""
+
+#: dmd/e2ir.d:5280
+#, c-format
+msgid "simd operator must be an integer constant, not `%s`"
+msgstr ""
+
+#: dmd/initsem.d:78 dmd/initsem.d:1025
+#, c-format
+msgid "not an associative array initializer"
+msgstr ""
+
+#: dmd/initsem.d:131
+#, c-format
+msgid "%s `%s` has constructors, cannot use `{ initializers }`, use `%s( initializers )` instead"
+msgstr ""
+
+#: dmd/initsem.d:160
+#, c-format
+msgid "`%s` is not a member of `%s`, did you mean %s `%s`?"
+msgstr ""
+
+#: dmd/initsem.d:162 dmd/dsymbolsem.d:265 dmd/importc.d:128
+#, c-format
+msgid "`%s` is not a member of `%s`"
+msgstr ""
+
+#: dmd/initsem.d:173
+#, c-format
+msgid "`%s.%s` is not a per-instance initializable field"
+msgstr ""
+
+#: dmd/initsem.d:182
+#, c-format
+msgid "too many initializers for `%s`"
+msgstr ""
+
+#: dmd/initsem.d:189
+#, c-format
+msgid "duplicate initializer for field `%s`"
+msgstr ""
+
+#: dmd/initsem.d:218 dmd/aggregate.d:413
+#, c-format
+msgid "overlapping initialization for field `%s` and `%s`"
+msgstr ""
+
+#: dmd/initsem.d:266
+#, c-format
+msgid "a struct is not a valid initializer for a `%s`"
+msgstr ""
+
+#: dmd/initsem.d:302 dmd/initsem.d:313
+#, c-format
+msgid "cannot use array to initialize `%s`"
+msgstr ""
+
+#: dmd/initsem.d:331
+#, c-format
+msgid "array index %llu overflow"
+msgstr ""
+
+#: dmd/initsem.d:369
+#, c-format
+msgid "array dimension overflow"
+msgstr ""
+
+#: dmd/initsem.d:380
+#, c-format
+msgid "array initializer has %u elements, but array length is %llu"
+msgstr ""
+
+#: dmd/initsem.d:394 dmd/initsem.d:892
+#, c-format
+msgid "array dimension %llu exceeds max of %llu"
+msgstr ""
+
+#: dmd/initsem.d:455
+#, c-format
+msgid "variables cannot be initialized with an expression of type `void`. Use `void` initialization instead."
+msgstr ""
+
+#: dmd/initsem.d:474
+#, c-format
+msgid "initializer must be an expression, not `%s`"
+msgstr ""
+
+#: dmd/initsem.d:480
+#, c-format
+msgid "cannot use non-constant CTFE pointer in an initializer `%s`"
+msgstr ""
+
+#: dmd/initsem.d:615 dmd/expressionsem.d:9475
+#, c-format
+msgid "mismatched array lengths, %d and %d"
+msgstr ""
+
+#: dmd/initsem.d:623 dmd/expressionsem.d:9236 dmd/expression.d:4040
+#: dmd/dcast.d:140
+#, c-format
+msgid "cannot implicitly convert expression `%s` of type `%s` to `%s`"
+msgstr ""
+
+#: dmd/initsem.d:689 dmd/initsem.d:817
+#, c-format
+msgid "C designator-list not supported yet"
+msgstr ""
+
+#: dmd/initsem.d:740
+#, c-format
+msgid "%d extra initializer(s) for `struct %s`"
+msgstr ""
+
+#: dmd/initsem.d:757
+#, c-format
+msgid "C non-array initializer (%s) %s not supported yet"
+msgstr ""
+
+#: dmd/initsem.d:790
+#, c-format
+msgid "incomplete element type `%s` not allowed"
+msgstr ""
+
+#: dmd/initsem.d:881
+#, c-format
+msgid "%d extra initializer(s) for static array length of %d"
+msgstr ""
+
+#: dmd/initsem.d:955
+#, c-format
+msgid "cannot infer type from void initializer"
+msgstr ""
+
+#: dmd/initsem.d:966
+#, c-format
+msgid "cannot infer type from struct initializer"
+msgstr ""
+
+#: dmd/initsem.d:1029
+#, c-format
+msgid "cannot infer type from array initializer"
+msgstr ""
+
+#: dmd/initsem.d:1048
+#, c-format
+msgid "cannot infer type from %s `%s`, possible circular dependency"
+msgstr ""
+
+#: dmd/initsem.d:1050
+#, c-format
+msgid "cannot infer type from %s `%s`"
+msgstr ""
+
+#: dmd/initsem.d:1064 dmd/initsem.d:1072
+#, c-format
+msgid "cannot infer type from overloaded function symbol `%s`"
+msgstr ""
+
+#: dmd/initsem.d:1090
+#, c-format
+msgid "TODO C inferType initializers not supported yet"
+msgstr ""
+
+#: dmd/blockexit.d:154 dmd/blockexit.d:156
+#, c-format
+msgid "switch case fallthrough - use 'goto %s;' if intended"
+msgstr ""
+
+#: dmd/blockexit.d:165 dmd/blockexit.d:463
+#, c-format
+msgid "statement is not reachable"
+msgstr ""
+
+#: dmd/blockexit.d:512
+#, c-format
+msgid "`asm` statement is assumed to throw - mark it with `nothrow` if it does not"
+msgstr ""
+
+#: dmd/blockexit.d:555
+#, c-format
+msgid "`%s` is thrown but not caught"
+msgstr ""
+
+#: dmd/libmscoff.d:97
+#, c-format
+msgid "corrupt MS Coff object module %.*s %d"
+msgstr ""
+
+#: dmd/func.d:506
+#, c-format
+msgid "forward reference to %s`%s`"
+msgstr ""
+
+#: dmd/func.d:682
+#, c-format
+msgid "cannot determine overridden function"
+msgstr ""
+
+#: dmd/func.d:736
+#, c-format
+msgid "overriding `extern(C++)` function `%s%s` with `const` qualified function `%s%s%s` is deprecated"
+msgstr ""
+
+#: dmd/func.d:741
+#, c-format
+msgid "Either remove `override`, or adjust the `const` qualifiers of the "
+msgstr ""
+
+#: dmd/func.d:993
+#, c-format
+msgid "%smethod %s is not callable using a %sobject"
+msgstr ""
+
+#: dmd/func.d:1223
+#, c-format
+msgid "%s%s `%s` cannot access %s `%s` in frame of function `%s`"
+msgstr ""
+
+#: dmd/func.d:1226 dmd/parse.d:4686
+#, c-format
+msgid "`%s` declared here"
+msgstr ""
+
+#: dmd/func.d:2186
+#, c-format
+msgid "is `@nogc` yet allocates closures with the GC"
+msgstr ""
+
+#: dmd/func.d:2219
+#, c-format
+msgid "%s closes over variable %s at %s"
+msgstr ""
+
+#: dmd/func.d:2307
+#, c-format
+msgid "out result %s is already defined"
+msgstr ""
+
+#: dmd/func.d:2813
+#, c-format
+msgid "parameter list must be empty or accept one parameter of type `string[]`"
+msgstr ""
+
+#: dmd/func.d:2848
+#, c-format
+msgid "parameters must match one of the following signatures"
+msgstr ""
+
+#: dmd/func.d:2849
+#, c-format
+msgid "`main()`"
+msgstr ""
+
+#: dmd/func.d:2850
+#, c-format
+msgid "`main(int argc, char** argv)`"
+msgstr ""
+
+#: dmd/func.d:2851
+#, c-format
+msgid "`main(int argc, char** argv, char** environ)` [POSIX extension]"
+msgstr ""
+
+#: dmd/func.d:2861
+#, c-format
+msgid "must return `int`, `void` or `noreturn`, not `%s`"
+msgstr ""
+
+#: dmd/func.d:3031 dmd/func.d:3070
+#, c-format
+msgid "is aliased to a function"
+msgstr ""
+
+#: dmd/func.d:3278
+#, c-format
+msgid ""
+"`%s.%s` called with argument types `%s` matches both:\n"
+"%s:     `%s%s%s`\n"
+"and:\n"
+"%s:     `%s%s%s`"
+msgstr ""
+
+#: dmd/func.d:3292
+#, c-format
+msgid "none of the overloads of %s `%s.%s` are callable using argument types `!(%s)%s`"
+msgstr ""
+
+#: dmd/func.d:3310
+#, c-format
+msgid "none of the overloads of `%s` are callable using argument types `!(%s)%s`"
+msgstr ""
+
+#: dmd/func.d:3332
+#, c-format
+msgid "none of the overloads of `%s` are callable using a %sobject"
+msgstr ""
+
+#: dmd/func.d:3342 dmd/func.d:3368
+#, c-format
+msgid "%s `%s%s%s` is not callable using argument types `%s`"
+msgstr ""
+
+#: dmd/func.d:3349
+#, c-format
+msgid "%smethod `%s` is not callable using a %sobject"
+msgstr ""
+
+#: dmd/func.d:3353
+#, c-format
+msgid "Consider adding `shared` here"
+msgstr ""
+
+#: dmd/func.d:3355
+#, c-format
+msgid "Consider adding `const` or `inout` here"
+msgstr ""
+
+#: dmd/func.d:3362
+#, c-format
+msgid "none of the overloads of `%s` are callable using argument types `%s`"
+msgstr ""
+
+#: dmd/func.d:3415
+#, c-format
+msgid "                `%s%s`"
+msgstr ""
+
+#: dmd/func.d:3437
+#, c-format
+msgid ""
+"                `%s`\n"
+"%s"
+msgstr ""
+
+#: dmd/func.d:3445
+#, c-format
+msgid "                `%s`"
+msgstr ""
+
+#: dmd/func.d:3462 dmd/statementsem.d:2306
+#, c-format
+msgid "... (%d more, -v to show) ..."
+msgstr ""
+
+#: dmd/func.d:3468
+#, c-format
+msgid "All possible candidates are marked as `deprecated` or `@disable`"
+msgstr ""
+
+#: dmd/scanmach.d:43
+#, c-format
+msgid "corrupt Mach-O object module `%s` %d"
+msgstr ""
+
+#: dmd/scanmach.d:60 dmd/scanmach.d:79
+#, c-format
+msgid "Mach-O object module `%s` has cputype = %d, should be %d"
+msgstr ""
+
+#: dmd/scanmach.d:65 dmd/scanmach.d:84
+#, c-format
+msgid "Mach-O object module `%s` has file type = %d, should be %d"
+msgstr ""
+
+#: dmd/staticcond.d:114
+#, c-format
+msgid "expression `%s` is not constant"
+msgstr ""
+
+#: dmd/libomf.d:85
+#, c-format
+msgid "corrupt OMF object module %.*s %d"
+msgstr ""
+
+#: dmd/libomf.d:134
+#, c-format
+msgid "COFF libraries not supported"
+msgstr ""
+
+#: dmd/libomf.d:199
+#, c-format
+msgid "multiple definition of %.*s: %.*s and %.*s: %s"
+msgstr ""
+
+#: dmd/arrayop.d:96
+#, c-format
+msgid "array operation `%s` without destination memory not allowed%s"
+msgstr ""
+
+#: dmd/arrayop.d:125
+#, c-format
+msgid "cannot perform array operations on `void[]` arrays"
+msgstr ""
+
+#: dmd/arrayop.d:169 dmd/expressionsem.d:9602
+#, c-format
+msgid "slice `%s` is not mutable"
+msgstr ""
+
+#: dmd/arrayop.d:374
+#, c-format
+msgid "invalid array operation `%s` (possible missing [])"
+msgstr ""
+
+#: dmd/arrayop.d:387
+#, c-format
+msgid "did you mean to concatenate (`%s`) instead ?"
+msgstr ""
+
+#: dmd/expressionsem.d:171
+#, c-format
+msgid "`string` expected for %s, not `(%s)` of type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:224
+#, c-format
+msgid "multi-dimensional slicing requires template `opSlice`"
+msgstr ""
+
+#: dmd/expressionsem.d:274 dmd/expressionsem.d:311 dmd/expressionsem.d:1411
+#: dmd/expressionsem.d:3077 dmd/dsymbol.d:2106
+#, c-format
+msgid "`%s` has no value"
+msgstr ""
+
+#: dmd/expressionsem.d:511
+#, c-format
+msgid "expected key as argument to `aa.remove()`"
+msgstr ""
+
+#: dmd/expressionsem.d:516
+#, c-format
+msgid "cannot remove key from `%s` associative array `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:869 dmd/expressionsem.d:12549 dmd/typesem.d:360
+#: dmd/typesem.d:3764 dmd/typesem.d:4175
+#, c-format
+msgid "circular reference to %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:871 dmd/expressionsem.d:6994 dmd/expressionsem.d:12551
+#: dmd/typesem.d:362 dmd/typesem.d:3766 dmd/typesem.d:4177
+#, c-format
+msgid "forward reference to %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:881 dmd/expressionsem.d:12565 dmd/typesem.d:3778
+#: dmd/typesem.d:4189 dmd/dinterpret.d:2086
+#, c-format
+msgid "circular initialization of %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:942
+#, c-format
+msgid "forward reference of import `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:1006
+#, c-format
+msgid "%s `%s` is not a variable"
+msgstr ""
+
+#: dmd/expressionsem.d:1105
+#, c-format
+msgid "`this` for `%s` needs to be type `%s` not type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:1180
+#, c-format
+msgid "%s is not an lvalue"
+msgstr ""
+
+#: dmd/expressionsem.d:1279 dmd/expressionsem.d:1301
+#, c-format
+msgid "function `%s` of type `%s` is not accessible from module `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:1360
+#, c-format
+msgid "cannot resolve type for %s"
+msgstr ""
+
+#: dmd/expressionsem.d:1366
+#, c-format
+msgid "not a property %s"
+msgstr ""
+
+#: dmd/expressionsem.d:1610
+#, c-format
+msgid "cannot pass type `%s` as a function argument"
+msgstr ""
+
+#: dmd/expressionsem.d:1620
+#, c-format
+msgid "cannot pass function `%s` as a function argument"
+msgstr ""
+
+#: dmd/expressionsem.d:1649
+#, c-format
+msgid "default construction is disabled"
+msgstr ""
+
+#: dmd/expressionsem.d:1694
+#, c-format
+msgid "expected %llu arguments, not %llu for non-variadic function type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:1743
+#, c-format
+msgid "expected %llu function arguments, not %llu"
+msgstr ""
+
+#: dmd/expressionsem.d:1845
+#, c-format
+msgid "not enough arguments"
+msgstr ""
+
+#: dmd/expressionsem.d:1878
+#, c-format
+msgid "modify `inout` to `%s` is not allowed inside `inout` function"
+msgstr ""
+
+#: dmd/expressionsem.d:2010
+#, c-format
+msgid "cannot modify struct `%s` with immutable members"
+msgstr ""
+
+#: dmd/expressionsem.d:2148
+#, c-format
+msgid "cannot pass dynamic arrays to `%s` vararg functions"
+msgstr ""
+
+#: dmd/expressionsem.d:2153
+#, c-format
+msgid "cannot pass static arrays to `%s` vararg functions"
+msgstr ""
+
+#: dmd/expressionsem.d:2162
+#, c-format
+msgid "cannot pass types that need destruction as variadic arguments"
+msgstr ""
+
+#: dmd/expressionsem.d:2167
+#, c-format
+msgid "cannot pass types with postblits or copy constructors as variadic arguments"
+msgstr ""
+
+#: dmd/expressionsem.d:2191
+#, c-format
+msgid "function `%s` is overloaded"
+msgstr ""
+
+#: dmd/expressionsem.d:2447
+#, c-format
+msgid "`inout` constructor `%s` creates%s object, not%s"
+msgstr ""
+
+#: dmd/expressionsem.d:2483
+#, c-format
+msgid "internal compiler error: unable to process forward-referenced import `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:2626
+#, c-format
+msgid "with symbol `%s` is shadowing local symbol `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:2726 dmd/typesem.d:2685
+#, c-format
+msgid "variable `__ctfe` cannot be read at compile time"
+msgstr ""
+
+#: dmd/expressionsem.d:2788
+#, c-format
+msgid "`%s` is not defined, perhaps `import %.*s;` is needed?"
+msgstr ""
+
+#: dmd/expressionsem.d:2790 dmd/typesem.d:168
+#, c-format
+msgid "undefined identifier `%s`, did you mean %s `%s`?"
+msgstr ""
+
+#: dmd/expressionsem.d:2792 dmd/typesem.d:170
+#, c-format
+msgid "undefined identifier `%s`, did you mean `%s`?"
+msgstr ""
+
+#: dmd/expressionsem.d:2794
+#, c-format
+msgid "undefined identifier `$`"
+msgstr ""
+
+#: dmd/expressionsem.d:2796 dmd/typesem.d:175 dmd/dsymbolsem.d:267
+#: dmd/dsymbolsem.d:6633
+#, c-format
+msgid "undefined identifier `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:2831
+#, c-format
+msgid "`%s` is not in a class or struct scope"
+msgstr ""
+
+#: dmd/expressionsem.d:2869
+#, c-format
+msgid "`this` is only defined in non-static member functions, not `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:2899
+#, c-format
+msgid "`%s` is not in a class scope"
+msgstr ""
+
+#: dmd/expressionsem.d:2908
+#, c-format
+msgid "class `%s` has no `super`"
+msgstr ""
+
+#: dmd/expressionsem.d:2933
+#, c-format
+msgid "no base class for `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:2949
+#, c-format
+msgid "`super` is only allowed in non-static class member functions"
+msgstr ""
+
+#: dmd/expressionsem.d:2993 dmd/expressionsem.d:3016 dmd/dmangle.d:895
+#: dmd/expression.d:2542 dmd/expression.d:2554 dmd/dcast.d:1976
+#: dmd/dcast.d:1989 dmd/dcast.d:2001 dmd/dcast.d:2014 dmd/dsymbolsem.d:1537
+#: dmd/lexer.d:2829 dmd/mars.d:1437 dmd/mars.d:1461
+#, c-format
+msgid "%.*s"
+msgstr ""
+
+#: dmd/expressionsem.d:3133
+#, c-format
+msgid "`%s` of type `%s` has no value"
+msgstr ""
+
+#: dmd/expressionsem.d:3165
+#, c-format
+msgid "number of keys is %llu, must match number of values %llu"
+msgstr ""
+
+#: dmd/expressionsem.d:3243
+#, c-format
+msgid "cannot convert initializer `%s` to expression"
+msgstr ""
+
+#: dmd/expressionsem.d:3376 dmd/dmangle.d:798
+#, c-format
+msgid "forward reference of %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3397
+#, c-format
+msgid "recursive expansion of %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3480
+#, c-format
+msgid "`this` for nested class must be a class type, not `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3528 dmd/expressionsem.d:3890 dmd/parse.d:9309
+#, c-format
+msgid "cannot create a `%s` with `new`"
+msgstr ""
+
+#: dmd/expressionsem.d:3539
+#, c-format
+msgid "`.new` is only for allocating nested classes, not `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3556 dmd/expressionsem.d:3766 dmd/expressionsem.d:3843
+#: dmd/dsymbolsem.d:835
+#, c-format
+msgid "default construction is disabled for type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3562
+#, c-format
+msgid "cannot create instance of interface `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3568
+#, c-format
+msgid "cannot create instance of abstract class `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3574
+#, c-format
+msgid "function `%s` is not implemented"
+msgstr ""
+
+#: dmd/expressionsem.d:3626
+#, c-format
+msgid "`this` for nested class must be of type `%s`, not `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3632
+#, c-format
+msgid "nested type `%s` should have the same or weaker constancy as enclosing type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3639 dmd/expressionsem.d:3657
+#, c-format
+msgid "`.new` is only for allocating nested classes"
+msgstr ""
+
+#: dmd/expressionsem.d:3647
+#, c-format
+msgid "outer function context of `%s` is needed to `new` nested class `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3670
+#, c-format
+msgid "need `this` of type `%s` needed to `new` nested class `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3678
+#, c-format
+msgid "cannot allocate `class %s` with `new` because it is annotated with `@disable new()`"
+msgstr ""
+
+#: dmd/expressionsem.d:3705
+#, c-format
+msgid "no constructor for `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3773
+#, c-format
+msgid "cannot allocate `struct %s` with `new` because it is annotated with `@disable new()`"
+msgstr ""
+
+#: dmd/expressionsem.d:3834
+#, c-format
+msgid "missing length argument for array"
+msgstr ""
+
+#: dmd/expressionsem.d:3850
+#, c-format
+msgid "too many arguments for array"
+msgstr ""
+
+#: dmd/expressionsem.d:3862
+#, c-format
+msgid "negative array index `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:3882 dmd/expressionsem.d:4629
+#, c-format
+msgid "more than one argument for construction of `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:4184
+#, c-format
+msgid "function literal `%s%s` is not callable using argument types `(%s)`"
+msgstr ""
+
+#: dmd/expressionsem.d:4188
+#, c-format
+msgid "few"
+msgstr ""
+
+#: dmd/expressionsem.d:4395
+#, c-format
+msgid "recursive evaluation of `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:4479
+#, c-format
+msgid "identifier or `(` expected before `)`"
+msgstr ""
+
+#: dmd/expressionsem.d:4583
+#, c-format
+msgid "%s `%s` does not overload ()"
+msgstr ""
+
+#: dmd/expressionsem.d:4662
+#, c-format
+msgid "no overload matches for `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:4732
+#, c-format
+msgid "cannot call `public`/`export` function `%s` from invariant"
+msgstr ""
+
+#: dmd/expressionsem.d:4812
+#, c-format
+msgid "super class constructor call must be in a constructor"
+msgstr ""
+
+#: dmd/expressionsem.d:4817
+#, c-format
+msgid "no super class constructor for `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:4827
+#, c-format
+msgid "constructor call must be in a constructor"
+msgstr ""
+
+#: dmd/expressionsem.d:4844
+#, c-format
+msgid "constructor calls not allowed in loops or after labels"
+msgstr ""
+
+#: dmd/expressionsem.d:4846
+#, c-format
+msgid "multiple constructor calls"
+msgstr ""
+
+#: dmd/expressionsem.d:4848
+#, c-format
+msgid "an earlier `return` statement skips constructor"
+msgstr ""
+
+#: dmd/expressionsem.d:4876
+#, c-format
+msgid "cyclic constructor call"
+msgstr ""
+
+#: dmd/expressionsem.d:4893
+#, c-format
+msgid "function expected before `()`, not `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:4967 dmd/expressionsem.d:5104 dmd/expression.d:1529
+#, c-format
+msgid "need `this` for `%s` of type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:4976
+#, c-format
+msgid "function expected before `()`, not `%s` of type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:4992 dmd/expressionsem.d:5063
+#, c-format
+msgid "%s `%s%s` is not callable using argument types `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5012 dmd/expression.d:1181
+#, c-format
+msgid "`pure` %s `%s` cannot call impure %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5018 dmd/expression.d:1475
+#, c-format
+msgid "`@nogc` %s `%s` cannot call non-@nogc %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5024 dmd/expression.d:1419
+#, c-format
+msgid "`@safe` %s `%s` cannot call `@system` %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5136
+#, c-format
+msgid "forward reference to inferred return type of function call `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5199
+#, c-format
+msgid "need `this` of type `%s` to call function `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5279 dmd/expressionsem.d:5511 dmd/expressionsem.d:5817
+#: dmd/dtemplate.d:2355
+#, c-format
+msgid "declaration `%s` is already defined"
+msgstr ""
+
+#: dmd/expressionsem.d:5280 dmd/expressionsem.d:5512 dmd/expressionsem.d:5818
+#, c-format
+msgid "`%s` `%s` is defined here"
+msgstr ""
+
+#: dmd/expressionsem.d:5313
+#, c-format
+msgid "more than 65535 symbols with name `%s` generated"
+msgstr ""
+
+#: dmd/expressionsem.d:5346
+#, c-format
+msgid "%s `%s` is shadowing %s `%s`. Rename the `foreach` variable."
+msgstr ""
+
+#: dmd/expressionsem.d:5350
+#, c-format
+msgid "%s `%s` is shadowing %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5415
+#, c-format
+msgid "no type for `typeid(%s)`"
+msgstr ""
+
+#: dmd/expressionsem.d:5427
+#, c-format
+msgid "runtime type information is not supported for `extern(C++)` classes"
+msgstr ""
+
+#: dmd/expressionsem.d:5432 dmd/typesem.d:4035
+#, c-format
+msgid "`object.TypeInfo_Class` could not be found, but is implicitly used"
+msgstr ""
+
+#: dmd/expressionsem.d:5532
+#, c-format
+msgid "can only declare type aliases within `static if` conditionals or `static assert`s"
+msgstr ""
+
+#: dmd/expressionsem.d:5893
+#, c-format
+msgid "none of the `opOpAssign` overloads of `%s` are callable for `%s` of type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:5973
+#, c-format
+msgid "incomplete mixin expression `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6010
+#, c-format
+msgid "need `-J` switch to import text file `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6021
+#, c-format
+msgid "absolute path is not allowed in import expression: `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6028
+#, c-format
+msgid "`%s` is not a valid filename on this platform"
+msgstr ""
+
+#: dmd/expressionsem.d:6029
+#, c-format
+msgid "Character `'%c'` is reserved and cannot be used"
+msgstr ""
+
+#: dmd/expressionsem.d:6035
+#, c-format
+msgid "path refers to parent (`..`) directory: `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6042
+#, c-format
+msgid "file `%s` cannot be found or not in a path specified with `-J`"
+msgstr ""
+
+#: dmd/expressionsem.d:6043
+#, c-format
+msgid "Path(s) searched (as provided by `-J`):"
+msgstr ""
+
+#: dmd/expressionsem.d:6049
+#, c-format
+msgid "[%llu]: `%s`%s"
+msgstr ""
+
+#: dmd/expressionsem.d:6095
+#, c-format
+msgid "cannot read file `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6470 dmd/expressionsem.d:6483
+#, c-format
+msgid "argument to `_Alignof` must be a type"
+msgstr ""
+
+#: dmd/expressionsem.d:6767
+#, c-format
+msgid "%smethod `%s` is not callable using a %s`%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6791
+#, c-format
+msgid "need `this` of type `%s` to make delegate from function `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6963 dmd/expressionsem.d:13135
+#, c-format
+msgid "cannot take address of `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6974
+#, c-format
+msgid "cannot take address of bit-field `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:6997
+#, c-format
+msgid "forward reference to type `%s` of expression `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7166
+#, c-format
+msgid "using `*` on an array is no longer supported; use `*(%s).ptr` instead"
+msgstr ""
+
+#: dmd/expressionsem.d:7179
+#, c-format
+msgid "can only `*` a pointer, not a `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7358
+#, c-format
+msgid "the `delete` keyword is obsolete"
+msgstr ""
+
+#: dmd/expressionsem.d:7359
+#, c-format
+msgid "use `object.destroy()` (and `core.memory.GC.free()` if applicable) instead"
+msgstr ""
+
+#: dmd/expressionsem.d:7385
+#, c-format
+msgid "cannot delete type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7394
+#, c-format
+msgid "cannot `delete` instance of COM interface `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7498
+#, c-format
+msgid "cannot cast `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7536
+#, c-format
+msgid "cannot cast `%s` of type `%s` to tuple type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7604
+#, c-format
+msgid "cast from `%s` to `%s` not allowed in safe code"
+msgstr ""
+
+#: dmd/expressionsem.d:7718
+#, c-format
+msgid "constant expression expected, not `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7783
+#, c-format
+msgid "cannot slice type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7835
+#, c-format
+msgid "cannot slice function pointer `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:7840
+#, c-format
+msgid "upper and lower bounds are needed to slice a pointer"
+msgstr ""
+
+#: dmd/expressionsem.d:7851
+#, c-format
+msgid "pointer `%s` points to an aggregate that defines an `%s`, perhaps you meant `(*%s)[]`"
+msgstr ""
+
+#: dmd/expressionsem.d:7881
+#, c-format
+msgid "need upper and lower bound to slice tuple"
+msgstr ""
+
+#: dmd/expressionsem.d:7895
+#, c-format
+msgid "`%s` cannot be sliced with `[]`"
+msgstr ""
+
+#: dmd/expressionsem.d:7961
+#, c-format
+msgid "string slice `[%llu .. %llu]` is out of bounds"
+msgstr ""
+
+#: dmd/expressionsem.d:8022
+#, c-format
+msgid "in slice `%s[%llu .. %llu]`, lower bound is greater than upper bound"
+msgstr ""
+
+#: dmd/expressionsem.d:8027
+#, c-format
+msgid "in slice `%s[%llu .. %llu]`, upper bound is greater than array length `%llu`"
+msgstr ""
+
+#: dmd/expressionsem.d:8111
+#, c-format
+msgid "no `[]` operator overload for type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:8113
+#, c-format
+msgid "static array of `%s` with multiple lengths not allowed"
+msgstr ""
+
+#: dmd/expressionsem.d:8115
+#, c-format
+msgid "only one index allowed to index `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:8117
+#, c-format
+msgid "cannot use `[]` operator on expression of type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:8195 dmd/expressionsem.d:8688
+#, c-format
+msgid "using the result of a comma expression is not allowed"
+msgstr ""
+
+#: dmd/expressionsem.d:8362
+#, c-format
+msgid "cannot index function pointer `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:8443
+#, c-format
+msgid "array index `[%llu]` is outside array bounds `[0 .. %llu]`"
+msgstr ""
+
+#: dmd/expressionsem.d:8458
+#, c-format
+msgid "`%s` must be an array or pointer type, not `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:8548
+#, c-format
+msgid "cannot post-%s array slice `%s`, use pre-%s instead"
+msgstr ""
+
+#: dmd/expressionsem.d:8925
+#, c-format
+msgid "mismatched tuple lengths, %d and %d"
+msgstr ""
+
+#: dmd/expressionsem.d:9157
+#, c-format
+msgid "conversion error from `%s` to `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:9238
+#, c-format
+msgid "Perhaps remove the `new` keyword?"
+msgstr ""
+
+#: dmd/expressionsem.d:9505 dmd/mtype.d:2539
+#, c-format
+msgid "static array `%s` size overflowed to %llu"
+msgstr ""
+
+#: dmd/expressionsem.d:9608
+#, c-format
+msgid "slice `%s` is not mutable, struct `%s` has immutable members"
+msgstr ""
+
+#: dmd/expressionsem.d:9631
+#, c-format
+msgid "array `%s` is not mutable, struct `%s` has immutable members"
+msgstr ""
+
+#: dmd/expressionsem.d:9702
+#, c-format
+msgid "mismatched array lengths %d and %d for assignment `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:9728
+#, c-format
+msgid "explicit element-wise assignment `%s = (%s)[]` is better than `%s = %s`"
+msgstr ""
+
+#: dmd/expressionsem.d:9787
+#, c-format
+msgid "explicit %s assignment `%s = (%s)[]` is better than `%s = %s`"
+msgstr ""
+
+#: dmd/expressionsem.d:9809
+#, c-format
+msgid "`%s` is the first assignment of `%s` therefore it represents its initialization"
+msgstr ""
+
+#: dmd/expressionsem.d:9812
+#, c-format
+msgid "`opAssign` methods are not used for initialization, but for subsequent assignments"
+msgstr ""
+
+#: dmd/expressionsem.d:9861
+#, c-format
+msgid "cannot rebind scope variables"
+msgstr ""
+
+#: dmd/expressionsem.d:9867 dmd/expression.d:3720
+#, c-format
+msgid "cannot modify compiler-generated variable `__ctfe`"
+msgstr ""
+
+#: dmd/expressionsem.d:10064
+#, c-format
+msgid "cannot append to static array `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:10188
+#, c-format
+msgid "cannot append type `%s` to type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:10495
+#, c-format
+msgid "cannot subtract pointers to different types: `%s` and `%s`."
+msgstr ""
+
+#: dmd/expressionsem.d:10528
+#, c-format
+msgid "can't subtract `%s` from pointer"
+msgstr ""
+
+#: dmd/expressionsem.d:10537
+#, c-format
+msgid "can't subtract pointer from `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:11038 dmd/expression.d:4498
+#, c-format
+msgid "cannot perform modulo complex arithmetic"
+msgstr ""
+
+#: dmd/expressionsem.d:11105
+#, c-format
+msgid "`%s` requires `std.math` for `^^` operators"
+msgstr ""
+
+#: dmd/expressionsem.d:11509
+#, c-format
+msgid "do not use `null` when comparing class types"
+msgstr ""
+
+#: dmd/expressionsem.d:11519
+#, c-format
+msgid "recursive `opCmp` expansion"
+msgstr ""
+
+#: dmd/expressionsem.d:11587
+#, c-format
+msgid "array comparison type mismatch, `%s` vs `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:11614 dmd/expressionsem.d:11616
+#, c-format
+msgid "need member function `opCmp()` for %s `%s` to compare"
+msgstr ""
+
+#: dmd/expressionsem.d:11621
+#, c-format
+msgid "compare not defined for complex operands"
+msgstr ""
+
+#: dmd/expressionsem.d:11626
+#, c-format
+msgid "`%s` is not defined for associative arrays"
+msgstr ""
+
+#: dmd/expressionsem.d:11771
+#, c-format
+msgid "comparison between different enumeration types `%s` and `%s`; If this behavior is intended consider using `std.conv.asOriginalType`"
+msgstr ""
+
+#: dmd/expressionsem.d:11890
+#, c-format
+msgid "incompatible types for array comparison: `%s` and `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:11969
+#, c-format
+msgid "identity comparison of static arrays "
+msgstr ""
+
+#: dmd/expressionsem.d:12161
+#, c-format
+msgid "generic association type `%s` can only appear once"
+msgstr ""
+
+#: dmd/expressionsem.d:12204
+#, c-format
+msgid "no compatible generic association type for controlling expression type `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:12364
+#, c-format
+msgid "cannot retrieve its `.mangleof` while inferring attributes"
+msgstr ""
+
+#: dmd/expressionsem.d:12430
+#, c-format
+msgid "template `%s` does not have property `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:12435
+#, c-format
+msgid "expression `%s` does not have property `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:12702
+#, c-format
+msgid "undefined identifier `%s` in %s `%s`, perhaps add `static import %s;`"
+msgstr ""
+
+#: dmd/expressionsem.d:12704
+#, c-format
+msgid "undefined identifier `%s` in %s `%s`, did you mean %s `%s`?"
+msgstr ""
+
+#: dmd/expressionsem.d:12707
+#, c-format
+msgid "undefined identifier `%s` in %s `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:12951
+#, c-format
+msgid "`%s` isn't a template"
+msgstr ""
+
+#: dmd/expressionsem.d:12989
+#, c-format
+msgid "direct access to shared `%s` is not allowed, see `core.atomic`"
+msgstr ""
+
+#: dmd/expressionsem.d:13147
+#, c-format
+msgid "cannot take address of %s `%s` in `@safe` function `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:13221
+#, c-format
+msgid "need `this` of type `%s` to access member `%s` from static function `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:13288
+#, c-format
+msgid "`%s.%s` not found. The current runtime does not support %.*s, or the runtime is corrupt."
+msgstr ""
+
+#: dmd/expressionsem.d:13326
+#, c-format
+msgid "more initializers than fields (%llu) of `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:13332
+#, c-format
+msgid "overlapping initialization for `%s`"
+msgstr ""
+
+#: dmd/expressionsem.d:13456
+#, c-format
+msgid "`delete` does not give a boolean result"
+msgstr ""
+
+#: dmd/expressionsem.d:13476 dmd/statementsem.d:134
+#, c-format
+msgid "assignment cannot be used as a condition, perhaps `==` was meant?"
+msgstr ""
+
+#: dmd/expressionsem.d:13540
+#, c-format
+msgid "expression `%s` of type `%s` does not have a boolean value"
+msgstr ""
+
+#: dmd/toir.d:346
+#, c-format
+msgid "is a nested function and cannot be accessed from `%s`"
+msgstr ""
+
+#: dmd/toir.d:380
+#, c-format
+msgid "cannot get frame pointer to `%s`"
+msgstr ""
+
+#: dmd/toir.d:833
+#, c-format
+msgid "has scoped destruction, cannot build closure"
+msgstr ""
+
+#: dmd/toir.d:841
+#, c-format
+msgid "cannot reference variadic arguments from closure"
+msgstr ""
+
+#: dmd/semantic3.d:143 dmd/semantic2.d:183 dmd/dsymbolsem.d:2869
+#: dmd/dsymbolsem.d:6336
+#, c-format
+msgid "error instantiating"
+msgstr ""
+
+#: dmd/semantic3.d:298
+#, c-format
+msgid "has no function body with return type inference"
+msgstr ""
+
+#: dmd/semantic3.d:367
+#, c-format
+msgid "cannot be %s members"
+msgstr ""
+
+#: dmd/semantic3.d:391
+#, c-format
+msgid "function requires a dual-context, which is deprecated"
+msgstr ""
+
+#: dmd/semantic3.d:408
+#, c-format
+msgid "D-style variadic functions cannot be used with -betterC"
+msgstr ""
+
+#: dmd/semantic3.d:410
+#, c-format
+msgid "`object.TypeInfo_Tuple` could not be found, but is implicitly used in D-style variadic functions"
+msgstr ""
+
+#: dmd/semantic3.d:412
+#, c-format
+msgid "`object.TypeInfo` could not be found, but is implicitly used in D-style variadic functions"
+msgstr ""
+
+#: dmd/semantic3.d:491 dmd/semantic3.d:530 dmd/dtemplate.d:877
+#, c-format
+msgid "parameter `%s.%s` is already defined"
+msgstr ""
+
+#: dmd/semantic3.d:694
+#, c-format
+msgid "missing initializer for %s field `%s`"
+msgstr ""
+
+#: dmd/semantic3.d:696 dmd/dsymbolsem.d:5258
+#, c-format
+msgid "field `%s` must be initialized in constructor"
+msgstr ""
+
+#: dmd/semantic3.d:698
+#, c-format
+msgid "field `%s` must be initialized in constructor, because it is nested struct"
+msgstr ""
+
+#: dmd/semantic3.d:705
+#, c-format
+msgid "field `%s` must be initialized but skipped"
+msgstr ""
+
+#: dmd/semantic3.d:721
+#, c-format
+msgid "no match for implicit `super()` call in constructor"
+msgstr ""
+
+#: dmd/semantic3.d:725
+#, c-format
+msgid "cannot call `super()` implicitly because it is annotated with `@disable`"
+msgstr ""
+
+#: dmd/semantic3.d:758 dmd/semantic3.d:1164
+#, c-format
+msgid "%s `%s` may throw but is marked as `nothrow`"
+msgstr ""
+
+#: dmd/semantic3.d:809
+#, c-format
+msgid "is typed as `%s` but does return"
+msgstr ""
+
+#: dmd/semantic3.d:810
+#, c-format
+msgid "`noreturn` functions must either throw, abort or loop indefinitely"
+msgstr ""
+
+#: dmd/semantic3.d:819
+#, c-format
+msgid "has no `return` statement, but is expected to return a value of type `%s`"
+msgstr ""
+
+#: dmd/semantic3.d:821
+#, c-format
+msgid "no `return exp;` or `assert(0);` at end of function"
+msgstr ""
+
+#: dmd/semantic3.d:910
+#, c-format
+msgid "expression `%s` of type `%s` is not implicitly convertible to return type `ref %s`"
+msgstr ""
+
+#: dmd/semantic3.d:1016
+#, c-format
+msgid "`void` functions have no result"
+msgstr ""
+
+#: dmd/semantic3.d:1056
+#, c-format
+msgid "zero-length `out` parameters are not allowed."
+msgstr ""
+
+#: dmd/semantic3.d:1211
+#, c-format
+msgid "synchronized function `%s` must be a member of a class"
+msgstr ""
+
+#: dmd/semantic3.d:1228
+#, c-format
+msgid "label `%s` is undefined"
+msgstr ""
+
+#: dmd/semantic3.d:1242
+#, c-format
+msgid "naked assembly functions with contracts are not supported"
+msgstr ""
+
+#: dmd/semantic3.d:1348
+#, c-format
+msgid "cannot return type `%s` because its linkage is `extern(C++)`"
+msgstr ""
+
+#: dmd/semantic3.d:1355
+#, c-format
+msgid "cannot have parameter of type `%s` because its linkage is `extern(C++)`"
+msgstr ""
+
+#: dmd/semantic3.d:1357
+#, c-format
+msgid "perhaps use a `%s*` type instead"
+msgstr ""
+
+#: dmd/semantic3.d:1437
+#, c-format
+msgid "`%s` has stricter attributes than its destructor (`%s`)"
+msgstr ""
+
+#: dmd/semantic3.d:1599
+#, c-format
+msgid "cannot have an in contract when overridden function `%s` does not have an in contract"
+msgstr ""
+
+#: dmd/dmangle.d:693 dmd/dtemplate.d:7698
+#, c-format
+msgid "is not defined"
+msgstr ""
+
+#: dmd/dmangle.d:760
+#, c-format
+msgid "tuple is not a valid template value argument"
+msgstr ""
+
+#: dmd/dmangle.d:837 dmd/dtemplate.d:7267
+#, c-format
+msgid "expression `%s` is not a valid template value argument"
+msgstr ""
+
+#: dmd/dmangle.d:909 dmd/dcast.d:2026 dmd/dcast.d:2040
+#, c-format
+msgid "invalid UCS-32 char \\U%08x"
+msgstr ""
+
+#: dmd/dmangle.d:1226
+#, c-format
+msgid "excessive length %llu for symbol, possible recursive expansion?"
+msgstr ""
+
+#: dmd/dmangle.d:1348
+#, c-format
+msgid "the same declaration cannot be in multiple scopes with non-D linkage"
+msgstr ""
+
+#: dmd/dmangle.d:1364
+#, c-format
+msgid "forward declaration"
+msgstr ""
+
+#: dmd/constfold.d:428 dmd/constfold.d:493
+#, c-format
+msgid "divide by 0"
+msgstr ""
+
+#: dmd/constfold.d:437
+#, c-format
+msgid "integer overflow: `int.min / -1`"
+msgstr ""
+
+#: dmd/constfold.d:443
+#, c-format
+msgid "integer overflow: `long.min / -1L`"
+msgstr ""
+
+#: dmd/constfold.d:502
+#, c-format
+msgid "integer overflow: `int.min %% -1`"
+msgstr ""
+
+#: dmd/constfold.d:508
+#, c-format
+msgid "integer overflow: `long.min %% -1L`"
+msgstr ""
+
+#: dmd/constfold.d:1186
+#, c-format
+msgid "cannot cast `%s` to `%s`"
+msgstr ""
+
+#: dmd/constfold.d:1235 dmd/ctfeexpr.d:1561
+#, c-format
+msgid "string index %llu is out of bounds `[0 .. %llu]`"
+msgstr ""
+
+#: dmd/constfold.d:1251 dmd/constfold.d:1274 dmd/ctfeexpr.d:1572
+#, c-format
+msgid "array index %llu is out of bounds `%s[0 .. %llu]`"
+msgstr ""
+
+#: dmd/todt.d:117
+#, c-format
+msgid "duplicate initializations for index `%d`"
+msgstr ""
+
+#: dmd/todt.d:173
+#, c-format
+msgid "too many initializers, %u, for array[%llu]"
+msgstr ""
+
+#: dmd/todt.d:277
+#, c-format
+msgid "non-constant expression `%s`"
+msgstr ""
+
+#: dmd/todt.d:565
+#, c-format
+msgid "recursive reference `%s`"
+msgstr ""
+
+#: dmd/todt.d:1186
+#, c-format
+msgid "`%s`: mismatch between compiler (%d bytes) and object.d or object.di (%d bytes) found. Check installation and import paths with -v compiler switch."
+msgstr ""
+
+#: dmd/todt.d:1528
+#, c-format
+msgid "toHash() must be declared as extern (D) size_t toHash() const nothrow @safe, not %s"
+msgstr ""
+
+#: dmd/traits.d:185
+#, c-format
+msgid "size overflow for type `%s`"
+msgstr ""
+
+#: dmd/traits.d:399
+#, c-format
+msgid "a single type expected for trait pointerBitmap"
+msgstr ""
+
+#: dmd/traits.d:406 dmd/typesem.d:564 dmd/dtemplate.d:7059
+#, c-format
+msgid "`%s` is not a type"
+msgstr ""
+
+#: dmd/traits.d:453
+#, c-format
+msgid "expected %d arguments for `%s` but had %d"
+msgstr ""
+
+#: dmd/traits.d:616 dmd/traits.d:637 dmd/traits.d:659 dmd/traits.d:1917
+#, c-format
+msgid "type expected as second argument of __traits `%s` instead of `%s`"
+msgstr ""
+
+#: dmd/traits.d:693
+#, c-format
+msgid "aggregate or function expected instead of `%s`"
+msgstr ""
+
+#: dmd/traits.d:798 dmd/traits.d:808
+#, c-format
+msgid "argument `%s` has no identifier"
+msgstr ""
+
+#: dmd/traits.d:834
+#, c-format
+msgid "argument `%s` has no visibility"
+msgstr ""
+
+#: dmd/traits.d:885
+#, c-format
+msgid "argument `%s` has no parent"
+msgstr ""
+
+#: dmd/traits.d:921
+#, c-format
+msgid "symbol or expression expected as first argument of __traits `child` instead of `%s`"
+msgstr ""
+
+#: dmd/traits.d:930
+#, c-format
+msgid "symbol expected as second argument of __traits `child` instead of `%s`"
+msgstr ""
+
+#: dmd/traits.d:954 dmd/traits.d:985
+#, c-format
+msgid "expression expected as second argument of __traits `%s`"
+msgstr ""
+
+#: dmd/traits.d:967
+#, c-format
+msgid "cannot determine `%s`"
+msgstr ""
+
+#: dmd/traits.d:997
+#, c-format
+msgid "`bool` expected as third argument of `__traits(getOverloads)`, not `%s` of type `%s`"
+msgstr ""
+
+#: dmd/traits.d:1006
+#, c-format
+msgid "string expected as second argument of __traits `%s` instead of `%s`"
+msgstr ""
+
+#: dmd/traits.d:1013
+#, c-format
+msgid "string must be chars"
+msgstr ""
+
+#: dmd/traits.d:1039
+#, c-format
+msgid "invalid first argument"
+msgstr ""
+
+#: dmd/traits.d:1071
+#, c-format
+msgid "`%s` cannot be resolved"
+msgstr ""
+
+#: dmd/traits.d:1225
+#, c-format
+msgid "first argument is not a class"
+msgstr ""
+
+#: dmd/traits.d:1234 dmd/traits.d:1542
+#, c-format
+msgid "%s `%s` is forward referenced"
+msgstr ""
+
+#: dmd/traits.d:1296
+#, c-format
+msgid "first argument is not a symbol"
+msgstr ""
+
+#: dmd/traits.d:1317
+#, c-format
+msgid "first argument is not a function"
+msgstr ""
+
+#: dmd/traits.d:1347
+#, c-format
+msgid "argument to `__traits(isReturnOnStack, %s)` is not a function"
+msgstr ""
+
+#: dmd/traits.d:1382
+#, c-format
+msgid "argument to `__traits(getFunctionVariadicStyle, %s)` is not a function"
+msgstr ""
+
+#: dmd/traits.d:1432
+#, c-format
+msgid "first argument to `__traits(getParameterStorageClasses, %s, %s)` is not a function or a function call"
+msgstr ""
+
+#: dmd/traits.d:1448
+#, c-format
+msgid "expression expected as second argument of `__traits(getParameterStorageClasses, %s, %s)`"
+msgstr ""
+
+#: dmd/traits.d:1456
+#, c-format
+msgid "parameter index must be in range 0..%u not %s"
+msgstr ""
+
+#: dmd/traits.d:1528
+#, c-format
+msgid "argument to `__traits(getLinkage, %s)` is not a declaration"
+msgstr ""
+
+#: dmd/traits.d:1578
+#, c-format
+msgid "in expression `%s` `%s` can't have members"
+msgstr ""
+
+#: dmd/traits.d:1579 dmd/traits.d:1600
+#, c-format
+msgid "`%s` must evaluate to either a module, a struct, an union, a class, an interface or a template instantiation"
+msgstr ""
+
+#: dmd/traits.d:1599
+#, c-format
+msgid "in expression `%s` %s `%s` has no members"
+msgstr ""
+
+#: dmd/traits.d:1815
+#, c-format
+msgid "argument `%s` to __traits(getUnitTests) must be a module or aggregate"
+msgstr ""
+
+#: dmd/traits.d:1825
+#, c-format
+msgid "argument `%s` to __traits(getUnitTests) must be a module or aggregate, not a %s"
+msgstr ""
+
+#: dmd/traits.d:1876
+#, c-format
+msgid "first argument to __traits(getVirtualIndex) must be a function"
+msgstr ""
+
+#: dmd/traits.d:1899
+#, c-format
+msgid "struct / class type expected as argument to __traits(initSymbol) instead of `%s`"
+msgstr ""
+
+#: dmd/traits.d:1934
+#, c-format
+msgid "string expected as argument of __traits `%s` instead of `%s`"
+msgstr ""
+
+#: dmd/traits.d:1943
+#, c-format
+msgid "`getTargetInfo` key `\"%.*s\"` not supported by this implementation"
+msgstr ""
+
+#: dmd/traits.d:1957
+#, c-format
+msgid "can only get the location of a symbol, not `%s`"
+msgstr ""
+
+#: dmd/traits.d:1966
+#, c-format
+msgid "cannot get location of an overload set, "
+msgstr ""
+
+#: dmd/traits.d:1989
+#, c-format
+msgid "circular reference in `__traits(GetCppNamespaces,...)`"
+msgstr ""
+
+#: dmd/traits.d:2067
+#, c-format
+msgid "`__traits(parameters)` cannot have arguments, but `%s` was supplied"
+msgstr ""
+
+#: dmd/traits.d:2074
+#, c-format
+msgid "`__traits(parameters)` may only be used inside a function"
+msgstr ""
+
+#: dmd/traits.d:2107
+#, c-format
+msgid "unrecognized trait `%s`, did you mean `%.*s`?"
+msgstr ""
+
+#: dmd/traits.d:2109
+#, c-format
+msgid "unrecognized trait `%s`"
+msgstr ""
+
+#: dmd/typesem.d:107
+#, c-format
+msgid "index `%s` is not an expression"
+msgstr ""
+
+#: dmd/typesem.d:122 dmd/typesem.d:2575
+#, c-format
+msgid "tuple index `%llu` exceeds length %llu"
+msgstr ""
+
+#: dmd/typesem.d:166
+#, c-format
+msgid "`%s` is not defined, perhaps `import %.*s;` ?"
+msgstr ""
+
+#: dmd/typesem.d:173
+#, c-format
+msgid "undefined identifier `%s`, did you mean `typeof(%s)`?"
+msgstr ""
+
+#: dmd/typesem.d:234
+#, c-format
+msgid "`%s` is not visible from module `%s`"
+msgstr ""
+
+#: dmd/typesem.d:243
+#, c-format
+msgid "%s %s is not accessible here, perhaps add 'static import %s;'"
+msgstr ""
+
+#: dmd/typesem.d:327
+#, c-format
+msgid "identifier `%s` of `%s` is not defined, did you mean %s `%s`?"
+msgstr ""
+
+#: dmd/typesem.d:329
+#, c-format
+msgid "identifier `%s` of `%s` is not defined"
+msgstr ""
+
+#: dmd/typesem.d:494
+#, c-format
+msgid "`cent` and `ucent` types are obsolete, use `core.int128.Cent` instead"
+msgstr ""
+
+#: dmd/typesem.d:510
+#, c-format
+msgid "T in __vector(T) must be a static array, not `%s`"
+msgstr ""
+
+#: dmd/typesem.d:523
+#, c-format
+msgid "SIMD vector types not supported on this platform"
+msgstr ""
+
+#: dmd/typesem.d:528
+#, c-format
+msgid "vector type `%s` is not supported on this platform"
+msgstr ""
+
+#: dmd/typesem.d:533
+#, c-format
+msgid "%d byte vector type `%s` is not supported on this platform"
+msgstr ""
+
+#: dmd/typesem.d:557 dmd/typesem.d:652
+#, c-format
+msgid "tuple index %llu exceeds %llu"
+msgstr ""
+
+#: dmd/typesem.d:610
+#, c-format
+msgid "`%s` size %llu * %llu exceeds 0x%llx size limit for static array"
+msgstr ""
+
+#: dmd/typesem.d:661 dmd/typesem.d:692
+#, c-format
+msgid "cannot have array of `%s`"
+msgstr ""
+
+#: dmd/typesem.d:669 dmd/typesem.d:703 dmd/typesem.d:909
+#, c-format
+msgid "cannot have array of scope `%s`"
+msgstr ""
+
+#: dmd/typesem.d:747 dmd/typesem.d:2668
+#, c-format
+msgid "index is not a type or an expression"
+msgstr ""
+
+#: dmd/typesem.d:778
+#, c-format
+msgid "cannot have associative array key of `%s`"
+msgstr ""
+
+#: dmd/typesem.d:823
+#, c-format
+msgid "%sAA key type `%s` does not have `bool opEquals(ref const %s) const`"
+msgstr ""
+
+#: dmd/typesem.d:827
+#, c-format
+msgid "%sAA key type `%s` does not support const equality"
+msgstr ""
+
+#: dmd/typesem.d:835
+#, c-format
+msgid "%sAA key type `%s` should have `extern (D) size_t toHash() const nothrow @safe` if `opEquals` defined"
+msgstr ""
+
+#: dmd/typesem.d:839
+#, c-format
+msgid "%sAA key type `%s` supports const equality but doesn't support const hashing"
+msgstr ""
+
+#: dmd/typesem.d:863 dmd/statementsem.d:3354 dmd/dsymbolsem.d:5025
+#, c-format
+msgid "missing or corrupt object.d"
+msgstr ""
+
+#: dmd/typesem.d:885
+#, c-format
+msgid "%sAA key type `%s` now requires equality rather than comparison"
+msgstr ""
+
+#: dmd/typesem.d:886
+#, c-format
+msgid "Please override `Object.opEquals` and `Object.toHash`."
+msgstr ""
+
+#: dmd/typesem.d:900
+#, c-format
+msgid "cannot have associative array of `%s`"
+msgstr ""
+
+#: dmd/typesem.d:926
+#, c-format
+msgid "cannot have pointer to `%s`"
+msgstr ""
+
+#: dmd/typesem.d:984
+#, c-format
+msgid "recursive type"
+msgstr ""
+
+#: dmd/typesem.d:1075
+#, c-format
+msgid "functions cannot return `scope %s`"
+msgstr ""
+
+#: dmd/typesem.d:1121
+#, c-format
+msgid "expression `%s` of type `%s` is not implicitly convertible to type `%s %s` of parameter `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1206
+#, c-format
+msgid "incompatible parameter storage classes `%s` and `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1229
+#, c-format
+msgid "cannot have parameter of function type `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1241
+#, c-format
+msgid "cannot infer `ref` for `in` parameter `%s` of opaque type `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1245
+#, c-format
+msgid "cannot have parameter of opaque type `%s` by value"
+msgstr ""
+
+#: dmd/typesem.d:1252
+#, c-format
+msgid "cannot have parameter of type `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1265
+#, c-format
+msgid "parameter `%s` is `return %s` but function does not return by `ref`"
+msgstr ""
+
+#: dmd/typesem.d:1290
+#, c-format
+msgid "typesafe variadic function parameter `%s` of type `%s` cannot be marked `return`"
+msgstr ""
+
+#: dmd/typesem.d:1300
+#, c-format
+msgid "cannot have `%s out` parameter of type `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1308
+#, c-format
+msgid "cannot have `out` parameter of type `%s` because the default construction is disabled"
+msgstr ""
+
+#: dmd/typesem.d:1424
+#, c-format
+msgid "`auto` can only be used as part of `auto ref` for template function parameters"
+msgstr ""
+
+#: dmd/typesem.d:1437
+#, c-format
+msgid "`inout` on `return` means `inout` must be on a parameter as well for `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1445
+#, c-format
+msgid "properties can only have zero, one, or two parameter"
+msgstr ""
+
+#: dmd/typesem.d:1452
+#, c-format
+msgid "variadic functions with non-D linkage must have at least one parameter"
+msgstr ""
+
+#: dmd/typesem.d:1518
+#, c-format
+msgid "template %s `%s` is used as a type without instantiation"
+msgstr ""
+
+#: dmd/typesem.d:1522
+#, c-format
+msgid "%s `%s` is used as a type"
+msgstr ""
+
+#: dmd/typesem.d:1540
+#, c-format
+msgid "variable `%s` is used as a type"
+msgstr ""
+
+#: dmd/typesem.d:1547
+#, c-format
+msgid "variable `%s` is imported here from: `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1553
+#, c-format
+msgid "variable `%s` is declared here"
+msgstr ""
+
+#: dmd/typesem.d:1556 dmd/typesem.d:1585 dmd/typesem.d:1602 dmd/typesem.d:1635
+#, c-format
+msgid "`%s` is used as a type"
+msgstr ""
+
+#: dmd/typesem.d:1582
+#, c-format
+msgid "`%s` had previous errors"
+msgstr ""
+
+#: dmd/typesem.d:1618
+#, c-format
+msgid "`%s` does not give a valid type"
+msgstr ""
+
+#: dmd/typesem.d:1705
+#, c-format
+msgid "can only slice tuple types, not `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1721
+#, c-format
+msgid "slice `[%llu..%llu]` is out of range of `[0..%llu]`"
+msgstr ""
+
+#: dmd/typesem.d:1751
+#, c-format
+msgid "`mixin(%s)` does not give a valid type"
+msgstr ""
+
+#: dmd/typesem.d:1845
+#, c-format
+msgid "`enum %s` is incomplete without members"
+msgstr ""
+
+#: dmd/typesem.d:1861 dmd/typesem.d:1881
+#, c-format
+msgid "`%s` already has members"
+msgstr ""
+
+#: dmd/typesem.d:1912
+#, c-format
+msgid "redeclaration of `%s`"
+msgstr ""
+
+#: dmd/typesem.d:1942
+#, c-format
+msgid "redeclaring `%s %s` as `%s %s`"
+msgstr ""
+
+#: dmd/typesem.d:2099
+#, c-format
+msgid "forward reference of type `%s.mangleof`"
+msgstr ""
+
+#: dmd/typesem.d:2132
+#, c-format
+msgid "no property `%s` for type `%s`, did you mean `%s`?"
+msgstr ""
+
+#: dmd/typesem.d:2134
+#, c-format
+msgid "no property `%s` for type `%s`, did you mean `new %s`?"
+msgstr ""
+
+#: dmd/typesem.d:2137
+#, c-format
+msgid "no property `%s` for type `%s`, perhaps `import %.*s;` is needed?"
+msgstr ""
+
+#: dmd/typesem.d:2140 dmd/typesem.d:3930
+#, c-format
+msgid "no property `%s` for type `%s`"
+msgstr ""
+
+#: dmd/typesem.d:2145
+#, c-format
+msgid "potentially malformed `opDispatch`. Use an explicit instantiation to get a better error message"
+msgstr ""
+
+#: dmd/typesem.d:2147
+#, c-format
+msgid "`%s %s` is opaque and has no members."
+msgstr ""
+
+#: dmd/typesem.d:2448
+#, c-format
+msgid "no property `%s` for tuple `%s`"
+msgstr ""
+
+#: dmd/typesem.d:2771
+#, c-format
+msgid "invalid scope"
+msgstr ""
+
+#: dmd/typesem.d:2777
+#, c-format
+msgid "circular `typeof` definition"
+msgstr ""
+
+#: dmd/typesem.d:2848
+#, c-format
+msgid "expression `%s` has no type"
+msgstr ""
+
+#: dmd/typesem.d:2884
+#, c-format
+msgid "`typeof(return)` must be inside function"
+msgstr ""
+
+#: dmd/typesem.d:2892
+#, c-format
+msgid "cannot use `typeof(return)` inside function `%s` with inferred return type"
+msgstr ""
+
+#: dmd/typesem.d:2948
+#, c-format
+msgid "slice `[%llu..%llu]` is out of range of [0..%llu]"
+msgstr ""
+
+#: dmd/typesem.d:3414
+#, c-format
+msgid "`.tupleof` cannot be used on type `%s`"
+msgstr ""
+
+#: dmd/typesem.d:3579
+#, c-format
+msgid "cannot resolve identifier `%s`"
+msgstr ""
+
+#: dmd/typesem.d:3616
+#, c-format
+msgid "`opDot` is obsolete. Use `alias this`"
+msgstr ""
+
+#: dmd/typesem.d:3631
+#, c-format
+msgid "must be a template `opDispatch(string s)`, not a %s"
+msgstr ""
+
+#: dmd/typesem.d:3707
+#, c-format
+msgid "unable to determine fields of `%s` because of forward references"
+msgstr ""
+
+#: dmd/typesem.d:3852 dmd/typesem.d:4268
+#, c-format
+msgid "`%s.%s` is not a declaration"
+msgstr ""
+
+#: dmd/typesem.d:3927
+#, c-format
+msgid "no property `%s` for type `%s`. Did you mean `%s.%s` ?"
+msgstr ""
+
+#: dmd/typesem.d:4067
+#, c-format
+msgid "no `.classinfo` for C++ interface objects"
+msgstr ""
+
+#: dmd/typesem.d:4477
+#, c-format
+msgid "`void` does not have a default initializer"
+msgstr ""
+
+#: dmd/typesem.d:4511
+#, c-format
+msgid "`function` does not have a default initializer"
+msgstr ""
+
+#: dmd/typesem.d:4827
+#, c-format
+msgid "recursive definition of `.%s` property"
+msgstr ""
+
+#: dmd/typesem.d:4846
+#, c-format
+msgid "is opaque and has no `.%s`"
+msgstr ""
+
+#: dmd/typesem.d:4851
+#, c-format
+msgid "has no `.%s` property because base type `%s` is not an integral type"
+msgstr ""
+
+#: dmd/typesem.d:4870
+#, c-format
+msgid "is forward referenced looking for `.%s`"
+msgstr ""
+
+#: dmd/typesem.d:4943
+#, c-format
+msgid "incomplete mixin type `%s`"
+msgstr ""
+
+#: dmd/cpreprocess.d:77
+#, c-format
+msgid "cannot find \"importc.h\" along import path"
+msgstr ""
+
+#: dmd/cpreprocess.d:97
+#, c-format
+msgid "C preprocess command %.*s failed for file %s, exit status %d\n"
+msgstr ""
+
+#: dmd/scanmscoff.d:51
+#, c-format
+msgid "corrupt MS-Coff object module `%s` %d"
+msgstr ""
+
+#: dmd/scanmscoff.d:86
+#, c-format
+msgid "object module `%s` is 32 bit OMF, but it should be 64 bit MS-Coff"
+msgstr ""
+
+#: dmd/scanmscoff.d:88
+#, c-format
+msgid "MS-Coff object module `%s` has magic = %x, should be %x"
+msgstr ""
+
+#: dmd/scanmscoff.d:95
+#, c-format
+msgid "MS-Coff object module `%s` has no string table"
+msgstr ""
+
+#: dmd/statement.d:1229
+#, c-format
+msgid "`switch` skips declaration of `with` temporary at %s"
+msgstr ""
+
+#: dmd/statement.d:1231
+#, c-format
+msgid "`switch` skips declaration of variable `%s` at %s"
+msgstr ""
+
+#: dmd/statement.d:1789
+#, c-format
+msgid "cannot `goto` in to `%s` block"
+msgstr ""
+
+#: dmd/statement.d:1791
+#, c-format
+msgid "cannot `goto` out of `%s` block"
+msgstr ""
+
+#: dmd/statement.d:1798
+#, c-format
+msgid "cannot `goto` in or out of `finally` block"
+msgstr ""
+
+#: dmd/statement.d:1807
+#, c-format
+msgid "cannot `goto` into `try` block"
+msgstr ""
+
+#: dmd/statement.d:1835
+#, c-format
+msgid "`goto` skips declaration of `with` temporary at %s"
+msgstr ""
+
+#: dmd/statement.d:1840
+#, c-format
+msgid "`goto` skips declaration of variable `%s` at %s"
+msgstr ""
+
+#: dmd/toobj.d:324 dmd/toobj.d:442 dmd/toobj.d:491 dmd/toobj.d:563
+#: dmd/toobj.d:679
+#, c-format
+msgid "had semantic errors when compiling"
+msgstr ""
+
+#: dmd/toobj.d:586
+#, c-format
+msgid "size overflow"
+msgstr ""
+
+#: dmd/toobj.d:591
+#, c-format
+msgid "size of 0x%llx exceeds max allowed size 0x%llx"
+msgstr ""
+
+#: dmd/toobj.d:1077
+#, c-format
+msgid "use of `%s%s` is hidden by `%s`; use `alias %s = %s.%s;` to introduce base class overload set"
+msgstr ""
+
+#: dmd/toobj.d:1225 dmd/toobj.d:1499
+#, c-format
+msgid "mismatch between dmd and object.d or object.di found. Check installation and import paths with -v compiler switch."
+msgstr ""
+
+#: dmd/dscope.d:302
+#, c-format
+msgid "one path skips constructor"
+msgstr ""
+
+#: dmd/dscope.d:321
+#, c-format
+msgid "one path skips field `%s`"
+msgstr ""
+
+#: dmd/dscope.d:479
+#, c-format
+msgid "array `length` hides other `length` name in outer scope"
+msgstr ""
+
+#: dmd/semantic2.d:107
+#, c-format
+msgid "while evaluating: `static assert(%s)`"
+msgstr ""
+
+#: dmd/semantic2.d:124
+#, c-format
+msgid "static assert:  \"%.*s\""
+msgstr ""
+
+#: dmd/semantic2.d:127
+#, c-format
+msgid "static assert:  %s"
+msgstr ""
+
+#: dmd/semantic2.d:130
+#, c-format
+msgid "static assert:  `%s` is false"
+msgstr ""
+
+#: dmd/semantic2.d:299
+#, c-format
+msgid ": Unable to initialize enum with class or pointer to struct. Use static const variable instead."
+msgstr ""
+
+#: dmd/semantic2.d:310
+#, c-format
+msgid "is a thread-local class and cannot have a static initializer. Use `static this()` to initialize instead."
+msgstr ""
+
+#: dmd/semantic2.d:316
+#, c-format
+msgid "is a thread-local pointer to struct and cannot have a static initializer. Use `static this()` to initialize instead."
+msgstr ""
+
+#: dmd/semantic2.d:436
+#, c-format
+msgid "cannot overload `extern(%s)` function at %s"
+msgstr ""
+
+#: dmd/semantic2.d:450
+#, c-format
+msgid "%s `%s%s` conflicts with previous declaration at %s"
+msgstr ""
+
+#: dmd/semantic2.d:601
+#, c-format
+msgid "has forward references"
+msgstr ""
+
+#: dmd/semantic2.d:648
+#, c-format
+msgid "linkage doesn't match interface function"
+msgstr ""
+
+#: dmd/semantic2.d:654 dmd/semantic2.d:661
+#, c-format
+msgid "interface function `%s` is not implemented"
+msgstr ""
+
+#: dmd/semantic2.d:706 dmd/semantic2.d:724
+#, c-format
+msgid "`@%s` at least one argument expected"
+msgstr ""
+
+#: dmd/semantic2.d:733
+#, c-format
+msgid "only one `@%s` allowed per symbol"
+msgstr ""
+
+#: dmd/semantic2.d:734
+#, c-format
+msgid "instead of `@%s @%s`, use `@%s(%.*s, %.*s)`"
+msgstr ""
+
+#: dmd/semantic2.d:750
+#, c-format
+msgid "argument `%d` to `@%s` cannot be %s"
+msgstr ""
+
+#: dmd/semantic2.d:760
+#, c-format
+msgid "`@%s` char `0x%02x` not allowed in mangling"
+msgstr ""
+
+#: dmd/declaration.d:63
+#, c-format
+msgid "cannot access frame pointer of `%s`"
+msgstr ""
+
+#: dmd/declaration.d:131
+#, c-format
+msgid "%s field `%s` initialized multiple times"
+msgstr ""
+
+#: dmd/declaration.d:132
+#, c-format
+msgid "Previous initialization is here."
+msgstr ""
+
+#: dmd/declaration.d:142
+#, c-format
+msgid "%s field `%s` initialization is not allowed in loops or after labels"
+msgstr ""
+
+#: dmd/declaration.d:166
+#, c-format
+msgid "%s %s `%s` initialization is not allowed in foreach loop"
+msgstr ""
+
+#: dmd/declaration.d:172
+#, c-format
+msgid "%s %s `%s` initialization is not allowed in nested function `%s`"
+msgstr ""
+
+#: dmd/declaration.d:179
+#, c-format
+msgid "%s %s `%s` initialization is not allowed in `static this`"
+msgstr ""
+
+#: dmd/declaration.d:181
+#, c-format
+msgid "Use `shared static this` instead."
+msgstr ""
+
+#: dmd/declaration.d:202
+#, c-format
+msgid "`%s` not found. object.d may be incorrectly installed or corrupt."
+msgstr ""
+
+#: dmd/declaration.d:312
+#, c-format
+msgid "is not copyable because field `%s` is not copyable"
+msgstr ""
+
+#: dmd/declaration.d:317
+#, c-format
+msgid "is not copyable because it has a disabled postblit"
+msgstr ""
+
+#: dmd/declaration.d:339
+#, c-format
+msgid "generating an `inout` copy constructor for `struct %s` failed, therefore instances of it are uncopyable"
+msgstr ""
+
+#: dmd/declaration.d:343
+#, c-format
+msgid "cannot be used because it is annotated with `@disable`"
+msgstr ""
+
+#: dmd/declaration.d:374
+#, c-format
+msgid "cannot modify %s `%s` in contract"
+msgstr ""
+
+#: dmd/declaration.d:388
+#, c-format
+msgid "cannot modify parameter `this` in contract"
+msgstr ""
+
+#: dmd/declaration.d:889 dmd/declaration.d:934
+#, c-format
+msgid "recursive alias declaration"
+msgstr ""
+
+#: dmd/declaration.d:1300
+#, c-format
+msgid "forward referenced"
+msgstr ""
+
+#: dmd/declaration.d:1543
+#, c-format
+msgid "cannot make expression out of initializer for `%s`"
+msgstr ""
+
+#: dmd/declaration.d:1558
+#, c-format
+msgid "missing initializer in static constructor for const variable"
+msgstr ""
+
+#: dmd/declaration.d:1624
+#, c-format
+msgid "cannnot use `$` inside a function literal"
+msgstr ""
+
+#: dmd/declaration.d:1756
+#, c-format
+msgid "named bit fields cannot have 0 width"
+msgstr ""
+
+#: dmd/declaration.d:1758
+#, c-format
+msgid "bit field width %d is larger than type"
+msgstr ""
+
+#: dmd/canthrow.d:79
+#, c-format
+msgid "%s `%s` is not `nothrow`"
+msgstr ""
+
+#: dmd/canthrow.d:151
+#, c-format
+msgid "`%s` is not `nothrow`"
+msgstr ""
+
+#: dmd/dsymbol.d:428
+#, c-format
+msgid "is deprecated - %s"
+msgstr ""
+
+#: dmd/dsymbol.d:430 dmd/dmodule.d:1228
+#, c-format
+msgid "is deprecated"
+msgstr ""
+
+#: dmd/dsymbol.d:844
+#, c-format
+msgid "`.%s` property cannot be redefined"
+msgstr ""
+
+#: dmd/dsymbol.d:936 dmd/dinterpret.d:2861 dmd/mtype.d:5690
+#, c-format
+msgid "circular reference to `%s`"
+msgstr ""
+
+#: dmd/dsymbol.d:958
+#, c-format
+msgid "`%s.%s` is not a template, it is a %s"
+msgstr ""
+
+#: dmd/dsymbol.d:987
+#, c-format
+msgid "symbol `%s` has no size"
+msgstr ""
+
+#: dmd/dsymbol.d:1708
+#, c-format
+msgid "%s `%s` at %s conflicts with %s `%s` at %s"
+msgstr ""
+
+#: dmd/dsymbol.d:1734
+#, c-format
+msgid "conflicts with %s `%s` at %s"
+msgstr ""
+
+#: dmd/dsymbol.d:2097
+#, c-format
+msgid "`%s` only defines opDollar for one dimension"
+msgstr ""
+
+#: dmd/lib.d:102
+#, c-format
+msgid "error writing file '%s'"
+msgstr ""
+
+#: dmd/mustuse.d:51
+#, c-format
+msgid "ignored value of `@%s` type `%s`; prepend a `cast(void)` if intentional"
+msgstr ""
+
+#: dmd/mustuse.d:80
+#, c-format
+msgid "`@%s` on functions is reserved for future use"
+msgstr ""
+
+#: dmd/mustuse.d:86
+#, c-format
+msgid "`@%s` on `%s` types is reserved for future use"
+msgstr ""
+
+#: dmd/dinifile.d:347
+#, c-format
+msgid "use `NAME=value` syntax, not `%s`"
+msgstr ""
+
+#: dmd/cppmanglewin.d:81
+#, c-format
+msgid "internal compiler error: `shared` or `immutable` types cannot be mapped to C++ (%s)"
+msgstr ""
+
+#: dmd/cppmanglewin.d:149
+#, c-format
+msgid "internal compiler error: type `%s` cannot be mapped to C++\n"
+msgstr ""
+
+#: dmd/cppmanglewin.d:591
+#, c-format
+msgid "internal compiler error: C++ static non-__gshared non-extern variables not supported"
+msgstr ""
+
+#: dmd/cppmanglewin.d:773
+#, c-format
+msgid "internal compiler error: C++ %s template value parameter is not supported"
+msgstr ""
+
+#: dmd/cppmanglewin.d:852 dmd/cppmanglewin.d:1010
+#, c-format
+msgid "internal compiler error: C++ templates support only integral value, type parameters, alias templates and alias function parameters"
+msgstr ""
+
+#: dmd/cppmanglewin.d:860
+#, c-format
+msgid "internal compiler error: `%s` is unsupported parameter for C++ template"
+msgstr ""
+
+#: dmd/cppmanglewin.d:1278
+#, c-format
+msgid "internal compiler error: unable to pass static array to `extern(C++)` function."
+msgstr ""
+
+#: dmd/cppmanglewin.d:1279
+#, c-format
+msgid "Use pointer instead."
+msgstr ""
+
+#: dmd/dtoh.d:468
+#, c-format
+msgid "%s `%s` is a %s"
+msgstr ""
+
+#: dmd/dtoh.d:472
+#, c-format
+msgid "The generated C++ header will contain "
+msgstr ""
+
+#: dmd/libmach.d:91
+#, c-format
+msgid "corrupt Mach object module %.*s %d"
+msgstr ""
+
+#: dmd/libmach.d:283 dmd/libelf.d:326
+#, c-format
+msgid "multiple definition of %s: %s and %s: %s"
+msgstr ""
+
+#: dmd/expression.d:937
+#, c-format
+msgid "integer constant expression expected instead of `%s`"
+msgstr ""
+
+#: dmd/expression.d:949 dmd/expression.d:955 dmd/expression.d:961
+#, c-format
+msgid "floating point constant expression expected instead of `%s`"
+msgstr ""
+
+#: dmd/expression.d:990
+#, c-format
+msgid "`%s` is a `%s` definition and cannot be modified"
+msgstr ""
+
+#: dmd/expression.d:992
+#, c-format
+msgid "`%s` is not an lvalue and cannot be modified"
+msgstr ""
+
+#: dmd/expression.d:1016
+#, c-format
+msgid "cannot modify `%s` in `%s` function"
+msgstr ""
+
+#: dmd/expression.d:1021
+#, c-format
+msgid "cannot modify `%s` expression `%s`"
+msgstr ""
+
+#: dmd/expression.d:1026
+#, c-format
+msgid "cannot modify struct instance `%s` of type `%s` because it contains `const` or `immutable` members"
+msgstr ""
+
+#: dmd/expression.d:1081
+#, c-format
+msgid "expression `%s` is `void` and has no value"
+msgstr ""
+
+#: dmd/expression.d:1098
+#, c-format
+msgid "`%s` is not a scalar, it is a `%s`"
+msgstr ""
+
+#: dmd/expression.d:1112
+#, c-format
+msgid "operation not allowed on `bool` `%s`"
+msgstr ""
+
+#: dmd/expression.d:1126
+#, c-format
+msgid "`%s` is not of integral type, it is a `%s`"
+msgstr ""
+
+#: dmd/expression.d:1140
+#, c-format
+msgid "`%s` is not of arithmetic type, it is a `%s`"
+msgstr ""
+
+#: dmd/expression.d:1225
+#, c-format
+msgid "generated "
+msgstr ""
+
+#: dmd/expression.d:1254
+#, c-format
+msgid " - %s %s"
+msgstr ""
+
+#: dmd/expression.d:1259
+#, c-format
+msgid "   %.*s `%s.~this` is declared here"
+msgstr ""
+
+#: dmd/expression.d:1313
+#, c-format
+msgid "`pure` %s `%s` cannot access mutable static data `%s`"
+msgstr ""
+
+#: dmd/expression.d:1358
+#, c-format
+msgid "%s%s `%s` cannot access %sdata `%s`"
+msgstr ""
+
+#: dmd/expression.d:1423
+#, c-format
+msgid "`%s` is declared here"
+msgstr ""
+
+#: dmd/expression.d:1435
+#, c-format
+msgid "`@safe` function `%s` calling `%s`"
+msgstr ""
+
+#: dmd/expression.d:1562
+#, c-format
+msgid "read-modify-write operations are not allowed for `shared` variables"
+msgstr ""
+
+#: dmd/expression.d:1563
+#, c-format
+msgid "Use `core.atomic.atomicOp!\"%s\"(%s, %s)` instead"
+msgstr ""
+
+#: dmd/expression.d:1801
+#, c-format
+msgid "integral constant must be scalar type, not `%s`"
+msgstr ""
+
+#: dmd/expression.d:1879
+#, c-format
+msgid "cannot modify constant `%s`"
+msgstr ""
+
+#: dmd/expression.d:2025
+#, c-format
+msgid "unknown, please file report on issues.dlang.org"
+msgstr ""
+
+#: dmd/expression.d:2759
+#, c-format
+msgid "cannot modify string literal `%s`"
+msgstr ""
+
+#: dmd/expression.d:3423
+#, c-format
+msgid "type `%s` has no value"
+msgstr ""
+
+#: dmd/expression.d:3463 dmd/expression.d:3524 dmd/expression.d:4787
+#, c-format
+msgid "%s `%s` has no type"
+msgstr ""
+
+#: dmd/expression.d:3473 dmd/expression.d:4962
+#, c-format
+msgid "partial %s `%s` has no type"
+msgstr ""
+
+#: dmd/expression.d:3482 dmd/expression.d:3530 dmd/expression.d:4793
+#: dmd/expression.d:4976
+#, c-format
+msgid "%s `%s` has no value"
+msgstr ""
+
+#: dmd/expression.d:3645
+#, c-format
+msgid "need `this` for address of `%s`"
+msgstr ""
+
+#: dmd/expression.d:3710
+#, c-format
+msgid "manifest constant `%s` cannot be modified"
+msgstr ""
+
+#: dmd/expression.d:3715
+#, c-format
+msgid "lazy variable `%s` cannot be modified"
+msgstr ""
+
+#: dmd/expression.d:3725
+#, c-format
+msgid "cannot modify operator `$`"
+msgstr ""
+
+#: dmd/expression.d:3736
+#, c-format
+msgid "cannot modify manifest constant `%s`"
+msgstr ""
+
+#: dmd/expression.d:3882
+#, c-format
+msgid "cannot infer parameter types from `%s`"
+msgstr ""
+
+#: dmd/expression.d:3896
+#, c-format
+msgid "cannot match function literal to delegate type `%s`"
+msgstr ""
+
+#: dmd/expression.d:3906
+#, c-format
+msgid "cannot match delegate literal to function pointer type `%s`"
+msgstr ""
+
+#: dmd/expression.d:4055
+#, c-format
+msgid "template lambda has no type"
+msgstr ""
+
+#: dmd/expression.d:4065
+#, c-format
+msgid "template lambda has no value"
+msgstr ""
+
+#: dmd/expression.d:4262
+#, c-format
+msgid "incompatible type for `%s(%s)`: cannot use `%s` with types"
+msgstr ""
+
+#: dmd/expression.d:4266
+#, c-format
+msgid "incompatible type for `%s(%s)`: `%s`"
+msgstr ""
+
+#: dmd/expression.d:4341
+#, c-format
+msgid "incompatible types for `(%s) %s (%s)`: cannot use `%s` with types"
+msgstr ""
+
+#: dmd/expression.d:4346
+#, c-format
+msgid "incompatible types for `(%s) %s (%s)`: both operands are of type `%s`"
+msgstr ""
+
+#: dmd/expression.d:4352
+#, c-format
+msgid "incompatible types for `(%s) %s (%s)`: `%s` and `%s`"
+msgstr ""
+
+#: dmd/expression.d:4373
+#, c-format
+msgid "`%s %s %s` is performing truncating conversion"
+msgstr ""
+
+#: dmd/expression.d:4385
+#, c-format
+msgid "`%s %s %s` is undefined. Did you mean `%s %s %s.re`?"
+msgstr ""
+
+#: dmd/expression.d:4390
+#, c-format
+msgid "`%s %s %s` is undefined. Did you mean `%s %s %s.im`?"
+msgstr ""
+
+#: dmd/expression.d:4395
+#, c-format
+msgid "`%s %s %s` is an undefined operation"
+msgstr ""
+
+#: dmd/expression.d:4407
+#, c-format
+msgid "`%s %s %s` is undefined (result is complex)"
+msgstr ""
+
+#: dmd/expression.d:4974
+#, c-format
+msgid "partial %s `%s` has no value"
+msgstr ""
+
+#: dmd/expression.d:5268
+#, c-format
+msgid "function `%s` is not an lvalue and cannot be modified"
+msgstr ""
+
+#: dmd/expression.d:5270
+#, c-format
+msgid "function pointed to by `%s` is not an lvalue and cannot be modified"
+msgstr ""
+
+#: dmd/expression.d:5552
+#, c-format
+msgid "slice expression `%s` is not a modifiable lvalue"
+msgstr ""
+
+#: dmd/expression.d:5626
+#, c-format
+msgid "`void`s have no value"
+msgstr ""
+
+#: dmd/expression.d:5894
+#, c-format
+msgid "associative arrays can only be assigned values with immutable keys, not `%s`"
+msgstr ""
+
+#: dmd/expression.d:6725
+#, c-format
+msgid "conditional expression `%s` is not a modifiable lvalue"
+msgstr ""
+
+#: dmd/aggregate.d:216
+#, c-format
+msgid "unknown size"
+msgstr ""
+
+#: dmd/aggregate.d:246
+#, c-format
+msgid "no size because of forward reference"
+msgstr ""
+
+#: dmd/aggregate.d:334 dmd/aggregate.d:436
+#, c-format
+msgid "overlapping default initialization for field `%s` and `%s`"
+msgstr ""
+
+#: dmd/aggregate.d:339
+#, c-format
+msgid "union field `%s` with default initialization `%s` must be before field `%s`"
+msgstr ""
+
+#: dmd/aggregate.d:456
+#, c-format
+msgid "recursive initialization of field"
+msgstr ""
+
+#: dmd/aggregate.d:466
+#, c-format
+msgid "field `%s.%s` must be initialized because it has no default constructor"
+msgstr ""
+
+#: dmd/aggregate.d:757
+#, c-format
+msgid "is not a constructor; identifiers starting with `__` are reserved for the implementation"
+msgstr ""
+
+#: dmd/iasmgcc.d:74
+#, c-format
+msgid "expected identifier after `[`"
+msgstr ""
+
+#: dmd/iasmgcc.d:93
+#, c-format
+msgid "`%s` must be surrounded by parentheses"
+msgstr ""
+
+#: dmd/iasmgcc.d:121
+#, c-format
+msgid "expected constant string constraint for operand, not `%s`"
+msgstr ""
+
+#: dmd/iasmgcc.d:172
+#, c-format
+msgid "expected constant string constraint for clobber name, not `%s`"
+msgstr ""
+
+#: dmd/iasmgcc.d:219
+#, c-format
+msgid "expected identifier for goto label name, not `%s`"
+msgstr ""
+
+#: dmd/iasmgcc.d:333
+#, c-format
+msgid "extended asm statements with labels cannot have output constraints"
+msgstr ""
+
+#: dmd/link.d:534
+#, c-format
+msgid "error creating temporary file"
+msgstr ""
+
+#: dmd/link.d:825 dmd/link.d:919
+#, c-format
+msgid "linker exited with status %d"
+msgstr ""
+
+#: dmd/link.d:827
+#, c-format
+msgid "no main function specified"
+msgstr ""
+
+#: dmd/link.d:833
+#, c-format
+msgid "linker killed by signal %d"
+msgstr ""
+
+#: dmd/link.d:840
+#, c-format
+msgid "linking is not yet supported for this version of DMD."
+msgstr ""
+
+#: dmd/link.d:867
+#, c-format
+msgid "command line length of %llu is too long"
+msgstr ""
+
+#: dmd/link.d:917
+#, c-format
+msgid "can't run '%s', check PATH"
+msgstr ""
+
+#: dmd/link.d:1022 dmd/link.d:1328
+#, c-format
+msgid "program killed by signal %d"
+msgstr ""
+
+#: dmd/nogc.d:80 dmd/nogc.d:184
+#, c-format
+msgid "setting `length` in `@nogc` %s `%s` may cause a GC allocation"
+msgstr ""
+
+#: dmd/nogc.d:91
+#, c-format
+msgid "cannot use operator `~=` in `@nogc` %s `%s`"
+msgstr ""
+
+#: dmd/nogc.d:106
+#, c-format
+msgid "array literal in `@nogc` %s `%s` may cause a GC allocation"
+msgstr ""
+
+#: dmd/nogc.d:120
+#, c-format
+msgid "associative array literal in `@nogc` %s `%s` may cause a GC allocation"
+msgstr ""
+
+#: dmd/nogc.d:141
+#, c-format
+msgid "cannot use `new` in `@nogc` %s `%s`"
+msgstr ""
+
+#: dmd/nogc.d:169
+#, c-format
+msgid "indexing an associative array in `@nogc` %s `%s` may cause a GC allocation"
+msgstr ""
+
+#: dmd/nogc.d:210
+#, c-format
+msgid "cannot use operator `~` in `@nogc` %s `%s`"
+msgstr ""
+
+#: dmd/doc.d:254
+#, c-format
+msgid "Ddoc: function declaration has no parameter '%.*s'"
+msgstr ""
+
+#: dmd/doc.d:305
+#, c-format
+msgid "Ddoc: parameter count mismatch, expected %llu, got %llu"
+msgstr ""
+
+#: dmd/doc.d:310
+#, c-format
+msgid "Note that the format is `param = description`"
+msgstr ""
+
+#: dmd/doc.d:587
+#, c-format
+msgid "Ddoc: Stray ')'. This may cause incorrect Ddoc output. Use $(RPAREN) instead for unpaired right parentheses."
+msgstr ""
+
+#: dmd/doc.d:665
+#, c-format
+msgid "Ddoc: Stray '('. This may cause incorrect Ddoc output. Use $(LPAREN) instead for unpaired left parentheses."
+msgstr ""
+
+#: dmd/doc.d:4982
+#, c-format
+msgid "unmatched `---` in DDoc comment"
+msgstr ""
+
+#: dmd/dcast.d:132
+#, c-format
+msgid "forward reference to type `%s`"
+msgstr ""
+
+#: dmd/dcast.d:1679
+#, c-format
+msgid "cannot cast expression `%s` of type `%s` to `%s` because of different sizes"
+msgstr ""
+
+#: dmd/dcast.d:1708
+#, c-format
+msgid "cannot cast expression `%s` of type `%s` to `%s` since sizes don't line up"
+msgstr ""
+
+#: dmd/dcast.d:1751
+#, c-format
+msgid "casting from %s to %s is deprecated"
+msgstr ""
+
+#: dmd/dcast.d:1769 dmd/dcast.d:2599
+#, c-format
+msgid "cannot cast expression `%s` of type `%s` to `%s`"
+msgstr ""
+
+#: dmd/dcast.d:1838
+#, c-format
+msgid "cannot convert string literal to `void*`"
+msgstr ""
+
+#: dmd/dcast.d:2400
+#, c-format
+msgid "no `this` to create delegate for `%s`"
+msgstr ""
+
+#: dmd/dcast.d:2410
+#, c-format
+msgid "cannot cast from function pointer to delegate"
+msgstr ""
+
+#: dmd/dcast.d:3609
+#, c-format
+msgid "void has no value"
+msgstr ""
+
+#: dmd/dcast.d:3658
+#, c-format
+msgid "integral promotion not done for `%s`, remove '-revert=intpromote' switch or `%scast(int)(%s)`"
+msgstr ""
+
+#: dmd/dinterpret.d:434 dmd/dinterpret.d:441
+#, c-format
+msgid "circular dependency. Functions cannot be interpreted while being compiled"
+msgstr ""
+
+#: dmd/dinterpret.d:449
+#, c-format
+msgid "C-style variadic functions are not yet implemented in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:487
+#, c-format
+msgid "global `%s` cannot be passed as an `out` parameter at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:581
+#, c-format
+msgid "cannot interpret `%s` as a `ref` parameter"
+msgstr ""
+
+#: dmd/dinterpret.d:640
+#, c-format
+msgid "CTFE recursion limit exceeded"
+msgstr ""
+
+#: dmd/dinterpret.d:655
+#, c-format
+msgid "CTFE internal error: failed to resume at statement `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:686
+#, c-format
+msgid "no return value from function"
+msgstr ""
+
+#: dmd/dinterpret.d:797
+#, c-format
+msgid "statement `%s` cannot be interpreted at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:969
+#, c-format
+msgid "returning a pointer to a local stack variable"
+msgstr ""
+
+#: dmd/dinterpret.d:1041
+#, c-format
+msgid "closures are not yet supported in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:1337
+#, c-format
+msgid "no `default` or `case` for `%s` in `switch` statement"
+msgstr ""
+
+#: dmd/dinterpret.d:1727
+#, c-format
+msgid "`asm` statements cannot be interpreted at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:1755 dmd/dinterpret.d:1884 dmd/dinterpret.d:2942
+#: dmd/dinterpret.d:3643
+#, c-format
+msgid "cannot interpret `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:1812
+#, c-format
+msgid "value of `this` is not known at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:1891
+#, c-format
+msgid "cannot take address of thread-local variable %s at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:1946
+#, c-format
+msgid "reinterpreting cast from `%s` to `%s` is not supported in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:1987
+#, c-format
+msgid "cannot convert `&%s` to `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:2003
+#, c-format
+msgid "cannot take address of imported symbol `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:2125
+#, c-format
+msgid "while evaluating %s.init"
+msgstr ""
+
+#: dmd/dinterpret.d:2137
+#, c-format
+msgid "CTFE internal error: trying to access uninitialized var"
+msgstr ""
+
+#: dmd/dinterpret.d:2150 dmd/dinterpret.d:2170 dmd/dinterpret.d:2240
+#, c-format
+msgid "variable `%s` cannot be read at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:2163 dmd/dinterpret.d:2238 dmd/dinterpret.d:4927
+#, c-format
+msgid "static variable `%s` cannot be read at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:2176
+#, c-format
+msgid "cannot read uninitialized variable `%s` in ctfe"
+msgstr ""
+
+#: dmd/dinterpret.d:2177
+#, c-format
+msgid "`%s` was uninitialized and used before set"
+msgstr ""
+
+#: dmd/dinterpret.d:2192
+#, c-format
+msgid "cannot determine the address of the initializer symbol during CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:2199
+#, c-format
+msgid "CTFE failed because of previous errors in `%s.init`"
+msgstr ""
+
+#: dmd/dinterpret.d:2207
+#, c-format
+msgid "cannot interpret declaration `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:2336 dmd/dinterpret.d:2368 dmd/dinterpret.d:2387
+#, c-format
+msgid "declaration `%s` is not yet implemented in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:2379
+#, c-format
+msgid "variable `%s` cannot be modified at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:2419
+#, c-format
+msgid "null pointer dereference evaluating typeid. `%s` is `null`"
+msgstr ""
+
+#: dmd/dinterpret.d:2425
+#, c-format
+msgid "CTFE internal error: determining classinfo"
+msgstr ""
+
+#: dmd/dinterpret.d:2462
+#, c-format
+msgid "CTFE internal error: void element `%s` in tuple"
+msgstr ""
+
+#: dmd/dinterpret.d:2547
+#, c-format
+msgid "CTFE internal error: invalid array literal"
+msgstr ""
+
+#: dmd/dinterpret.d:2610
+#, c-format
+msgid "CTFE internal error: invalid AA"
+msgstr ""
+
+#: dmd/dinterpret.d:2731
+#, c-format
+msgid "CTFE internal error: invalid struct literal"
+msgstr ""
+
+#: dmd/dinterpret.d:2900
+#, c-format
+msgid "`%s` cannot be constructed at compile time, because the constructor has no available source code"
+msgstr ""
+
+#: dmd/dinterpret.d:3043 dmd/dinterpret.d:3636
+#, c-format
+msgid "pointer expression `%s` cannot be interpreted at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:3072
+#, c-format
+msgid "shift by %lld is outside the range 0..%llu"
+msgstr ""
+
+#: dmd/dinterpret.d:3123 dmd/dinterpret.d:3129
+#, c-format
+msgid "CTFE internal error: non-constant value `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:3140 dmd/dinterpret.d:5744 dmd/dinterpret.d:5808
+#, c-format
+msgid "`%s` cannot be interpreted at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:3168
+#, c-format
+msgid "the ordering of pointers to unrelated memory blocks is indeterminate in CTFE. To check if they point to the same memory block, use both `>` and `<` inside `&&` or `||`, eg `%s && %s %c= %s + 1`"
+msgstr ""
+
+#: dmd/dinterpret.d:3186 dmd/dinterpret.d:3195
+#, c-format
+msgid "cannot compare `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:3322
+#, c-format
+msgid "value of `%s` is not known at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:3652 dmd/dinterpret.d:3834 dmd/dinterpret.d:3899
+#: dmd/dinterpret.d:4149
+#, c-format
+msgid "cannot modify read-only constant `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:3692
+#, c-format
+msgid "`%s` is not yet supported at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:3770
+#, c-format
+msgid "CTFE internal error: dotvar slice assignment"
+msgstr ""
+
+#: dmd/dinterpret.d:3829
+#, c-format
+msgid "CTFE internal error: dotvar assignment"
+msgstr ""
+
+#: dmd/dinterpret.d:3842
+#, c-format
+msgid "CTFE internal error: cannot find field `%s` in `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:3884 dmd/dinterpret.d:4088
+#, c-format
+msgid "cannot modify read-only string literal `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:3892
+#, c-format
+msgid "index assignment `%s` is not yet supported in CTFE "
+msgstr ""
+
+#: dmd/dinterpret.d:3908 dmd/dinterpret.d:5167 dmd/dinterpret.d:5220
+#: dmd/dinterpret.d:5250 dmd/dinterpret.d:5264 dmd/dinterpret.d:5278
+#, c-format
+msgid "`%s` cannot be evaluated at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:3944
+#, c-format
+msgid "CTFE internal error: assignment `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4078
+#, c-format
+msgid "array length mismatch assigning `[0..%llu]` to `[%llu..%llu]`"
+msgstr ""
+
+#: dmd/dinterpret.d:4101 dmd/dinterpret.d:4221
+#, c-format
+msgid "overlapping slice assignment `[%llu..%llu] = [%llu..%llu]`"
+msgstr ""
+
+#: dmd/dinterpret.d:4111 dmd/dinterpret.d:4231
+#, c-format
+msgid "CTFE internal error: slice `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4352
+#, c-format
+msgid "slice operation `%s = %s` cannot be evaluated at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:4557
+#, c-format
+msgid "comparison `%s` of pointers to unrelated memory blocks remains indeterminate at compile time because exception `%s` was thrown while evaluating `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4580
+#, c-format
+msgid "comparison `%s` of pointers to unrelated memory blocks is indeterminate at compile time, even when combined with `%s`."
+msgstr ""
+
+#: dmd/dinterpret.d:4673
+#, c-format
+msgid "`%s` does not evaluate to a `bool`"
+msgstr ""
+
+#: dmd/dinterpret.d:4680
+#, c-format
+msgid "`%s` cannot be interpreted as a `bool`"
+msgstr ""
+
+#: dmd/dinterpret.d:4708
+#, c-format
+msgid "called from here: `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4731
+#, c-format
+msgid "%d recursive calls to function `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4734
+#, c-format
+msgid "recursively called from function `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4908
+#, c-format
+msgid "cannot call `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:4914
+#, c-format
+msgid "CTFE internal error: cannot evaluate `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:4936
+#, c-format
+msgid "function call through null class reference `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4958
+#, c-format
+msgid "CTFE failed because of previous errors in `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:4970
+#, c-format
+msgid "`%s` cannot be interpreted at compile time, because it has no available source code"
+msgstr ""
+
+#: dmd/dinterpret.d:5149
+#, c-format
+msgid "`%s` does not evaluate to boolean result at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:5303
+#, c-format
+msgid "cannot index through null pointer `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:5308
+#, c-format
+msgid "cannot index through invalid pointer `%s` of value `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:5314
+#, c-format
+msgid "mutable variable `%s` cannot be %s at compile time, even through a pointer"
+msgstr ""
+
+#: dmd/dinterpret.d:5323
+#, c-format
+msgid "pointer index `[%lld]` exceeds allocated memory block `[0..%lld]`"
+msgstr ""
+
+#: dmd/dinterpret.d:5331
+#, c-format
+msgid "pointer index `[%lld]` lies outside memory block `[0..1]`"
+msgstr ""
+
+#: dmd/dinterpret.d:5345 dmd/dinterpret.d:5465
+#, c-format
+msgid "cannot index null array `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:5363 dmd/dinterpret.d:5641
+#, c-format
+msgid "cannot determine length of `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:5382
+#, c-format
+msgid "CTFE internal error: non-integral index `[%s]`"
+msgstr ""
+
+#: dmd/dinterpret.d:5395
+#, c-format
+msgid "index %llu exceeds array length %llu"
+msgstr ""
+
+#: dmd/dinterpret.d:5407 dmd/optimize.d:573 dmd/optimize.d:612
+#: dmd/optimize.d:647
+#, c-format
+msgid "array index %lld is out of bounds `[0..%lld]`"
+msgstr ""
+
+#: dmd/dinterpret.d:5493
+#, c-format
+msgid "key `%s` not found in associative array `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:5521
+#, c-format
+msgid "`%s` is used before initialized"
+msgstr ""
+
+#: dmd/dinterpret.d:5522
+#, c-format
+msgid "originally uninitialized here"
+msgstr ""
+
+#: dmd/dinterpret.d:5544
+#, c-format
+msgid "cannot slice invalid pointer `%s` of value `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:5572
+#, c-format
+msgid "cannot slice null pointer `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:5578
+#, c-format
+msgid "slicing pointers to static variables is not supported in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:5584
+#, c-format
+msgid "pointer `%s` cannot be sliced at compile time (it does not point to an array)"
+msgstr ""
+
+#: dmd/dinterpret.d:5593
+#, c-format
+msgid "pointer slice `[%lld..%lld]` exceeds allocated memory block `[0..%lld]`"
+msgstr ""
+
+#: dmd/dinterpret.d:5685
+#, c-format
+msgid "slice `[%llu..%llu]` is out of bounds"
+msgstr ""
+
+#: dmd/dinterpret.d:5697
+#, c-format
+msgid "slice `[%llu..%llu]` exceeds array bounds `[0..%llu]`"
+msgstr ""
+
+#: dmd/dinterpret.d:5714
+#, c-format
+msgid "slice `[%lld..%lld]` exceeds array bounds `[0..%lld]`"
+msgstr ""
+
+#: dmd/dinterpret.d:5850
+#, c-format
+msgid "`delete` on invalid class reference `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:5941
+#, c-format
+msgid "reinterpreting cast from `%s*` to `%s*` is not supported in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:6000 dmd/dinterpret.d:6044
+#, c-format
+msgid "using `void*` to reinterpret cast from `%s*` to `%s*` is not supported in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:6061
+#, c-format
+msgid "pointer cast from `%s` to `%s` is not supported at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:6082 dmd/dinterpret.d:6095
+#, c-format
+msgid "array cast from `%s` to `%s` is not supported at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:6141 dmd/statementsem.d:2299
+#, c-format
+msgid "`%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:6144
+#, c-format
+msgid "`%s` failed"
+msgstr ""
+
+#: dmd/dinterpret.d:6150
+#, c-format
+msgid "`%s` is not a compile time boolean expression"
+msgstr ""
+
+#: dmd/dinterpret.d:6225
+#, c-format
+msgid "cannot dereference pointer to static variable `%s` at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:6236
+#, c-format
+msgid "dereference of null pointer `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:6238
+#, c-format
+msgid "dereference of invalid pointer `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:6269
+#, c-format
+msgid "`%s.%s` is not yet implemented at compile time"
+msgstr ""
+
+#: dmd/dinterpret.d:6298
+#, c-format
+msgid "CTFE internal error: `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:6306
+#, c-format
+msgid "class `%s` is `null` and cannot be dereferenced"
+msgstr ""
+
+#: dmd/dinterpret.d:6308
+#, c-format
+msgid "CTFE internal error: null this `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:6351
+#, c-format
+msgid "couldn't find field `%s` of type `%s` in `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:6379
+#, c-format
+msgid "internal compiler error: null field `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:6388
+#, c-format
+msgid "reinterpretation through overlapped field `%s` is not allowed in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:6392
+#, c-format
+msgid "cannot read uninitialized variable `%s` in CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:6462
+#, c-format
+msgid "CTFE internal error: trying to read uninitialized variable"
+msgstr ""
+
+#: dmd/dinterpret.d:6686
+#, c-format
+msgid "uninitialized variable `%s` cannot be returned from CTFE"
+msgstr ""
+
+#: dmd/dinterpret.d:7150
+#, c-format
+msgid "CTFE internal error: cannot foreach `%s`"
+msgstr ""
+
+#: dmd/dinterpret.d:7302
+#, c-format
+msgid "`%.*s`"
+msgstr ""
+
+#: dmd/dinterpret.d:7392
+#, c-format
+msgid "cannot evaluate unimplemented builtin `%s` at compile time"
+msgstr ""
+
+#: dmd/optimize.d:92
+#, c-format
+msgid "recursive initialization of constant"
+msgstr ""
+
+#: dmd/optimize.d:102
+#, c-format
+msgid "enum cannot be initialized with `%s`"
+msgstr ""
+
+#: dmd/optimize.d:582 dmd/optimize.d:622 dmd/optimize.d:657
+#, c-format
+msgid "array offset overflow"
+msgstr ""
+
+#: dmd/optimize.d:923
+#, c-format
+msgid "shift assign by %lld is outside the range `0..%llu`"
+msgstr ""
+
+#: dmd/optimize.d:1009
+#, c-format
+msgid "shift by %lld is outside the range `0..%llu`"
+msgstr ""
+
+#: dmd/optimize.d:1066
+#, c-format
+msgid "cannot raise `%s` to a negative integer power. Did you mean `(cast(real)%s)^^%s` ?"
+msgstr ""
+
+#: dmd/optimize.d:1335
+#, c-format
+msgid "infinite loop while optimizing expression"
+msgstr ""
+
+#: dmd/objc.d:412
+#, c-format
+msgid "Objective-C classes not supported"
+msgstr ""
+
+#: dmd/objc.d:417
+#, c-format
+msgid "Objective-C interfaces not supported"
+msgstr ""
+
+#: dmd/objc.d:554
+#, c-format
+msgid "can only have one Objective-C selector per method"
+msgstr ""
+
+#: dmd/objc.d:574
+#, c-format
+msgid "number of colons in Objective-C selector must match number of parameters"
+msgstr ""
+
+#: dmd/objc.d:576
+#, c-format
+msgid "template cannot have an Objective-C selector attached"
+msgstr ""
+
+#: dmd/objc.d:582
+#, c-format
+msgid "must have Objective-C linkage to attach a selector"
+msgstr ""
+
+#: dmd/objc.d:610
+#, c-format
+msgid "can only declare a function as optional once"
+msgstr ""
+
+#: dmd/objc.d:645
+#, c-format
+msgid "only functions with Objective-C linkage can be declared as optional"
+msgstr ""
+
+#: dmd/objc.d:649
+#, c-format
+msgid "function is declared with %.*s linkage"
+msgstr ""
+
+#: dmd/objc.d:657
+#, c-format
+msgid "template cannot be optional"
+msgstr ""
+
+#: dmd/objc.d:664
+#, c-format
+msgid "only functions declared inside interfaces can be optional"
+msgstr ""
+
+#: dmd/objc.d:665
+#, c-format
+msgid "function is declared inside %s"
+msgstr ""
+
+#: dmd/objc.d:817
+#, c-format
+msgid "no property `tupleof` for type `%s`"
+msgstr ""
+
+#: dmd/objc.d:818
+#, c-format
+msgid "`tupleof` is not available for members "
+msgstr ""
+
+#: dmd/objc.d:868
+#, c-format
+msgid "base "
+msgstr ""
+
+#: dmd/libelf.d:89
+#, c-format
+msgid "corrupt ELF object module %.*s %d"
+msgstr ""
+
+#: dmd/cond.d:759
+#, c-format
+msgid "version identifier `%s` is reserved and cannot be set"
+msgstr ""
+
+#: dmd/cond.d:924
+#, c-format
+msgid "`static if` conditional cannot be at global scope"
+msgstr ""
+
+#: dmd/attrib.d:659
+#, c-format
+msgid "does not bind to one of ancestor packages of module `%s`"
+msgstr ""
+
+#: dmd/attrib.d:928 dmd/statementsem.d:2113
+#, c-format
+msgid "pragma(`inline`, `true` or `false`) expected, not `%s`"
+msgstr ""
+
+#: dmd/attrib.d:1503
+#, c-format
+msgid "`@%s` cannot be applied to namespaces"
+msgstr ""
+
+#: dmd/attrib.d:1508
+#, c-format
+msgid "`@%s` can only apply to C++ symbols"
+msgstr ""
+
+#: dmd/escape.d:885
+#, c-format
+msgid "slice of static array temporary returned by `%s` assigned to longer lived variable `%s`"
+msgstr ""
+
+#: dmd/escape.d:1108
+#, c-format
+msgid "storing reference to stack allocated value returned by `%s` into allocated memory causes it to escape"
+msgstr ""
+
+#: dmd/escape.d:1259
+#, c-format
+msgid "returning `%s` escapes a reference to variadic parameter `%s`"
+msgstr ""
+
+#: dmd/escape.d:1417
+#, c-format
+msgid "escaping reference to stack allocated value returned by `%s`"
+msgstr ""
+
+#: dmd/opover.d:401 dmd/opover.d:673
+#, c-format
+msgid "`%s` is obsolete.  Use `opUnary(string op)() if (op == \"%s\")` instead."
+msgstr ""
+
+#: dmd/opover.d:508
+#, c-format
+msgid "Aggregate declaration '%s' does not define 'opDollar'"
+msgstr ""
+
+#: dmd/opover.d:639
+#, c-format
+msgid "`%s.opBinary` isn't a template"
+msgstr ""
+
+#: dmd/opover.d:648
+#, c-format
+msgid "`%s.opBinaryRight` isn't a template"
+msgstr ""
+
+#: dmd/opover.d:675
+#, c-format
+msgid "`%s` is obsolete.  Use `opBinary(string op)(...) if (op == \"%s\")` instead."
+msgstr ""
+
+#: dmd/opover.d:691
+#, c-format
+msgid "`%s` is obsolete.  Use `opBinaryRight(string op)(...) if (op == \"%s\")` instead."
+msgstr ""
+
+#: dmd/opover.d:731 dmd/opover.d:813 dmd/opover.d:1261 dmd/opover.d:1374
+#, c-format
+msgid "overloads `%s` and `%s` both match argument list for `%s`"
+msgstr ""
+
+#: dmd/opover.d:883
+#, c-format
+msgid "cannot use `alias this` to partially initialize variable `%s` of type `%s`. Use `%s`"
+msgstr ""
+
+#: dmd/opover.d:911
+#, c-format
+msgid "use `%s` instead of `%s` when comparing with `null`"
+msgstr ""
+
+#: dmd/opover.d:1033
+#, c-format
+msgid "cannot compare `%s` because its auto generated member-wise equality has recursive definition"
+msgstr ""
+
+#: dmd/opover.d:1049
+#, c-format
+msgid "mismatched tuple lengths, `%d` and `%d`"
+msgstr ""
+
+#: dmd/opover.d:1215
+#, c-format
+msgid "`%s.opOpAssign` isn't a template"
+msgstr ""
+
+#: dmd/opover.d:1236
+#, c-format
+msgid "`%s` is obsolete.  Use `opOpAssign(string op)(...) if (op == \"%s\")` instead."
+msgstr ""
+
+#: dmd/opover.d:1772
+#, c-format
+msgid ""
+"`%s.%s` matches more than one declaration:\n"
+"`%s`:     `%s`\n"
+"and:\n"
+"`%s`:     `%s`"
+msgstr ""
+
+#: dmd/ctfeexpr.d:150
+#, c-format
+msgid "uncaught CTFE exception `%s(%s)`"
+msgstr ""
+
+#: dmd/ctfeexpr.d:156
+#, c-format
+msgid "thrown from here"
+msgstr ""
+
+#: dmd/ctfeexpr.d:422
+#, c-format
+msgid "CTFE internal error: literal `%s`"
+msgstr ""
+
+#: dmd/ctfeexpr.d:493
+#, c-format
+msgid "CTFE internal error: painting `%s`"
+msgstr ""
+
+#: dmd/ctfeexpr.d:817
+#, c-format
+msgid "`%s - %s` cannot be interpreted at compile time: cannot subtract pointers to two different memory blocks"
+msgstr ""
+
+#: dmd/ctfeexpr.d:829
+#, c-format
+msgid "cannot perform arithmetic on `void*` pointers at compile time"
+msgstr ""
+
+#: dmd/ctfeexpr.d:842
+#, c-format
+msgid "cannot perform pointer arithmetic on arrays of unknown length at compile time"
+msgstr ""
+
+#: dmd/ctfeexpr.d:848
+#, c-format
+msgid "cannot perform pointer arithmetic on non-arrays at compile time"
+msgstr ""
+
+#: dmd/ctfeexpr.d:874
+#, c-format
+msgid "CTFE internal error: bad pointer operation"
+msgstr ""
+
+#: dmd/ctfeexpr.d:879
+#, c-format
+msgid "cannot assign pointer to index %lld inside memory block `[0..%lld]`"
+msgstr ""
+
+#: dmd/ctfeexpr.d:891
+#, c-format
+msgid "CTFE internal error: pointer arithmetic `%s`"
+msgstr ""
+
+#: dmd/ctfeexpr.d:1370
+#, c-format
+msgid "CTFE internal error: bad compare of `%s` and `%s`"
+msgstr ""
+
+#: dmd/ctfeexpr.d:1638
+#, c-format
+msgid "cannot cast `%s` to `%s` at compile time"
+msgstr ""
+
+#: dmd/ctfeexpr.d:1921
+#, c-format
+msgid "CTFE internal error: illegal CTFE value `%s`"
+msgstr ""
+
+#: dmd/iasm.d:56
+#, c-format
+msgid "D inline assembler statements are not supported"
+msgstr ""
+
+#: dmd/astbase.d:390 dmd/dimport.d:94
+#, c-format
+msgid "cannot have an import bind list"
+msgstr ""
+
+#: dmd/astbase.d:3629 dmd/mtype.d:6358
+#, c-format
+msgid "cannot form tuple of tuples"
+msgstr ""
+
+#: dmd/astbase.d:4547
+#, c-format
+msgid "integral constant must be scalar type, not %s"
+msgstr ""
+
+#: dmd/astbase.d:5145
+#, c-format
+msgid "%s is not an expression"
+msgstr ""
+
+#: dmd/statementsem.d:687
+#, c-format
+msgid "cannot infer type for `foreach` variable `%s`, perhaps set it explicitly"
+msgstr ""
+
+#: dmd/statementsem.d:736
+#, c-format
+msgid "invalid `foreach` aggregate `%s` of type `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:738
+#, c-format
+msgid "maybe define `opApply()`, range primitives, or use `.tupleof`"
+msgstr ""
+
+#: dmd/statementsem.d:781 dmd/statementsem.d:1318
+#, c-format
+msgid "cannot infer argument types, expected %llu argument%s, not %llu"
+msgstr ""
+
+#: dmd/statementsem.d:785
+#, c-format
+msgid "cannot uniquely infer `foreach` argument types"
+msgstr ""
+
+#: dmd/statementsem.d:811
+#, c-format
+msgid "cannot declare `enum` loop variables for non-unrolled foreach"
+msgstr ""
+
+#: dmd/statementsem.d:815
+#, c-format
+msgid "cannot declare `alias` loop variables for non-unrolled foreach"
+msgstr ""
+
+#: dmd/statementsem.d:827
+#, c-format
+msgid "cannot infer argument types"
+msgstr ""
+
+#: dmd/statementsem.d:925
+#, c-format
+msgid "only one or two arguments for array `foreach`"
+msgstr ""
+
+#: dmd/statementsem.d:944 dmd/statementsem.d:4349
+#, c-format
+msgid "foreach: key cannot be of non-integral type `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:956
+#, c-format
+msgid "foreach: loop index implicitly converted from `size_t` to `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:973
+#, c-format
+msgid "`foreach`: value of UTF conversion cannot be `ref`"
+msgstr ""
+
+#: dmd/statementsem.d:981
+#, c-format
+msgid "`foreach`: key cannot be `ref`"
+msgstr ""
+
+#: dmd/statementsem.d:1002
+#, c-format
+msgid "key type mismatch, `%s` to `ref %s`"
+msgstr ""
+
+#: dmd/statementsem.d:1015 dmd/statementsem.d:4360
+#, c-format
+msgid "index type `%s` cannot cover index range 0..%llu"
+msgstr ""
+
+#: dmd/statementsem.d:1038 dmd/statementsem.d:1854
+#, c-format
+msgid "argument type mismatch, `%s` to `ref %s`"
+msgstr ""
+
+#: dmd/statementsem.d:1164
+#, c-format
+msgid "cannot use `foreach_reverse` with an associative array"
+msgstr ""
+
+#: dmd/statementsem.d:1171
+#, c-format
+msgid "only one or two arguments for associative array `foreach`"
+msgstr ""
+
+#: dmd/statementsem.d:1278
+#, c-format
+msgid "`%s.front` is `void` and has no value"
+msgstr ""
+
+#: dmd/statementsem.d:1365
+#, c-format
+msgid "cannot use `foreach_reverse` with a delegate"
+msgstr ""
+
+#: dmd/statementsem.d:1370
+#, c-format
+msgid "`foreach`: `%s` is not an aggregate type"
+msgstr ""
+
+#: dmd/statementsem.d:1404 dmd/statementsem.d:1429
+#, c-format
+msgid "`opApply()` function for `%s` must return an `int`"
+msgstr ""
+
+#: dmd/statementsem.d:1515
+#, c-format
+msgid "`foreach`: index must be type `%s`, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:1526
+#, c-format
+msgid "`foreach`: value must be type `%s`, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:1635
+#, c-format
+msgid "`foreach`: cannot make `%s` `ref`"
+msgstr ""
+
+#: dmd/statementsem.d:1691
+#, c-format
+msgid "invalid range lower bound `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:1700
+#, c-format
+msgid "invalid range upper bound `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:2009 dmd/dsymbolsem.d:1662
+#, c-format
+msgid "while evaluating `pragma(msg, %s)`"
+msgstr ""
+
+#: dmd/statementsem.d:2029
+#, c-format
+msgid "`pragma(lib)` not allowed as statement"
+msgstr ""
+
+#: dmd/statementsem.d:2036
+#, c-format
+msgid "`string` expected for library name"
+msgstr ""
+
+#: dmd/statementsem.d:2056
+#, c-format
+msgid "`pragma(linkerDirective)` not allowed as statement"
+msgstr ""
+
+#: dmd/statementsem.d:2062 dmd/dsymbolsem.d:1711
+#, c-format
+msgid "function name expected for start address"
+msgstr ""
+
+#: dmd/statementsem.d:2076 dmd/dsymbolsem.d:1724
+#, c-format
+msgid "function name expected for start address, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:2099
+#, c-format
+msgid "boolean expression expected for `pragma(inline)`"
+msgstr ""
+
+#: dmd/statementsem.d:2126
+#, c-format
+msgid "`pragma(inline)` is not inside a function"
+msgstr ""
+
+#: dmd/statementsem.d:2134 dmd/dsymbolsem.d:1798
+#, c-format
+msgid "unrecognized `pragma(%s)`"
+msgstr ""
+
+#: dmd/statementsem.d:2142
+#, c-format
+msgid "`pragma(%s)` is missing a terminating `;`"
+msgstr ""
+
+#: dmd/statementsem.d:2208
+#, c-format
+msgid "`%s` must be of integral or string type, it is a `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:2247
+#, c-format
+msgid "no `case` statement following `goto case;`"
+msgstr ""
+
+#: dmd/statementsem.d:2265
+#, c-format
+msgid "`case %s` not found"
+msgstr ""
+
+#: dmd/statementsem.d:2296
+#, c-format
+msgid "missing cases for `enum` members in `final switch`:"
+msgstr ""
+
+#: dmd/statementsem.d:2321
+#, c-format
+msgid "`switch` statement without a `default`; use `final switch` or add `default: assert(0);` or add `default: break;`"
+msgstr ""
+
+#: dmd/statementsem.d:2509
+#, c-format
+msgid "`case` variables have to be `const` or `immutable`"
+msgstr ""
+
+#: dmd/statementsem.d:2514
+#, c-format
+msgid "`case` variables not allowed in `final switch` statements"
+msgstr ""
+
+#: dmd/statementsem.d:2529
+#, c-format
+msgid "`case` variable `%s` declared at %s cannot be declared in `switch` body"
+msgstr ""
+
+#: dmd/statementsem.d:2545
+#, c-format
+msgid "`case` must be a `string` or an integral constant, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:2558
+#, c-format
+msgid "duplicate `case %s` in `switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2581
+#, c-format
+msgid "`switch` and `case` are in different `finally` blocks"
+msgstr ""
+
+#: dmd/statementsem.d:2586
+#, c-format
+msgid "case cannot be in different `try` block level from `switch`"
+msgstr ""
+
+#: dmd/statementsem.d:2592
+#, c-format
+msgid "`case` not in `switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2615
+#, c-format
+msgid "case range not in `switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2623
+#, c-format
+msgid "case ranges not allowed in `final switch`"
+msgstr ""
+
+#: dmd/statementsem.d:2652
+#, c-format
+msgid "first `case %s` is greater than last `case %s`"
+msgstr ""
+
+#: dmd/statementsem.d:2659
+#, c-format
+msgid "had %llu cases which is more than 257 cases in case range"
+msgstr ""
+
+#: dmd/statementsem.d:2701
+#, c-format
+msgid "`switch` statement already has a default"
+msgstr ""
+
+#: dmd/statementsem.d:2708
+#, c-format
+msgid "`switch` and `default` are in different `finally` blocks"
+msgstr ""
+
+#: dmd/statementsem.d:2713
+#, c-format
+msgid "default cannot be in different `try` block level from `switch`"
+msgstr ""
+
+#: dmd/statementsem.d:2718
+#, c-format
+msgid "`default` statement not allowed in `final switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2724
+#, c-format
+msgid "`default` not in `switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2745
+#, c-format
+msgid "`goto default` not in `switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2750
+#, c-format
+msgid "`goto default` not allowed in `final switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2763
+#, c-format
+msgid "`goto case` not in `switch` statement"
+msgstr ""
+
+#: dmd/statementsem.d:2828
+#, c-format
+msgid "`return` statements cannot be in contracts"
+msgstr ""
+
+#: dmd/statementsem.d:2833
+#, c-format
+msgid "`return` statements cannot be in `%s` bodies"
+msgstr ""
+
+#: dmd/statementsem.d:2838
+#, c-format
+msgid "`return` statements cannot be in `finally` bodies"
+msgstr ""
+
+#: dmd/statementsem.d:2846
+#, c-format
+msgid "cannot return expression from constructor"
+msgstr ""
+
+#: dmd/statementsem.d:2901
+#, c-format
+msgid "cannot return non-void from `void` function"
+msgstr ""
+
+#: dmd/statementsem.d:2956
+#, c-format
+msgid "expected return type of `%s`, not `%s`:"
+msgstr ""
+
+#: dmd/statementsem.d:2960
+#, c-format
+msgid "Return type of `%s` inferred here."
+msgstr ""
+
+#: dmd/statementsem.d:2989
+#, c-format
+msgid "function returns `shared` but cannot be inferred `ref`"
+msgstr ""
+
+#: dmd/statementsem.d:3002
+#, c-format
+msgid "cannot implicitly convert `%s` of type `%s` to `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:3008
+#, c-format
+msgid "return value `%s` is not an lvalue"
+msgstr ""
+
+#: dmd/statementsem.d:3037
+#, c-format
+msgid "mismatched function return type inference of `void` and `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:3055
+#, c-format
+msgid "expected return type of `%s`, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:3057
+#, c-format
+msgid "`return` expression expected"
+msgstr ""
+
+#: dmd/statementsem.d:3071
+#, c-format
+msgid "`return` without calling constructor"
+msgstr ""
+
+#: dmd/statementsem.d:3084
+#, c-format
+msgid "an earlier `return` statement skips field `%s` initialization"
+msgstr ""
+
+#: dmd/statementsem.d:3198
+#, c-format
+msgid "label `%s` has no `break`"
+msgstr ""
+
+#: dmd/statementsem.d:3200
+#, c-format
+msgid "cannot break out of `finally` block"
+msgstr ""
+
+#: dmd/statementsem.d:3210
+#, c-format
+msgid "enclosing label `%s` for `break` not found"
+msgstr ""
+
+#: dmd/statementsem.d:3217
+#, c-format
+msgid "`break` is not allowed inside `%s` bodies"
+msgstr ""
+
+#: dmd/statementsem.d:3226
+#, c-format
+msgid "`break` is not inside a loop or `switch`"
+msgstr ""
+
+#: dmd/statementsem.d:3231
+#, c-format
+msgid "must use labeled `break` within `static foreach`"
+msgstr ""
+
+#: dmd/statementsem.d:3286
+#, c-format
+msgid "label `%s` has no `continue`"
+msgstr ""
+
+#: dmd/statementsem.d:3288
+#, c-format
+msgid "cannot continue out of `finally` block"
+msgstr ""
+
+#: dmd/statementsem.d:3297
+#, c-format
+msgid "enclosing label `%s` for `continue` not found"
+msgstr ""
+
+#: dmd/statementsem.d:3304
+#, c-format
+msgid "`continue` is not allowed inside `%s` bodies"
+msgstr ""
+
+#: dmd/statementsem.d:3313
+#, c-format
+msgid "`continue` is not inside a loop"
+msgstr ""
+
+#: dmd/statementsem.d:3318
+#, c-format
+msgid "must use labeled `continue` within `static foreach`"
+msgstr ""
+
+#: dmd/statementsem.d:3344
+#, c-format
+msgid "can only `synchronize` on class objects, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:3471
+#, c-format
+msgid "`with` type `%s` has no members"
+msgstr ""
+
+#: dmd/statementsem.d:3537
+#, c-format
+msgid "`with` expressions must be aggregate types or pointers to them, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:3566
+#, c-format
+msgid "cannot use try-catch statements with -betterC"
+msgstr ""
+
+#: dmd/statementsem.d:3572
+#, c-format
+msgid "cannot use try-catch statements because `object.Throwable` was not declared"
+msgstr ""
+
+#: dmd/statementsem.d:3605
+#, c-format
+msgid "`catch` at %s hides `catch` at %s"
+msgstr ""
+
+#: dmd/statementsem.d:3616
+#, c-format
+msgid "cannot mix catching D and C++ exceptions in the same try-catch"
+msgstr ""
+
+#: dmd/statementsem.d:3714
+#, c-format
+msgid "`%s` cannot be used with -betterC"
+msgstr ""
+
+#: dmd/statementsem.d:3724
+#, c-format
+msgid "cannot put `%s` statement inside `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:3729
+#, c-format
+msgid "cannot put `%s` statement inside `finally` block"
+msgstr ""
+
+#: dmd/statementsem.d:3781
+#, c-format
+msgid "cannot use `throw` statements with -betterC"
+msgstr ""
+
+#: dmd/statementsem.d:3787
+#, c-format
+msgid "cannot use `throw` statements because `object.Throwable` was not declared"
+msgstr ""
+
+#: dmd/statementsem.d:3811
+#, c-format
+msgid "can only throw class objects derived from `Throwable`, not type `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:3886
+#, c-format
+msgid "label `%s` already defined"
+msgstr ""
+
+#: dmd/statementsem.d:3943
+#, c-format
+msgid "`asm` statement is assumed to be impure - mark it with `pure` if it is not"
+msgstr ""
+
+#: dmd/statementsem.d:3945
+#, c-format
+msgid "`asm` statement is assumed to use the GC - mark it with `@nogc` if it does not"
+msgstr ""
+
+#: dmd/statementsem.d:4003
+#, c-format
+msgid "cannot put `catch` statement inside `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:4014
+#, c-format
+msgid "cannot put `catch` statement inside `finally` block"
+msgstr ""
+
+#: dmd/statementsem.d:4024 dmd/parse.d:6417
+#, c-format
+msgid "`catch` statement without an exception specification is deprecated"
+msgstr ""
+
+#: dmd/statementsem.d:4025 dmd/parse.d:6418
+#, c-format
+msgid "use `catch(Throwable)` for old behavior"
+msgstr ""
+
+#: dmd/statementsem.d:4043
+#, c-format
+msgid "can only catch class objects, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:4050
+#, c-format
+msgid "catching C++ class objects not supported for this target"
+msgstr ""
+
+#: dmd/statementsem.d:4061
+#, c-format
+msgid "can only catch class objects derived from `Throwable`, not `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:4272
+#, c-format
+msgid "only one (value) or two (key,value) arguments for tuple `foreach`"
+msgstr ""
+
+#: dmd/statementsem.d:4334
+#, c-format
+msgid "no storage class for key `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:4394
+#, c-format
+msgid "no storage class for value `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:4420
+#, c-format
+msgid "`foreach` loop variable cannot be both `enum` and `alias`"
+msgstr ""
+
+#: dmd/statementsem.d:4429
+#, c-format
+msgid "symbol `%s` cannot be `ref`"
+msgstr ""
+
+#: dmd/statementsem.d:4434 dmd/statementsem.d:4490
+#, c-format
+msgid "cannot specify element type for symbol `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:4443
+#, c-format
+msgid "cannot specify element type for type `%s`"
+msgstr ""
+
+#: dmd/statementsem.d:4464 dmd/statementsem.d:4470 dmd/statementsem.d:4474
+#, c-format
+msgid "constant value `%s` cannot be `ref`"
+msgstr ""
+
+#: dmd/statementsem.d:4850
+#, c-format
+msgid "internal compiler error: cannot mixin %s `%s`\n"
+msgstr ""
+
+#: dmd/dsymbolsem.d:149
+#, c-format
+msgid "alignment must be an integer positive power of 2, not 0x%llx"
+msgstr ""
+
+#: dmd/dsymbolsem.d:180
+#, c-format
+msgid "compile time constant expected, not `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:228
+#, c-format
+msgid "%p has no semantic routine"
+msgstr ""
+
+#: dmd/dsymbolsem.d:255
+#, c-format
+msgid "alias this can only be a member of aggregate, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:272
+#, c-format
+msgid "there can be only one alias this"
+msgstr ""
+
+#: dmd/dsymbolsem.d:300
+#, c-format
+msgid "alias this is not reachable as `%s` already converts to `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:399
+#, c-format
+msgid "extern symbols cannot have initializers"
+msgstr ""
+
+#: dmd/dsymbolsem.d:485
+#, c-format
+msgid "type `%s` is inferred from initializer `%s`, and variables cannot be of type `void`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:488
+#, c-format
+msgid "variables cannot be of type `void`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:494
+#, c-format
+msgid "cannot be declared to be a function"
+msgstr ""
+
+#: dmd/dsymbolsem.d:504
+#, c-format
+msgid "no definition of struct `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:512
+#, c-format
+msgid "required by type `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:520
+#, c-format
+msgid "storage class `auto` has no effect if type is not inferred, did you mean `scope`?"
+msgstr ""
+
+#: dmd/dsymbolsem.d:620
+#, c-format
+msgid "tuple of %d elements cannot be assigned to tuple of %d elements"
+msgstr ""
+
+#: dmd/dsymbolsem.d:700
+#, c-format
+msgid "cannot be `final`, perhaps you meant `const`?"
+msgstr ""
+
+#: dmd/dsymbolsem.d:705
+#, c-format
+msgid "cannot be `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:722
+#, c-format
+msgid "cannot be `scope` and `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:726
+#, c-format
+msgid "field cannot be `scope`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:759
+#, c-format
+msgid "field not allowed in interface"
+msgstr ""
+
+#: dmd/dsymbolsem.d:763
+#, c-format
+msgid "cannot be further field because it will change the determined %s size"
+msgstr ""
+
+#: dmd/dsymbolsem.d:783
+#, c-format
+msgid "cannot use template to add field to aggregate `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:790
+#, c-format
+msgid "only parameters or `foreach` declarations can be `ref`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:797
+#, c-format
+msgid "only parameters or stack based variables can be `inout`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:815
+#, c-format
+msgid "`inout` variables can only be declared inside `inout` functions"
+msgstr ""
+
+#: dmd/dsymbolsem.d:844
+#, c-format
+msgid "globals, statics, fields, manifest constants, ref and out parameters cannot be `scope`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:853
+#, c-format
+msgid "reference to `scope class` must be `scope`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:887
+#, c-format
+msgid "manifest constants must have initializers"
+msgstr ""
+
+#: dmd/dsymbolsem.d:893
+#, c-format
+msgid "cannot have `extern(C++)` linkage because it is `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:894
+#, c-format
+msgid "perhaps declare it as `__gshared` instead"
+msgstr ""
+
+#: dmd/dsymbolsem.d:915
+#, c-format
+msgid "size of type `%s` is invalid"
+msgstr ""
+
+#: dmd/dsymbolsem.d:950
+#, c-format
+msgid "`%s` does not have a default initializer"
+msgstr ""
+
+#: dmd/dsymbolsem.d:971
+#, c-format
+msgid "incomplete array type must have initializer"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1003
+#, c-format
+msgid "is not a static and cannot have static initializer"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1067
+#, c-format
+msgid "compile time context created here"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1142
+#, c-format
+msgid "of type struct `%s` uses `this(this)`, which is not allowed in static initialization"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1179
+#, c-format
+msgid "static storage variables cannot have destructors"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1213
+#, c-format
+msgid "bit-field must be member of struct, union, or class"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1223
+#, c-format
+msgid "bit-field type `%s` is not an integer type"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1228
+#, c-format
+msgid "bit-field width `%s` is not an integer constant"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1234
+#, c-format
+msgid "bit-field `%s` has zero width"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1243
+#, c-format
+msgid "width `%lld` of bit-field `%s` does not fit in type `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1339
+#, c-format
+msgid "member `%s` is not visible from module `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1350
+#, c-format
+msgid "import `%s` not found, did you mean %s `%s`?"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1352
+#, c-format
+msgid "import `%s` not found"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1468
+#, c-format
+msgid "%s can only be a part of an aggregate, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1503
+#, c-format
+msgid "zero-length string not allowed for mangled name"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1508
+#, c-format
+msgid "mangled name characters can only be of type `char`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1531
+#, c-format
+msgid "char 0x%02x not allowed in mangled name"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1542
+#, c-format
+msgid "char `0x%04x` not allowed in mangled name"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1587
+#, c-format
+msgid "must be a string"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1604
+#, c-format
+msgid "cannot apply to a template declaration"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1605
+#, c-format
+msgid "use `template Class(Args...){ pragma(mangle, \"other_name\") class Class {} }`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1612 dmd/dsymbolsem.d:1786
+#, c-format
+msgid "can only apply to a single declaration"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1621
+#, c-format
+msgid "is missing a terminating `;`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1634
+#, c-format
+msgid "one string argument expected for pragma(linkerDirective)"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1681
+#, c-format
+msgid "string expected for library name"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1732
+#, c-format
+msgid "one boolean expression expected for `pragma(inline)`, not %llu"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1747
+#, c-format
+msgid "string expected for mangled name"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1757 dmd/dsymbolsem.d:1793
+#, c-format
+msgid "takes no argument"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1864
+#, c-format
+msgid "incomplete mixin declaration `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1901 dmd/dsymbolsem.d:2922 dmd/dsymbolsem.d:2942
+#, c-format
+msgid "expected valid identifier for C++ namespace but got `%.*s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1939
+#, c-format
+msgid "`%s`: index %llu is not a string constant, it is a `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:1950
+#, c-format
+msgid "compile time string constant (or tuple) expected, not `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2035
+#, c-format
+msgid "circular reference to enum base type `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2110
+#, c-format
+msgid "base type must not be `void`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2131
+#, c-format
+msgid "enum `%s` must have at least one member"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2146 dmd/dsymbolsem.d:4721 dmd/dsymbolsem.d:5390
+#, c-format
+msgid "`scope` as a type constraint is deprecated.  Use `scope` at the usage site."
+msgstr ""
+
+#: dmd/dsymbolsem.d:2214
+#, c-format
+msgid "enum member must be an integral constant expression, not `%s` of type `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2220
+#, c-format
+msgid "enum member value `%s` does not fit in an `int`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2237
+#, c-format
+msgid "initialization with `%d+1` causes overflow for type `int`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2280
+#, c-format
+msgid "circular reference to `enum` member"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2472
+#, c-format
+msgid "initialization with `%s.%s+1` causes overflow for type `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2502
+#, c-format
+msgid "has inexact value due to loss of precision"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2588
+#, c-format
+msgid "parameter `%s` multiply defined"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2597
+#, c-format
+msgid "template tuple parameter must be last one"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2784
+#, c-format
+msgid "recursive mixin instantiation"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2841 dmd/dsymbolsem.d:6292
+#, c-format
+msgid "recursive expansion"
+msgstr ""
+
+#: dmd/dsymbolsem.d:2913 dmd/dsymbolsem.d:2936
+#, c-format
+msgid "expected string expression for namespace name, got `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3094
+#, c-format
+msgid "`%s` must be a function instead of `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3223
+#, c-format
+msgid "without `this` cannot be `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3272
+#, c-format
+msgid "must return `void` for `pragma(%s)`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3274
+#, c-format
+msgid "must be `extern(C)` for `pragma(%s)` when taking parameters"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3288
+#, c-format
+msgid "redeclaration with different type"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3296
+#, c-format
+msgid "storage class `auto` has no effect if return type is not inferred"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3304
+#, c-format
+msgid "`static` member has no `this` to which `return` can apply"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3306
+#, c-format
+msgid "top-level function `%s` has no `this` to which `return` can apply"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3318
+#, c-format
+msgid "`%s` functions cannot be `abstract`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3325
+#, c-format
+msgid "`%s` method is not virtual and cannot override"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3327
+#, c-format
+msgid "cannot override a non-virtual function"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3331
+#, c-format
+msgid "cannot be both `final` and `abstract`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3335
+#, c-format
+msgid "`abstract` functions cannot have bodies"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3343
+#, c-format
+msgid "static constructors / destructors must be `static void`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3345
+#, c-format
+msgid "static constructors / destructors must have empty parameter list"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3393
+#, c-format
+msgid "`pragma(%s)` functions must be `extern(C) %s %s([parameters...], const(char)*, ...)`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3399
+#, c-format
+msgid "`pragma(%s)` functions must be `extern(C) %s %s([parameters...], const(char)*, va_list)`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3409
+#, c-format
+msgid "constructors, destructors, postblits, invariants, new and delete functions are not allowed in interface `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3411
+#, c-format
+msgid "function body only allowed in `final` functions in interface `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3417
+#, c-format
+msgid "destructors, postblits and invariants are not allowed in union `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3475
+#, c-format
+msgid "return type inference is not supported if may override base class function"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3503 dmd/dsymbolsem.d:3630
+#, c-format
+msgid "cannot override `final` function `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3593
+#, c-format
+msgid "circular reference to class `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3609
+#, c-format
+msgid "cannot override `@safe` method `%s` with a `@system` attribute"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3625
+#, c-format
+msgid "`%s` is overriding the deprecated method `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3636
+#, c-format
+msgid "`@__future` base class method `%s` is being overridden by `%s`; rename the latter"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3643
+#, c-format
+msgid "cannot implicitly override base class method `%s` with `%s`; add `override` attribute"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3656
+#, c-format
+msgid "multiple overrides of same function"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3790
+#, c-format
+msgid "incompatible covariant types `%s` and `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3838
+#, c-format
+msgid "function `%s` does not override any function, did you mean to override `%s`?"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3843
+#, c-format
+msgid "function `%s` does not override any function, did you mean to override %s `%s`?"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3845
+#, c-format
+msgid "Functions are the only declarations that may be overriden"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3849
+#, c-format
+msgid "does not override any function"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3871
+#, c-format
+msgid "cannot override `final` function `%s.%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3881
+#, c-format
+msgid "`%s` cannot be annotated with `@disable` because it is overriding a function in the base class"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3886
+#, c-format
+msgid "`%s` cannot be marked as `deprecated` because it is overriding a function in the base class"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3892
+#, c-format
+msgid "`override` only applies to class member functions"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3907
+#, c-format
+msgid "`in` and `out` contracts can only appear without a body when they are virtual interface functions or abstract"
+msgstr ""
+
+#: dmd/dsymbolsem.d:3929
+#, c-format
+msgid "cannot use template to add virtual function to class `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4025
+#, c-format
+msgid "constructor can only be a member of aggregate, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4036
+#, c-format
+msgid "`shared static` has no effect on a constructor inside a `shared static` block. Use `shared static this()`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4038
+#, c-format
+msgid "`static` has no effect on a constructor inside a `static` block. Use `static this()`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4070
+#, c-format
+msgid "default constructor for structs only allowed "
+msgstr ""
+
+#: dmd/dsymbolsem.d:4085
+#, c-format
+msgid "is marked `@disable`, so it cannot have default "
+msgstr ""
+
+#: dmd/dsymbolsem.d:4087
+#, c-format
+msgid "Use `@disable this();` if you want to disable default initialization."
+msgstr ""
+
+#: dmd/dsymbolsem.d:4090
+#, c-format
+msgid "all parameters have default arguments, "
+msgstr ""
+
+#: dmd/dsymbolsem.d:4117
+#, c-format
+msgid "cannot define both an rvalue constructor and a copy constructor for `struct %s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4118
+#, c-format
+msgid "Template instance `%s` creates a rvalue constructor for `struct %s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4142
+#, c-format
+msgid "postblit can only be a member of struct, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4178
+#, c-format
+msgid "destructor can only be a member of aggregate, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4236
+#, c-format
+msgid "`%sstatic` constructor can only be member of module/aggregate/template, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4275
+#, c-format
+msgid "shared static constructor within a template require `core.atomic : atomicOp` to be present"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4299
+#, c-format
+msgid "`%sstatic` constructor can only be of D linkage"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4332
+#, c-format
+msgid "`%sstatic` destructor can only be member of module/aggregate/template, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4371
+#, c-format
+msgid "shared static destructo within a template require `core.atomic : atomicOp` to be present"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4397
+#, c-format
+msgid "`%sstatic` destructor can only be of D linkage"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4430
+#, c-format
+msgid "`invariant` can only be a member of aggregate, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4470
+#, c-format
+msgid "`unittest` can only be a member of module/aggregate/template, not %s `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4564
+#, c-format
+msgid "structs, unions cannot be `abstract`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4609
+#, c-format
+msgid "circular or forward reference"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4684
+#, c-format
+msgid "`static opCall` is hidden by constructors and can never be called"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4685
+#, c-format
+msgid "Please use a factory method instead, or replace all constructors with `static opCall`."
+msgstr ""
+
+#: dmd/dsymbolsem.d:4699 dmd/dsymbolsem.d:5352
+#, c-format
+msgid "already exists at %s. Perhaps in another function with the same name?"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4785
+#, c-format
+msgid "storage class `auto` is invalid when declaring a class, did you mean to use `scope`?"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4882
+#, c-format
+msgid "base type must be `class` or `interface`, not `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4902
+#, c-format
+msgid "circular inheritance"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4946
+#, c-format
+msgid "`%s`: base class must be specified first, "
+msgstr ""
+
+#: dmd/dsymbolsem.d:4953
+#, c-format
+msgid "`%s`: multiple class inheritance is not supported."
+msgstr ""
+
+#: dmd/dsymbolsem.d:4958
+#, c-format
+msgid "`%s` has fields, consider making it a member of `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4961
+#, c-format
+msgid "`%s` has no fields, consider making it an `interface`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4968
+#, c-format
+msgid "`%s`: base type must be `interface`, not `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:4981 dmd/dsymbolsem.d:5542
+#, c-format
+msgid "inherits from duplicate interface `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5049
+#, c-format
+msgid "cannot inherit from class `%s` because it is `final`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5057
+#, c-format
+msgid "with %s linkage cannot inherit from class `%s` with %s linkage"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5075
+#, c-format
+msgid "C++ class `%s` cannot implement D interface `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5137
+#, c-format
+msgid "C++ base class `%s` needs at least one virtual function"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5162
+#, c-format
+msgid "static class cannot inherit from nested class `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5170
+#, c-format
+msgid "is nested within `%s`, but super class `%s` is nested within `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5177
+#, c-format
+msgid "is not nested, but super class `%s` is nested within `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5192
+#, c-format
+msgid "needs the frame pointer of `%s`, but super class `%s` needs the frame pointer of `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5199
+#, c-format
+msgid "doesn't need a frame pointer, but super class `%s` needs the frame pointer of `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5294
+#, c-format
+msgid "cannot implicitly generate a default constructor when base class `%s` is missing a default constructor"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5318
+#, c-format
+msgid "identity assignment operator overload is illegal"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5339
+#, c-format
+msgid "cannot infer `abstract` attribute due to circular dependencies"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5372
+#, c-format
+msgid "Field members of a `synchronized` class cannot be `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5531
+#, c-format
+msgid "base type must be `interface`, not `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5549
+#, c-format
+msgid "circular inheritance of interface"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5697
+#, c-format
+msgid "`scope` as a type constraint is obsolete.  Use `scope` at the usage site."
+msgstr ""
+
+#: dmd/dsymbolsem.d:5783 dmd/dtemplate.d:2821 dmd/dtemplate.d:6901
+#: dmd/dtemplate.d:7114
+#, c-format
+msgid "recursive template expansion"
+msgstr ""
+
+#: dmd/dsymbolsem.d:5841
+#, c-format
+msgid "mixin templates are not regular templates"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6060
+#, c-format
+msgid "template instantiation `%s` forward references template declaration `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6530
+#, c-format
+msgid "`alias %s = %s;` cannot alias itself, use a qualified name to create an overload set"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6546 dmd/dsymbolsem.d:6729
+#, c-format
+msgid "cannot resolve"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6577 dmd/dsymbolsem.d:6761
+#, c-format
+msgid "cannot alias an expression `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6642
+#, c-format
+msgid "identifier `%s` must be an alias declaration"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6648
+#, c-format
+msgid "cannot reassign overloaded alias"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6658
+#, c-format
+msgid "`%s` must have same parent `%s` as alias `%s`"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6663
+#, c-format
+msgid "must be a member of a template"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6677
+#, c-format
+msgid "%s was read, so cannot reassign"
+msgstr ""
+
+#: dmd/dsymbolsem.d:6860
+#, c-format
+msgid "cannot have field `%s` with %ssame struct type"
+msgstr ""
+
+#: dmd/file_manager.d:275
+#, c-format
+msgid "cannot read from stdin, errno = %d"
+msgstr ""
+
+#: dmd/tocsym.d:505
+#, c-format
+msgid "could not generate import symbol for this platform"
+msgstr ""
+
+#: dmd/parse.d:126
+#, c-format
+msgid "identifier expected following `module`"
+msgstr ""
+
+#: dmd/parse.d:139 dmd/parse.d:3388
+#, c-format
+msgid "identifier expected following `package`"
+msgstr ""
+
+#: dmd/parse.d:148
+#, c-format
+msgid "`;` expected following module declaration instead of `%s`"
+msgstr ""
+
+#: dmd/parse.d:167
+#, c-format
+msgid "unmatched closing brace"
+msgstr ""
+
+#: dmd/parse.d:173
+#, c-format
+msgid "unrecognized declaration"
+msgstr ""
+
+#: dmd/parse.d:217
+#, c-format
+msgid "there is only one deprecation attribute allowed for module declaration"
+msgstr ""
+
+#: dmd/parse.d:234
+#, c-format
+msgid "`@%s` attribute for module declaration is not supported"
+msgstr ""
+
+#: dmd/parse.d:246
+#, c-format
+msgid "`module` expected instead of `%s`"
+msgstr ""
+
+#: dmd/parse.d:286
+#, c-format
+msgid "conflicting storage class `deprecated(%s)` and `deprecated(%s)`"
+msgstr ""
+
+#: dmd/parse.d:452
+#, c-format
+msgid "invariant body expected, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:520
+#, c-format
+msgid "closing `}` of unittest not found before end of file"
+msgstr ""
+
+#: dmd/parse.d:540 dmd/parse.d:546 dmd/parse.d:1046
+#, c-format
+msgid "declaration expected, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:725 dmd/parse.d:4435 dmd/parse.d:5139 dmd/parse.d:7465
+#, c-format
+msgid "usage of the `body` keyword is deprecated. Use `do` instead."
+msgstr ""
+
+#: dmd/parse.d:770 dmd/parse.d:1297
+#, c-format
+msgid "empty attribute list is not allowed"
+msgstr ""
+
+#: dmd/parse.d:771
+#, c-format
+msgid "use `@(attributes)` instead of `[attributes]`"
+msgstr ""
+
+#: dmd/parse.d:798
+#, c-format
+msgid "conflicting linkage `extern (%s)` and `extern (%s)`"
+msgstr ""
+
+#: dmd/parse.d:811
+#, c-format
+msgid "redundant linkage `extern (%s)`"
+msgstr ""
+
+#: dmd/parse.d:886
+#, c-format
+msgid "conflicting visibility attribute `%s` and `%s`"
+msgstr ""
+
+#: dmd/parse.d:888
+#, c-format
+msgid "redundant visibility attribute `%s`"
+msgstr ""
+
+#: dmd/parse.d:941
+#, c-format
+msgid "redundant alignment attribute `align(%s)`"
+msgstr ""
+
+#: dmd/parse.d:943
+#, c-format
+msgid "redundant alignment attribute `align`"
+msgstr ""
+
+#: dmd/parse.d:966 dmd/parse.d:6166
+#, c-format
+msgid "`pragma(identifier)` expected"
+msgstr ""
+
+#: dmd/parse.d:1120
+#, c-format
+msgid "identifier expected following comma"
+msgstr ""
+
+#: dmd/parse.d:1127
+#, c-format
+msgid "semicolon expected following auto declaration, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:1146
+#, c-format
+msgid "declaration expected following attribute, not `;`"
+msgstr ""
+
+#: dmd/parse.d:1151
+#, c-format
+msgid "declaration expected following attribute, not end of file"
+msgstr ""
+
+#: dmd/parse.d:1164
+#, c-format
+msgid "matching `}` expected, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:1200
+#, c-format
+msgid "conflicting attribute `@%s`"
+msgstr ""
+
+#: dmd/parse.d:1209
+#, c-format
+msgid "redundant attribute `%s`"
+msgstr ""
+
+#: dmd/parse.d:1220
+#, c-format
+msgid "attribute `const` is redundant with previously-applied `in`"
+msgstr ""
+
+#: dmd/parse.d:1224
+#, c-format
+msgid "scope"
+msgstr ""
+
+#: dmd/parse.d:1227
+#, c-format
+msgid "attribute `scope` cannot be applied with `in`, use `-preview=in` instead"
+msgstr ""
+
+#: dmd/parse.d:1234
+#, c-format
+msgid "attribute `in` cannot be added after `const`: remove `const`"
+msgstr ""
+
+#: dmd/parse.d:1239
+#, c-format
+msgid "attribute `in` cannot be added after `%s`: remove `%s`"
+msgstr ""
+
+#: dmd/parse.d:1243
+#, c-format
+msgid "attribute `in` cannot be added after `scope`: remove `scope` and use `-preview=in`"
+msgstr ""
+
+#: dmd/parse.d:1303
+#, c-format
+msgid "`%s` is a keyword, not an `@` attribute"
+msgstr ""
+
+#: dmd/parse.d:1305
+#, c-format
+msgid "`@identifier` or `@(ArgumentList)` expected, not `@%s`"
+msgstr ""
+
+#: dmd/parse.d:1367 dmd/parse.d:2953
+#, c-format
+msgid "user-defined attributes cannot appear as postfixes"
+msgstr ""
+
+#: dmd/parse.d:1450
+#, c-format
+msgid "identifier expected following `template`"
+msgstr ""
+
+#: dmd/parse.d:1463
+#, c-format
+msgid "`{` expected after template parameter list, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:1487
+#, c-format
+msgid "parenthesized template parameter list expected following template identifier"
+msgstr ""
+
+#: dmd/parse.d:1524
+#, c-format
+msgid "identifier expected for template `alias` parameter"
+msgstr ""
+
+#: dmd/parse.d:1555
+#, c-format
+msgid "identifier expected for template type parameter"
+msgstr ""
+
+#: dmd/parse.d:1588
+#, c-format
+msgid "identifier expected for template `this` parameter"
+msgstr ""
+
+#: dmd/parse.d:1613
+#, c-format
+msgid "identifier expected for template value parameter"
+msgstr ""
+
+#: dmd/parse.d:1673
+#, c-format
+msgid "identifier expected, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:1712 dmd/parse.d:3748
+#, c-format
+msgid "identifier expected following `.` instead of `%s`"
+msgstr ""
+
+#: dmd/parse.d:1729
+#, c-format
+msgid "`;` expected after `mixin`"
+msgstr ""
+
+#: dmd/parse.d:1762
+#, c-format
+msgid "multiple ! arguments are not allowed"
+msgstr ""
+
+#: dmd/parse.d:1970
+#, c-format
+msgid "template argument expected following `!`"
+msgstr ""
+
+#: dmd/parse.d:2066
+#, c-format
+msgid "valid linkage identifiers are `D`, `C`, `C++`, `Objective-C`, `Windows`, `System`"
+msgstr ""
+
+#: dmd/parse.d:2126
+#, c-format
+msgid "identifier expected for C++ namespace"
+msgstr ""
+
+#: dmd/parse.d:2168
+#, c-format
+msgid "`%s` expected as dot-separated identifiers, got `%s`"
+msgstr ""
+
+#: dmd/parse.d:2192 dmd/parse.d:2241
+#, c-format
+msgid "identifier or integer expected, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:2197 dmd/parse.d:2246
+#, c-format
+msgid "semicolon expected"
+msgstr ""
+
+#: dmd/parse.d:2220
+#, c-format
+msgid "identifier or integer expected inside `debug(...)`, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:2278
+#, c-format
+msgid "identifier or integer expected inside `version(...)`, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:2283
+#, c-format
+msgid "(condition) expected following `version`"
+msgstr ""
+
+#: dmd/parse.d:2310
+#, c-format
+msgid "(expression) expected following `static if`"
+msgstr ""
+
+#: dmd/parse.d:2342
+#, c-format
+msgid "`immutable` postblit is deprecated. Please use an unqualified postblit."
+msgstr ""
+
+#: dmd/parse.d:2344
+#, c-format
+msgid "`shared` postblit is deprecated. Please use an unqualified postblit."
+msgstr ""
+
+#: dmd/parse.d:2346
+#, c-format
+msgid "`const` postblit is deprecated. Please use an unqualified postblit."
+msgstr ""
+
+#: dmd/parse.d:2348
+#, c-format
+msgid "postblit cannot be `static`"
+msgstr ""
+
+#: dmd/parse.d:2379
+#, c-format
+msgid "constructor cannot be static"
+msgstr ""
+
+#: dmd/parse.d:2384
+#, c-format
+msgid "use `static this()` to declare a static constructor"
+msgstr ""
+
+#: dmd/parse.d:2386 dmd/parse.d:2468
+#, c-format
+msgid "use `shared static this()` to declare a shared static constructor"
+msgstr ""
+
+#: dmd/parse.d:2434
+#, c-format
+msgid "use `static ~this()` to declare a static destructor"
+msgstr ""
+
+#: dmd/parse.d:2436 dmd/parse.d:2503
+#, c-format
+msgid "use `shared static ~this()` to declare a shared static destructor"
+msgstr ""
+
+#: dmd/parse.d:2475
+#, c-format
+msgid "static constructor cannot be `%s`"
+msgstr ""
+
+#: dmd/parse.d:2510
+#, c-format
+msgid "static destructor cannot be `%s`"
+msgstr ""
+
+#: dmd/parse.d:2549
+#, c-format
+msgid "shared static constructor cannot be `%s`"
+msgstr ""
+
+#: dmd/parse.d:2583
+#, c-format
+msgid "shared static destructor cannot be `%s`"
+msgstr ""
+
+#: dmd/parse.d:2695
+#, c-format
+msgid "`new` allocator must be annotated with `@disabled`"
+msgstr ""
+
+#: dmd/parse.d:2706
+#, c-format
+msgid "`new` allocator with non-empty parameter list is deprecated"
+msgstr ""
+
+#: dmd/parse.d:2710
+#, c-format
+msgid "`new` allocator with function definition is deprecated"
+msgstr ""
+
+#: dmd/parse.d:2758
+#, c-format
+msgid "basic type expected, not `)`"
+msgstr ""
+
+#: dmd/parse.d:2768
+#, c-format
+msgid "variadic parameter cannot have attributes `%s`"
+msgstr ""
+
+#: dmd/parse.d:2803 dmd/parse.d:2949
+#, c-format
+msgid "`@%s` attribute for function parameter is not supported"
+msgstr ""
+
+#: dmd/parse.d:2810
+#, c-format
+msgid "variadic parameter cannot have user-defined attributes"
+msgstr ""
+
+#: dmd/parse.d:2897
+#, c-format
+msgid "incompatible parameter storage classes"
+msgstr ""
+
+#: dmd/parse.d:2934
+#, c-format
+msgid "default argument expected for `%s`"
+msgstr ""
+
+#: dmd/parse.d:2964
+#, c-format
+msgid "variadic argument cannot be `out` or `ref`"
+msgstr ""
+
+#: dmd/parse.d:3122 dmd/parse.d:4482 dmd/parse.d:5421
+#, c-format
+msgid "no identifier for declarator `%s`"
+msgstr ""
+
+#: dmd/parse.d:3124
+#, c-format
+msgid "type only allowed if anonymous enum and no enum type"
+msgstr ""
+
+#: dmd/parse.d:3136
+#, c-format
+msgid "assignment must be preceded by an identifier"
+msgstr ""
+
+#: dmd/parse.d:3144
+#, c-format
+msgid "if type, there must be an initializer"
+msgstr ""
+
+#: dmd/parse.d:3179
+#, c-format
+msgid "premature end of file"
+msgstr ""
+
+#: dmd/parse.d:3186
+#, c-format
+msgid "enum declaration is invalid"
+msgstr ""
+
+#: dmd/parse.d:3227
+#, c-format
+msgid "base classes are not allowed for `%s`, did you mean `;`?"
+msgstr ""
+
+#: dmd/parse.d:3235
+#, c-format
+msgid "template constraints appear both before and after BaseClassList, put them before"
+msgstr ""
+
+#: dmd/parse.d:3241
+#, c-format
+msgid "template constraints not allowed for anonymous `%s`"
+msgstr ""
+
+#: dmd/parse.d:3243
+#, c-format
+msgid "template constraints only allowed for templates"
+msgstr ""
+
+#: dmd/parse.d:3258
+#, c-format
+msgid "`}` expected following members in `%s` declaration at %s"
+msgstr ""
+
+#: dmd/parse.d:3266
+#, c-format
+msgid "members expected"
+msgstr ""
+
+#: dmd/parse.d:3271
+#, c-format
+msgid "{ } expected following `%s` declaration"
+msgstr ""
+
+#: dmd/parse.d:3279
+#, c-format
+msgid "anonymous interfaces not allowed"
+msgstr ""
+
+#: dmd/parse.d:3286
+#, c-format
+msgid "anonymous classes not allowed"
+msgstr ""
+
+#: dmd/parse.d:3369
+#, c-format
+msgid "identifier expected following `import`"
+msgstr ""
+
+#: dmd/parse.d:3409
+#, c-format
+msgid "identifier expected following `:`"
+msgstr ""
+
+#: dmd/parse.d:3420
+#, c-format
+msgid "identifier expected following `%s=`"
+msgstr ""
+
+#: dmd/parse.d:3444
+#, c-format
+msgid "`;` expected"
+msgstr ""
+
+#: dmd/parse.d:3557
+#, c-format
+msgid "use `long` for a 64 bit integer instead of `long long`"
+msgstr ""
+
+#: dmd/parse.d:3562
+#, c-format
+msgid "use `real` instead of `long double`"
+msgstr ""
+
+#: dmd/parse.d:3658 dmd/parse.d:8335
+#, c-format
+msgid "found `%s` when expecting `%s` following `mixin`"
+msgstr ""
+
+#: dmd/parse.d:3720
+#, c-format
+msgid "basic type expected, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:3722
+#, c-format
+msgid "There's no `static else`, use `else` instead."
+msgstr ""
+
+#: dmd/parse.d:3951
+#, c-format
+msgid "`const`/`immutable`/`shared`/`inout`/`return` attributes are only valid for non-static member functions"
+msgstr ""
+
+#: dmd/parse.d:3994
+#, c-format
+msgid "unexpected identifier `%s` in declarator"
+msgstr ""
+
+#: dmd/parse.d:4026
+#, c-format
+msgid "function declaration without return type. (Note that constructors are always named `this`)"
+msgstr ""
+
+#: dmd/parse.d:4029
+#, c-format
+msgid "unexpected `(` in declarator"
+msgstr ""
+
+#: dmd/parse.d:4271
+#, c-format
+msgid "redundant linkage declaration"
+msgstr ""
+
+#: dmd/parse.d:4278
+#, c-format
+msgid "C++ name spaces not allowed here"
+msgstr ""
+
+#: dmd/parse.d:4282
+#, c-format
+msgid "C++ mangle declaration not allowed here"
+msgstr ""
+
+#: dmd/parse.d:4470
+#, c-format
+msgid "multiple declarations must have the same type, not `%s` and `%s`"
+msgstr ""
+
+#: dmd/parse.d:4497 dmd/parse.d:4832 dmd/parse.d:4890
+#, c-format
+msgid "user-defined attributes not allowed for `alias` declarations"
+msgstr ""
+
+#: dmd/parse.d:4507
+#, c-format
+msgid "cannot use syntax `alias this = %s`, use `alias %s this` instead"
+msgstr ""
+
+#: dmd/parse.d:4509
+#, c-format
+msgid "alias cannot have initializer"
+msgstr ""
+
+#: dmd/parse.d:4546 dmd/parse.d:4959
+#, c-format
+msgid "semicolon expected to close `alias` declaration"
+msgstr ""
+
+#: dmd/parse.d:4628
+#, c-format
+msgid "use -preview=bitfields for bitfield support"
+msgstr ""
+
+#: dmd/parse.d:4630
+#, c-format
+msgid "initializer not allowed for bit-field declaration"
+msgstr ""
+
+#: dmd/parse.d:4632
+#, c-format
+msgid "storage class not allowed for bit-field declaration"
+msgstr ""
+
+#: dmd/parse.d:4685
+#, c-format
+msgid "semicolon needed to end declaration of `%s`, instead of `%s`"
+msgstr ""
+
+#: dmd/parse.d:4690
+#, c-format
+msgid "semicolon needed to end declaration of `%s` instead of `%s`"
+msgstr ""
+
+#: dmd/parse.d:4865
+#, c-format
+msgid "cannot put a storage-class in an `alias` declaration."
+msgstr ""
+
+#: dmd/parse.d:4871
+#, c-format
+msgid "user-defined attributes are not allowed on `alias` declarations"
+msgstr ""
+
+#: dmd/parse.d:4909
+#, c-format
+msgid "storage class `%s` has no effect in type aliases"
+msgstr ""
+
+#: dmd/parse.d:4947
+#, c-format
+msgid "identifier expected following comma, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:4952
+#, c-format
+msgid "`=` expected following identifier"
+msgstr ""
+
+#: dmd/parse.d:5034
+#, c-format
+msgid "function literal cannot be `%s`"
+msgstr ""
+
+#: dmd/parse.d:5073
+#, c-format
+msgid "using `(args) => { ... }` to create a delegate that returns a delegate is error-prone."
+msgstr ""
+
+#: dmd/parse.d:5074
+#, c-format
+msgid "Use `(args) { ... }` for a multi-statement function literal or use `(args) => () { }` if you intended for the lambda to return a delegate."
+msgstr ""
+
+#: dmd/parse.d:5114 dmd/parse.d:5126
+#, c-format
+msgid "missing `do { ... }` after `in` or `out`"
+msgstr ""
+
+#: dmd/parse.d:5116
+#, c-format
+msgid "=> shortened method not enabled, compile with compiler switch `-preview=shortenedMethods`"
+msgstr ""
+
+#: dmd/parse.d:5210
+#, c-format
+msgid "`(identifier) { ... }` or `(identifier; expression)` following `out` expected, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:5258
+#, c-format
+msgid "missing `%s{ ... }` for function literal"
+msgstr ""
+
+#: dmd/parse.d:5265
+#, c-format
+msgid "'%s' cannot be placed after a template constraint"
+msgstr ""
+
+#: dmd/parse.d:5267
+#, c-format
+msgid "attributes cannot be placed after a template constraint"
+msgstr ""
+
+#: dmd/parse.d:5269
+#, c-format
+msgid "cannot use function constraints for non-template functions. Use `static if` instead"
+msgstr ""
+
+#: dmd/parse.d:5271
+#, c-format
+msgid "semicolon expected following function declaration"
+msgstr ""
+
+#: dmd/parse.d:5292
+#, c-format
+msgid "else is dangling, add { } after condition at %s"
+msgstr ""
+
+#: dmd/parse.d:5308
+#, c-format
+msgid "instead of C-style syntax, use D-style `%s%s%s`"
+msgstr ""
+
+#: dmd/parse.d:5359
+#, c-format
+msgid "cannot declare `out` loop variable, use `ref` instead"
+msgstr ""
+
+#: dmd/parse.d:5434
+#, c-format
+msgid "missing `; expression` before `)` of `foreach`"
+msgstr ""
+
+#: dmd/parse.d:5438
+#, c-format
+msgid "perhaps the `;` goes before `%s`"
+msgstr ""
+
+#: dmd/parse.d:5586
+#, c-format
+msgid "found `%s` while expecting `=` or identifier"
+msgstr ""
+
+#: dmd/parse.d:5608
+#, c-format
+msgid "statement expected to be `{ }`, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:5622
+#, c-format
+msgid "use `.` for member lookup, not `::`"
+msgstr ""
+
+#: dmd/parse.d:5729
+#, c-format
+msgid "found `%s` when expecting `;` following statement"
+msgstr ""
+
+#: dmd/parse.d:5947 dmd/parse.d:5949
+#, c-format
+msgid "use `{ }` for an empty statement, not `;`"
+msgstr ""
+
+#: dmd/parse.d:5972
+#, c-format
+msgid "terminating `;` required after do-while statement"
+msgstr ""
+
+#: dmd/parse.d:6038 dmd/parse.d:6045
+#, c-format
+msgid "declaration"
+msgstr ""
+
+#: dmd/parse.d:6072
+#, c-format
+msgid "found `else` without a corresponding `if`, `version` or `debug` statement"
+msgstr ""
+
+#: dmd/parse.d:6082
+#, c-format
+msgid "scope identifier expected"
+msgstr ""
+
+#: dmd/parse.d:6096
+#, c-format
+msgid "valid scope identifiers are `exit`, `failure`, or `success`, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:6222
+#, c-format
+msgid "only one `case` allowed for start of case range"
+msgstr ""
+
+#: dmd/parse.d:6444
+#, c-format
+msgid "`catch` or `finally` expected following `try`"
+msgstr ""
+
+#: dmd/parse.d:6621 dmd/parse.d:6652
+#, c-format
+msgid "comma expected separating field initializers"
+msgstr ""
+
+#: dmd/parse.d:6637 dmd/parse.d:6767
+#, c-format
+msgid "expression expected, not `,`"
+msgstr ""
+
+#: dmd/parse.d:6647
+#, c-format
+msgid "found end of file instead of initializer"
+msgstr ""
+
+#: dmd/parse.d:6720 dmd/parse.d:6746
+#, c-format
+msgid "comma expected separating array initializers, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:6759
+#, c-format
+msgid "initializer expression expected following colon, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:6777
+#, c-format
+msgid "found `%s` instead of array initializer"
+msgstr ""
+
+#: dmd/parse.d:6843
+#, c-format
+msgid "`const`/`immutable`/`shared`/`inout` attributes are not allowed on `asm` blocks"
+msgstr ""
+
+#: dmd/parse.d:6883
+#, c-format
+msgid "`asm` statements must end in `;`"
+msgstr ""
+
+#: dmd/parse.d:6889
+#, c-format
+msgid "mismatched number of curly brackets"
+msgstr ""
+
+#: dmd/parse.d:6909
+#, c-format
+msgid "matching `}` expected, not end of file"
+msgstr ""
+
+#: dmd/parse.d:6952
+#, c-format
+msgid "found `%s` when expecting `%s`"
+msgstr ""
+
+#: dmd/parse.d:6977
+#, c-format
+msgid "found `%s` when expecting `%s` following %s"
+msgstr ""
+
+#: dmd/parse.d:6984 dmd/parse.d:9116
+#, c-format
+msgid "`%s` must be surrounded by parentheses when next to operator `%s`"
+msgstr ""
+
+#: dmd/parse.d:7886
+#, c-format
+msgid "use `.` for member lookup, not `->`"
+msgstr ""
+
+#: dmd/parse.d:7908
+#, c-format
+msgid "`$` is valid only inside [] of index or slice"
+msgstr ""
+
+#: dmd/parse.d:8065
+#, c-format
+msgid "implicit string concatenation is error-prone and disallowed in D"
+msgstr ""
+
+#: dmd/parse.d:8066
+#, c-format
+msgid "Use the explicit syntax instead "
+msgstr ""
+
+#: dmd/parse.d:8190
+#, c-format
+msgid "found `%s` when expecting identifier following `%s`."
+msgstr ""
+
+#: dmd/parse.d:8229
+#, c-format
+msgid "`__traits(identifier, args...)` expected"
+msgstr ""
+
+#: dmd/parse.d:8257
+#, c-format
+msgid "unexpected `(` after `%s`, inside `is` expression. Try enclosing the contents of `is` with a `typeof` expression"
+msgstr ""
+
+#: dmd/parse.d:8302
+#, c-format
+msgid "`type identifier : specialization` expected following `is`"
+msgstr ""
+
+#: dmd/parse.d:8366
+#, c-format
+msgid "found `%s` when expecting function literal following `ref`"
+msgstr ""
+
+#: dmd/parse.d:8409
+#, c-format
+msgid "`key:value` expected for associative array literal"
+msgstr ""
+
+#: dmd/parse.d:8588
+#, c-format
+msgid "identifier expected following `(type)`."
+msgstr ""
+
+#: dmd/parse.d:8600
+#, c-format
+msgid "`(arguments)` expected following `%s`"
+msgstr ""
+
+#: dmd/parse.d:8707
+#, c-format
+msgid "identifier or new keyword expected following `(...)`."
+msgstr ""
+
+#: dmd/parse.d:8718
+#, c-format
+msgid "C style cast illegal, use `%s`"
+msgstr ""
+
+#: dmd/parse.d:8788
+#, c-format
+msgid "identifier or `new` expected following `.`, not `%s`"
+msgstr ""
+
+#: dmd/parse.d:9282
+#, c-format
+msgid "`{ members }` expected for anonymous class"
+msgstr ""
+
+#: dmd/parse.d:9289
+#, c-format
+msgid "class member expected"
+msgstr ""
+
+#: dmd/ob.d:1982
+#, c-format
+msgid "assigning to Owner without disposing of owned value"
+msgstr ""
+
+#: dmd/ob.d:2005
+#, c-format
+msgid "is reading from `%s` which is Undefined"
+msgstr ""
+
+#: dmd/ob.d:2010
+#, c-format
+msgid "is borrowing from `%s` which is Readonly"
+msgstr ""
+
+#: dmd/ob.d:2051
+#, c-format
+msgid "has undefined state and cannot be read"
+msgstr ""
+
+#: dmd/ob.d:2208 dmd/ob.d:2247
+#, c-format
+msgid "is not Owner, cannot consume its value"
+msgstr ""
+
+#: dmd/ob.d:2282
+#, c-format
+msgid "is passed as Owner more than once"
+msgstr ""
+
+#: dmd/ob.d:2511
+#, c-format
+msgid "is both %s and %s"
+msgstr ""
+
+#: dmd/ob.d:2557
+#, c-format
+msgid "is returned but is Undefined"
+msgstr ""
+
+#: dmd/ob.d:2589
+#, c-format
+msgid "is left dangling at return"
+msgstr ""
+
+#: dmd/mtype.d:914
+#, c-format
+msgid "no size for type `%s`"
+msgstr ""
+
+#: dmd/mtype.d:2664
+#, c-format
+msgid "use of complex type `%s` is deprecated, use `std.complex.Complex!(%s)` instead"
+msgstr ""
+
+#: dmd/mtype.d:2670
+#, c-format
+msgid "use of imaginary type `%s` is deprecated, use `%s` instead"
+msgstr ""
+
+#: dmd/mtype.d:3691
+#, c-format
+msgid "static array `%s` size overflowed to %lld"
+msgstr ""
+
+#: dmd/mtype.d:5090
+#, c-format
+msgid "functions cannot return a function"
+msgstr ""
+
+#: dmd/mtype.d:5095
+#, c-format
+msgid "functions cannot return a tuple"
+msgstr ""
+
+#: dmd/mtype.d:5104
+#, c-format
+msgid "functions cannot return opaque type `%s` by value"
+msgstr ""
+
+#: dmd/mtype.d:5412
+#, c-format
+msgid "size of type `%s` is not known"
+msgstr ""
+
+#: dmd/mtype.d:5808
+#, c-format
+msgid "no size because of forward references"
+msgstr ""
+
+#: dmd/lexer.d:525
+#, c-format
+msgid "char 0x%04x not allowed in identifier"
+msgstr ""
+
+#: dmd/lexer.d:623
+#, c-format
+msgid "unterminated /* */ comment"
+msgstr ""
+
+#: dmd/lexer.d:759
+#, c-format
+msgid "unterminated /+ +/ comment"
+msgstr ""
+
+#: dmd/lexer.d:1129
+#, c-format
+msgid "character '%c' is not a valid token"
+msgstr ""
+
+#: dmd/lexer.d:1131
+#, c-format
+msgid "character 0x%02x is not a valid token"
+msgstr ""
+
+#: dmd/lexer.d:1301
+#, c-format
+msgid "escape hex sequence has %d hex digits instead of %d"
+msgstr ""
+
+#: dmd/lexer.d:1307
+#, c-format
+msgid "invalid UTF character \\U%08x"
+msgstr ""
+
+#: dmd/lexer.d:1315
+#, c-format
+msgid "undefined escape hex sequence \\%c%c"
+msgstr ""
+
+#: dmd/lexer.d:1332
+#, c-format
+msgid "unnamed character entity &%.*s;"
+msgstr ""
+
+#: dmd/lexer.d:1340
+#, c-format
+msgid "unterminated named entity &%.*s;"
+msgstr ""
+
+#: dmd/lexer.d:1365
+#, c-format
+msgid "escape octal sequence \\%03o is larger than \\377"
+msgstr ""
+
+#: dmd/lexer.d:1369
+#, c-format
+msgid "undefined escape sequence \\%c"
+msgstr ""
+
+#: dmd/lexer.d:1408 dmd/lexer.d:1714
+#, c-format
+msgid "unterminated string constant starting at %s"
+msgstr ""
+
+#: dmd/lexer.d:1491
+#, c-format
+msgid "unterminated delimited string constant starting at %s"
+msgstr ""
+
+#: dmd/lexer.d:1528
+#, c-format
+msgid "identifier expected for heredoc, not %s"
+msgstr ""
+
+#: dmd/lexer.d:1544
+#, c-format
+msgid "delimiter cannot be whitespace"
+msgstr ""
+
+#: dmd/lexer.d:1551
+#, c-format
+msgid "heredoc rest of line should be blank"
+msgstr ""
+
+#: dmd/lexer.d:1591
+#, c-format
+msgid "delimited string must end in `%s\"`"
+msgstr ""
+
+#: dmd/lexer.d:1593
+#, c-format
+msgid "delimited string must end in `\"`"
+msgstr ""
+
+#: dmd/lexer.d:1595
+#, c-format
+msgid "delimited string must end in `%c\"`"
+msgstr ""
+
+#: dmd/lexer.d:1638
+#, c-format
+msgid "unterminated token string constant starting at %s"
+msgstr ""
+
+#: dmd/lexer.d:1780 dmd/lexer.d:1823
+#, c-format
+msgid "unterminated character constant"
+msgstr ""
+
+#: dmd/lexer.d:1819
+#, c-format
+msgid "character constant has multiple characters"
+msgstr ""
+
+#: dmd/lexer.d:1848
+#, c-format
+msgid "empty character constant"
+msgstr ""
+
+#: dmd/lexer.d:1862
+#, c-format
+msgid "max number of chars in character literal is 4, had %d"
+msgstr ""
+
+#: dmd/lexer.d:1881
+#, c-format
+msgid "max number of chars in 16 bit character literal is 2, had %d"
+msgstr ""
+
+#: dmd/lexer.d:1884 dmd/lexer.d:1886
+#, c-format
+msgid "%d does not fit in 16 bits"
+msgstr ""
+
+#: dmd/lexer.d:1899
+#, c-format
+msgid "max number of chars in 32 bit character literal is 1, had %d"
+msgstr ""
+
+#: dmd/lexer.d:1982
+#, c-format
+msgid "binary constants not allowed"
+msgstr ""
+
+#: dmd/lexer.d:2002
+#, c-format
+msgid "embedded `_` not allowed"
+msgstr ""
+
+#: dmd/lexer.d:2109
+#, c-format
+msgid "binary"
+msgstr ""
+
+#: dmd/lexer.d:2116
+#, c-format
+msgid "integer overflow"
+msgstr ""
+
+#: dmd/lexer.d:2121
+#, c-format
+msgid "`%.*s` isn't a valid integer literal, use `%.*s0` instead"
+msgstr ""
+
+#: dmd/lexer.d:2150
+#, c-format
+msgid "lower case integer suffix 'l' is not allowed. Please use 'L' instead"
+msgstr ""
+
+#: dmd/lexer.d:2158
+#, c-format
+msgid "unrecognized token"
+msgstr ""
+
+#: dmd/lexer.d:2172
+#, c-format
+msgid "octal literals larger than 7 are no longer supported"
+msgstr ""
+
+#: dmd/lexer.d:2174
+#, c-format
+msgid "octal literals `0%llo%.*s` are no longer supported, use `std.conv.octal!\"%llo%.*s\"` instead"
+msgstr ""
+
+#: dmd/lexer.d:2219
+#, c-format
+msgid "signed integer overflow"
+msgstr ""
+
+#: dmd/lexer.d:2301
+#, c-format
+msgid "duplicate integer suffixes"
+msgstr ""
+
+#: dmd/lexer.d:2506
+#, c-format
+msgid "embedded `_` in numeric literals not allowed"
+msgstr ""
+
+#: dmd/lexer.d:2512
+#, c-format
+msgid "missing exponent"
+msgstr ""
+
+#: dmd/lexer.d:2520
+#, c-format
+msgid "exponent required for hex float"
+msgstr ""
+
+#: dmd/lexer.d:2551
+#, c-format
+msgid "use 'L' suffix instead of 'l'"
+msgstr ""
+
+#: dmd/lexer.d:2563
+#, c-format
+msgid "use 'i' suffix instead of 'I'"
+msgstr ""
+
+#: dmd/lexer.d:2586
+#, c-format
+msgid "number `%s%s` is not representable"
+msgstr ""
+
+#: dmd/lexer.d:2664
+#, c-format
+msgid "C preprocessor directive `#if` is not supported, use `version` or `static if`"
+msgstr ""
+
+#: dmd/lexer.d:2696
+#, c-format
+msgid "line number `%lld` out of range"
+msgstr ""
+
+#: dmd/lexer.d:2708
+#, c-format
+msgid "positive integer argument expected following `#line`"
+msgstr ""
+
+#: dmd/lexer.d:2754
+#, c-format
+msgid "invalid filename for `#line` directive"
+msgstr ""
+
+#: dmd/lexer.d:2756
+#, c-format
+msgid "invalid flag for line marker directive"
+msgstr ""
+
+#: dmd/lexer.d:2758
+#, c-format
+msgid "found `%s` when expecting new line following `#line` directive"
+msgstr ""
+
+#: dmd/lexer.d:3043
+#, c-format
+msgid "value of environment variable `SOURCE_DATE_EPOCH` should be a valid UNIX timestamp, not: `%s`"
+msgstr ""
+
+#: dmd/denum.d:190
+#, c-format
+msgid "is opaque and has no default initializer"
+msgstr ""
+
+#: dmd/denum.d:201
+#, c-format
+msgid "forward reference of `%s.init`"
+msgstr ""
+
+#: dmd/denum.d:237
+#, c-format
+msgid "is forward referenced looking for base type"
+msgstr ""
+
+#: dmd/dtemplate.d:1776 dmd/dtemplate.d:2159 dmd/dtemplate.d:2208
+#, c-format
+msgid "specialization not allowed for deduced parameter `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:2661 dmd/dtemplate.d:2838
+#, c-format
+msgid "forward reference to template `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:2671
+#, c-format
+msgid "cannot overload both property and non-property functions"
+msgstr ""
+
+#: dmd/dtemplate.d:2884
+#, c-format
+msgid "recursive template expansion while looking for `%s.%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:5932
+#, c-format
+msgid "cannot resolve forward reference"
+msgstr ""
+
+#: dmd/dtemplate.d:6368
+#, c-format
+msgid "template `%s` is not defined, did you mean %s?"
+msgstr ""
+
+#: dmd/dtemplate.d:6370 dmd/dtemplate.d:6493
+#, c-format
+msgid "template `%s` is not defined"
+msgstr ""
+
+#: dmd/dtemplate.d:6438 dmd/dtemplate.d:7187
+#, c-format
+msgid "`%s` forward references template declaration `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:6524
+#, c-format
+msgid "`%s` is not a valid template instance, because `%s` is not a template declaration but a type (`%s == %s`)"
+msgstr ""
+
+#: dmd/dtemplate.d:6554
+#, c-format
+msgid "`%s` is not a template declaration, it is a %s"
+msgstr ""
+
+#: dmd/dtemplate.d:6867
+#, c-format
+msgid "incompatible arguments for template instantiation"
+msgstr ""
+
+#: dmd/dtemplate.d:6956
+#, c-format
+msgid ""
+"%s `%s.%s` matches more than one template declaration:\n"
+"%s:     `%s`\n"
+"and\n"
+"%s:     `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:7022 dmd/dtemplate.d:7209
+#, c-format
+msgid "while looking for match for `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:7032
+#, c-format
+msgid ""
+"%s `%s`\n"
+"%s"
+msgstr ""
+
+#: dmd/dtemplate.d:7038
+#, c-format
+msgid "%s `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:7061
+#, c-format
+msgid "`%s` is not of a value of type `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:7070
+#, c-format
+msgid "%s `%s.%s` does not match any template declaration"
+msgstr ""
+
+#: dmd/dtemplate.d:7322
+#, c-format
+msgid "`%s` is nested in both `%s` and `%s`"
+msgstr ""
+
+#: dmd/dtemplate.d:7471 dmd/dtemplate.d:7488
+#, c-format
+msgid "recursive expansion exceeded allowed nesting limit"
+msgstr ""
+
+#: dmd/dtemplate.d:7726
+#, c-format
+msgid "- `%s` is a %s, not a template"
+msgstr ""
+
+#: dmd/dtemplate.d:8212
+#, c-format
+msgid "template parameter specialization for a type must be a type and not `%s`"
+msgstr ""
+
+#: dmd/dmacro.d:57
+#, c-format
+msgid "DDoc macro expansion limit exceeded; more than %d expansions."
+msgstr ""
+
+#: dmd/dmodule.d:467
+#, c-format
+msgid "source file name '%.*s' must have .%.*s extension"
+msgstr ""
+
+#: dmd/dmodule.d:582
+#, c-format
+msgid "source file and output file have same name '%s'"
+msgstr ""
+
+#: dmd/dmodule.d:607
+#, c-format
+msgid "cannot find source code for runtime library file 'object.d'"
+msgstr ""
+
+#: dmd/dmodule.d:608
+#, c-format
+msgid "dmd might not be correctly installed. Run 'dmd -man' for installation instructions."
+msgstr ""
+
+#: dmd/dmodule.d:610
+#, c-format
+msgid "config file: %.*s"
+msgstr ""
+
+#: dmd/dmodule.d:617
+#, c-format
+msgid "cannot find input file `%s`"
+msgstr ""
+
+#: dmd/dmodule.d:624
+#, c-format
+msgid "importing package '%s' requires a 'package.d' file which cannot be found in '%s'"
+msgstr ""
+
+#: dmd/dmodule.d:627
+#, c-format
+msgid "unable to read module `%s`"
+msgstr ""
+
+#: dmd/dmodule.d:629
+#, c-format
+msgid "Expected '%s' or '%s' in one of the following import paths:"
+msgstr ""
+
+#: dmd/dmodule.d:728
+#, c-format
+msgid "odd length of UTF-32 char source %llu"
+msgstr ""
+
+#: dmd/dmodule.d:744
+#, c-format
+msgid "UTF-32 value %08x greater than 0x10FFFF"
+msgstr ""
+
+#: dmd/dmodule.d:774
+#, c-format
+msgid "odd length of UTF-16 char source %llu"
+msgstr ""
+
+#: dmd/dmodule.d:794
+#, c-format
+msgid "surrogate UTF-16 high value %04x at end of file"
+msgstr ""
+
+#: dmd/dmodule.d:800
+#, c-format
+msgid "surrogate UTF-16 low value %04x out of range"
+msgstr ""
+
+#: dmd/dmodule.d:808
+#, c-format
+msgid "unpaired surrogate UTF-16 value %04x"
+msgstr ""
+
+#: dmd/dmodule.d:813
+#, c-format
+msgid "illegal UTF-16 value %04x"
+msgstr ""
+
+#: dmd/dmodule.d:900
+#, c-format
+msgid "source file must start with BOM or ASCII character, not \\x%02X"
+msgstr ""
+
+#: dmd/dmodule.d:1038
+#, c-format
+msgid "package name '%s' conflicts with usage as a module name in file %s"
+msgstr ""
+
+#: dmd/dmodule.d:1050
+#, c-format
+msgid "has non-identifier characters in filename, use module declaration instead"
+msgstr ""
+
+#: dmd/dmodule.d:1103
+#, c-format
+msgid "from file %s conflicts with another module %s from file %s"
+msgstr ""
+
+#: dmd/dmodule.d:1105
+#, c-format
+msgid "from file %s is specified twice on the command line"
+msgstr ""
+
+#: dmd/dmodule.d:1107
+#, c-format
+msgid "from file %s must be imported with 'import %s;'"
+msgstr ""
+
+#: dmd/dmodule.d:1118
+#, c-format
+msgid "from file %s conflicts with package name %s"
+msgstr ""
+
+#: dmd/dmodule.d:1139
+#, c-format
+msgid "is a Ddoc file, cannot import it"
+msgstr ""
+
+#: dmd/dmodule.d:1224
+#, c-format
+msgid "is deprecated - %.*s"
+msgstr ""
+
+#: dmd/builtin.d:362
+#, c-format
+msgid "`bsf(0)` is undefined"
+msgstr ""
+
+#: dmd/builtin.d:372
+#, c-format
+msgid "`bsr(0)` is undefined"
+msgstr ""
+
+#: dmd/cppmangle.d:474
+#, c-format
+msgid "internal compiler error: C++ `%s` template value parameter is not supported"
+msgstr ""
+
+#: dmd/cppmangle.d:509
+#, c-format
+msgid "internal compiler error: C++ `%s` template alias parameter is not supported"
+msgstr ""
+
+#: dmd/cppmangle.d:515
+#, c-format
+msgid "internal compiler error: C++ `%s` template this parameter is not supported"
+msgstr ""
+
+#: dmd/cppmangle.d:998
+#, c-format
+msgid "internal compiler error: C++ static non-`__gshared` non-`extern` variables not supported"
+msgstr ""
+
+#: dmd/cppmangle.d:1333
+#, c-format
+msgid "internal compiler error: unable to pass static array `%s` to extern(C++) function, use pointer instead"
+msgstr ""
+
+#: dmd/cppmangle.d:1372
+#, c-format
+msgid "internal compiler error: %stype `%s` cannot be mapped to C++\n"
+msgstr ""
+
+#: dmd/aliasthis.d:186
+#, c-format
+msgid "`alias %s this` is deprecated - %s"
+msgstr ""
+
+#: dmd/aliasthis.d:189
+#, c-format
+msgid "`alias %s this` is deprecated"
+msgstr ""
+
+#: dmd/dimport.d:139
+#, c-format
+msgid "can only import from a module, not from a member of module `%s`. Did you mean `import %s : %s`?"
+msgstr ""
+
+#: dmd/dimport.d:153
+#, c-format
+msgid "%s `%s` conflicts with `%s`"
+msgstr ""
+
+#: dmd/dimport.d:172
+#, c-format
+msgid "%s `%s` from file %s conflicts with %s `%s`"
+msgstr ""
+
+#: dmd/dimport.d:183 dmd/dimport.d:188
+#, c-format
+msgid "can only import from a module, not from package `%s.%s`"
+msgstr ""
+
+#: dmd/dimport.d:192
+#, c-format
+msgid "can only import from a module, not from package `%s`"
+msgstr ""
+
+#: dmd/sideeffect.d:299
+#, c-format
+msgid "calling `%s` without side effects discards return value of type `%s`; prepend a `cast(void)` if intentional"
+msgstr ""
+
+#: dmd/sideeffect.d:368
+#, c-format
+msgid "the result of the equality expression `%s` is discarded"
+msgstr ""
+
+#: dmd/sideeffect.d:373
+#, c-format
+msgid "note that `%s` may have a side effect"
+msgstr ""
+
+#: dmd/sideeffect.d:381
+#, c-format
+msgid "`%s` has no effect"
+msgstr ""
+
+#: dmd/utils.d:67
+#, c-format
+msgid "error reading file `%.*s`"
+msgstr ""
+
+#: dmd/utils.d:87
+#, c-format
+msgid "error writing file '%.*s'"
+msgstr ""
+
+#: dmd/utils.d:108
+#, c-format
+msgid "cannot create directory %*.s"
+msgstr ""
+
+#: dmd/dmdparams.d:123
+#, c-format
+msgid "unknown %s `%s` for `-target`"
+msgstr ""
+
+#: dmd/dmdparams.d:222
+#, c-format
+msgid "OS version overflowed max of 254"
+msgstr ""
+
+#: dmd/chkformat.d:87 dmd/chkformat.d:288 dmd/chkformat.d:359
+#: dmd/chkformat.d:504
+#, c-format
+msgid "format specifier `\"%.*s\"` is invalid"
+msgstr ""
+
+#: dmd/chkformat.d:99 dmd/chkformat.d:368
+#, c-format
+msgid "more format specifiers than %d arguments"
+msgstr ""
+
+#: dmd/chkformat.d:109 dmd/chkformat.d:376
+#, c-format
+msgid "%sargument `%s` for format specification `\"%.*s\"` must be `%s`, not `%s`"
+msgstr ""
+
+#: dmd/clone.d:1193
+#, c-format
+msgid "mixing invariants with different `shared`/`synchronized` qualifiers is not supported"
+msgstr ""
+
+#: dmd/clone.d:1479
+#, c-format
+msgid "`struct %s` implicitly-generated postblit hides copy constructor."
+msgstr ""
+
+#: dmd/clone.d:1480
+#, c-format
+msgid "The field postblit will have priority over the copy constructor."
+msgstr ""
+
+#: dmd/clone.d:1481
+#, c-format
+msgid "To change this, the postblit should be disabled for `struct %s`"
+msgstr ""
+
+#: dmd/clone.d:1612
+#, c-format
+msgid "`struct %s` may not define both a rvalue constructor and a copy constructor"
+msgstr ""
+
+#: dmd/clone.d:1613 dmd/clone.d:1643
+#, c-format
+msgid "rvalue constructor defined here"
+msgstr ""
+
+#: dmd/clone.d:1614
+#, c-format
+msgid "copy constructor defined here"
+msgstr ""
+
+#: dmd/clone.d:1642
+#, c-format
+msgid "`struct %s` may not define a rvalue constructor and have fields with copy constructors"
+msgstr ""
+
+#: dmd/clone.d:1644
+#, c-format
+msgid "field with copy constructor defined here"
+msgstr ""
+
+#: dmd/glue.d:706
+#, c-format
+msgid "errors compiling the function"
+msgstr ""
+
+#: dmd/glue.d:1396
+#, c-format
+msgid "only one `main`%s allowed. Previously found `main` at %s"
+msgstr ""
+
+#: dmd/glue.d:1479
+#, c-format
+msgid "forward reference of `%s`"
+msgstr ""
+
+#: dmd/inline.d:103
+#, c-format
+msgid "cannot inline default argument `%s`"
+msgstr ""
+
+#: dmd/inline.d:1842
+#, c-format
+msgid "cannot inline function `%s`"
+msgstr ""
+
+#: dmd/mars.d:185
+#, c-format
+msgid "warnings are treated as errors"
+msgstr ""
+
+#: dmd/mars.d:186
+#, c-format
+msgid "Use -wi if you wish to treat warnings only as informational."
+msgstr ""
+
+#: dmd/mars.d:398
+#, c-format
+msgid "conflicting Ddoc and obj generation options"
+msgstr ""
+
+#: dmd/mars.d:451
+#, c-format
+msgid "unable to resolve forward reference in definition"
+msgstr ""
+
+#: dmd/mars.d:563
+#, c-format
+msgid "no input files"
+msgstr ""
+
+#: dmd/mars.d:587
+#, c-format
+msgid "no object files to link"
+msgstr ""
+
+#: dmd/mars.d:640
+#, c-format
+msgid "missing or null command line arguments"
+msgstr ""
+
+#: dmd/mars.d:655
+#, c-format
+msgid "cannot open response file '%s'"
+msgstr ""
+
+#: dmd/mars.d:673
+#, c-format
+msgid "config file '%.*s' does not exist."
+msgstr ""
+
+#: dmd/mars.d:724
+#, c-format
+msgid "run `dmd` to print the compiler manual"
+msgstr ""
+
+#: dmd/mars.d:725
+#, c-format
+msgid "run `dmd -man` to open browser on manual"
+msgstr ""
+
+#: dmd/mars.d:730
+#, c-format
+msgid "the architecture must not be changed in the %s section of %.*s"
+msgstr ""
+
+#: dmd/mars.d:820
+#, c-format
+msgid "cannot determine JSON filename, use `-Xf=<file>` or provide a source file"
+msgstr ""
+
+#: dmd/mars.d:1435 dmd/mars.d:1992
+#, c-format
+msgid "switch `%s` is invalid"
+msgstr ""
+
+#: dmd/mars.d:1751
+#, c-format
+msgid "`-gdwarf=<version>` can only be provided once"
+msgstr ""
+
+#: dmd/mars.d:1761
+#, c-format
+msgid "`-gdwarf=<version>` requires a valid version [3|4|5]"
+msgstr ""
+
+#: dmd/mars.d:1847
+#, c-format
+msgid "unknown vtemplates style '%.*s', must be 'list-instances'"
+msgstr ""
+
+#: dmd/mars.d:1889
+#, c-format
+msgid "unknown error style '%.*s', must be 'digitalmars' or 'gnu'"
+msgstr ""
+
+#: dmd/mars.d:2027
+#, c-format
+msgid "`-transition=16997` is now the default behavior"
+msgstr ""
+
+#: dmd/mars.d:2030 dmd/mars.d:2047
+#, c-format
+msgid "transition `%s` is invalid"
+msgstr ""
+
+#: dmd/mars.d:2044
+#, c-format
+msgid "`-transition=intpromote` is now the default behavior"
+msgstr ""
+
+#: dmd/mars.d:2067
+#, c-format
+msgid "preview `%s` is invalid"
+msgstr ""
+
+#: dmd/mars.d:2090
+#, c-format
+msgid "revert `%s` is invalid"
+msgstr ""
+
+#: dmd/mars.d:2135
+#, c-format
+msgid "-o no longer supported, use -of or -od"
+msgstr ""
+
+#: dmd/mars.d:2249
+#, c-format
+msgid "unknown JSON field `-Xi=%s`, expected one of "
+msgstr ""
+
+#: dmd/mars.d:2275
+#, c-format
+msgid "invalid option '%s', module patterns cannot be empty"
+msgstr ""
+
+#: dmd/mars.d:2456
+#, c-format
+msgid "-deps[=file] can only be provided once!"
+msgstr ""
+
+#: dmd/mars.d:2476
+#, c-format
+msgid "-makedeps[=file] can only be provided once!"
+msgstr ""
+
+#: dmd/mars.d:2483
+#, c-format
+msgid "expected filename after -makedeps="
+msgstr ""
+
+#: dmd/mars.d:2518
+#, c-format
+msgid "-run must be followed by a source file, not '%s'"
+msgstr ""
+
+#: dmd/mars.d:2543
+#, c-format
+msgid "unrecognized switch '%s'"
+msgstr ""
+
+#: dmd/mars.d:2546
+#, c-format
+msgid "argument expected for switch '%s'"
+msgstr ""
+
+#: dmd/mars.d:2572
+#, c-format
+msgid "`-fPIC` and `-fPIE` cannot be used when targetting windows"
+msgstr ""
+
+#: dmd/mars.d:2574
+#, c-format
+msgid "`-gdwarf` cannot be used when targetting windows"
+msgstr ""
+
+#: dmd/mars.d:2579
+#, c-format
+msgid "`-m32` is not supported on DragonFlyBSD, it is 64-bit only"
+msgstr ""
+
+#: dmd/mars.d:2585
+#, c-format
+msgid "cannot mix `-lib` and `-shared`"
+msgstr ""
+
+#: dmd/mars.d:2594
+#, c-format
+msgid "`Xcc=` link switches not available for this operating system"
+msgstr ""
+
+#: dmd/mars.d:2608
+#, c-format
+msgid "must supply `-mscrtlib` manually when cross compiling to windows"
+msgstr ""
+
+#: dmd/mars.d:2614
+#, c-format
+msgid "`-m32omf` can only be used when targetting windows"
+msgstr ""
+
+#: dmd/mars.d:2616
+#, c-format
+msgid "`-mscrtlib` can only be used when targetting windows"
+msgstr ""
+
+#: dmd/mars.d:2718
+#, c-format
+msgid "flags conflict with -run"
+msgstr ""
+
+#: dmd/mars.d:2784 dmd/mars.d:2859
+#, c-format
+msgid "invalid file name '%s'"
+msgstr ""
+
+#: dmd/mars.d:2865
+#, c-format
+msgid "unrecognized file extension %.*s"
+msgstr ""
+
+#: dmd/scanelf.d:42
+#, c-format
+msgid "corrupt ELF object module `%s` %d"
+msgstr ""
+
+#: dmd/scanelf.d:53
+#, c-format
+msgid "ELF object module `%s` has EI_VERSION = %d, should be %d"
+msgstr ""
+
+#: dmd/scanelf.d:58
+#, c-format
+msgid "ELF object module `%s` is byte swapped and unsupported"
+msgstr ""
+
+#: dmd/scanelf.d:62
+#, c-format
+msgid "ELF object module `%s` is unrecognized class %d"
+msgstr ""
+
+#: dmd/scanelf.d:86
+#, c-format
+msgid "ELF object module `%s` is not relocatable"
+msgstr ""
+
+#: dmd/access.d:54
+#, c-format
+msgid "%s `%s` is not accessible"
+msgstr ""
