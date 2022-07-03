@@ -1,20 +1,20 @@
 MAKE=make
 
 defaulttarget:
-	cd src
+	cd compiler\src
 	$(MAKE) -f win32.mak
-	cd ..
+	cd ..\..
 
 auto-tester-build:
-	cd src
+	cd compiler\src
 	$(MAKE) -f win32.mak auto-tester-build
-	cd ..
+	cd ..\..
 
 auto-tester-test:
-	cd test
+	cd compiler\test
 	$(MAKE)
-	cd ..
-	cd samples
+	cd ..\..
+	cd compiler\samples
 	gmake -f win32.mak DMD=..\src\dmd.exe MODEL=$(MODEL) "LIB=..\..\phobos;$(LIB)" \
 		"DFLAGS=-I..\..\druntime\import -I..\..\phobos -m$(MODEL)"
-	cd ..
+	cd ..\..

@@ -20,8 +20,8 @@ string[] defaultImportPaths()
     import std.path : buildNormalizedPath, buildPath, dirName;
     import std.process : environment;
 
-    enum dlangDir = __FILE_FULL_PATH__.dirName.buildNormalizedPath("..", "..", "..");
-    enum druntimeDir = dlangDir.buildPath("druntime", "import");
+    enum dlangDir = __FILE_FULL_PATH__.dirName.buildNormalizedPath("..", "..", "..", "..");
+    enum druntimeDir = dlangDir.buildPath("dmd", "druntime", "import");
     enum phobosDir = dlangDir.buildPath("phobos");
 
     return [
