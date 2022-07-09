@@ -94,7 +94,7 @@ cd "$DMD_DIR/druntime"
 "$DM_MAKE" "${LIBS_MAKE_ARGS[@]}"
 
 cd "$DMD_DIR/../phobos"
-"$DM_MAKE" "${LIBS_MAKE_ARGS[@]}" DRUNTIME="$DMD_DIR\druntime" 
+"$DM_MAKE" "${LIBS_MAKE_ARGS[@]}" DRUNTIME="$DMD_DIR\druntime"
 
 ################################################################################
 # Run DMD testsuite
