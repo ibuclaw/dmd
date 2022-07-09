@@ -9,7 +9,7 @@ set PLATFORM=Win32
 set MODEL=32mscoff
 if "%ARCH%"=="x64" set PLATFORM=x64
 if "%ARCH%"=="x64" set MODEL=64
-set DMD=%DMD_DIR%\generated\Windows\%CONFIGURATION%\%PLATFORM%\dmd.exe
+set DMD=%DMD_DIR%\compiler\generated\Windows\%CONFIGURATION%\%PLATFORM%\dmd.exe
 
 set VISUALD_INSTALLER=VisualD-%VISUALD_VER%.exe
 set N=3
@@ -37,7 +37,7 @@ REM configure LDC path
 if "%D_COMPILER%" == "ldc" reg add "HKLM\SOFTWARE\LDC" /v InstallationFolder /t REG_SZ /d "%LDC_DIR%" /reg:32 /f
 
 echo [STEP]: Building DMD via VS projects
-cd src
+cd compiler\src
 if "%D_COMPILER%" == "ldc" set LDC_ARGS=%LDC_ARGS% /p:DCompiler=LDC
 msbuild /target:dmd /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% %LDC_ARGS% vcbuild\dmd.sln || exit /B 1
 %DMD% --version
@@ -52,7 +52,7 @@ cd "%DMD_DIR%\..\phobos"
 
 echo [STEP]: Building run.d testrunner and its tools
 REM needs to be done before tampering with LIB and DFLAGS env variables (affecting the ldmd2 host compiler too)
-cd "%DMD_DIR%\test"
+cd "%DMD_DIR%\compiler\test"
 "%HOST_DMD%" -m%MODEL% -g -i run.d || exit /B 4
 run.exe tools "BUILD=%CONFIGURATION%" "DMD_MODEL=%PLATFORM%" || exit /B 4
 
@@ -61,9 +61,9 @@ set DRUNTIME_TESTS=test_all
 cd "%DMD_DIR%"
 if not "%C_RUNTIME%" == "mingw" goto not_mingw
     rem install recent LLD and mingw libraries to built dmd
-    if exist "%DMD_DIR%\generated\Windows\%CONFIGURATION%\%PLATFORM%\lld-link.exe" goto lld_exists
+    if exist "%DMD_DIR%\compiler\generated\Windows\%CONFIGURATION%\%PLATFORM%\lld-link.exe" goto lld_exists
     powershell -command "& { iwr http://downloads.dlang.org/other/lld-link-9.0.0-seh.zip -OutFile lld.zip }" || exit /B 11
-    7z x lld.zip -o%DMD_DIR%\generated\Windows\%CONFIGURATION%\%PLATFORM% || exit /B 12
+    7z x lld.zip -o%DMD_DIR%\compiler\generated\Windows\%CONFIGURATION%\%PLATFORM% || exit /B 12
     :lld_exists
 
     if exist "%DMD_DIR%\mingw\dmd2\windows\lib%MODEL%\mingw\kernel32.lib" goto mingw_exists
@@ -87,7 +87,7 @@ cd "%DMD_DIR%\druntime"
 "%DM_MAKE%" -f win64.mak MODEL=%MODEL% "DMD=%DMD%" "VCDIR=%VCINSTALLDIR%." "CC=%MSVC_CC%" "MAKE=%DM_MAKE%" unittest %DRUNTIME_TESTS% || exit /B 5
 
 echo [STEP]: Running DMD testsuite
-cd "%DMD_DIR%\test"
+cd "%DMD_DIR%\compiler\test"
 set CC=%MSVC_CC%
 run.exe --environment --jobs=%N% %DMD_TESTS% "ARGS=-O -inline -g" "BUILD=%CONFIGURATION%" "DMD_MODEL=%PLATFORM%" || exit /B 6
 

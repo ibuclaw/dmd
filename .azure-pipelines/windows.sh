@@ -75,12 +75,12 @@ fi
 # Build DMD (incl. building and running the unittests)
 ################################################################################
 if [ "$MODEL" == "32omf" ] ; then
-    DMD_BIN_PATH="$DMD_DIR/generated/windows/release/32/dmd"
+    DMD_BIN_PATH="$DMD_DIR/compiler/generated/windows/release/32/dmd"
 else
-    DMD_BIN_PATH="$DMD_DIR/generated/windows/release/$MODEL/dmd"
+    DMD_BIN_PATH="$DMD_DIR/compiler/generated/windows/release/$MODEL/dmd"
 fi
 
-cd "$DMD_DIR/src"
+cd "$DMD_DIR/compiler/src"
 "$DM_MAKE" -f "$MAKE_FILE" MAKE="$DM_MAKE" BUILD=debug unittest
 DFLAGS="-L-LARGEADDRESSAWARE" "$DM_MAKE" -f "$MAKE_FILE" MAKE="$DM_MAKE" reldmd-asserts
 
@@ -99,11 +99,9 @@ done
 # Run DMD testsuite
 ################################################################################
 
-cd "$DMD_DIR/test"
+cd "$DMD_DIR/compiler/test"
 
 # build run.d testrunner and its tools while host compiler is untampered
-cd ../test
-
 if [ "$MODEL" == "32omf" ] ; then
     TOOL_MODEL=32;
 else
@@ -117,7 +115,7 @@ fi
 if [ "${DMD_TEST_COVERAGE:-0}" = "1" ] ; then
 
     # Recompile debug dmd + unittests
-    rm -rf "$DMD_DIR/generated/windows"
+    rm -rf "$DMD_DIR/compiler/generated/windows"
     DFLAGS="-L-LARGEADDRESSAWARE" ../generated/build.exe --jobs=$N ENABLE_DEBUG=1 ENABLE_COVERAGE=1 dmd
     DFLAGS="-L-LARGEADDRESSAWARE" ../generated/build.exe --jobs=$N ENABLE_DEBUG=1 ENABLE_COVERAGE=1 unittest
 fi
