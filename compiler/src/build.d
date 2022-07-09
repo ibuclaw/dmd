@@ -1270,7 +1270,7 @@ void parseEnvironment()
     env["COMMON"] = d.buildPath("common");
     env["ROOT"] = d.buildPath("root");
     env["EX"] = srcDir.buildPath("examples");
-    auto generated = env["GENERATED"] = compilerDir.buildPath("../generated");
+    auto generated = env["GENERATED"] = dmdRepo.buildPath("generated");
     auto g = env["G"] = generated.buildPath(os, build, model);
     mkdirRecurse(g);
     env.setDefault("TOOLS_DIR", compilerDir.dirName.buildPath("tools"));
