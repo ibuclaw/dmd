@@ -82,7 +82,7 @@ fi
 
 cd "$DMD_DIR/compiler/src"
 "$DM_MAKE" -f "$MAKE_FILE" MAKE="$DM_MAKE" BUILD=debug unittest
-DFLAGS="-L-LARGEADDRESSAWARE" "$DM_MAKE" -f "$MAKE_FILE" MAKE="$DM_MAKE" reldmd-asserts
+DFLAGS="-L-LARGEADDRESSAWARE" "$DM_MAKE" -f "$MAKE_FILE" MAKE="$DM_MAKE" GEN="$DMD_DIR\generated" reldmd-asserts
 
 ################################################################################
 # Build Druntime and Phobos

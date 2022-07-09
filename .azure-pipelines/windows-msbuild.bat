@@ -99,4 +99,4 @@ if "%D_COMPILER%_%MODEL%" == "ldc_64" copy %LDC_DIR%\lib64\libcurl.dll .
 if "%D_COMPILER%_%MODEL%" == "ldc_32mscoff" copy %LDC_DIR%\lib32\libcurl.dll .
 if "%D_COMPILER%_%MODEL%" == "dmd_64" copy %DMD_DIR%\dmd2\windows\bin64\libcurl.dll .
 if "%D_COMPILER%_%MODEL%" == "dmd_32mscoff" copy %DMD_DIR%\dmd2\windows\bin\libcurl.dll .
-"%DM_MAKE%" -f win64.mak MODEL=%MODEL% "DMD=%DMD%" "VCDIR=%VCINSTALLDIR%." "CC=%MSVC_CC%" "MAKE=%DM_MAKE%" unittest || exit /B 7
+"%DM_MAKE%" -f win64.mak MODEL=%MODEL% "DMD=%DMD%" "DRUNTIME=%DMD_DIR%\druntime" "VCDIR=%VCINSTALLDIR%." "CC=%MSVC_CC%" "MAKE=%DM_MAKE%" unittest || exit /B 7
