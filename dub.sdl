@@ -10,12 +10,14 @@ dependency ":frontend" version="*"
 subPackage {
   name "root"
   targetType "library"
+  importPaths "compiler/src"
   sourcePaths "compiler/src/dmd/common" "compiler/src/dmd/root"
 }
 
 subPackage {
   name "lexer"
   targetType "library"
+  importPaths "compiler/src"
   sourcePaths
 
   sourceFiles \
@@ -56,6 +58,7 @@ subPackage {
 subPackage {
   name "parser"
   targetType "library"
+  importPaths "compiler/src"
   sourcePaths
 
   sourceFiles \
@@ -73,6 +76,7 @@ subPackage {
 subPackage {
   name "frontend"
   targetType "library"
+  importPaths "compiler/src"
   sourcePaths "compiler/src/dmd"
   stringImportPaths "compiler/src/dmd/res"
 
