@@ -75,9 +75,9 @@ fi
 # Build DMD (incl. building and running the unittests)
 ################################################################################
 if [ "$MODEL" == "32omf" ] ; then
-    DMD_BIN_PATH="$DMD_DIR/compiler/generated/windows/release/32/dmd"
+    DMD_BIN_PATH="$DMD_DIR/generated/windows/release/32/dmd"
 else
-    DMD_BIN_PATH="$DMD_DIR/compiler/generated/windows/release/$MODEL/dmd"
+    DMD_BIN_PATH="$DMD_DIR/generated/windows/release/$MODEL/dmd"
 fi
 
 cd "$DMD_DIR/compiler/src"
@@ -115,9 +115,9 @@ fi
 if [ "${DMD_TEST_COVERAGE:-0}" = "1" ] ; then
 
     # Recompile debug dmd + unittests
-    rm -rf "$DMD_DIR/compiler/generated/windows"
-    DFLAGS="-L-LARGEADDRESSAWARE" ../generated/build.exe --jobs=$N ENABLE_DEBUG=1 ENABLE_COVERAGE=1 dmd
-    DFLAGS="-L-LARGEADDRESSAWARE" ../generated/build.exe --jobs=$N ENABLE_DEBUG=1 ENABLE_COVERAGE=1 unittest
+    rm -rf "$DMD_DIR/generated/windows"
+    DFLAGS="-L-LARGEADDRESSAWARE" ../../generated/build.exe --jobs=$N ENABLE_DEBUG=1 ENABLE_COVERAGE=1 dmd
+    DFLAGS="-L-LARGEADDRESSAWARE" ../../generated/build.exe --jobs=$N ENABLE_DEBUG=1 ENABLE_COVERAGE=1 unittest
 fi
 
 if [ "$MODEL" == "32omf" ] ; then

@@ -9,7 +9,7 @@ set PLATFORM=Win32
 set MODEL=32mscoff
 if "%ARCH%"=="x64" set PLATFORM=x64
 if "%ARCH%"=="x64" set MODEL=64
-set DMD=%DMD_DIR%\compiler\generated\Windows\%CONFIGURATION%\%PLATFORM%\dmd.exe
+set DMD=%DMD_DIR%\generated\Windows\%CONFIGURATION%\%PLATFORM%\dmd.exe
 
 set VISUALD_INSTALLER=VisualD-%VISUALD_VER%.exe
 set N=3
@@ -61,9 +61,9 @@ set DRUNTIME_TESTS=test_all
 cd "%DMD_DIR%"
 if not "%C_RUNTIME%" == "mingw" goto not_mingw
     rem install recent LLD and mingw libraries to built dmd
-    if exist "%DMD_DIR%\compiler\generated\Windows\%CONFIGURATION%\%PLATFORM%\lld-link.exe" goto lld_exists
+    if exist "%DMD_DIR%\generated\Windows\%CONFIGURATION%\%PLATFORM%\lld-link.exe" goto lld_exists
     powershell -command "& { iwr http://downloads.dlang.org/other/lld-link-9.0.0-seh.zip -OutFile lld.zip }" || exit /B 11
-    7z x lld.zip -o%DMD_DIR%\compiler\generated\Windows\%CONFIGURATION%\%PLATFORM% || exit /B 12
+    7z x lld.zip -o%DMD_DIR%\generated\Windows\%CONFIGURATION%\%PLATFORM% || exit /B 12
     :lld_exists
 
     if exist "%DMD_DIR%\mingw\dmd2\windows\lib%MODEL%\mingw\kernel32.lib" goto mingw_exists
