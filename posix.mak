@@ -14,6 +14,7 @@ auto-tester-build:
 else
 auto-tester-build:
 	$(QUIET)$(MAKE) -C compiler/src -f posix.mak auto-tester-build ENABLE_RELEASE=1 ENABLE_ASSERTS=1
+	$(QUIET)$(MAKE) -C druntime -f posix.mak auto-tester-build ENABLE_RELEASE=1 ENABLE_ASSERTS=1
 endif
 
 ifneq (,$(findstring Darwin_64_32, $(PWD)))
@@ -27,6 +28,7 @@ else # POSIX
 auto-tester-test:
 	$(QUIET)$(MAKE) -C compiler/src -f posix.mak auto-tester-test
 	$(QUIET)$(MAKE) -C compiler/test -f Makefile auto-tester-test
+	$(QUIET)$(MAKE) -C druntime -f posix.mak auto-tester-test
 endif
 endif
 
