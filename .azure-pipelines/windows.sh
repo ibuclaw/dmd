@@ -90,8 +90,8 @@ DFLAGS="-L-LARGEADDRESSAWARE" "$DM_MAKE" -f "$MAKE_FILE" MAKE="$DM_MAKE" reldmd-
 
 LIBS_MAKE_ARGS=(-f "$MAKE_FILE" MODEL=$MODEL DMD="$DMD_BIN_PATH" VCDIR=. CC="$CC" AR="$AR" MAKE="$DM_MAKE")
 
-for proj in druntime phobos; do
-    cd "$DMD_DIR/../$proj"
+for proj in druntime ../phobos; do
+    cd "$DMD_DIR/$proj"
     "$DM_MAKE" "${LIBS_MAKE_ARGS[@]}"
 done
 
@@ -152,7 +152,7 @@ fi
 # Build and run druntime tests
 ################################################################################
 
-cd "$DMD_DIR/../druntime"
+cd "$DMD_DIR/druntime"
 "$DM_MAKE" "${LIBS_MAKE_ARGS[@]}" unittest test_all
 
 ################################################################################
