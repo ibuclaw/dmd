@@ -90,10 +90,11 @@ DFLAGS="-L-LARGEADDRESSAWARE" "$DM_MAKE" -f "$MAKE_FILE" MAKE="$DM_MAKE" GEN="$D
 
 LIBS_MAKE_ARGS=(-f "$MAKE_FILE" MODEL=$MODEL DMD="$DMD_BIN_PATH" VCDIR=. CC="$CC" AR="$AR" MAKE="$DM_MAKE")
 
-for proj in druntime ../phobos; do
-    cd "$DMD_DIR/$proj"
-    "$DM_MAKE" "${LIBS_MAKE_ARGS[@]}"
-done
+cd "$DMD_DIR/druntime"
+"$DM_MAKE" "${LIBS_MAKE_ARGS[@]}"
+
+cd "$DMD_DIR/../phobos"
+"$DM_MAKE" "${LIBS_MAKE_ARGS[@]}" DRUNTIME="$DMD_DIR\druntime" 
 
 ################################################################################
 # Run DMD testsuite
@@ -166,7 +167,7 @@ else
     else
         cp "$DMD_DIR/tools/dmd2/windows/bin/libcurl.dll" .
     fi
-    "$DM_MAKE" "${LIBS_MAKE_ARGS[@]}" unittest
+    "$DM_MAKE" "${LIBS_MAKE_ARGS[@]}" DRUNTIME="$DMD_DIR\druntime" unittest
 fi
 
 ################################################################################
