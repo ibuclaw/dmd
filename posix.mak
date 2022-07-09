@@ -61,7 +61,7 @@ install: all
 	$(MAKE) INSTALL_DIR=$(INSTALL_DIR) -C compiler/src -f posix.mak install
 	cp -r compiler/samples $(INSTALL_DIR)
 	mkdir -p $(INSTALL_DIR)/man
-	cp -r docs/man/* $(INSTALL_DIR)/man/
+	cp -r compiler/docs/man/* $(INSTALL_DIR)/man/
 endif
 
 # Checks that all files have been committed and no temporary, untracked files exist.
