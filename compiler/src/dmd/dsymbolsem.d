@@ -5904,7 +5904,8 @@ void templateInstanceSemantic(TemplateInstance tempinst, Scope* sc, Expressions*
     /* See if there is an existing TemplateInstantiation that already
      * implements the typeargs. If so, just refer to that one instead.
      */
-    tempinst.inst = tempdecl.findExistingInstance(tempinst, fargs);
+    tempinst.fargs = fargs;
+    tempinst.inst = tempdecl.findExistingInstance(tempinst);
     TemplateInstance errinst = null;
     if (!tempinst.inst)
     {

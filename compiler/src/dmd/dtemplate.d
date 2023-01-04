@@ -2458,10 +2458,9 @@ extern (C++) final class TemplateDeclaration : ScopeDsymbol
      * see if there already exists an instance.
      * If so, return that existing instance.
      */
-    extern (D) TemplateInstance findExistingInstance(TemplateInstance tithis, Expressions* fargs)
+    extern (D) TemplateInstance findExistingInstance(TemplateInstance tithis)
     {
         //printf("findExistingInstance() %s\n", tithis.toChars());
-        tithis.fargs = fargs;
         auto tibox = TemplateInstanceBox(tithis);
         auto p = tibox in instances;
         debug (FindExistingInstance) ++(p ? nFound : nNotFound);
