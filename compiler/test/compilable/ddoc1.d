@@ -1,7 +1,12 @@
-// PERMUTE_ARGS:
-// REQUIRED_ARGS: -D -Dd${RESULTS_DIR}/compilable -o-
-// POST_SCRIPT: compilable/extra-files/ddocAny-postscript.sh
-// REQUIRED_ARGS: -d
+/* PERMUTE_ARGS:
+REQUIRED_ARGS: -D -Dd${RESULTS_DIR}/compilable -o-
+POST_SCRIPT: compilable/extra-files/ddocAny-postscript.sh
+REQUIRED_ARGS: -d
+TEST_OUTPUT:
+---
+compilable/ddoc1.d(55): Ddoc: parameter count mismatch, expected 5, got 3
+---
+*/
 
 /** This module is for ABC
  * Copyright: Copyright &copy;

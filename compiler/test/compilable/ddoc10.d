@@ -1,6 +1,12 @@
-// PERMUTE_ARGS:
-// REQUIRED_ARGS: -D -Dd${RESULTS_DIR}/compilable -o-
-// POST_SCRIPT: compilable/extra-files/ddocAny-postscript.sh
+/* PERMUTE_ARGS:
+REQUIRED_ARGS: -D -Dd${RESULTS_DIR}/compilable -o-
+POST_SCRIPT: compilable/extra-files/ddocAny-postscript.sh
+TEST_OUTPUT:
+---
+compilable/ddoc10.d(164): Ddoc: Stray '('. This may cause incorrect Ddoc output. Use $(LPAREN) instead for unpaired left parentheses.
+compilable/ddoc10.d(166): Ddoc: Stray ')'. This may cause incorrect Ddoc output. Use $(RPAREN) instead for unpaired right parentheses.
+---
+*/
 
 // https://issues.dlang.org/show_bug.cgi?id=294
 
