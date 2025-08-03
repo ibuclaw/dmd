@@ -38,7 +38,7 @@ extern (C):
 __syscall_slong_t
 __syscall_ulong_t
 */
-version (CRuntime_Glibc)
+version (linux)
 {
     version (X86_64)
     {
