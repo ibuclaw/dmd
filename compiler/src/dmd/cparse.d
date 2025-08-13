@@ -1727,7 +1727,9 @@ final class CParser(AST) : Parser!AST
         {
             auto decls = new AST.Dsymbols(1);
             (*decls)[0] = stags;
-            stags = new AST.AlignDeclaration(stags.loc, tt.alignExps, decls);
+            auto ad = new AST.AlignDeclaration(stags.loc, tt.alignExps, decls);
+            ad.salign.setCAttribute();
+            stags = ad;
         }
         symbols.push(stags);
     }
@@ -3411,9 +3413,10 @@ final class CParser(AST) : Parser!AST
                         const n = token.unsvalue;
                         if (n < 1 || n & (n - 1) || 8192 < n)
                             error("__decspec(align(%lld)) must be an integer positive power of 2 and be <= 8,192", cast(ulong)n);
-                        specifier.packalign.set(cast(uint)n);
-                        specifier.packalign.setPack();
-                        nextToken();
+                        AST.Expression exp = cparsePrimaryExp();
+                        if (!specifier.alignAttrs)
+                            specifier.alignAttrs = new AST.Expressions();
+                        specifier.alignAttrs.push(exp);
                     }
                     else
                     {
@@ -4978,7 +4981,9 @@ final class CParser(AST) : Parser!AST
             // Wrap declaration in an AlignDeclaration
             auto decls = new AST.Dsymbols(1);
             (*decls)[0] = s;
-            s = new AST.AlignDeclaration(s.loc, specifier.alignAttrs, decls);
+            auto ad = new AST.AlignDeclaration(s.loc, specifier.alignAttrs, decls);
+            ad.salign.setCAttribute();
+            s = ad;
         }
         if (specifier.alignasExps)
         {
@@ -4990,7 +4995,7 @@ final class CParser(AST) : Parser!AST
             ad.salign.setAlignas();
             s = ad;
         }
-        else if (!specifier.packalign.isDefault() && !specifier.packalign.isUnknown())
+        if (!specifier.packalign.isDefault() && !specifier.packalign.isUnknown())
         {
             //printf("  applying packalign %d\n", cast(int)specifier.packalign);
             // Wrap #pragma pack in an AlignDeclaration

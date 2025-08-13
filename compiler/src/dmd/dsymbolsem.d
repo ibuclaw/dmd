@@ -10173,10 +10173,17 @@ private extern(C++) class FinalizeSizeVisitor : Visitor
             }
         }
 
+        // C attribute/declspec alignment can only increase the alignment.
+        if (!sd.alignment.isDefault() && sd.alignment.fromCAttribute())
+        {
+            if (sd.alignment.get() < sd.alignsize)
+                sd.alignment.setDefault();
+        }
+
         // Round struct size up to next alignsize boundary.
         // This will ensure that arrays of structs will get their internals
         // aligned properly.
-        if (sd.alignment.isDefault() || sd.alignment.isPack())
+        if (sd.alignment.isDefault())
             sd.structsize = (sd.structsize + sd.alignsize - 1) & ~(sd.alignsize - 1);
         else
             sd.structsize = (sd.structsize + sd.alignment.get() - 1) & ~(sd.alignment.get() - 1);

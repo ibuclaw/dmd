@@ -6160,6 +6160,7 @@ private:
     {
         PACK = 1u,
         ALIGNAS = 2u,
+        ATTRALIGN = 4u,
     };
 
 public:
@@ -6173,6 +6174,8 @@ public:
     void setPack();
     bool fromAlignas() const;
     void setAlignas();
+    bool fromCAttribute() const;
+    void setCAttribute();
     structalign_t() :
         value(0u),
         flags()
