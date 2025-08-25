@@ -7987,9 +7987,9 @@ extern void errorBackend(const char* filename, uint32_t linnum, uint32_t charnum
 
 extern void errorSupplemental(Loc loc, const char* format, ...);
 
-extern void warning(Loc loc, const char* format, ...);
+extern void inform(Loc loc, const char* format, ...);
 
-extern void warningSupplemental(Loc loc, const char* format, ...);
+extern void informSupplemental(Loc loc, const char* format, ...);
 
 extern void deprecation(Loc loc, const char* format, ...);
 

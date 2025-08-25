@@ -25,8 +25,8 @@ abstract class ErrorSink
 
     void verror(Loc loc, const(char)* format, va_list ap);
     void verrorSupplemental(Loc loc, const(char)* format, va_list ap);
-    void vwarning(Loc loc, const(char)* format, va_list ap);
-    void vwarningSupplemental(Loc loc, const(char)* format, va_list ap);
+    void vinform(Loc loc, const(char)* format, va_list ap);
+    void vinformSupplemental(Loc loc, const(char)* format, va_list ap);
     void vmessage(Loc loc, const(char)* format, va_list ap);
     void vdeprecation(Loc loc, const(char)* format, va_list ap);
     void vdeprecationSupplemental(Loc loc, const(char)* format, va_list ap);
@@ -47,19 +47,19 @@ abstract class ErrorSink
         va_end(ap);
     }
 
-    void warning(Loc loc, const(char)* format, ...)
+    void inform(Loc loc, const(char)* format, ...)
     {
         va_list ap;
         va_start(ap, format);
-        vwarning(loc, format, ap);
+        vinform(loc, format, ap);
         va_end(ap);
     }
 
-    void warningSupplemental(Loc loc, const(char)* format, ...)
+    void informSupplemental(Loc loc, const(char)* format, ...)
     {
         va_list ap;
         va_start(ap, format);
-        vwarningSupplemental(loc, format, ap);
+        vinformSupplemental(loc, format, ap);
         va_end(ap);
     }
 
@@ -110,9 +110,9 @@ class ErrorSinkNull : ErrorSink
 
     void verrorSupplemental(Loc loc, const(char)* format, va_list ap) { }
 
-    void vwarning(Loc loc, const(char)* format, va_list ap) { }
+    void vinform(Loc loc, const(char)* format, va_list ap) { }
 
-    void vwarningSupplemental(Loc loc, const(char)* format, va_list ap) { }
+    void vinformSupplemental(Loc loc, const(char)* format, va_list ap) { }
 
     void vmessage(Loc loc, const(char)* format, va_list ap) { }
 
@@ -164,7 +164,7 @@ class ErrorSinkStderr : ErrorSink
 
     void verrorSupplemental(Loc loc, const(char)* format, va_list ap) { }
 
-    void vwarning(Loc loc, const(char)* format, va_list ap)
+    void vinform(Loc loc, const(char)* format, va_list ap)
     {
         fputs("Warning: ", stderr);
         const p = loc.toChars();
@@ -178,7 +178,7 @@ class ErrorSinkStderr : ErrorSink
         fputc('\n', stderr);
     }
 
-    void vwarningSupplemental(Loc loc, const(char)* format, va_list ap) { }
+    void vinformSupplemental(Loc loc, const(char)* format, va_list ap) { }
 
     void vdeprecation(Loc loc, const(char)* format, va_list ap)
     {

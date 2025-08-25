@@ -31,7 +31,7 @@ nothrow:
 /// Constants used to discriminate kinds of error messages.
 enum ErrorKind
 {
-    warning,
+    inform,
     deprecation,
     error,
     tip,
@@ -40,13 +40,13 @@ enum ErrorKind
 
 /********************************
  * Represents a diagnostic message generated during compilation, such as errors,
- * warnings, or other messages.
+ * deprecations, or other messages.
  */
 struct Diagnostic
 {
     SourceLoc loc; // The location in the source code where the diagnostic was generated (includes file, line, and column).
     string message; // The text of the diagnostic message, describing the issue.
-    ErrorKind kind; // The type of diagnostic, indicating whether it is an error, warning, deprecation, etc.
+    ErrorKind kind; // The type of diagnostic, indicating whether it is an error, deprecation, etc.
 }
 
 __gshared Diagnostic[] diagnostics = [];
@@ -70,14 +70,14 @@ class ErrorSinkCompiler : ErrorSink
         vsupplementalDiagnostic(loc, format, ap, ErrorKind.error);
     }
 
-    void vwarning(Loc loc, const(char)* format, va_list ap)
+    void vinform(Loc loc, const(char)* format, va_list ap)
     {
-        vreportDiagnostic(loc, format, ap, ErrorKind.warning);
+        vreportDiagnostic(loc, format, ap, ErrorKind.inform);
     }
 
-    void vwarningSupplemental(Loc loc, const(char)* format, va_list ap)
+    void vinformSupplemental(Loc loc, const(char)* format, va_list ap)
     {
-        vsupplementalDiagnostic(loc, format, ap, ErrorKind.warning);
+        vsupplementalDiagnostic(loc, format, ap, ErrorKind.inform);
     }
 
     void vdeprecation(Loc loc, const(char)* format, va_list ap)
@@ -116,7 +116,7 @@ enum Classification : Color
 {
     error = Color.brightRed,          /// for errors
     gagged = Color.brightBlue,        /// for gagged errors
-    warning = Color.brightYellow,     /// for warnings
+    inform = Color.brightYellow,      /// for notes (previously warnings)
     deprecation = Color.brightCyan,   /// for deprecations
     tip = Color.brightGreen,          /// for tip messages
 }
@@ -247,51 +247,51 @@ else
     }
 
 /**
- * Print a warning message, increasing the global warning count.
+ * Print an informational message.
  * Params:
- *      loc    = location of warning
+ *      loc    = location of the note
  *      format = printf-style format specification
  *      ...    = printf-style variadic arguments
  */
 static if (__VERSION__ < 2092)
-    extern (C++) void warning(Loc loc, const(char)* format, ...)
+    extern (C++) void inform(Loc loc, const(char)* format, ...)
     {
         va_list ap;
         va_start(ap, format);
-        vreportDiagnostic(loc, format, ap, ErrorKind.warning);
+        vreportDiagnostic(loc, format, ap, ErrorKind.inform);
         va_end(ap);
     }
 else
-    pragma(printf) extern (C++) void warning(Loc loc, const(char)* format, ...)
+    pragma(printf) extern (C++) void inform(Loc loc, const(char)* format, ...)
     {
         va_list ap;
         va_start(ap, format);
-        vreportDiagnostic(loc, format, ap, ErrorKind.warning);
+        vreportDiagnostic(loc, format, ap, ErrorKind.inform);
         va_end(ap);
     }
 
 /**
- * Print additional details about a warning message.
- * Doesn't increase the warning count or print an additional warning prefix.
+ * Print additional details about an informational message.
+ * Doesn't print an additional note prefix.
  * Params:
- *      loc    = location of warning
+ *      loc    = location of the note
  *      format = printf-style format specification
  *      ...    = printf-style variadic arguments
  */
 static if (__VERSION__ < 2092)
-    extern (C++) void warningSupplemental(Loc loc, const(char)* format, ...)
+    extern (C++) void informSupplemental(Loc loc, const(char)* format, ...)
     {
         va_list ap;
         va_start(ap, format);
-        vsupplementalDiagnostic(loc, format, ap, ErrorKind.warning);
+        vsupplementalDiagnostic(loc, format, ap, ErrorKind.inform);
         va_end(ap);
     }
 else
-    pragma(printf) extern (C++) void warningSupplemental(Loc loc, const(char)* format, ...)
+    pragma(printf) extern (C++) void informSupplemental(Loc loc, const(char)* format, ...)
     {
         va_list ap;
         va_start(ap, format);
-        vsupplementalDiagnostic(loc, format, ap, ErrorKind.warning);
+        vsupplementalDiagnostic(loc, format, ap, ErrorKind.inform);
         va_end(ap);
     }
 
@@ -451,7 +451,7 @@ private struct DiagnosticContext
 }
 
 /**
- * Implements $(D error), $(D warning), $(D deprecation), $(D message), and
+ * Implements $(D error), $(D deprecation), $(D inform), $(D message), and
  * $(D tip). Report a diagnostic error, taking a va_list parameter, and
  * optionally additional message prefixes. Whether the message gets printed
  * depends on runtime values of DiagnosticReporting and global gagging.
@@ -529,13 +529,12 @@ private extern(C++) void vreportDiagnostic(const SourceLoc loc, const(char)* for
         }
         return;
 
-    case ErrorKind.warning:
+    case ErrorKind.inform:
         if (global.params.useWarnings != DiagnosticReporting.off)
         {
             if (!global.gag)
             {
-                global.warnings++;
-                info.headerColor = Classification.warning;
+                info.headerColor = Classification.inform;
                 if (global.params.v.messageStyle == MessageStyle.sarif)
                 {
                     addSarifDiagnostic(loc, format, ap, kind);
@@ -580,8 +579,8 @@ private extern(C++) void vreportDiagnostic(const SourceLoc loc, const(char)* for
 }
 
 /**
- * Implements $(D errorSupplemental), $(D warningSupplemental), and
- * $(D deprecationSupplemental). Report an addition diagnostic error, taking a
+ * Implements $(D errorSupplemental), $(D deprecationSupplemental), and
+ * $(D informSupplemental). Report an addition diagnostic error, taking a
  * va_list parameter. Whether the message gets printed depends on runtime
  * values of DiagnosticReporting and global gagging.
  * Params:
@@ -627,10 +626,10 @@ private extern(C++) void vsupplementalDiagnostic(const SourceLoc loc, const(char
         }
         return;
 
-    case ErrorKind.warning:
+    case ErrorKind.inform:
         if (global.params.useWarnings != DiagnosticReporting.off && !global.gag)
         {
-            info.headerColor = Classification.warning;
+            info.headerColor = Classification.inform;
             printDiagnostic(format, ap, info);
         }
         return;
@@ -659,7 +658,7 @@ private void printDiagnostic(const(char)* format, va_list ap, ref DiagnosticCont
         {
             case ErrorKind.error:       header = "Error: "; break;
             case ErrorKind.deprecation: header = "Deprecation: "; break;
-            case ErrorKind.warning:     header = "Warning: "; break;
+            case ErrorKind.inform:      header = "Note: "; break;
             case ErrorKind.tip:         header = "  Tip: "; break;
             case ErrorKind.message:     assert(0);
         }

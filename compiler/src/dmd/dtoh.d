@@ -509,12 +509,12 @@ public:
             }
 
             __gshared bool warned = false;
-            eSink.warning(loc, "%s `%s` is a %s", kind, ident.toChars(), reason);
+            eSink.inform(loc, "%s `%s` is a %s", kind, ident.toChars(), reason);
 
             if (!warned)
             {
-                eSink.warningSupplemental(loc, "The generated C++ header will contain " ~
-                                          "identifiers that are keywords in C++");
+                eSink.informSupplemental(loc, "The generated C++ header will contain " ~
+                                         "identifiers that are keywords in C++");
                 warned = true;
             }
         }

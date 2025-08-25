@@ -500,7 +500,7 @@ nothrow:
         if (strncmp (header, "Error:", 6) == 0)
             return error(loc, format, ap, p1, p2);
         if (strncmp (header, "Warning:", 8) == 0)
-            return warning(loc, format, ap, p1, p2);
+            return inform(loc, format, ap, p1, p2);
         if (strncmp (header, "Deprecation:", 12) == 0)
             return deprecation(loc, format, ap, p1, p2);
 
@@ -561,7 +561,7 @@ nothrow:
 
     Returns: false if the message should also be printed to stderr, true otherwise
     */
-    abstract bool warning(const ref SourceLoc loc, const(char)* format, va_list args, const(char)* p1, const(char)* p2);
+    abstract bool inform(const ref SourceLoc loc, const(char)* format, va_list args, const(char)* p1, const(char)* p2);
 
     /**
     Reports additional details about a warning message.
@@ -659,7 +659,7 @@ nothrow:
         return false;
     }
 
-    override bool warning(const ref SourceLoc loc, const(char)* format, va_list args, const(char)* p1, const(char)* p2)
+    override bool inform(const ref SourceLoc loc, const(char)* format, va_list args, const(char)* p1, const(char)* p2)
     {
         warningCount_++;
         return false;

@@ -938,7 +938,7 @@ extern (C++) class TemplateInstance : ScopeDsymbol
                     return &errorSupplemental;
                 case Classification.deprecation:
                     return &deprecationSupplemental;
-                case Classification.gagged, Classification.tip, Classification.warning:
+                case Classification.gagged, Classification.tip, Classification.inform:
                     assert(0);
             }
         }();
@@ -952,7 +952,6 @@ extern (C++) class TemplateInstance : ScopeDsymbol
             // Set error here as we don't want it to depend on the number of
             // entries that are being printed.
             if (cl == Classification.error ||
-                (cl == Classification.warning && global.params.useWarnings == DiagnosticReporting.error) ||
                 (cl == Classification.deprecation && global.params.useDeprecated == DiagnosticReporting.error))
                 cur.errors = true;
 

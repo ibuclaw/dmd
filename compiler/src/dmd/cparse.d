@@ -5303,9 +5303,9 @@ final class CParser(AST) : Parser!AST
         if (n.value == TOK.identifier && n.ident == Id.show)
         {
             if (packalign.isDefault())
-                eSink.warning(startloc, "current pack attribute is default");
+                eSink.inform(startloc, "current pack attribute is default");
             else
-                eSink.warning(startloc, "current pack attribute is %d", packalign.get());
+                eSink.inform(startloc, "current pack attribute is %d", packalign.get());
             scan(&n);
             return closingParen();
         }
