@@ -11922,8 +11922,9 @@ private extern (C++) final class ExpressionSemanticVisitor : Visitor
                 if (length)
                 {
                     auto bounds = IntRange(SignExtendedNumber(0), SignExtendedNumber(length - 1));
-                    // OR it in, because it might already be set for C array indexing
-                    exp.indexIsInBounds |= bounds.contains(getIntRange(exp.e2));
+                    // Set if true, because it might already be set for C array indexing
+                    if (bounds.contains(getIntRange(exp.e2)))
+                        exp.indexIsInBounds = true;
                 }
                 else if (sc.inCfile && t1b.ty == Tsarray)
                 {

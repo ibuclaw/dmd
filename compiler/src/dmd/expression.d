@@ -20,6 +20,7 @@ import core.stdc.string;
 import dmd.arraytypes;
 import dmd.astenums;
 import dmd.ast_node;
+import dmd.common.bitfields : generateBitFields;
 import dmd.dclass;
 import dmd.declaration;
 import dmd.dstruct;
@@ -132,7 +133,6 @@ extern (C++) abstract class Expression : ASTNode
     bool rvalue;    // true if this is considered to be an rvalue, even if it is an lvalue
     bool gcPassDone; // `checkGC` has been run on this expression
     }
-    import dmd.common.bitfields;
     mixin(generateBitFields!(BitFields, ubyte));
 
     // This is the remaining padding between Expression and all of its derived
@@ -809,7 +809,11 @@ extern (C++) final class DollarExp : IdentifierExp
 extern (C++) final class DsymbolExp : Expression
 {
     Dsymbol s;
-    bool hasOverloads;
+    private extern(D) static struct BitFields
+    {
+        bool hasOverloads;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Dsymbol s, bool hasOverloads = true) @safe
     {
@@ -898,8 +902,6 @@ extern (C++) final class NullExp : Expression
  */
 extern (C++) final class StringExp : Expression
 {
-    char postfix = NoPostfix;   // 'c', 'w', 'd'
-    OwnedBy ownedByCtfe = OwnedBy.code;
     private union
     {
         char* string;   // if sz == 1
@@ -908,22 +910,52 @@ extern (C++) final class StringExp : Expression
         ulong* lstring; // if sz == 8
     }                   // (const if ownedByCtfe == OwnedBy.code)
     size_t len;         // number of code units
-    ubyte sz = 1;       // 1: char, 2: wchar, 4: dchar
 
-    /**
-     *  Whether the string literal's type is fixed
-     *  Example:
-     *  ---
-     *  wstring x = "abc"; // OK, string literal is flexible
-     *  wstring y = cast(string) "abc"; // Error: type was committed after cast
-     *  ---
-     */
-    bool committed;
+    enum SIZE
+    {
+        n = 0, // when used for postfix_
+        c = 1,
+        w = 2,
+        d = 4,
+        l = 8
+    }
 
-    /// If the string is parsed from a hex string literal
-    bool hexString = false;
-    /// If the string is from a collected C macro
-    bool cMacro = false;
+    private extern(D) static struct BitFields
+    {
+        SIZE sz_ = SIZE.n;      // 1: char, 2: wchar, 4: dchar
+        SIZE postfix_ = SIZE.n; // 'c', 'w', 'd'
+        OwnedBy ownedByCtfe = OwnedBy.code;
+
+        /**
+         *  Whether the string literal's type is fixed
+         *  Example:
+         *  ---
+         *  wstring x = "abc"; // OK, string literal is flexible
+         *  wstring y = cast(string) "abc"; // Error: type was committed after cast
+         *  ---
+         */
+        bool committed;
+        /// If the string is parsed from a hex string literal
+        bool hexString = false;
+        /// If the string is from a collected C macro
+        bool cMacro = false;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
+
+    extern (C++) pure nothrow @nogc @safe final
+    {
+        ubyte sz() const { return cast(ubyte) sz_; }
+        void sz(ubyte s) { assert(s < 16); sz_ = cast(SIZE) s; }
+        char postfix() const
+        {
+            immutable char[5] pf = [ 0, 'c', 'w', 0, 'd' ];
+            return pf[postfix_];
+        }
+        void postfix(char pf)
+        {
+            postfix_ = pf == 'c' ? SIZE.c : pf == 'w' ? SIZE.w : pf == 'd' ? SIZE.d : SIZE.n;
+        }
+    }
 
     enum char NoPostfix = 0;
 
@@ -1239,9 +1271,14 @@ extern (C++) final class StringExp : Expression
 
 extern (C++) final class InterpExp : Expression
 {
-    char postfix = NoPostfix;   // 'c', 'w', 'd'
-    OwnedBy ownedByCtfe = OwnedBy.code;
     InterpolatedSet* interpolatedSet;
+
+    private extern(D) static struct BitFields
+    {
+        char postfix = NoPostfix;   // 'c', 'w', 'd'
+        OwnedBy ownedByCtfe = OwnedBy.code;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     enum char NoPostfix = 0;
 
@@ -1325,9 +1362,6 @@ extern (C++) final class TupleExp : Expression
  */
 extern (C++) final class ArrayLiteralExp : Expression
 {
-    OwnedBy ownedByCtfe = OwnedBy.code;
-    bool onstack = false;
-
     /** If !is null, elements[] can be sparse and basis is used for the
      * "default" element value. In other words, non-null elements[i] overrides
      * this 'basis' value.
@@ -1341,6 +1375,13 @@ extern (C++) final class ArrayLiteralExp : Expression
     // aaLiteral is set if this is an array of values of an AA literal
     // only used during CTFE to show the original AA in error messages instead
     AssocArrayLiteralExp aaLiteral;
+
+    private extern(D) static struct BitFields
+    {
+        OwnedBy ownedByCtfe = OwnedBy.code;
+        bool onstack = false;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Type type, Expressions* elements) @safe
     {
@@ -1409,13 +1450,17 @@ extern (C++) final class ArrayLiteralExp : Expression
  */
 extern (C++) final class AssocArrayLiteralExp : Expression
 {
-    OwnedBy ownedByCtfe = OwnedBy.code;
-
     Expressions* keys;
     Expressions* values;
 
     Expression lowering;     // call to _d_assocarrayliteralTX()
     Expression loweringCtfe; // result of interpreting lowering for static initializaton
+
+    private extern(D) static struct BitFields
+    {
+        OwnedBy ownedByCtfe = OwnedBy.code;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expressions* keys, Expressions* values) @safe
     {
@@ -1441,14 +1486,13 @@ extern (C++) final class AssocArrayLiteralExp : Expression
  */
 extern (C++) final class StructLiteralExp : Expression
 {
-    struct BitFields
+    private extern(D) static struct BitFields
     {
         bool useStaticInit;     /// if this is true, use the StructDeclaration's init symbol
         bool isOriginal = false; /// used when moving instances to indicate `this is this.origin`
         OwnedBy ownedByCtfe = OwnedBy.code;
         StageFlags stageflags;
     }
-    import dmd.common.bitfields;
     mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     StructDeclaration sd;   /// which aggregate this is for
@@ -1644,10 +1688,15 @@ extern (C++) final class NewExp : Expression
 
     Expression argprefix;       // expression to be evaluated just before arguments[]
     CtorDeclaration member;     // constructor function
-    bool onstack;               // allocate on stack
-    bool thrownew;              // this NewExp is the expression of a ThrowStatement
 
     Expression lowering;        // lowered druntime hook: `_d_new{class,itemT}`
+
+    private extern(D) static struct BitFields
+    {
+        bool onstack;           // allocate on stack
+        bool thrownew;          // this NewExp is the expression of a ThrowStatement
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     /// Puts the `arguments` and `names` into an `ArgumentList` for easily passing them around.
     /// The fields are still separate for backwards compatibility
@@ -1723,7 +1772,12 @@ extern (C++) class SymbolExp : Expression
 {
     Declaration var;
     Dsymbol originalScope; // original scope before inlining
-    bool hasOverloads;
+
+    private extern(D) static struct BitFields
+    {
+        bool hasOverloads;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, EXP op, Declaration var, bool hasOverloads) @safe
     {
@@ -1768,7 +1822,12 @@ extern (C++) final class SymOffExp : SymbolExp
  */
 extern (C++) final class VarExp : SymbolExp
 {
-    bool delegateWasExtracted;
+    private extern(D) static struct BitFields
+    {
+        bool delegateWasExtracted;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
+
     extern (D) this(Loc loc, Declaration var, bool hasOverloads = true) @safe
     {
         if (var.isVarDeclaration())
@@ -1820,7 +1879,12 @@ extern (C++) final class FuncExp : Expression
 {
     FuncLiteralDeclaration fd;
     TemplateDeclaration td;
-    TOK tok;  // TOK.reserved, TOK.delegate_, TOK.function_
+
+    private extern(D) static struct BitFields
+    {
+        TOK tok;  // TOK.reserved, TOK.delegate_, TOK.function_
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Dsymbol s)
     {
@@ -1969,8 +2033,13 @@ extern (C++) final class IsExp : Expression
     Identifier id;      // can be null
     Type tspec;         // can be null
     TemplateParameters* parameters;
-    TOK tok;            // ':' or '=='
-    TOK tok2;           // 'struct', 'union', etc.
+
+    private extern(D) static struct BitFields
+    {
+        TOK tok;        // ':' or '=='
+        TOK tok2;       // 'struct', 'union', etc.
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Type targ, Identifier id, TOK tok, Type tspec, TOK tok2, TemplateParameters* parameters) scope @safe
     {
@@ -2205,9 +2274,14 @@ extern (C++) final class ThrowExp : UnaExp
 extern (C++) final class DotIdExp : UnaExp
 {
     Identifier ident;
-    bool noderef;       // true if the result of the expression will never be dereferenced
-    bool wantsym;       // do not replace Symbol with its initializer during semantic()
-    bool arrow;         // ImportC: if -> instead of .
+
+    private extern(D) static struct BitFields
+    {
+        bool noderef;   // true if the result of the expression will never be dereferenced
+        bool wantsym;   // do not replace Symbol with its initializer during semantic()
+        bool arrow;     // ImportC: if -> instead of .
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e, Identifier ident) @safe
     {
@@ -2250,7 +2324,12 @@ extern (C++) final class DotTemplateExp : UnaExp
 extern (C++) final class DotVarExp : UnaExp
 {
     Declaration var;
-    bool hasOverloads;
+
+    private extern(D) static struct BitFields
+    {
+        bool hasOverloads;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e, Declaration var, bool hasOverloads = true) @safe
     {
@@ -2304,8 +2383,13 @@ extern (C++) final class DotTemplateInstanceExp : UnaExp
 extern (C++) final class DelegateExp : UnaExp
 {
     FuncDeclaration func;
-    bool hasOverloads;
     VarDeclaration vthis2;  // container for multi-context
+
+    private extern(D) static struct BitFields
+    {
+        bool hasOverloads;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e, FuncDeclaration f, bool hasOverloads = true, VarDeclaration vthis2 = null) @safe
     {
@@ -2379,14 +2463,19 @@ extern (C++) final class CallExp : UnaExp
     Expressions* arguments; // function arguments
     ArgumentLabels *names;  // named argument labels
     FuncDeclaration f;      // symbol to call
+    VarDeclaration vthis2;  // container for multi-context
+    Expression loweredFrom; // set if this is the result of a lowering (not for opOverloads)
+
+    private extern(D) static struct BitFields
+    {
     bool directcall;        // true if a virtual call is devirtualized
     bool inDebugStatement;  /// true if this was in a debug statement
     bool ignoreAttributes;  /// don't enforce attributes (e.g. call @gc function in @nogc code)
     bool isUfcsRewrite;     /// the first argument was pushed in here by a UFCS rewrite
     bool fromOpOverload;    // set for operator overload method call
     bool fromOpAssignment;  // set when operator overload method call from assignment (2024 edition)
-    VarDeclaration vthis2;  // container for multi-context
-    Expression loweredFrom; // set if this is the result of a lowering (not for opOverloads)
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     /// Puts the `arguments` and `names` into an `ArgumentList` for easily passing them around.
     /// The fields are still separate for backwards compatibility
@@ -2627,7 +2716,11 @@ extern (C++) final class NotExp : UnaExp
  */
 extern (C++) final class DeleteExp : UnaExp
 {
-    bool isRAII;        // true if called automatically as a result of scoped destruction
+    private extern(D) static struct BitFields
+    {
+        bool isRAII;    // true if called automatically as a result of scoped destruction
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e, bool isRAII) @safe
     {
@@ -2651,14 +2744,20 @@ extern (C++) final class DeleteExp : UnaExp
 extern (C++) final class CastExp : UnaExp
 {
     Type to;                    // type to cast to
-    ubyte mod = cast(ubyte)~0;  // MODxxxxx
-    bool trusted; // assume cast is safe
     Expression lowering;
+
+    private extern(D) static struct BitFields
+    {
+        ubyte mod = cast(ubyte)~0;  // MODxxxxx
+        bool trusted; // assume cast is safe
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e, Type t) @safe
     {
         super(loc, EXP.cast_, e);
         this.to = t;
+        this.astNodeBitFields = astNodeBitFields_init;
     }
 
     /* For cast(const) and cast(immutable)
@@ -2686,7 +2785,12 @@ extern (C++) final class VectorExp : UnaExp
 {
     TypeVector to;      // the target vector type before semantic()
     uint dim = ~0;      // number of elements in the vector
-    OwnedBy ownedByCtfe = OwnedBy.code;
+
+    private extern(D) static struct BitFields
+    {
+        OwnedBy ownedByCtfe = OwnedBy.code;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e, Type t) @trusted
     {
@@ -2747,7 +2851,6 @@ extern (C++) final class SliceExp : UnaExp
         bool lowerIsLessThanUpper;  // true if lwr <= upr
         bool arrayop;               // an array operation, rather than a slice
     }
-    import dmd.common.bitfields : generateBitFields;
     mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     /************************************************************/
@@ -2805,7 +2908,12 @@ extern (C++) final class ArrayExp : UnaExp
 
     size_t currentDimension;    // for opDollar
     VarDeclaration lengthVar;
-    bool modifiable = false;    // is this expected to be an lvalue in an AssignExp? propagate to IndexExp
+
+    private extern(D) static struct BitFields
+    {
+        bool modifiable = false; // is this expected to be an lvalue in an AssignExp? propagate to IndexExp
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e1, Expression index = null)
     {
@@ -2853,22 +2961,26 @@ extern (C++) final class DotExp : BinExp
  */
 extern (C++) final class CommaExp : BinExp
 {
-    /// This is needed because AssignExp rewrites CommaExp, hence it needs
-    /// to trigger the deprecation.
-    const bool isGenerated;
-
-    /// `true` if this comma chain was introduced by inline expansion.
-    bool isInlineSequence;
-
-    /// Temporary variable to enable / disable deprecation of comma expression
-    /// depending on the context.
-    /// Since most constructor calls are rewritting, the only place where
-    /// false will be passed will be from the parser.
-    bool allowCommaExp;
-
     /// The original expression before any rewriting occurs.
     /// This is used in error messages.
     Expression originalExp;
+
+    private extern(D) static struct BitFields
+    {
+        /// This is needed because AssignExp rewrites CommaExp, hence it needs
+        /// to trigger the deprecation.
+        const bool isGenerated;
+
+        /// `true` if this comma chain was introduced by inline expansion.
+        bool isInlineSequence;
+
+        /// Temporary variable to enable / disable deprecation of comma expression
+        /// depending on the context.
+        /// Since most constructor calls are rewritting, the only place where
+        /// false will be passed will be from the parser.
+        bool allowCommaExp;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e1, Expression e2, bool generated = true) @safe
     {
@@ -2978,8 +3090,13 @@ extern (C++) final class IndexExp : BinExp
 {
     VarDeclaration lengthVar;
     Expression loweredFrom;     // for associative array lowering to _d_aaGetY or _d_aaGetRvalueX
-    bool modifiable = false;    // assume it is an rvalue
-    bool indexIsInBounds;       // true if 0 <= e2 && e2 <= e1.length - 1
+
+    private extern(D) static struct BitFields
+    {
+        bool modifiable = false; // assume it is an rvalue
+        bool indexIsInBounds;    // true if 0 <= e2 && e2 <= e1.length - 1
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, Expression e1, Expression e2) @safe
     {
@@ -3055,7 +3172,11 @@ enum MemorySet
  */
 extern (C++) class AssignExp : BinExp
 {
-    MemorySet memset;
+    private extern(D) static struct BitFields
+    {
+        MemorySet memset;
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     /************************************************************/
     /* op can be EXP.assign, EXP.construct, or EXP.blit */
@@ -3815,7 +3936,11 @@ extern (C++) final class CondExp : BinExp
  */
 extern (C++) class DefaultInitExp : Expression
 {
-    TOK tok; /// which special token this is
+    private extern(D) static struct BitFields
+    {
+        TOK tok; /// which special token this is
+    }
+    mixin(generateBitFields!(BitFields, ushort, "astNodeBitFields"));
 
     extern (D) this(Loc loc, TOK tok) @safe
     {

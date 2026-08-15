@@ -117,6 +117,12 @@ if (__traits(isUnsigned, T))
         enum TP initVal = bitInfo.initialValue;
         if (field.length == 0)
             result ~= " private "~T.stringof~" "~fieldName~" = " ~ toString!(initVal) ~ ";\n";
+        else
+        {
+            // generate a "$(fieldName)_init" symbol so that the existing field
+            // can be initialized with the initVal computed by this mixin.
+            result ~= " private enum "~T.stringof~" "~fieldName~"_init = " ~toString!(initVal) ~ ";\n";
+        }
         return result;
     }
 }
