@@ -909,7 +909,7 @@ extern (C++) final class StringExp : Expression
         dchar* dstring; // if sz == 4
         ulong* lstring; // if sz == 8
     }                   // (const if ownedByCtfe == OwnedBy.code)
-    size_t len;         // number of code units
+    uint len;           // number of code units
 
     enum SIZE
     {
@@ -963,7 +963,8 @@ extern (C++) final class StringExp : Expression
     {
         super(loc, EXP.string_);
         this.string = cast(char*)string.ptr; // note that this.string should be const
-        this.len = string.length;
+        assert(string.length <= uint.max);
+        this.len = cast(uint)string.length;
         this.sz = 1;                    // work around LDC bug #1286
     }
 
@@ -971,7 +972,8 @@ extern (C++) final class StringExp : Expression
     {
         super(loc, EXP.string_);
         this.string = cast(char*)string.ptr; // note that this.string should be const
-        this.len = len;
+        assert(len <= uint.max);
+        this.len = cast(uint)len;
         this.sz = sz;
         this.postfix = postfix;
         this.cMacro = cMacro;
@@ -1259,7 +1261,8 @@ extern (C++) final class StringExp : Expression
     extern (D) void setData(void* s, size_t len, ubyte sz)
     {
         this.string = cast(char*)s;
-        this.len = len;
+        assert(len <= uint.max);
+        this.len = cast(uint)len;
         this.sz = sz;
     }
 

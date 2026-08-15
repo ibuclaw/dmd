@@ -2500,9 +2500,11 @@ Expression castTo(Expression e, Scope* sc, Type t, Type att = null)
         {
             se = e.copy().isStringExp();
             uinteger_t szx = tb.nextOf().size();
-            assert(szx <= 255);
+            assert(szx <= ubyte.max);
             se.sz = cast(ubyte)szx;
-            se.len = cast(size_t)tb.isTypeSArray().dim.toInteger();
+            const len = tb.isTypeSArray().dim.toInteger();
+            assert(len <= uint.max);
+            se.len = cast(uint)len;
             se.committed = true;
             se.type = t;
 
